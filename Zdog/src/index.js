@@ -4,6 +4,7 @@ import Zdog from "zdog";
 const container = document.createElement("canvas");
 container.width = 500;
 container.height = 500;
+
 container.classList.add("zdog-container");
 document.body.appendChild(container);
 
@@ -24,7 +25,10 @@ const zDogIcon = new Zdog.Illustration({
   zoom: 1,
   dragRotate: true,
   scale: true,
-  rotate: { x: 1, z: Zdog.TAU / 8 },
+  rotate: {
+    x: 1,
+    z: Zdog.TAU / 8,
+  },
 });
 
 new Zdog.Shape({
@@ -67,27 +71,10 @@ const face = {
 };
 
 new Zdog.Rect({ ...face, addTo: anchorFaceFront });
-
-new Zdog.Rect({ ...face, addTo: anchorFaceBack, color: colors.black });
-
-new Zdog.Rect({
-  ...face,
-  addTo: anchorFaceTop,
-  rotate: { x: Zdog.TAU / 4 },
-});
-
-new Zdog.Rect({
-  ...face,
-  addTo: anchorFaceLeft,
-  rotate: { y: Zdog.TAU / 4 },
-});
-
-new Zdog.Rect({
-  ...face,
-  addTo: anchorFaceRight,
-  rotate: { y: Zdog.TAU / 4 },
-  color: colors.black,
-});
+new Zdog.Rect({ ...face, addTo: anchorFaceBack });
+new Zdog.Rect({ ...face, addTo: anchorFaceTop, rotate: { x: Zdog.TAU / 4 } });
+new Zdog.Rect({ ...face, addTo: anchorFaceLeft, rotate: { y: Zdog.TAU / 4 } });
+new Zdog.Rect({ ...face, addTo: anchorFaceRight, rotate: { y: Zdog.TAU / 4 } });
 
 zDogIcon.updateRenderGraph();
 
