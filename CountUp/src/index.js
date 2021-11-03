@@ -6,14 +6,14 @@ const duration = 6;
 const stars = new CountUp("count-up-container-top", 7000, {
   prefix: "+ ",
   suffix: " ⭐️",
-  duration: duration,
+  duration,
   separator: ".",
 });
 
 const users = new CountUp("count-up-container-bottom", 15300, {
   prefix: "+ ",
   suffix: " 💻",
-  duration: duration,
+  duration,
   separator: ".",
 });
 
@@ -29,5 +29,5 @@ if (!stars.error && !users.error) {
     });
   }, (duration * 1000) / 3);
 } else {
-  console.error(stars.error);
+  console.error(stars.error, users.error);
 }
