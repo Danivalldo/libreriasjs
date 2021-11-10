@@ -5,11 +5,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library title</title>
+  <title>Draggable</title>
 </head>
 
   <body>
-    BASE TEMPLATE
+    <div class="perspective-wrapper">
+      <div id="chess-board" class="chess-board">
+        <div class="chess-cell cell-white BlockWrapper--isDropzone"></div>
+        <div class="chess-cell cell-black BlockWrapper--isDropzone"></div>
+        <div class="chess-cell cell-white BlockWrapper--isDropzone"></div>
+        <div class="chess-cell cell-black BlockWrapper--isDropzone"></div>
+        <div class="chess-cell cell-white BlockWrapper--isDropzone"></div>
+        <div class="chess-cell cell-black BlockWrapper--isDropzone"></div>
+        <div class="chess-cell cell-white BlockWrapper--isDropzone draggable-dropzone--occupied">
+          <div class="horse-piece Block--isDraggable">
+            ♞
+          </div>
+        </div>
+        <div class="chess-cell cell-black BlockWrapper--isDropzone"></div>
+        <div class="chess-cell cell-white BlockWrapper--isDropzone"></div>
+      </div>
+    </div>
   </body>
 
 </html>
