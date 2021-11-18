@@ -1,3 +1,6 @@
 import "./SCSS/index.scss";
+import Atropos from "atropos";
 
-console.log("Ready to go!");
+const myAtropos = Atropos({
+  el: ".my-atropos",
+});
