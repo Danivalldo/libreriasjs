@@ -1,6 +1,24 @@
 @import "atropos/scss";
 
-body {
-  margin: 0;
-  padding: 0;
+html {
+  height: 100%;
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .my-atropos {
+      width: 400px;
+      height: 400px;
+      .atropos-content-container {
+        background-color: red;
+        height: 100%;
+        [data-atropos-offset] {
+          position: absolute;
+        }
+      }
+    }
+  }
 }
