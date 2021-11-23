@@ -1,5 +1,13 @@
 @import "atropos/scss";
 
+$containerWidth: 470px;
+$containerIllustrationWidth: 541px;
+$gapWidth: -1 * (($containerIllustrationWidth - $containerWidth)/ 2);
+
+$containerHeight: 440px;
+$containerIllustrationHeight: 606px;
+$gapHeight: (-1 * (($containerIllustrationHeight - $containerHeight)/ 2)) + 45;
+
 html {
   height: 100%;
   body {
@@ -9,14 +17,27 @@ html {
     justify-content: center;
     align-items: center;
     height: 100%;
+    background-image: url("../imgs/polaroid.svg");
+    background-size: $containerIllustrationWidth $containerIllustrationHeight;
+    background-repeat: no-repeat;
+    background-position: center center;
     .my-atropos {
-      width: 400px;
-      height: 400px;
+      width: $containerWidth;
+      height: $containerHeight;
+      margin-top: -100px;
+      border-radius: 10px;
+      // overflow: hidden;
       .atropos-content-container {
-        background-color: red;
+        // background-color: red;
         height: 100%;
+        position: relative;
         [data-atropos-offset] {
           position: absolute;
+          width: $containerIllustrationWidth;
+          height: $containerIllustrationHeight;
+          height: 606px;
+          left: $gapWidth;
+          top: $gapHeight;
         }
       }
     }
