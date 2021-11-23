@@ -1,0 +1,18 @@
+html {
+  height: 100%;
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.canvas-confetti-btn {
+  font-size: 5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
