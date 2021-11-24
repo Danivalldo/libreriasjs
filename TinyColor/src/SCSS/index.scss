@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.color-picker {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.custom-color-picker {
+  border: solid 1px #000;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  // background-color: #bada55;
+  cursor: pointer;
+}
