@@ -54,6 +54,11 @@ html {
       padding: 0 20px 0 0;
       justify-content: space-around;
       align-items: center;
+      background-color: #f1f1f1;
+      margin-top: 20px;
+      img {
+        transform: scale(0.8);
+      }
     }
     &:after {
       position: absolute;
