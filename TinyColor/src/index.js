@@ -13,25 +13,6 @@ const complementsContainer = document.querySelector(".complements-container");
 
 let color = tinyColor(tinyColor.random());
 
-const applyColorsToContainer = (container, colors, fontColor) => {
-  container.innerHTML = "";
-  colors.map((color) => {
-    const colorElement = document.createElement("div");
-    const labelElement = document.createElement("span");
-    labelElement.classList.add("color-label");
-    labelElement.innerText = color.toHexString();
-    colorElement.classList.add("color-block");
-    colorElement.style.borderColor = fontColor.toHexString();
-    colorElement.style.backgroundColor = color.toHexString();
-    const labelColor = color.clone();
-    labelElement.style.color = labelColor.isDark()
-      ? labelColor.brighten(30).toHexString()
-      : labelColor.darken(30).toHexString();
-    container.appendChild(colorElement);
-    colorElement.appendChild(labelElement);
-  });
-};
-
 const onChangeMainColor = (_color) => {
   const color = tinyColor(_color);
   const fontColor = color.clone();
@@ -59,6 +40,25 @@ const onChangeMainColor = (_color) => {
     color.splitcomplement(),
     fontColor
   );
+};
+
+const applyColorsToContainer = (container, colors, fontColor) => {
+  container.innerHTML = "";
+  colors.map((color) => {
+    const colorElement = document.createElement("div");
+    const labelElement = document.createElement("span");
+    labelElement.classList.add("color-label");
+    labelElement.innerText = color.toHexString();
+    colorElement.classList.add("color-block");
+    colorElement.style.borderColor = fontColor.toHexString();
+    colorElement.style.backgroundColor = color.toHexString();
+    const labelColor = color.clone();
+    labelElement.style.color = labelColor.isDark()
+      ? labelColor.brighten(30).toHexString()
+      : labelColor.darken(30).toHexString();
+    container.appendChild(colorElement);
+    colorElement.appendChild(labelElement);
+  });
 };
 
 colorPicker.setAttribute("value", color.toHexString());
