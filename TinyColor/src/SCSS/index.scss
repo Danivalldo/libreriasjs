@@ -9,12 +9,6 @@ body {
   padding: 40px;
 }
 
-.color-picker {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .custom-color-picker {
   border: solid 1px #000;
   height: 100px;
@@ -26,6 +20,11 @@ body {
   display: block;
   margin: 80px auto 0 auto;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  .color-picker {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
   &:hover {
     .tool-tip {
       animation: none;
@@ -59,6 +58,7 @@ body {
     }
   }
 }
+
 .colors-container {
   display: flex;
   .color-block {

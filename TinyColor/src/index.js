@@ -13,7 +13,7 @@ const complementsContainer = document.querySelector(".complements-container");
 
 let color = tinyColor(tinyColor.random());
 
-const applyColorsToContainer = (container, colors, fontColor) => {
+const applyColorsToContainer = (container, colors, borderColor) => {
   container.innerHTML = "";
   colors.map((color) => {
     const colorElement = document.createElement("div");
@@ -21,7 +21,7 @@ const applyColorsToContainer = (container, colors, fontColor) => {
     labelElement.classList.add("color-label");
     labelElement.innerText = color.toHexString();
     colorElement.classList.add("color-block");
-    colorElement.style.borderColor = fontColor.toHexString();
+    colorElement.style.borderColor = borderColor.toHexString();
     colorElement.style.backgroundColor = color.toHexString();
     const labelColor = color.clone();
     labelElement.style.color = labelColor.isDark()
