@@ -8,7 +8,38 @@
   <title>DayJs</title>
 </head>
   <body>
-    <h1>Selecciona tu fecha de nacimiento</h1>
-    <input type="datetime-local" class="date-time__selector" />
+    <div>
+      <h1>Selecciona una fecha</h1>
+      <input type="datetime-local" class="date-time__selector" />
+    </div>
+    <div class="actions-container">
+      <div>
+        <button class="btn btn-action" data-action="add" data-time-type="seconds" >Añadir cinco segudos</button>
+        <button class="btn btn-action" data-action="add" data-time-type="minute" >Añadir un minuto</button>
+        <button class="btn btn-action" data-action="add" data-time-type="hour" >Añadir una hora</button>
+        <button class="btn btn-action" data-action="add" data-time-type="day" >Añadir un dia</button>
+        <button class="btn btn-action" data-action="add" data-time-type="month" >Añadir un mes</button>
+        <button class="btn btn-action" data-action="add" data-time-type="year" >Añadir un año</button>
+      </div>
+      <div>
+        <button class="btn btn-action" data-action="subtract" data-time-type="seconds" >Restar cinco segudos</button>
+        <button class="btn btn-action" data-action="subtract" data-time-type="minute" >Restar un minuto</button>
+        <button class="btn btn-action" data-action="subtract" data-time-type="hour" >Restar una hora</button>
+        <button class="btn btn-action" data-action="subtract" data-time-type="day" >Restar un dia</button>
+        <button class="btn btn-action" data-action="subtract" data-time-type="month" >Restar un mes</button>
+        <button class="btn btn-action" data-action="subtract" data-time-type="year" >Restar un año</button>
+      </div>
+      <div>
+        <button class="btn btn-action" data-action="reset" data-time-type="seconds">Resetear segudos</button>
+        <button class="btn btn-action" data-action="reset" data-time-type="minute">Resetear minutos</button>
+        <button class="btn btn-action" data-action="reset" data-time-type="hour">Resetear hora</button>
+        <button class="btn btn-action" data-action="reset" data-time-type="day">Resetear dia</button>
+        <button class="btn btn-action" data-action="reset" data-time-type="month">Resetear mes</button>
+        <button class="btn btn-action" data-action="reset" data-time-type="year">Resetear año</button>
+      </div>
+    </div>
+    <div>
+      
+    </div>
   </body>
 </html>
