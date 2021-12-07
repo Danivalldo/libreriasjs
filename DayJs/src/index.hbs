@@ -14,7 +14,7 @@
     </div>
     <div class="actions-container">
       <div>
-        <button class="btn btn-action" data-action="add" data-time-type="seconds" >Añadir cinco segudos</button>
+        <button class="btn btn-action" data-action="add" data-time-type="second" >Añadir un segudo</button>
         <button class="btn btn-action" data-action="add" data-time-type="minute" >Añadir un minuto</button>
         <button class="btn btn-action" data-action="add" data-time-type="hour" >Añadir una hora</button>
         <button class="btn btn-action" data-action="add" data-time-type="day" >Añadir un dia</button>
@@ -22,7 +22,7 @@
         <button class="btn btn-action" data-action="add" data-time-type="year" >Añadir un año</button>
       </div>
       <div>
-        <button class="btn btn-action" data-action="subtract" data-time-type="seconds" >Restar cinco segudos</button>
+        <button class="btn btn-action" data-action="subtract" data-time-type="second" >Restar un segudo</button>
         <button class="btn btn-action" data-action="subtract" data-time-type="minute" >Restar un minuto</button>
         <button class="btn btn-action" data-action="subtract" data-time-type="hour" >Restar una hora</button>
         <button class="btn btn-action" data-action="subtract" data-time-type="day" >Restar un dia</button>
@@ -30,7 +30,7 @@
         <button class="btn btn-action" data-action="subtract" data-time-type="year" >Restar un año</button>
       </div>
       <div>
-        <button class="btn btn-action" data-action="reset" data-time-type="seconds">Resetear segudos</button>
+        <button class="btn btn-action" data-action="reset" data-time-type="second">Resetear segudos</button>
         <button class="btn btn-action" data-action="reset" data-time-type="minute">Resetear minutos</button>
         <button class="btn btn-action" data-action="reset" data-time-type="hour">Resetear hora</button>
         <button class="btn btn-action" data-action="reset" data-time-type="day">Resetear dia</button>
@@ -39,7 +39,19 @@
       </div>
     </div>
     <div>
-      
+      <h2>
+        Resultado formateado
+        <span>(DD-MM-YYYY HH:mm:ss)</span>
+      </h2>
+      <div class="formatted-result-container"></div>
+    </div>
+    <div>
+      <h2>Resultado JSON</h2>
+      <div class="json-result-container"></div>
+    </div>
+    <div>
+      <h2>Resultado UNIX</h2>
+      <div class="unix-result-container"></div>
     </div>
   </body>
 </html>
