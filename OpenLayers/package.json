@@ -25,6 +25,7 @@
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
     "imagesloaded": "^4.1.4",
+    "lil-gui": "^0.15.0",
     "mini-css-extract-plugin": "^1.3.9",
     "ol": "^6.9.0",
     "portfinder-sync": "^0.0.2",
