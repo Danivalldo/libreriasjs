@@ -5,16 +5,6 @@ import { OSM, TileWMS } from "ol/source";
 import { fromLonLat } from "ol/proj";
 import GUI from "lil-gui";
 
-const lilGuiBox = new GUI();
-
-const guiActions = {
-  showTileLayerOSM: true,
-  showTileLayerTopoCat: true,
-  showTileLayerSummer2019Cat: true,
-  showTileLayerFire2019Cat: true,
-  fireLayerOpacity: 1,
-};
-
 const tileLayerOSM = new Tile({
   source: new OSM(),
 });
@@ -63,11 +53,29 @@ const map = new Map({
   }),
 });
 
+const lilGuiBox = new GUI();
+
+const guiActions = {
+  showTileLayerOSM: true,
+  showTileLayerTopoCat: true,
+  showTileLayerSummer2019Cat: true,
+  showTileLayerFire2019Cat: true,
+  fireLayerOpacity: 1,
+};
+
 lilGuiBox
   .add(guiActions, "showTileLayerFire2019Cat")
   .name("Capa incendio 2019")
   .onChange((visible) => {
     tileLayerFire2019Cat.setVisible(visible);
+  });
+lilGuiBox
+  .add(guiActions, "fireLayerOpacity")
+  .name("Opacidad de la capa")
+  .min(0)
+  .max(1)
+  .onChange((opacity) => {
+    tileLayerFire2019Cat.setOpacity(opacity);
   });
 lilGuiBox
   .add(guiActions, "showTileLayerSummer2019Cat")
