@@ -61,15 +61,23 @@ const guiActions = {
   showTileLayerSummer2019Cat: true,
   showTileLayerFire2019Cat: true,
   fireLayerOpacity: 1,
+  goToPlace: () => {
+    map.getView().animate({
+      center: fromLonLat([0.600712, 41.280345]),
+      zoom: 12,
+    });
+  },
 };
 
-lilGuiBox
+const fireFolder = lilGuiBox.addFolder("Incendio 2019");
+
+fireFolder
   .add(guiActions, "showTileLayerFire2019Cat")
   .name("Capa incendio 2019")
   .onChange((visible) => {
     tileLayerFire2019Cat.setVisible(visible);
   });
-lilGuiBox
+fireFolder
   .add(guiActions, "fireLayerOpacity")
   .name("Opacidad de la capa")
   .min(0)
@@ -77,6 +85,7 @@ lilGuiBox
   .onChange((opacity) => {
     tileLayerFire2019Cat.setOpacity(opacity);
   });
+fireFolder.add(guiActions, "goToPlace").name("Ir a la zona afectada");
 lilGuiBox
   .add(guiActions, "showTileLayerSummer2019Cat")
   .name("Capa vegetación 2019")
