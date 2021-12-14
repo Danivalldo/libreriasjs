@@ -19,6 +19,8 @@ const debuggerObject = {
     size: 1,
   },
   body: {
+    sizeX: 1,
+    sizeY: 1,
     color: "#ffa500",
   },
 };
@@ -37,8 +39,19 @@ const onChangeMouth = (size) => {
   mouthDom.setAttribute("style", `transform: scale(${size})`);
 };
 
-const changeColor = (color) => {
-  monster.setAttribute("style", `background-color: ${color}`);
+const onChangeColor = (color) => {
+  // monster.setAttribute("style", `background-color: ${color}`);
+  monster.style.backgroundColor = color;
+};
+
+const onChangeBodySize = (dimention, value) => {
+  switch (dimention) {
+    case "width":
+      monster.style.transform = `scaleX(${value}) scaleY(${debuggerObject.body.sizeY})`;
+      return;
+    case "height":
+      monster.style.transform = `scaleX(${debuggerObject.body.sizeX}) scaleY(${value})`;
+  }
 };
 
 const eyesFolder = lilGui.addFolder("Ojos");
@@ -90,11 +103,29 @@ mouthFolder
     onChangeMouth(size);
   });
 
-const cuerpoFolder = lilGui.addFolder("Cuerpo");
+const bodyFolder = lilGui.addFolder("Cuerpo");
 
-cuerpoFolder
+bodyFolder
   .addColor(debuggerObject.body, "color")
   .name("color")
   .onChange((color) => {
-    changeColor(color);
+    onChangeColor(color);
+  });
+
+bodyFolder
+  .add(debuggerObject.body, "sizeX")
+  .name("ancho")
+  .min(0.2)
+  .max(1.5)
+  .onChange((width) => {
+    onChangeBodySize("width", width);
+  });
+
+bodyFolder
+  .add(debuggerObject.body, "sizeY")
+  .name("alto")
+  .min(0.2)
+  .max(1.5)
+  .onChange((height) => {
+    onChangeBodySize("height", height);
   });
