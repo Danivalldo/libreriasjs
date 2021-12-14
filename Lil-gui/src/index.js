@@ -25,10 +25,17 @@ const debuggerObject = {
   },
 };
 
+const eyesFolder = lilGui.addFolder("Ojos");
+const leftEyeFolder = eyesFolder.addFolder("Ojo izquierdo");
+const rightEyeFolder = eyesFolder.addFolder("Ojo derecho");
+const mouthFolder = lilGui.addFolder("Boca");
+const bodyFolder = lilGui.addFolder("Cuerpo");
+
 const onChangeEye = (eye, size) => {
   const eyeDom = monster.querySelector(eye);
   eyeDom.setAttribute("style", `width: ${size}px; height: ${size}px`);
 };
+
 const onChangePupille = (pupille, size) => {
   const pupilleDom = monster.querySelector(pupille);
   pupilleDom.setAttribute("style", `width: ${size}px; height: ${size}px`);
@@ -40,7 +47,6 @@ const onChangeMouth = (size) => {
 };
 
 const onChangeColor = (color) => {
-  // monster.setAttribute("style", `background-color: ${color}`);
   monster.style.backgroundColor = color;
 };
 
@@ -53,10 +59,6 @@ const onChangeBodySize = (dimention, value) => {
       monster.style.transform = `scaleX(${debuggerObject.body.sizeX}) scaleY(${value})`;
   }
 };
-
-const eyesFolder = lilGui.addFolder("Ojos");
-const leftEyeFolder = eyesFolder.addFolder("Ojo izquierdo");
-const rightEyeFolder = eyesFolder.addFolder("Ojo derecho");
 
 leftEyeFolder
   .add(debuggerObject.eyes.eyeLeft, "size")
@@ -91,8 +93,6 @@ rightEyeFolder
     onChangePupille(".eye-right > .eye-pupille", size);
   });
 
-const mouthFolder = lilGui.addFolder("Boca");
-
 mouthFolder
   .add(debuggerObject.mouth, "size")
   .name("tamaño")
@@ -102,8 +102,6 @@ mouthFolder
   .onChange((size) => {
     onChangeMouth(size);
   });
-
-const bodyFolder = lilGui.addFolder("Cuerpo");
 
 bodyFolder
   .addColor(debuggerObject.body, "color")
