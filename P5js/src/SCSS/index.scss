@@ -1,4 +1,21 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
+}
+
+#p5-container {
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  &:after {
+    content: "p5*js";
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+  }
 }

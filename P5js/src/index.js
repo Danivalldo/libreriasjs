@@ -1,22 +1,23 @@
 import "./SCSS/index.scss";
 import p5 from "p5";
+import ParticleSystem from "./ParticleSystem";
 
 const containerElement = document.querySelector("#p5-container");
 
-const sketch = (p) => {
-  let x = 100;
-  let y = 100;
-
-  const { setup, createCanvas, draw, background, fill, rect } = p;
-
-  p.setup = function () {
-    p.createCanvas(800, 400);
+const sketch = (s) => {
+  let system;
+  s.setup = function () {
+    s.createCanvas(containerElement.clientWidth, containerElement.clientHeight);
+    s.stroke(255);
+    s.fill(255);
+    s.frameRate(30);
+    system = new ParticleSystem(s);
+    system.fillSystem(200);
   };
 
-  p.draw = function () {
-    p.background(0);
-    p.fill(255);
-    p.rect(x, y, 50, 50);
+  s.draw = function () {
+    s.background(0);
+    system.run();
   };
 };
 
