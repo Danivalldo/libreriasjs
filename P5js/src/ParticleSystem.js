@@ -3,9 +3,9 @@ import Ripple from "./Ripple";
 
 class ParticleSystem {
   constructor(s) {
+    this.s = s; //instance of p5 sketch
     this.particles = [];
     this.ripples = [];
-    this.s = s;
   }
   addParticle() {
     this.particles.push(new RainDrop(this.s));
@@ -32,11 +32,7 @@ class ParticleSystem {
         }
         this.particles[i].reset();
       }
-    }
-    for (let n = this.ripples.length - 1; n >= 0; n--) {
-      if (!this.ripples[n].isDead()) {
-        this.ripples[n].run();
-      }
+      this.ripples[i].run();
     }
   }
 }
