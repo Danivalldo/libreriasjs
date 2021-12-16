@@ -12,7 +12,7 @@ const sketch = (s) => {
     s.fill(255);
     s.frameRate(30);
     system = new ParticleSystem(s);
-    system.fillSystem(200);
+    system.fillSystem(150);
   };
 
   s.draw = function () {
