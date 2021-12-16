@@ -14,7 +14,12 @@ class Ripple {
 
     this.lifespan = 100;
     this.position = postion.copy();
-    this.radiusVelocity = s.createVector(10, 5);
+    this.radiusDecay = s.random(0.01, 0.05);
+    const radiusVelocityValue = s.random(3, 10);
+    this.radiusVelocity = s.createVector(
+      radiusVelocityValue,
+      radiusVelocityValue / 2
+    );
     this.radius = {
       x: 0,
       y: 0,
@@ -27,7 +32,7 @@ class Ripple {
       this.radiusVelocity.x - this.radiusVelocity.x * 0.05;
     this.radiusVelocity.y =
       this.radiusVelocity.y - this.radiusVelocity.y * 0.05;
-    this.lifespan -= 2;
+    this.lifespan -= 4;
   }
   isDead() {
     return this.lifespan < 0;
