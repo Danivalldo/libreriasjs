@@ -8,14 +8,14 @@ body {
   height: 100%;
   box-sizing: border-box;
   position: relative;
-  &:after {
-    content: "p5*js";
-    color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 1;
-    transform: translate(-50%, -50%);
-    font-size: 4rem;
-  }
+}
+
+img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 150px;
+  height: auto;
+  transform: translate(-50%, -50%);
 }
