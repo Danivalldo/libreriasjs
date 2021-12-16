@@ -8,8 +8,6 @@ const sketch = (s) => {
   let system;
   s.setup = function () {
     s.createCanvas(containerElement.clientWidth, containerElement.clientHeight);
-    s.stroke(255);
-    s.fill(255);
     s.frameRate(30);
     system = new ParticleSystem(s);
     system.fillSystem(150);
