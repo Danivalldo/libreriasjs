@@ -27,5 +27,3 @@ const launch = () => {
 };
 
 launch();
-
-console.log("Ready to go!");
