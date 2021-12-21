@@ -1,6 +1,6 @@
 class Ripple {
   constructor(s) {
-    this.s = s;
+    this.s = s; //instance of p5 sketch
     this.lifespan = -1;
     this.radius = {
       x: 0,
