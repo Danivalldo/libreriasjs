@@ -18,7 +18,7 @@ const launch = () => {
   });
 
   droppable.on("drag:start", (evt) => {
-    // console.log("start draggin");
+    console.log("start draggin");
   });
 
   droppable.on("droppable:dropped", (evt) => {
