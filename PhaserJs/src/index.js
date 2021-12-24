@@ -10,6 +10,7 @@ const config = {
   height: 854,
   pixelArt: true,
   scene: IsoScene,
+  physics: { default: "arcade" },
 };
 
 const game = new Game(config);

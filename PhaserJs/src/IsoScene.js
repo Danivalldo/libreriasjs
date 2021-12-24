@@ -1,5 +1,6 @@
 import { Scene } from "phaser";
-import IsoPlugin, { IsoPhysics } from "./IsoPlugin";
+// import IsoPlugin, { IsoPhysics } from "./IsoPlugin";
+import IsoPlugin, { IsoPhysics } from "phaser3-plugin-isometric";
 import "./CharacterDummy";
 
 class IsoScene extends Scene {
