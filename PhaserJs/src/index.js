@@ -1,17 +1,14 @@
 import "./SCSS/index.scss";
-import { Game, AUTO } from "phaser";
+import Phaser, { Game, AUTO } from "phaser";
+Phaser.GROUP = "Group";
 import IsoScene from "./IsoScene";
+// import IsoCollisionExample from "./IsoCollisionExample";
 
 const config = {
   type: AUTO,
   width: 480,
   height: 854,
-  physics: {
-    default: "arcade",
-    arcade: {
-      gravity: { y: 300 },
-    },
-  },
+  pixelArt: true,
   scene: IsoScene,
 };
 
