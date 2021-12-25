@@ -29,17 +29,15 @@ class IsoScene extends Scene {
 
   create() {
     this.isoGroup = this.add.group();
-    this.isoPhysics.world.gravity.setTo(0, 0, -700);
-    this.isoPhysics.projector.origin.setTo(0.5, 0.5);
-    // this.iso.projector.origin.setTo(0.5, 1);
+    this.isoPhysics.world.gravity.setTo(0, 0, -1000);
+    this.isoPhysics.projector.origin.setTo(0.5, 0);
+    this.iso.projector.origin.setTo(0.5, 0);
     this.spawnTiles();
     window.setTimeout(() => {
-      this.createDummyCharacter(0, 0);
+      this.createDummyCharacter(32, 32);
     }, 3000);
     // this.input.on("pointerdown", () => {
-    //   // this.createCube(0, 0);
-    //   // this.spawnTiles();
-    //   this.createDummyCharacter(0, 0);
+    //   this.spawnTiles();
     // });
   }
 
@@ -52,11 +50,18 @@ class IsoScene extends Scene {
       this.isoGroup,
       (collision) => {
         // console.log(collision);
+        // this.mainCharacter.setCustomTouchingFloor(true);
       }
     );
+    this.mainCharacter.applyFriction();
   }
 
   spawnTiles() {
+    // for (let i = 0; i < 256; i += 96) {
+    //   for (let j = 0; j < 256; j += 96) {
+    //     this.createCube(i, j);
+    //   }
+    // }
     for (let i = 0; i < 256; i += 96) {
       for (let j = 0; j < 256; j += 96) {
         this.createCube(i, j);

@@ -23,30 +23,60 @@ class CharacterDummy extends IsoSprite {
     super(scene, x, y, z, key, frame);
     scene.isoPhysics.world.enable(this);
     this.body.collideWorldBounds = true;
-    this.body.bounce.set(0, 0, 0.5);
+    this.body.bounce.set(0, 0, 0.2);
     this.body.mass = 0.3;
-    this.accelerationFactor = 500;
+    this.accelerationFactor = 2000;
+    this.fricctionFactor = 0.08;
+    this.maxVelocity = 500;
     this.addEvents();
+    this.customTouchingFloor = false;
   }
 
   update() {
+    console.log(this.body.velocity.x, this.body.velocity.y);
+    this.applyVelocityLimit();
     this.applyFriction();
   }
 
+  applyVelocityLimit() {
+    if (Math.abs(this.body.velocity.x) > this.maxVelocity) {
+      this.body.velocity.x = Math.round(
+        Math.sign(this.body.velocity.x) * this.maxVelocity
+      );
+    }
+    if (Math.abs(this.body.velocity.y) > this.maxVelocity) {
+      this.body.velocity.y = Math.round(
+        Math.sign(this.body.velocity.y) * this.maxVelocity
+      );
+    }
+  }
+
   applyFriction() {
+    if (this.body.velocity.x === 0 && this.body.velocity.y === 0) {
+      return;
+    }
+    let velX =
+      this.body.velocity.x - this.body.velocity.x * this.fricctionFactor;
+    let velY =
+      this.body.velocity.y - this.body.velocity.y * this.fricctionFactor;
+    velX = Math.abs(velX) < 0.5 ? 0 : velX;
+    velY = Math.abs(velY) < 0.5 ? 0 : velY;
     // if (this.body.touching.up) {
-    if (this.body.velocity.x > 0) {
-      this.body.velocity.x = this.body.velocity.x - 0.5;
-    }
-    if (this.body.velocity.y > 0) {
-      this.body.velocity.y = this.body.velocity.y - 0.5;
-    }
-    if (this.body.velocity.y < 0) {
-      this.body.velocity.y = this.body.velocity.y + 0.5;
-    }
-    if (this.body.velocity.y < 0) {
-      this.body.velocity.y = this.body.velocity.y + 0.5;
-    }
+    this.body.velocity.setTo(velX, velY, this.body.velocity.z);
+    // }
+    // if (this.body.touching.up) {
+    // if (this.body.velocity.x > 0) {
+    //   this.body.velocity.x = this.body.velocity.x - 0.5;
+    // }
+    // if (this.body.velocity.y > 0) {
+    //   this.body.velocity.y = this.body.velocity.y - 0.5;
+    // }
+    // if (this.body.velocity.y < 0) {
+    //   this.body.velocity.y = this.body.velocity.y + 0.5;
+    // }
+    // if (this.body.velocity.y < 0) {
+    //   this.body.velocity.y = this.body.velocity.y + 0.5;
+    // }
     // }
   }
 
@@ -76,10 +106,12 @@ class CharacterDummy extends IsoSprite {
       //   return;
       // }
       this.body.velocity.setTo(this.body.velocity.x, this.body.velocity.y, 300);
-      // this.body.acceleration.set(null, null, 10);
     });
 
     leftKey.on("down", (key) => {
+      if (Math.abs(this.body.velocity.x) > this.maxVelocity) {
+        return;
+      }
       this.body.acceleration.setTo(
         this.body.acceleration.x,
         this.accelerationFactor,
@@ -94,6 +126,9 @@ class CharacterDummy extends IsoSprite {
       );
     });
     rightKey.on("down", (key) => {
+      if (Math.abs(this.body.velocity.y) > this.maxVelocity) {
+        return;
+      }
       this.body.acceleration.setTo(
         this.body.acceleration.x,
         -this.accelerationFactor,
@@ -136,6 +171,10 @@ class CharacterDummy extends IsoSprite {
         this.body.acceleration.z
       );
     });
+  }
+
+  setCustomTouchingFloor(touching = false) {
+    this.customTouchingFloor = touching;
   }
 }
 
