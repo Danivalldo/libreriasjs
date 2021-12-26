@@ -1,6 +1,6 @@
 import { Scene } from "phaser";
-// import IsoPlugin, { IsoPhysics } from "./IsoPlugin";
-import IsoPlugin, { IsoPhysics } from "phaser3-plugin-isometric";
+import IsoPlugin, { IsoPhysics } from "./IsoPlugin";
+// import IsoPlugin, { IsoPhysics } from "phaser3-plugin-isometric";
 import "./CharacterDummy";
 
 class IsoScene extends Scene {
@@ -11,10 +11,13 @@ class IsoScene extends Scene {
     };
     super(sceneConfig);
     this.mainCharacter = undefined;
+    this.cubes = 0;
+    this.cubeSize = 40;
   }
   preload() {
+    // this.load.image("baseTile", "imgs/tiles/tile_base.png");
     this.load.image("baseTile", "imgs/tiles/tile_base.png");
-    this.load.image("characterDummy", "imgs/tiles/character_dummy.png");
+    this.load.image("characterDummy", "imgs/tiles/tile_base.png");
     this.load.scenePlugin({
       key: "IsoPlugin",
       url: IsoPlugin,
@@ -30,15 +33,17 @@ class IsoScene extends Scene {
   create() {
     this.isoGroup = this.add.group();
     this.isoPhysics.world.gravity.setTo(0, 0, -1000);
-    this.isoPhysics.projector.origin.setTo(0.5, 0);
-    this.iso.projector.origin.setTo(0.5, 0);
-    this.spawnTiles();
+    this.isoPhysics.projector.origin.setTo(0.5, 0.5);
+    this.iso.projector.origin.setTo(0.5, 0.5);
+    // this.spawnTiles();
     window.setTimeout(() => {
       this.createDummyCharacter(32, 32);
     }, 3000);
-    // this.input.on("pointerdown", () => {
-    //   this.spawnTiles();
-    // });
+    this.input.on("pointerdown", () => {
+      // this.spawnTiles();
+      this.createCube(this.cubeSize * this.cubes, 0, 0);
+      this.cubes++;
+    });
   }
 
   update() {
@@ -49,6 +54,7 @@ class IsoScene extends Scene {
       this.mainCharacter,
       this.isoGroup,
       (collision) => {
+        // console.log(this);
         // console.log(collision);
         // this.mainCharacter.setCustomTouchingFloor(true);
       }
@@ -64,7 +70,7 @@ class IsoScene extends Scene {
     // }
     for (let i = 0; i < 256; i += 96) {
       for (let j = 0; j < 256; j += 96) {
-        this.createCube(i, j);
+        this.createCube(i, j, 0);
       }
     }
   }
@@ -74,20 +80,22 @@ class IsoScene extends Scene {
       i,
       j,
       500,
-      "baseTile",
+      "characterDummy",
       this.isoGroup
     );
     this.mainCharacter = characterTile;
   }
 
-  createCube(i, j) {
-    const tile = this.add.isoSprite(i, j, 500, "baseTile", this.isoGroup);
+  createCube(i, j, z) {
+    const { width, height } = this.game.config;
+    const tile = this.add.isoSprite(i, j, z, "baseTile", this.isoGroup);
     this.isoPhysics.world.enable(tile);
     tile.body.collideWorldBounds = true;
     // tile.body.bounce.set(1, 1, 0.5);
     tile.body.bounce.set(0, 0, 0);
     tile.body.mass = 0;
     tile.body.immovable = true;
+    tile.body.gravity = 0;
 
     // const randomX = Math.trunc(Math.random() * 100 - 50);
     // const randomY = Math.trunc(Math.random() * 100 - 50);

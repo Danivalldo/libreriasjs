@@ -6,7 +6,7 @@ Phaser.GameObjects.GameObjectFactory.register(
   "characterDummy",
   function (x, y, z, key, group, frame = 0) {
     const sprite = new CharacterDummy(this.scene, x, y, z, key, frame);
-    sprite.setTint(0xff0000);
+    // sprite.setTint(0xff0000);
     if (typeof group === "undefined") {
       this.displayList.add(sprite);
       this.updateList.add(sprite);
@@ -33,7 +33,7 @@ class CharacterDummy extends IsoSprite {
   }
 
   update() {
-    console.log(this.body.velocity.x, this.body.velocity.y);
+    // console.log(this.body.velocity.x, this.body.velocity.y);
     this.applyVelocityLimit();
     this.applyFriction();
   }
@@ -61,23 +61,7 @@ class CharacterDummy extends IsoSprite {
       this.body.velocity.y - this.body.velocity.y * this.fricctionFactor;
     velX = Math.abs(velX) < 0.5 ? 0 : velX;
     velY = Math.abs(velY) < 0.5 ? 0 : velY;
-    // if (this.body.touching.up) {
     this.body.velocity.setTo(velX, velY, this.body.velocity.z);
-    // }
-    // if (this.body.touching.up) {
-    // if (this.body.velocity.x > 0) {
-    //   this.body.velocity.x = this.body.velocity.x - 0.5;
-    // }
-    // if (this.body.velocity.y > 0) {
-    //   this.body.velocity.y = this.body.velocity.y - 0.5;
-    // }
-    // if (this.body.velocity.y < 0) {
-    //   this.body.velocity.y = this.body.velocity.y + 0.5;
-    // }
-    // if (this.body.velocity.y < 0) {
-    //   this.body.velocity.y = this.body.velocity.y + 0.5;
-    // }
-    // }
   }
 
   addEvents() {
