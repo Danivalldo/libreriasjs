@@ -4,21 +4,14 @@
       "type": "baseTile",
       "pos": [0, 5]
     },
+  
     {
       "type": "baseTile",
-      "pos": [0, 4]
+      "pos": [2, 5]
     },
     {
       "type": "baseTile",
-      "pos": [2, 4]
-    },
-    {
-      "type": "baseTile",
-      "pos": [2, 4]
-    },
-    {
-      "type": "baseTile",
-      "pos": [4, 4]
+      "pos": [4, 5]
     },
     {
       "type": "baseTile",
@@ -29,7 +22,7 @@
       "pos": [4, 0]
     },
     {
-      "type": "baseTile",
+      "type": "underBaseTile",
       "pos": [3, 0]
     }
   ],
@@ -40,7 +33,17 @@
     },
     {
       "type": "baseTile",
+      "pos": [1, 0]
+    },
+    {
+      "type": "baseTile",
       "pos": [0, 0]
+    }
+  ],
+  [
+    {
+      "type": "keyHoleCube",
+      "pos": [1, 0]
     }
   ]
 ]

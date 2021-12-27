@@ -7,10 +7,13 @@ class Character extends IsoSprite {
     super(scene, x, y, z, key, frame);
     scene.isoPhysics.world.enable(this);
     // this.body.collideWorldBounds = true;
+    // this.shadow = scene.add.isoSprite(30, 30, 40, "shadow");
+    // console.log(this.shadow);
+    // this.shadow.alpha = 0.5;
     this.body.onWorldBounds = true;
     this.body.bounce.set(0, 0, 0.2);
     this.body.mass = 0.3;
-    this.accelerationFactor = 2000;
+    this.accelerationFactor = 1300;
     this.fricctionFactor = 0.08;
     this.maxVelocity = 500;
     this.addEvents();
@@ -19,18 +22,26 @@ class Character extends IsoSprite {
 
   update() {
     // console.log(this.body.velocity.x, this.body.velocity.y);
+    // this.updateShadow();
     this.applyVelocityLimit();
     this.applyFriction();
-    if (this.isoZ < -100) {
+    if (this.isoZ < -200) {
       console.log("respaw");
       this.respawn();
     }
   }
 
   respawn() {
-    this.isoZ = 0;
     this.body.velocity.setTo(0, 0, 0);
+    this.body.position.setTo(0, this.scene.cubeSize * 5, 500);
+    this.body.acceleration.setTo(0, 0, 0);
   }
+
+  // updateShadow() {
+  //   this.shadow.isoX = this.isoX;
+  //   this.shadow.isoY = this.isoY;
+  //   this.shadow.isoZ = this.isoZ;
+  // }
 
   applyVelocityLimit() {
     if (Math.abs(this.body.velocity.x) > this.maxVelocity) {
