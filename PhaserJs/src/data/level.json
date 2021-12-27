@@ -1,0 +1,46 @@
+[
+  [
+    {
+      "type": "baseTile",
+      "pos": [0, 5]
+    },
+    {
+      "type": "baseTile",
+      "pos": [0, 4]
+    },
+    {
+      "type": "baseTile",
+      "pos": [2, 4]
+    },
+    {
+      "type": "baseTile",
+      "pos": [2, 4]
+    },
+    {
+      "type": "baseTile",
+      "pos": [4, 4]
+    },
+    {
+      "type": "baseTile",
+      "pos": [4, 2]
+    },
+    {
+      "type": "baseTile",
+      "pos": [4, 0]
+    },
+    {
+      "type": "baseTile",
+      "pos": [3, 0]
+    }
+  ],
+  [
+    {
+      "type": "baseTile",
+      "pos": [3, 0]
+    },
+    {
+      "type": "baseTile",
+      "pos": [0, 0]
+    }
+  ]
+]

@@ -2,27 +2,12 @@ import Phaser from "phaser";
 // import IsoSprite from "./IsoPlugin/IsoSprite";
 import IsoSprite from "phaser3-plugin-isometric/src/IsoSprite";
 
-Phaser.GameObjects.GameObjectFactory.register(
-  "characterDummy",
-  function (x, y, z, key, group, frame = 0) {
-    const sprite = new CharacterDummy(this.scene, x, y, z, key, frame);
-    // sprite.setTint(0xff0000);
-    if (typeof group === "undefined") {
-      this.displayList.add(sprite);
-      this.updateList.add(sprite);
-    } else {
-      group.add(sprite, true);
-    }
-
-    return sprite;
-  }
-);
-
-class CharacterDummy extends IsoSprite {
+class Character extends IsoSprite {
   constructor(scene, x, y, z, key, frame) {
     super(scene, x, y, z, key, frame);
     scene.isoPhysics.world.enable(this);
-    this.body.collideWorldBounds = true;
+    // this.body.collideWorldBounds = true;
+    this.body.onWorldBounds = true;
     this.body.bounce.set(0, 0, 0.2);
     this.body.mass = 0.3;
     this.accelerationFactor = 2000;
@@ -36,6 +21,15 @@ class CharacterDummy extends IsoSprite {
     // console.log(this.body.velocity.x, this.body.velocity.y);
     this.applyVelocityLimit();
     this.applyFriction();
+    if (this.isoZ < -100) {
+      console.log("respaw");
+      this.respawn();
+    }
+  }
+
+  respawn() {
+    this.isoZ = 0;
+    this.body.velocity.setTo(0, 0, 0);
   }
 
   applyVelocityLimit() {
@@ -86,10 +80,11 @@ class CharacterDummy extends IsoSprite {
     );
 
     spaceBar.on("down", (key) => {
-      // if (!this.body.touching.up) {
-      //   return;
-      // }
+      if (!this.body.touching.up) {
+        return;
+      }
       this.body.velocity.setTo(this.body.velocity.x, this.body.velocity.y, 300);
+      this.anims.play("jump", true);
     });
 
     leftKey.on("down", (key) => {
@@ -101,14 +96,18 @@ class CharacterDummy extends IsoSprite {
         this.accelerationFactor,
         this.body.acceleration.z
       );
+      this.anims.play("walk", true);
     });
+
     leftKey.on("up", (key) => {
       this.body.acceleration.setTo(
         this.body.acceleration.x,
         0,
         this.body.acceleration.z
       );
+      this.anims.play("idle", true);
     });
+
     rightKey.on("down", (key) => {
       if (Math.abs(this.body.velocity.y) > this.maxVelocity) {
         return;
@@ -118,13 +117,16 @@ class CharacterDummy extends IsoSprite {
         -this.accelerationFactor,
         this.body.acceleration.z
       );
+      this.anims.play("walk", true);
     });
+
     rightKey.on("up", (key) => {
       this.body.acceleration.setTo(
         this.body.acceleration.x,
         0,
         this.body.acceleration.z
       );
+      this.anims.play("idle", true);
     });
 
     upKey.on("down", (key) => {
@@ -133,27 +135,34 @@ class CharacterDummy extends IsoSprite {
         this.body.acceleration.y,
         this.body.acceleration.z
       );
+      this.anims.play("walk", true);
     });
+
     upKey.on("up", (key) => {
       this.body.acceleration.setTo(
         0,
         this.body.acceleration.y,
         this.body.acceleration.z
       );
+      this.anims.play("idle", true);
     });
+
     downKey.on("down", (key) => {
       this.body.acceleration.setTo(
         -this.accelerationFactor,
         this.body.acceleration.y,
         this.body.acceleration.z
       );
+      this.anims.play("walk", true);
     });
+
     downKey.on("up", (key) => {
       this.body.acceleration.setTo(
         0,
         this.body.acceleration.y,
         this.body.acceleration.z
       );
+      this.anims.play("idle", true);
     });
   }
 
@@ -162,4 +171,4 @@ class CharacterDummy extends IsoSprite {
   }
 }
 
-export default CharacterDummy;
+export default Character;
