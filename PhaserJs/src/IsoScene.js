@@ -29,6 +29,7 @@ class IsoScene extends Scene {
     this.createItems(items);
     this.createAnimations();
     this.createCharacter(0, this.cubeSize * 5);
+    console.log(this.isoPhysics);
     this.cameras.main.startFollow(this.player);
     this.cameras.main.setBackgroundColor("#d7f3f6");
   }
@@ -59,13 +60,14 @@ class IsoScene extends Scene {
     for (let i = 0, j = level.length; i < j; i++) {
       const levelRow = level[i];
       for (let n = 0, m = levelRow.length; n < m; n++) {
-        const tile = levelRow[n];
-        this.add.baseTile(
-          tile.pos[0] * this.cubeSize,
-          tile.pos[1] * this.cubeSize,
+        const tileData = levelRow[n];
+        const tile = this.add.baseTile(
+          tileData.pos[0] * this.cubeSize,
+          tileData.pos[1] * this.cubeSize,
           i * this.cubeSize,
-          tile.type,
-          this.isoGroup
+          tileData.type,
+          this.isoGroup,
+          tileData
         );
       }
     }
@@ -91,17 +93,27 @@ class IsoScene extends Scene {
     if (!this.player) {
       return;
     }
-    this.isoPhysics.world.collide(
-      this.player,
-      this.isoGroup,
-      (collision) => {}
-    );
+    this.isoPhysics.world.collide(this.player, this.isoGroup, (player) => {
+      if (player.body.touching.up) {
+        // player.anims.play("idle", true);
+      }
+    });
     this.isoPhysics.world.collide(this.itemsGroup, this.isoGroup);
     this.isoPhysics.world.collide(
       this.itemsGroup,
       this.player,
       (player, item) => {
-        this.itemsGroup.remove(item, true);
+        item.delete();
+        console.log(this.isoGroup);
+        this.isoGroup.children.set(
+          this.isoGroup.children.getArray().map((child) => {
+            if (child.data && child.data.noCollide) {
+              child.data.noCollide = false;
+              child.enablePhysics();
+            }
+            return child;
+          })
+        );
       }
     );
     this.player.applyFriction();

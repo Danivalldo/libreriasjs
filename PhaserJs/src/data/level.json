@@ -2,12 +2,17 @@
   [
     {
       "type": "baseTile",
+      "pos": [0, 8]
+    },
+    {
+      "type": "baseTile",
       "pos": [0, 5]
     },
   
     {
       "type": "baseTile",
-      "pos": [2, 5]
+      "pos": [2, 5],
+      "noCollide": true
     },
     {
       "type": "baseTile",
@@ -22,18 +27,16 @@
       "pos": [4, 0]
     },
     {
-      "type": "underBaseTile",
-      "pos": [3, 0]
+      "type": "baseTile",
+      "pos": [3, 0],
+      "tint": "#bada55"
     }
   ],
   [
     {
       "type": "baseTile",
-      "pos": [3, 0]
-    },
-    {
-      "type": "baseTile",
-      "pos": [1, 0]
+      "pos": [1, 0],
+      "noCollide": true
     },
     {
       "type": "baseTile",
@@ -43,7 +46,10 @@
   [
     {
       "type": "keyHoleCube",
-      "pos": [1, 0]
+      "pos": [1, 0],
+      "data": {
+        "id": "holeKeyYellow1"
+      }
     }
   ]
 ]

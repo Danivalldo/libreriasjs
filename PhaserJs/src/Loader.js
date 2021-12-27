@@ -50,8 +50,8 @@ Phaser.GameObjects.GameObjectFactory.register(
 
 Phaser.GameObjects.GameObjectFactory.register(
   "baseTile",
-  function (x, y, z, key, group, frame = 0) {
-    const sprite = new BaseTile(this.scene, x, y, z, key, frame);
+  function (x, y, z, key, group, data) {
+    const sprite = new BaseTile(this.scene, x, y, z, key, data);
     if (typeof group === "undefined") {
       this.displayList.add(sprite);
       this.updateList.add(sprite);
@@ -65,8 +65,8 @@ Phaser.GameObjects.GameObjectFactory.register(
 
 Phaser.GameObjects.GameObjectFactory.register(
   "item",
-  function (x, y, z, key, group, frame = 0) {
-    const sprite = new Item(this.scene, x, y, z, key, frame);
+  function (x, y, z, key, group, frame = 0, data) {
+    const sprite = new Item(this.scene, x, y, z, key, frame, data);
     if (typeof group === "undefined") {
       this.displayList.add(sprite);
       this.updateList.add(sprite);

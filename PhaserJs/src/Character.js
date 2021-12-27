@@ -11,13 +11,12 @@ class Character extends IsoSprite {
     // console.log(this.shadow);
     // this.shadow.alpha = 0.5;
     this.body.onWorldBounds = true;
-    this.body.bounce.set(0, 0, 0.2);
-    this.body.mass = 0.3;
+    this.body.bounce.set(0, 0, 0);
+    this.body.mass = 1;
     this.accelerationFactor = 1300;
     this.fricctionFactor = 0.08;
     this.maxVelocity = 500;
     this.addEvents();
-    this.customTouchingFloor = false;
   }
 
   update() {
@@ -91,6 +90,7 @@ class Character extends IsoSprite {
     );
 
     spaceBar.on("down", (key) => {
+      console.log("donw", this.body.touching.up);
       if (!this.body.touching.up) {
         return;
       }
@@ -102,6 +102,7 @@ class Character extends IsoSprite {
       if (Math.abs(this.body.velocity.x) > this.maxVelocity) {
         return;
       }
+      this.flipX = true;
       this.body.acceleration.setTo(
         this.body.acceleration.x,
         this.accelerationFactor,
@@ -120,9 +121,7 @@ class Character extends IsoSprite {
     });
 
     rightKey.on("down", (key) => {
-      if (Math.abs(this.body.velocity.y) > this.maxVelocity) {
-        return;
-      }
+      this.flipX = false;
       this.body.acceleration.setTo(
         this.body.acceleration.x,
         -this.accelerationFactor,
@@ -141,6 +140,7 @@ class Character extends IsoSprite {
     });
 
     upKey.on("down", (key) => {
+      this.flipX = false;
       this.body.acceleration.setTo(
         this.accelerationFactor,
         this.body.acceleration.y,
@@ -159,6 +159,7 @@ class Character extends IsoSprite {
     });
 
     downKey.on("down", (key) => {
+      this.flipX = true;
       this.body.acceleration.setTo(
         -this.accelerationFactor,
         this.body.acceleration.y,
