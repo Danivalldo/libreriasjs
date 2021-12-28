@@ -8,11 +8,11 @@
       "type": "baseTile",
       "pos": [0, 5]
     },
-  
+
     {
       "type": "baseTile",
       "pos": [2, 5],
-      "noCollide": true
+      "disable": true
     },
     {
       "type": "baseTile",
@@ -35,8 +35,7 @@
   [
     {
       "type": "baseTile",
-      "pos": [1, 0],
-      "noCollide": true
+      "pos": [1, 0]
     },
     {
       "type": "baseTile",

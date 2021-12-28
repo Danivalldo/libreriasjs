@@ -29,7 +29,6 @@ class IsoScene extends Scene {
     this.createItems(items);
     this.createAnimations();
     this.createCharacter(0, this.cubeSize * 5);
-    console.log(this.isoPhysics);
     this.cameras.main.startFollow(this.player);
     this.cameras.main.setBackgroundColor("#d7f3f6");
   }
@@ -69,6 +68,9 @@ class IsoScene extends Scene {
           this.isoGroup,
           tileData
         );
+        if (tileData.disable) {
+          tile.disablePhysics();
+        }
       }
     }
   }
@@ -104,12 +106,10 @@ class IsoScene extends Scene {
       this.player,
       (player, item) => {
         item.delete();
-        console.log(this.isoGroup);
         this.isoGroup.children.set(
           this.isoGroup.children.getArray().map((child) => {
-            if (child.data && child.data.noCollide) {
-              child.data.noCollide = false;
-              child.enablePhysics();
+            if (child.data && child.data.disable) {
+              child.enablePhysics(true);
             }
             return child;
           })
