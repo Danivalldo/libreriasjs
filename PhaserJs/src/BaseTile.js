@@ -1,4 +1,5 @@
 import IsoSprite from "phaser3-plugin-isometric/src/IsoSprite";
+// import IsoSprite from "./IsoPlugin/IsoSprite";
 
 class BaseTile extends IsoSprite {
   constructor(scene, x, y, z, key, data) {
@@ -8,39 +9,32 @@ class BaseTile extends IsoSprite {
       destroy: () => {},
     };
     this.addEvents();
-    this.enablePhysics();
+    this.scene.isoPhysics.world.enable(this);
+    this.body.immovable = true;
+    this.body.moves = false;
+    this.body.allowGravity = false;
   }
 
   enablePhysics(reset) {
-    this.scene.isoPhysics.world.enable(this);
-
+    this.body.enable = true;
+    this.body.prev = {
+      x: 0,
+      y: 0,
+      z: 0,
+    };
+    this.body._dx = 0;
+    this.body.deltaMax = 0;
     // this.body.bounce.set(0, 0, 0);
     // this.body.mass = 1;
-    this.body.moves = false;
-    this.body.immovable = true;
+    // this.body.moves = false;
+    // this.body.immovable = true;
     // this.body.gravity = 0;
-    this.body.allowGravity = false;
-    // this.body.position.setTo(
-    //   this.body.position.x,
-    //   this.body.position.y,
-    //   this.body.position.z
-    // );
-    // this.body.prev = {
-    //   x: this.body.position.x,
-    //   y: this.body.position.y,
-    //   z: this.body.position.z,
-    // };
+    // this.body.allowGravity = false;
     // this.body.scale = 0.2;
   }
 
   disablePhysics() {
-    this.scene.isoPhysics.world.bodies.entries =
-      this.scene.isoPhysics.world.bodies.entries.filter((body) => {
-        return body !== this.body;
-      });
-    this.scene.isoPhysics.world.bodies.length =
-      this.scene.isoPhysics.world.bodies.entries.length;
-    this.body = null;
+    this.body.enable = false;
   }
 
   update() {
