@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import IsoPlugin, { IsoPhysics } from "phaser3-plugin-isometric";
+// import IsoPlugin, { IsoPhysics } from "./IsoPlugin";
 import Character from "./Character";
 import BaseTile from "./BaseTile";
 import Item from "./Item";

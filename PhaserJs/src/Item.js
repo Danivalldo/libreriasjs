@@ -1,4 +1,5 @@
 import IsoSprite from "phaser3-plugin-isometric/src/IsoSprite";
+// import IsoSprite from "./IsoPlugin/IsoSprite";
 
 class Item extends IsoSprite {
   constructor(scene, x, y, z, key, frame, data) {
