@@ -8,11 +8,9 @@
       "type": "baseTile",
       "pos": [0, 5]
     },
-
     {
       "type": "baseTile",
-      "pos": [2, 5],
-      "disable": true
+      "pos": [2, 5]
     },
     {
       "type": "baseTile",
@@ -36,6 +34,13 @@
     {
       "type": "baseTile",
       "pos": [1, 0]
+    },
+    {
+      "type": "baseTile",
+      "pos": [1, 0],
+      "offset": [1, 0, 20],
+      "tint": "#ff0000",
+      "alpha": 0.5
     },
     {
       "type": "baseTile",
