@@ -61,9 +61,11 @@ class IsoScene extends Scene {
       for (let n = 0, m = levelRow.length; n < m; n++) {
         const tileData = levelRow[n];
         const tile = this.add.baseTile(
-          tileData.pos[0] * this.cubeSize,
-          tileData.pos[1] * this.cubeSize,
-          i * this.cubeSize,
+          tileData.pos[0] * this.cubeSize +
+            (tileData.offset ? tileData.offset[0] : 0),
+          tileData.pos[1] * this.cubeSize +
+            (tileData.offset ? tileData.offset[1] : 0),
+          i * this.cubeSize + (tileData.offset ? tileData.offset[2] : 0),
           tileData.type,
           this.isoGroup,
           tileData
@@ -106,14 +108,14 @@ class IsoScene extends Scene {
       this.player,
       (player, item) => {
         item.delete();
-        this.isoGroup.children.set(
-          this.isoGroup.children.getArray().map((child) => {
-            if (child.data && child.data.disable) {
-              child.enablePhysics(true);
-            }
-            return child;
-          })
-        );
+        // this.isoGroup.children.set(
+        //   this.isoGroup.children.getArray().map((child) => {
+        //     if (child.data && child.data.disable) {
+        //       child.enablePhysics(true);
+        //     }
+        //     return child;
+        //   })
+        // );
       }
     );
     this.player.applyFriction();
