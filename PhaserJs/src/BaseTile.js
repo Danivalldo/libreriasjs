@@ -16,7 +16,6 @@ class BaseTile extends IsoSprite {
 
     // this.body.bounce.set(0, 0, 0);
     // this.body.mass = 1;
-    this.body.moves = false;
     this.body.immovable = true;
     // this.body.gravity = 0;
     this.body.allowGravity = false;
