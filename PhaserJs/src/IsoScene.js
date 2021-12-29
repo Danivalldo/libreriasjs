@@ -70,9 +70,6 @@ class IsoScene extends Scene {
           this.isoGroup,
           tileData
         );
-        if (tileData.disable) {
-          tile.disablePhysics();
-        }
       }
     }
   }
@@ -81,13 +78,15 @@ class IsoScene extends Scene {
     for (let i = 0, j = items.length; i < j; i++) {
       const itemsRow = items[i];
       for (let n = 0, m = itemsRow.length; n < m; n++) {
-        const item = itemsRow[n];
+        const itemData = itemsRow[n];
+        console.log(itemData);
         this.add.item(
-          item.pos[0] * this.cubeSize,
-          item.pos[1] * this.cubeSize,
+          itemData.pos[0] * this.cubeSize,
+          itemData.pos[1] * this.cubeSize,
           i * this.cubeSize + 10,
-          item.type,
-          this.itemsGroup
+          itemData.type,
+          this.itemsGroup,
+          itemData
         );
       }
     }
@@ -107,7 +106,7 @@ class IsoScene extends Scene {
       this.itemsGroup,
       this.player,
       (player, item) => {
-        item.delete();
+        item.onGet();
         // this.isoGroup.children.set(
         //   this.isoGroup.children.getArray().map((child) => {
         //     if (child.data && child.data.disable) {

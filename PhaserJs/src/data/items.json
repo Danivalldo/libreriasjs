@@ -3,14 +3,24 @@
   [
     {
       "type": "key",
-      "pos": [0, 8]
+      "pos": [0, 8],
+      "onGet": [
+        {
+          "action": "delete",
+          "target": "holeKeyYellow1"
+        },
+        {
+          "action": "delete",
+          "target": "self"
+        }
+      ]
     }
   ],
   [],
   [
     {
       "type": "star",
-      "pos": [0,0]
+      "pos": [0, 0]
     }
   ]
 ]

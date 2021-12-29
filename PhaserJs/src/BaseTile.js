@@ -9,28 +9,30 @@ class BaseTile extends IsoSprite {
       destroy: () => {},
     };
     this.addEvents();
+    this.applyPhysics();
+    if (data.id) {
+      this.id = data.id;
+    }
+    if (data.tint) {
+      this.setTint(data.tint);
+    }
+    if (typeof data.alpha === "number") {
+      this.setAlpha(data.alpha);
+    }
+  }
+
+  applyPhysics() {
     this.scene.isoPhysics.world.enable(this);
     this.body.immovable = true;
-    this.body.moves = false;
     this.body.allowGravity = false;
+    // this.body.bounce.set(0, 0, 0);
+    // this.body.mass = 1;
+    // this.body.moves = false;
+    // this.body.gravity = 0;
   }
 
   enablePhysics(reset) {
     this.body.enable = true;
-    this.body.prev = {
-      x: 0,
-      y: 0,
-      z: 0,
-    };
-    this.body._dx = 0;
-    this.body.deltaMax = 0;
-    // this.body.bounce.set(0, 0, 0);
-    // this.body.mass = 1;
-    this.body.immovable = true;
-    // this.body.moves = false;
-    // this.body.gravity = 0;
-    // this.body.allowGravity = false;
-    // this.body.scale = 0.2;
   }
 
   disablePhysics() {
