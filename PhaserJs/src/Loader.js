@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 import IsoPlugin, { IsoPhysics } from "phaser3-plugin-isometric";
 // import IsoPlugin, { IsoPhysics } from "./IsoPlugin";
-import Character from "./Character";
+import Player from "./Player";
 import BaseTile from "./BaseTile";
 import Item from "./Item";
 
@@ -15,6 +15,7 @@ class Loader {
     this.scene.load.image("keyHoleCube", "imgs/tiles/key_hole_cube.png");
     this.scene.load.image("shadow", "imgs/characters/shadow.png");
     this.scene.load.image("key", "imgs/items/key.png");
+    this.scene.load.image("coin", "imgs/items/coin.png");
     this.scene.load.image("star", "imgs/items/star.png");
     this.scene.load.spritesheet(
       "character",
@@ -35,9 +36,9 @@ class Loader {
 }
 
 Phaser.GameObjects.GameObjectFactory.register(
-  "character",
+  "player",
   function (x, y, z, key, group, frame = 0) {
-    const sprite = new Character(this.scene, x, y, z, key, frame);
+    const sprite = new Player(this.scene, x, y, z, key, frame);
     if (typeof group === "undefined") {
       this.displayList.add(sprite);
       this.updateList.add(sprite);

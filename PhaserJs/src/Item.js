@@ -6,9 +6,15 @@ class Item extends IsoSprite {
     super(scene, x, y, z, key, 0);
     this.data = { ...data, destroy: () => {} };
     scene.isoPhysics.world.enable(this);
-    // if (data.id) {
-    //   this.id = data.id;
-    // }
+    if (data.id) {
+      this.id = data.id;
+    }
+    if (data.tint) {
+      this.setTint(data.tint);
+    }
+    if (typeof data.alpha === "number") {
+      this.setAlpha(data.alpha);
+    }
   }
 
   onGet() {
@@ -34,7 +40,9 @@ class Item extends IsoSprite {
             child.delete();
           }
         });
-        break;
+        return;
+      case "add_coin":
+        this.scene.events.emit("addCoin");
       default:
         return;
     }

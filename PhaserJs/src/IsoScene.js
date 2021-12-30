@@ -121,7 +121,7 @@ class IsoScene extends Scene {
   }
 
   createCharacter(i, j) {
-    const characterTile = this.add.character(i, j, 500, "character");
+    const characterTile = this.add.player(i, j, 500, "character");
     this.player = characterTile;
   }
 
