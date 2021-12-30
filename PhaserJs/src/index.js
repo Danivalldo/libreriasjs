@@ -2,6 +2,7 @@ import "./SCSS/index.scss";
 import Phaser, { Game, AUTO } from "phaser";
 Phaser.GROUP = "Group";
 import IsoScene from "./IsoScene";
+import UILayer from "./UILayer";
 // import IsoCollisionExample from "./IsoCollisionExample";
 
 // 500 / 70
@@ -12,12 +13,9 @@ import IsoScene from "./IsoScene";
 
 const config = {
   type: AUTO,
-  // width: 480,
-  // height: 854,
   width: window.innerWidth,
   height: window.innerHeight,
-  // pixelArt: true,
-  scene: IsoScene,
+  scene: [IsoScene, UILayer],
   physics: { default: "arcade" },
 };
 
