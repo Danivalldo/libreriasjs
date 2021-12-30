@@ -1,5 +1,6 @@
 import { Scene } from "phaser";
 import Loader from "./Loader";
+import SoundsCtrl from "./SoundsCtrl";
 import level from "./data/level.json";
 import items from "./data/items.json";
 
@@ -10,16 +11,18 @@ class IsoScene extends Scene {
       mapAdd: { isoPlugin: "iso", isoPhysics: "isoPhysics" },
     };
     super(sceneConfig);
+    this.soundsCtrl = new SoundsCtrl(this);
     this.loader = new Loader(this);
     this.player = undefined;
-    this.cubes = 0;
     this.cubeSize = 40;
   }
   preload() {
     this.loader.loadAssets();
+    this.soundsCtrl.loadSounds();
   }
 
   create() {
+    this.soundsCtrl.addSounds();
     this.isoGroup = this.add.group();
     this.itemsGroup = this.add.group();
     this.isoPhysics.world.gravity.setTo(0, 0, -1000);
@@ -96,25 +99,13 @@ class IsoScene extends Scene {
     if (!this.player) {
       return;
     }
-    this.isoPhysics.world.collide(this.player, this.isoGroup, (player) => {
-      if (player.body.touching.up) {
-        // player.anims.play("idle", true);
-      }
-    });
+    this.isoPhysics.world.collide(this.player, this.isoGroup, (player) => {});
     this.isoPhysics.world.collide(this.itemsGroup, this.isoGroup);
     this.isoPhysics.world.collide(
       this.itemsGroup,
       this.player,
       (player, item) => {
         item.onGet();
-        // this.isoGroup.children.set(
-        //   this.isoGroup.children.getArray().map((child) => {
-        //     if (child.data && child.data.disable) {
-        //       child.enablePhysics(true);
-        //     }
-        //     return child;
-        //   })
-        // );
       }
     );
     this.player.applyFriction();
@@ -126,7 +117,9 @@ class IsoScene extends Scene {
   }
 
   gameOver() {
-    alert("Game Over");
+    this.player.delete();
+    this.events.emit("gameOver");
+    this.scene.restart();
   }
 }
 

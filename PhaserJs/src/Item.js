@@ -43,6 +43,10 @@ class Item extends IsoSprite {
         return;
       case "add_coin":
         this.scene.events.emit("addCoin");
+        return;
+      case "play_sound":
+        this.scene.soundsCtrl.play(action.sound);
+        return;
       default:
         return;
     }

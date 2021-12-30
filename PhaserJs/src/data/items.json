@@ -6,6 +6,10 @@
       "pos": [0, 8],
       "onGet": [
         {
+          "action": "play_sound",
+          "sound": "keySound"
+        },
+        {
           "action": "delete",
           "target": "holeKeyYellow1"
         },
@@ -23,6 +27,10 @@
       "onGet":[
         {
           "action": "add_coin"
+        },
+        {
+          "action": "play_sound",
+          "sound": "coinSound2"
         },
         {
           "action": "delete",

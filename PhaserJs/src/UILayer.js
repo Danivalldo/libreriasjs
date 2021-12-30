@@ -8,32 +8,39 @@ class UILayer extends Scene {
     };
     super(sceneConfig);
     this.coins = 0;
+    this.infoCoins = undefined;
   }
 
   preload() {
-    this.load.image("coin", "imgs/items/coin.png");
-    this.load.image("star", "imgs/items/star.png");
+    this.load.image("uiCoin", "imgs/items/coin.png");
+    this.load.image("uiStar", "imgs/items/star.png");
+  }
+
+  updateText(newText) {
+    if (!this.infoCoins) {
+      return;
+    }
+    this.infoCoins.setText(newText);
   }
 
   create() {
-    console.log("create UI LAYER");
-    const info = this.add.text(75, 37, "x0", {
+    this.infoCoins = this.add.text(75, 37, "x0", {
       font: "30px Helvetica",
       fill: "#41737a",
     });
-    this.add.image(50, 50, "coin");
+    this.add.image(50, 50, "uiCoin");
 
     const game = this.scene.get("IsoScene");
 
-    game.events.on(
-      "addCoin",
-      function () {
-        this.coins += 1;
+    game.events.on("addCoin", () => {
+      this.coins += 1;
+      this.updateText(`x${this.coins}`);
+    });
 
-        info.setText(`x${this.coins}`);
-      },
-      this
-    );
+    game.events.on("gameOver", () => {
+      this.coins = 0;
+      this.updateText(`x0`);
+    });
   }
 }
 

@@ -17,6 +17,7 @@ class Loader {
     this.scene.load.image("key", "imgs/items/key.png");
     this.scene.load.image("coin", "imgs/items/coin.png");
     this.scene.load.image("star", "imgs/items/star.png");
+
     this.scene.load.spritesheet(
       "character",
       "imgs/characters/character_femaleAdventurer_sheet_resized.png",

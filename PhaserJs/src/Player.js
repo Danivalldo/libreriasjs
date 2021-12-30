@@ -24,8 +24,7 @@ class Player extends IsoSprite {
     this.applyVelocityLimit();
     this.applyFriction();
     if (this.isoZ < -200) {
-      console.log("respaw");
-      this.respawn();
+      this.scene.gameOver();
     }
   }
 
@@ -43,6 +42,9 @@ class Player extends IsoSprite {
   }
 
   applyVelocityLimit() {
+    if (!this.body) {
+      return;
+    }
     if (Math.abs(this.body.velocity.x) > this.maxVelocity) {
       this.body.velocity.x = Math.round(
         Math.sign(this.body.velocity.x) * this.maxVelocity
@@ -56,6 +58,9 @@ class Player extends IsoSprite {
   }
 
   applyFriction() {
+    if (!this.body) {
+      return;
+    }
     if (this.body.velocity.x === 0 && this.body.velocity.y === 0) {
       return;
     }
@@ -182,8 +187,14 @@ class Player extends IsoSprite {
     });
   }
 
-  setCustomTouchingFloor(touching = false) {
-    this.customTouchingFloor = touching;
+  removeEvents() {
+    this.scene.events.off("update");
+    this.scene.events.off("postupdate");
+  }
+
+  delete() {
+    this.removeEvents();
+    this.destroy();
   }
 }
 
