@@ -2,26 +2,25 @@ import Phaser from "phaser";
 // import IsoSprite from "./IsoPlugin/IsoSprite";
 import IsoSprite from "phaser3-plugin-isometric/src/IsoSprite";
 
-class Character extends IsoSprite {
+class Player extends IsoSprite {
   constructor(scene, x, y, z, key, frame) {
     super(scene, x, y, z, key, frame);
-    scene.isoPhysics.world.enable(this);
-    // this.body.collideWorldBounds = true;
-    // this.shadow = scene.add.isoSprite(30, 30, 40, "shadow");
-    // console.log(this.shadow);
-    // this.shadow.alpha = 0.5;
+    this.jumping = false;
+    this.applyPhysics();
+    this.addEvents();
+  }
+
+  applyPhysics() {
+    this.scene.isoPhysics.world.enable(this);
     this.body.onWorldBounds = true;
     this.body.bounce.set(0, 0, 0);
     this.body.mass = 1;
     this.accelerationFactor = 1300;
     this.fricctionFactor = 0.08;
     this.maxVelocity = 500;
-    this.addEvents();
   }
 
   update() {
-    // console.log(this.body.velocity.x, this.body.velocity.y);
-    // this.updateShadow();
     this.applyVelocityLimit();
     this.applyFriction();
     if (this.isoZ < -200) {
@@ -30,17 +29,18 @@ class Character extends IsoSprite {
     }
   }
 
+  postUpdate() {
+    if (this.jumping && this.body.touching.up) {
+      this.jumping = false;
+      this.anims.play("idle", true);
+    }
+  }
+
   respawn() {
     this.body.velocity.setTo(0, 0, 0);
     this.body.position.setTo(0, this.scene.cubeSize * 5, 500);
     this.body.acceleration.setTo(0, 0, 0);
   }
-
-  // updateShadow() {
-  //   this.shadow.isoX = this.isoX;
-  //   this.shadow.isoY = this.isoY;
-  //   this.shadow.isoZ = this.isoZ;
-  // }
 
   applyVelocityLimit() {
     if (Math.abs(this.body.velocity.x) > this.maxVelocity) {
@@ -73,6 +73,10 @@ class Character extends IsoSprite {
       this.update();
     });
 
+    this.scene.events.on("postupdate", () => {
+      this.postUpdate();
+    });
+
     const spaceBar = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
@@ -90,10 +94,10 @@ class Character extends IsoSprite {
     );
 
     spaceBar.on("down", (key) => {
-      console.log("donw", this.body.touching.up);
       if (!this.body.touching.up) {
         return;
       }
+      this.jumping = true;
       this.body.velocity.setTo(this.body.velocity.x, this.body.velocity.y, 300);
       this.anims.play("jump", true);
     });
@@ -183,4 +187,4 @@ class Character extends IsoSprite {
   }
 }
 
-export default Character;
+export default Player;
