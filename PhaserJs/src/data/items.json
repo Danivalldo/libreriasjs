@@ -16,11 +16,31 @@
       ]
     }
   ],
-  [],
+  [
+    {
+      "type": "coin",
+      "pos": [2, 5],
+      "onGet":[
+        {
+          "action": "add_coin"
+        },
+        {
+          "action": "delete",
+          "target": "self"
+        }
+      ]
+    }
+  ],
   [
     {
       "type": "star",
-      "pos": [0, 0]
+      "pos": [0, 0],
+      "onGet":[
+        {
+          "action": "delete",
+          "target": "self"
+        }
+      ]
     }
   ]
 ]
