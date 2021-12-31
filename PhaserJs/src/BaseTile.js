@@ -52,7 +52,7 @@ class BaseTile extends IsoSprite {
 
   delete() {
     this.disablePhysics();
-    this.scene.isoGroup.remove(this, true, true);
+    this.scene.tilesGroup.remove(this, true, true);
   }
 }
 

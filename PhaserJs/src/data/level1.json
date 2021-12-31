@@ -1,0 +1,117 @@
+{
+  "configuration": {
+    "backgroundColor": "#d7f3f6",
+    "cameraFollow": true
+  },
+  "player": {
+    "pos": [0, 5]
+  },
+  "items": [
+    [],
+    [
+      {
+        "type": "key",
+        "pos": [0, 8],
+        "onGet": [
+          {
+            "action": "play_sound",
+            "sound": "keySound"
+          },
+          {
+            "action": "delete",
+            "target": "holeKeyYellow1"
+          },
+          {
+            "action": "delete",
+            "target": "self"
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "coin",
+        "pos": [2, 5],
+        "onGet": [
+          {
+            "action": "add_coin"
+          },
+          {
+            "action": "play_sound",
+            "sound": "coinSound2"
+          },
+          {
+            "action": "delete",
+            "target": "self"
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "star",
+        "pos": [0, 0],
+        "onGet": [
+          {
+            "action": "play_sound",
+            "sound": "keySound"
+          },
+          {
+            "action": "delete",
+            "target": "self"
+          }
+        ]
+      }
+    ]
+  ],
+  "tiles": [
+    [
+      {
+        "type": "baseTile",
+        "pos": [0, 8]
+      },
+      {
+        "type": "baseTile",
+        "pos": [0, 5]
+      },
+      {
+        "type": "baseTile",
+        "pos": [2, 5]
+      },
+      {
+        "type": "baseTile",
+        "pos": [4, 5]
+      },
+      {
+        "type": "baseTile",
+        "pos": [4, 2]
+      },
+      {
+        "type": "baseTile",
+        "pos": [4, 0]
+      },
+      {
+        "type": "baseTile",
+        "pos": [3, 0]
+      }
+    ],
+    [
+      {
+        "type": "baseTile",
+        "pos": [1, 0]
+      },
+      {
+        "type": "baseTile",
+        "pos": [0, 0]
+      }
+    ],
+    [
+      {
+        "type": "keyHoleCube",
+        "pos": [1, 0],
+        "offset": [1, 0, 0],
+        "id": "holeKeyYellow1"
+      }
+    ]
+  ]
+}
