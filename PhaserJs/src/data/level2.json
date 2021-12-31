@@ -1,8 +1,7 @@
 {
   "configuration": {
     "backgroundColor": "#d7f3f6",
-    "cameraFollow": true,
-    "soundTrack": "soundTrackDuck"
+    "cameraFollow": true
   },
   "player": {
     "pos": [0, 5, 5]
@@ -48,8 +47,6 @@
         ]
       }
     ],
-    [],
-    [],
     [
       {
         "type": "star",
@@ -108,12 +105,10 @@
         "pos": [0, 0]
       }
     ],
-    [],
-    [],
     [
       {
         "type": "keyHoleCube",
-        "pos": [0, 0],
+        "pos": [1, 0],
         "offset": [1, 0, 0],
         "id": "holeKeyYellow1"
       }

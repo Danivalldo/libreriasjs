@@ -13,7 +13,7 @@ class IsoScene extends Scene {
     this.soundsCtrl = new SoundsCtrl(this);
     this.loader = new Loader(this);
     this.player = undefined;
-    this.cubeSize = 40;
+    this.gridSize = 40;
   }
   preload() {
     this.loader.loadAssets();
@@ -33,11 +33,15 @@ class IsoScene extends Scene {
     this.createItems(items);
     this.createAnimations();
     this.createPlayer(
-      player.pos[0] * this.cubeSize,
-      player.pos[1] * this.cubeSize
+      player.pos[0] * this.gridSize,
+      player.pos[1] * this.gridSize,
+      player.pos[2] * this.gridSize
     );
     if (configuration.cameraFollow) {
       this.cameras.main.startFollow(this.player);
+    }
+    if (configuration.soundTrack) {
+      this.soundsCtrl.playSoundTrack(configuration.soundTrack);
     }
     this.cameras.main.setBackgroundColor(
       configuration.backgroundColor || "#d7f3f6"
@@ -71,12 +75,12 @@ class IsoScene extends Scene {
       const tilesRow = tiles[i];
       for (let n = 0, m = tilesRow.length; n < m; n++) {
         const tileData = tilesRow[n];
-        const tile = this.add.baseTile(
-          tileData.pos[0] * this.cubeSize +
+        this.add.baseTile(
+          tileData.pos[0] * this.gridSize +
             (tileData.offset ? tileData.offset[0] : 0),
-          tileData.pos[1] * this.cubeSize +
+          tileData.pos[1] * this.gridSize +
             (tileData.offset ? tileData.offset[1] : 0),
-          i * this.cubeSize + (tileData.offset ? tileData.offset[2] : 0),
+          i * this.gridSize + (tileData.offset ? tileData.offset[2] : 0),
           tileData.type,
           this.tilesGroup,
           tileData
@@ -90,11 +94,10 @@ class IsoScene extends Scene {
       const itemsRow = items[i];
       for (let n = 0, m = itemsRow.length; n < m; n++) {
         const itemData = itemsRow[n];
-        console.log(itemData);
         this.add.item(
-          itemData.pos[0] * this.cubeSize,
-          itemData.pos[1] * this.cubeSize,
-          i * this.cubeSize + 10,
+          itemData.pos[0] * this.gridSize,
+          itemData.pos[1] * this.gridSize,
+          i * this.gridSize + 10,
           itemData.type,
           this.itemsGroup,
           itemData
@@ -103,8 +106,8 @@ class IsoScene extends Scene {
     }
   }
 
-  createPlayer(i, j) {
-    const characterTile = this.add.player(i, j, 500, "character");
+  createPlayer(x, y, z = 500) {
+    const characterTile = this.add.player(x, y, z, "character");
     this.player = characterTile;
   }
 
@@ -115,8 +118,8 @@ class IsoScene extends Scene {
     this.isoPhysics.world.collide(this.player, this.tilesGroup, (player) => {});
     this.isoPhysics.world.collide(this.itemsGroup, this.tilesGroup);
     this.isoPhysics.world.collide(
-      this.itemsGroup,
       this.player,
+      this.itemsGroup,
       (player, item) => {
         item.onGet();
       }
