@@ -16,8 +16,12 @@ class IsoScene extends Scene {
     this.gridSize = 40;
   }
   preload() {
+    const { configuration } = level;
     this.loader.loadAssets();
     this.soundsCtrl.loadSounds();
+    if (configuration.soundTrack) {
+      this.soundsCtrl.loadSoundTrack(configuration.soundTrack);
+    }
   }
 
   create() {
@@ -128,6 +132,7 @@ class IsoScene extends Scene {
   }
 
   gameOver() {
+    this.soundsCtrl.stopSoundTrack();
     this.player.delete();
     this.events.emit("gameOver");
     this.scene.restart();

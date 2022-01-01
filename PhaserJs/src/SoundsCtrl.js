@@ -8,13 +8,25 @@
 class SoundsCtrl {
   constructor(scene) {
     this.scene = scene;
+    this.soundTracks = [
+      { key: "soundTrackDuck", url: "audios/Fluffing-a-Duck.mp3" },
+    ];
     this.soundsData = [
       { key: "coinSound", url: "audios/coin.wav" },
       { key: "coinSound2", url: "audios/coin2.wav" },
       { key: "keySound", url: "audios/key.wav" },
-      { key: "soundTrackDuck", url: "audios/Fluffing-a-Duck.mp3" },
     ];
     this.sounds = {};
+    this.soundTrackKey = undefined;
+  }
+  loadSoundTrack(soundTrackKey) {
+    const soundTrack = this.soundTracks.filter((soundTrackData) => {
+      return soundTrackKey === soundTrackData.key;
+    })[0];
+    if (soundTrack) {
+      this.scene.load.audio(soundTrack.key, soundTrack.url);
+      this.soundTrackKey = soundTrack.key;
+    }
   }
   loadSounds() {
     for (let i = 0, j = this.soundsData.length; i < j; i++) {
@@ -27,6 +39,12 @@ class SoundsCtrl {
       const soundData = this.soundsData[i];
       this.sounds[soundData.key] = this.scene.sound.add(soundData.key);
     }
+    if (this.soundTrackKey) {
+      this.sounds[this.soundTrackKey] = this.scene.sound.add(
+        this.soundTrackKey
+      );
+      this.sounds[this.soundTrackKey].loop = true;
+    }
   }
   play(key) {
     if (!this.sounds[key]) {
@@ -34,8 +52,17 @@ class SoundsCtrl {
     }
     this.sounds[key].play();
   }
-  playSoundTrack(key) {
-    this.play(key);
+  playSoundTrack() {
+    if (!this.soundTrackKey) {
+      return;
+    }
+    this.play(this.soundTrackKey);
+  }
+  stopSoundTrack() {
+    if (!this.soundTrackKey) {
+      return;
+    }
+    this.sounds[this.soundTrackKey].stop();
   }
 }
 
