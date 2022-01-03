@@ -5,7 +5,7 @@
     "soundTrack": "soundTrackDuck"
   },
   "player": {
-    "pos": [0, 5, 5]
+    "pos": [-1, 4, 2]
   },
   "items": [
     [],
@@ -46,6 +46,23 @@
             "target": "self"
           }
         ]
+      },
+      {
+        "type": "coin",
+        "pos": [-2, 5],
+        "onGet": [
+          {
+            "action": "add_coin"
+          },
+          {
+            "action": "play_sound",
+            "sound": "coinSound2"
+          },
+          {
+            "action": "delete",
+            "target": "self"
+          }
+        ]
       }
     ],
     [],
@@ -53,7 +70,7 @@
     [
       {
         "type": "star",
-        "pos": [0, 0],
+        "pos": [-1, 4],
         "onGet": [
           {
             "action": "play_sound",
@@ -70,8 +87,42 @@
   "tiles": [
     [
       {
+        "comment": "Base para la llave amarilla",
         "type": "baseTile",
         "pos": [0, 8]
+      },
+      {
+        "type": "baseTile",
+        "pos": [-2, 5]
+      },
+      {
+        "type": "baseTile",
+        "pos": [-2, 4]
+      },
+      {
+        "type": "baseTile",
+        "pos": [-2, 3]
+      },
+      {
+        "type": "baseTile",
+        "pos": [-1, 3]
+      },
+      {
+        "type": "baseTile",
+        "pos": [0, 3]
+      },
+      {
+        "type": "baseTile",
+        "pos": [-1, 5]
+      },
+      {
+        "comment": "Base para el jugador",
+        "type": "baseTile",
+        "pos": [-1, 4]
+      },
+      {
+        "type": "baseTile",
+        "pos": [0, 4]
       },
       {
         "type": "baseTile",
@@ -112,8 +163,9 @@
     [],
     [
       {
+        "comment": "Base para la estrella",
         "type": "keyHoleCube",
-        "pos": [0, 0],
+        "pos": [-1, 4],
         "offset": [1, 0, 0],
         "id": "holeKeyYellow1"
       }
