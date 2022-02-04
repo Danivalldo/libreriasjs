@@ -5,4 +5,8 @@ body {
 
 .container > div {
   position: absolute;
+  img {
+    display: block;
+    width: 100%;
+  }
 }
