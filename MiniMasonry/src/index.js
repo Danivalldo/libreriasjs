@@ -17,7 +17,6 @@ const getRandomValueInRange = (min, max) => {
 };
 
 const addNewImages = () => {
-  console.log("buah");
   for (let i = 0; i < 20; i++) {
     const div = document.createElement("div");
     const img = document.createElement("img");
