@@ -12,11 +12,26 @@ const handleOnLoadImage = () => {
   miniMasonry.layout();
 };
 
+const getRandomValueInRange = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
 const addNewImages = () => {
-  console.log("add new images");
+  console.log("buah");
+  for (let i = 0; i < 20; i++) {
+    const div = document.createElement("div");
+    const img = document.createElement("img");
+    img.src = `https://picsum.photos/${getRandomValueInRange(
+      200,
+      500
+    )}/${getRandomValueInRange(200, 500)}`;
+    img.onload = handleOnLoadImage;
+    div.appendChild(img);
+    container.appendChild(div);
+  }
   window.setTimeout(() => {
     isLoading = false;
-  }, 200);
+  }, 1000);
 };
 
 const isScrollNearBottom = () => {
