@@ -50,5 +50,3 @@ window.addEventListener("scroll", () => {
 container.querySelectorAll("img").forEach((img) => {
   img.addEventListener("load", handleOnLoadImage);
 });
-
-console.log("Ready to go!", MiniMasonry);
