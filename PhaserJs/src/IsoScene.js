@@ -1,5 +1,8 @@
 import { Scene } from "phaser";
 import Loader from "./Loader";
+import Player from "./Player";
+import BaseTile from "./BaseTile";
+import Item from "./Item";
 import SoundsCtrl from "./SoundsCtrl";
 import level from "./data/level1.json";
 

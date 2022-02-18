@@ -1,9 +1,4 @@
-import Phaser from "phaser";
 import IsoPlugin, { IsoPhysics } from "phaser3-plugin-isometric";
-// import IsoPlugin, { IsoPhysics } from "./IsoPlugin";
-import Player from "./Player";
-import BaseTile from "./BaseTile";
-import Item from "./Item";
 
 class Loader {
   constructor(scene) {
@@ -35,50 +30,5 @@ class Loader {
     });
   }
 }
-
-Phaser.GameObjects.GameObjectFactory.register(
-  "player",
-  function (x, y, z, key, group, frame = 0) {
-    const sprite = new Player(this.scene, x, y, z, key, frame);
-    if (typeof group === "undefined") {
-      this.displayList.add(sprite);
-      this.updateList.add(sprite);
-    } else {
-      group.add(sprite, true);
-    }
-
-    return sprite;
-  }
-);
-
-Phaser.GameObjects.GameObjectFactory.register(
-  "baseTile",
-  function (x, y, z, key, group, data) {
-    const sprite = new BaseTile(this.scene, x, y, z, key, data);
-    if (typeof group === "undefined") {
-      this.displayList.add(sprite);
-      this.updateList.add(sprite);
-    } else {
-      group.add(sprite, true);
-    }
-
-    return sprite;
-  }
-);
-
-Phaser.GameObjects.GameObjectFactory.register(
-  "item",
-  function (x, y, z, key, group, data) {
-    const sprite = new Item(this.scene, x, y, z, key, data);
-    if (typeof group === "undefined") {
-      this.displayList.add(sprite);
-      this.updateList.add(sprite);
-    } else {
-      group.add(sprite, true);
-    }
-
-    return sprite;
-  }
-);
 
 export default Loader;

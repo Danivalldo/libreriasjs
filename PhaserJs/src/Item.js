@@ -1,5 +1,5 @@
+import Phaser from "phaser";
 import IsoSprite from "phaser3-plugin-isometric/src/IsoSprite";
-// import IsoSprite from "./IsoPlugin/IsoSprite";
 
 class Item extends IsoSprite {
   constructor(scene, x, y, z, key, data) {
@@ -62,5 +62,20 @@ class Item extends IsoSprite {
     this.scene.itemsGroup.remove(this, true, true);
   }
 }
+
+Phaser.GameObjects.GameObjectFactory.register(
+  "item",
+  function (x, y, z, key, group, data) {
+    const sprite = new Item(this.scene, x, y, z, key, data);
+    if (typeof group === "undefined") {
+      this.displayList.add(sprite);
+      this.updateList.add(sprite);
+    } else {
+      group.add(sprite, true);
+    }
+
+    return sprite;
+  }
+);
 
 export default Item;
