@@ -130,7 +130,6 @@ class IsoScene extends Scene {
         item.onGet();
       }
     );
-    this.player.applyFriction();
   }
 
   gameOver() {

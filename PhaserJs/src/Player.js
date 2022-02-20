@@ -28,6 +28,7 @@ class Player extends IsoSprite {
   }
 
   postUpdate() {
+    this.applyFriction();
     if (this.jumping && this.body.touching.up) {
       this.jumping = false;
       this.anims.play("idle", true);
