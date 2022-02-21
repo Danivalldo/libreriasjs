@@ -20,10 +20,13 @@ body {
   font-weight: 100;
 }
 
-.container > div {
-  position: absolute;
-  img {
-    display: block;
-    width: 100%;
+.container {
+  position: relative;
+  div {
+    position: absolute;
+    img {
+      display: block;
+      width: 100%;
+    }
   }
 }
