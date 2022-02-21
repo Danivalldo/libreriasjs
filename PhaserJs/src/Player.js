@@ -148,7 +148,7 @@ class Player extends IsoSprite {
       this.anims.play("idle", true);
     });
 
-    upKey.on("down", (key) => {
+    downKey.on("down", (key) => {
       this.flipX = false;
       this.body.acceleration.setTo(
         this.accelerationFactor,
@@ -158,7 +158,7 @@ class Player extends IsoSprite {
       this.anims.play("walk", true);
     });
 
-    upKey.on("up", (key) => {
+    downKey.on("up", (key) => {
       this.body.acceleration.setTo(
         0,
         this.body.acceleration.y,
@@ -167,7 +167,7 @@ class Player extends IsoSprite {
       this.anims.play("idle", true);
     });
 
-    downKey.on("down", (key) => {
+    upKey.on("down", (key) => {
       this.flipX = true;
       this.body.acceleration.setTo(
         -this.accelerationFactor,
@@ -177,7 +177,7 @@ class Player extends IsoSprite {
       this.anims.play("walk", true);
     });
 
-    downKey.on("up", (key) => {
+    upKey.on("up", (key) => {
       this.body.acceleration.setTo(
         0,
         this.body.acceleration.y,
