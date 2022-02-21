@@ -3,7 +3,7 @@
     "backgroundColor": "#d7f3f6",
     "cameraFollow": true,
     "soundTrack": "soundTrackDuck",
-    "playSoundTrack": false
+    "playSoundTrack": true
   },
   "player": {
     "pos": [-1, 4, 2]
