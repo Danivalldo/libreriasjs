@@ -128,6 +128,12 @@ module.exports = {
       template: path.resolve(__dirname, "../src/index.hbs"),
       minify: true,
     }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "../src/intro.hbs"),
+      filename: "intro.html",
+      minify: true,
+      inject: false,
+    }),
     new MiniCSSExtractPlugin({
       filename: "[name].[fullhash].css",
     }),
