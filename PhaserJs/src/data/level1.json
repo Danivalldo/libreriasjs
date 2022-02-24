@@ -2,7 +2,8 @@
   "configuration": {
     "backgroundColor": "#d7f3f6",
     "cameraFollow": true,
-    "soundTrack": "soundTrackDuck"
+    "soundTrack": "soundTrackDuck",
+    "playSoundTrack": true
   },
   "player": {
     "pos": [-1, 4, 2]

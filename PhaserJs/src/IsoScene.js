@@ -47,7 +47,7 @@ class IsoScene extends Scene {
     if (configuration.cameraFollow) {
       this.cameras.main.startFollow(this.player);
     }
-    if (configuration.soundTrack) {
+    if (configuration.soundTrack && configuration.playSoundTrack) {
       this.soundsCtrl.playSoundTrack(configuration.soundTrack);
     }
     this.cameras.main.setBackgroundColor(
