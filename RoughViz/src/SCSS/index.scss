@@ -1,4 +1,21 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 20px 0 20px 0;
+  background-image: url("../assets/images/hip-square.png");
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    .viz-container {
+      width: 50%;
+      min-width: 400px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      svg {
+        display: block;
+      }
+    }
+  }
 }
