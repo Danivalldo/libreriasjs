@@ -34,6 +34,7 @@
     "rough-viz": "^1.0.6",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
+    "tinycolor2": "^1.4.2",
     "webpack": "^5.26.3",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2",
