@@ -19,6 +19,27 @@ const getRandomColor = () => {
   return color.saturate(100).toHexString();
 };
 
+const createBar = (data) => {
+  return new Bar({
+    element: "#viz-bar-container",
+    data: {
+      labels: data.map((product) => {
+        return product.name;
+      }),
+      values: data.map((product) => {
+        return product.net_price;
+      }),
+    },
+    title: "Barras",
+    roughness: 2,
+    color: getRandomColor(),
+    stroke: "black",
+    strokeWidth: 1,
+    fillStyle: "zigzag",
+    fillWeight: 0.5,
+  });
+};
+
 const createDonut = (data) => {
   return new Donut({
     element: "#viz-donut-container",
@@ -36,6 +57,27 @@ const createDonut = (data) => {
     stroke: "black",
     strokeWidth: 1,
     fillStyle: "cross-hatch",
+    fillWeight: 0.5,
+  });
+};
+
+const createScatter = (data) => {
+  return new Scatter({
+    element: "#viz-scatter-container",
+    data: {
+      x: data.map((product, i) => {
+        return i;
+      }),
+      y: data.map((product) => {
+        return product.net_price;
+      }),
+    },
+    title: "Scatter",
+    roughness: 2,
+    radius: 30,
+    stroke: "black",
+    strokeWidth: 1,
+    fillStyle: "solid",
     fillWeight: 0.5,
   });
 };
@@ -62,48 +104,6 @@ const createPie = (data) => {
     stroke: "black",
     strokeWidth: 3,
     fillStyle: "zigzag-line",
-    fillWeight: 0.5,
-  });
-};
-
-const createBar = (data) => {
-  return new Bar({
-    element: "#viz-bar-container",
-    data: {
-      labels: data.map((product) => {
-        return product.name;
-      }),
-      values: data.map((product) => {
-        return product.net_price;
-      }),
-    },
-    title: "Barras",
-    roughness: 2,
-    color: getRandomColor(),
-    stroke: "black",
-    strokeWidth: 1,
-    fillStyle: "zigzag",
-    fillWeight: 0.5,
-  });
-};
-
-const createScatter = (data) => {
-  return new Scatter({
-    element: "#viz-scatter-container",
-    data: {
-      x: data.map((product, i) => {
-        return i;
-      }),
-      y: data.map((product) => {
-        return product.net_price;
-      }),
-    },
-    title: "Scatter",
-    roughness: 2,
-    radius: 30,
-    stroke: "black",
-    strokeWidth: 1,
-    fillStyle: "solid",
     fillWeight: 0.5,
   });
 };
