@@ -1,62 +1,101 @@
-<!DOCTYPE html>
 <html lang="es">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>jsPDF</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jsPDF</title>
+  </head>
   <body>
-    <div>
-      <form id="form-character-profile">
-        <div>
-          <label for="">
-            Nombre
-          </label>
-          <input type="text" name="name" placeholder="Nombre" value="">
-        </div>
-        <div>
-          <label for="">
-            Apellidos
-          </label>
-          <input type="text" name="surname" placeholder="Apellidos" value="">
-        </div>
-        <div>
-          <label for="">Descripción</label>
-          <textarea name="description" id="" cols="30" rows="5" placeholder=""></textarea>
-        </div>
-        <div>
-          <label for="">
-            Tipo
-          </label>
-          <select name="type" id="">
-            <option value="bandit" data-image-url="imgs/Bandit_Idle_1.png">Bandido</option>
-            <option value="bear" data-image-url="imgs/Bear_Idle_1.png">Oso</option>
-            <option value="elf" data-image-url="imgs/HighElf_F_Idle_1.png">Elfa</option>
-            <option value="ent" data-image-url="imgs/Ent_Idle_1.png">Ent</option>
-            <option value="golem" data-image-url="imgs/Golem_Idle_1.png">Golem</option>
-            <option value="wizard" data-image-url="imgs/Wizard_Idle.png">Mago</option>
-          </select>
-        </div>
-        <div>
-          <label for="">
-            Puntos de habilidad:
-          </label>
-          <div><span>Fuerza</span><input type="range" name="strength" id=""></div>
-          <div><span>Magia</span><input type="range" name="magic" id=""></div>
-          <div><span>Velocidad</span><input type="range" name="velocity" id=""></div>
-        </div>
-        <div id="error-message-container" class="hidden">
-          *Error messages
-        </div>
-        <div>
-          <button type="submit">Crear PDF!</button>
-        </div>
-      </form>
-    </div>
-    <div>
-      <iframe id="frame" src="" frameborder="0" width="500" height="700"></iframe>
+    <div class="flex">
+      <div>
+        <form id="form-character-profile">
+          <div>
+            <label for="">
+              Nombre
+            </label>
+            <input type="text" name="name" placeholder="Nombre" value="" />
+          </div>
+          <div>
+            <label for="">
+              Apellidos
+            </label>
+            <input type="text" name="surname" placeholder="Apellidos" value="" />
+          </div>
+          <div>
+            <label for="">Descripción</label>
+            <textarea
+              name="description"
+              id=""
+              cols="30"
+              rows="5"
+              placeholder=""
+            ></textarea>
+          </div>
+          <div>
+            <label for="">
+              Tipo
+            </label>
+            <select name="type" id="">
+              <option
+                value="bandit"
+                data-image-url="imgs/Bandit_Idle_1.png"
+              >Bandido</option>
+              <option
+                value="bear"
+                data-image-url="imgs/Bear_Idle_1.png"
+              >Oso</option>
+              <option
+                value="elf"
+                data-image-url="imgs/HighElf_F_Idle_1.png"
+              >Elfa</option>
+              <option
+                value="ent"
+                data-image-url="imgs/Ent_Idle_1.png"
+              >Ent</option>
+              <option
+                value="golem"
+                data-image-url="imgs/Golem_Idle_1.png"
+              >Golem</option>
+              <option
+                value="wizard"
+                data-image-url="imgs/Wizard_Idle.png"
+              >Mago</option>
+            </select>
+          </div>
+          <div>
+            <label for="">
+              Puntos de habilidad:
+            </label>
+            <div><span>Fuerza</span><input
+                type="range"
+                name="strength"
+                id=""
+              /></div>
+            <div><span>Magia</span><input type="range" name="magic" id="" /></div>
+            <div><span>Velocidad</span><input
+                type="range"
+                name="velocity"
+                id=""
+              /></div>
+          </div>
+          <div id="error-message-container" class="hidden">
+            *Error messages
+          </div>
+          <div>
+            <button type="submit">Crear PDF!</button>
+          </div>
+        </form>
+      </div>
+      <div>
+        <iframe
+          id="frame"
+          src=""
+          frameborder="0"
+          width="500"
+          height="700"
+        ></iframe>
+      </div>
     </div>
   </body>
 </html>
