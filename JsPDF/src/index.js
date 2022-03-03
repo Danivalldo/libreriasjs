@@ -5,12 +5,14 @@ const formCharacterProfile = document.querySelector("#form-character-profile");
 const errorMessageContainer = document.querySelector(
   "#error-message-container"
 );
+const frame = document.querySelector("#frame");
 
 const handleOnSubmitForm = (e) => {
   e.preventDefault();
   try {
     const characterProperties = Array.from(e.target.querySelectorAll("[name]"));
     const characterData = {};
+    errorMessageContainer.classList.add("hidden");
     for (let i = 0, j = characterProperties.length; i < j; i++) {
       const field = characterProperties[i];
       const attribute = field.getAttribute("name");
@@ -29,7 +31,8 @@ const handleOnSubmitForm = (e) => {
     }
     generatePDF(characterData);
   } catch (err) {
-    console.log(err);
+    errorMessageContainer.innerHTML = err.message;
+    errorMessageContainer.classList.remove("hidden");
   }
 };
 
@@ -40,7 +43,8 @@ const generatePDF = (characterData) => {
   doc.setFontSize(15);
   doc.text(characterData.surname, 20, 26);
   doc.addImage(characterData.type.image, "PNG", 5, 0, 50, 50);
-  doc.save();
+  // doc.save();
+  frame.src = doc.output("bloburl");
 };
 
 formCharacterProfile.addEventListener("submit", handleOnSubmitForm);
