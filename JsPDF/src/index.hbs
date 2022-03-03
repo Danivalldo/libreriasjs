@@ -5,9 +5,50 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library title</title>
+  <title>jsPDF</title>
 </head>
   <body>
-    BASE TEMPLATE
+    <form id="form-character-profile">
+      <div>
+        <label for="">
+          Nombre
+        </label>
+        <input type="text" name="name" placeholder="Nombre">
+      </div>
+      <div>
+        <label for="">
+          Apellidos
+        </label>
+        <input type="text" name="surname" placeholder="Apellidos">
+      </div>
+      <div>
+        <label for="">Descripción</label>
+        <textarea name="description" id="" cols="30" rows="10"></textarea>
+      </div>
+      <div>
+        <label for="">
+          Tipo
+        </label>
+        <select name="type" id="">
+          <option value="bandit">Bandido</option>
+          <option value="bear">Oso</option>
+          <option value="elf">Elfo</option>
+          <option value="ent">Ent</option>
+          <option value="golem">Golem</option>
+          <option value="witcher">Brujo</option>
+        </select>
+      </div>
+      <div>
+        <label for="">
+          Puntos de habilidad:
+        </label>
+        <div><span>Fuerza</span><input type="range" name="strength" id=""></div>
+        <div><span>Magia</span><input type="range" name="magic" id=""></div>
+        <div><span>Velocidad</span><input type="range" name="velocity" id=""></div>
+      </div>
+      <div>
+        <button type="submit">Crear PDF!</button>
+      </div>
+    </form>
   </body>
 </html>
