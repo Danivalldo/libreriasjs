@@ -2,6 +2,9 @@ import { jsPDF } from "jspdf";
 import "./SCSS/index.scss";
 
 const formCharacterProfile = document.querySelector("#form-character-profile");
+const errorMessageContainer = document.querySelector(
+  "#error-message-container"
+);
 
 const handleOnSubmitForm = (e) => {
   e.preventDefault();
