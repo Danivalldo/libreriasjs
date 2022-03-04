@@ -2,6 +2,7 @@ import { jsPDF } from "jspdf";
 import "./SCSS/index.scss";
 
 const formCharacterProfile = document.querySelector("#form-character-profile");
+const previewBtn = formCharacterProfile.querySelector(".preview-pdf-btn");
 const errorMessageContainer = document.querySelector(
   "#error-message-container"
 );
@@ -29,22 +30,53 @@ const handleOnSubmitForm = (e) => {
         };
       }
     }
-    generatePDF(characterData);
+    generatePDF(characterData, e.isPreview);
   } catch (err) {
     errorMessageContainer.innerHTML = err.message;
     errorMessageContainer.classList.remove("hidden");
   }
 };
 
-const generatePDF = (characterData) => {
+const generatePDF = (characterData, preview) => {
   const doc = new jsPDF();
-  doc.setFontSize(22);
-  doc.text(characterData.name, 20, 20);
-  doc.setFontSize(15);
-  doc.text(characterData.surname, 20, 26);
+  doc.setFontSize(40);
+  doc.setFont("helvetica", "bold");
+  doc.text(characterData.name, 60, 30);
+  doc.setFont("helvetica", "normal");
+  doc.text(characterData.surname, 60, 42);
   doc.addImage(characterData.type.image, "PNG", 5, 0, 50, 50);
-  // doc.save();
-  frame.src = doc.output("bloburl");
+  doc.setFontSize(20);
+  const docWidth = doc.internal.pageSize.getWidth();
+  const docHeight = doc.internal.pageSize.getHeight();
+  doc.line(0, 60, docWidth, 60);
+  const splitDescription = doc.splitTextToSize(
+    characterData.description,
+    docWidth - 20
+  );
+  doc.text(splitDescription, 10, 80);
+  doc.setFontSize(20);
+  doc.text(characterData.type.name, docWidth - 20, 45, { align: "right" });
+  doc.line(0, docHeight - 60, docWidth, docHeight - 60);
+  doc.setFont("helvetica", "bold");
+  doc.text(`Fuerza: `, 10, docHeight - 40);
+  doc.text(`Magia: `, 10, docHeight - 30);
+  doc.text(`Velocidad: `, 10, docHeight - 20);
+  doc.setFont("helvetica", "normal");
+  doc.text(`${characterData.strength}`, 50, docHeight - 40);
+  doc.text(`${characterData.magic}`, 50, docHeight - 30);
+  doc.text(`${characterData.velocity}`, 50, docHeight - 20);
+
+  if (preview) {
+    frame.src = doc.output("bloburl");
+    return;
+  }
+  doc.save(`${characterData.name}-${characterData.surname}`);
 };
+
+previewBtn.addEventListener("click", () => {
+  const event = new Event("submit");
+  event.isPreview = true;
+  formCharacterProfile.dispatchEvent(event);
+});
 
 formCharacterProfile.addEventListener("submit", handleOnSubmitForm);
