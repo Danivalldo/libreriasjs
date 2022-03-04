@@ -6,37 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>jsPDF</title>
   </head>
-  <body>
-    <div class="flex">
-      <div>
-        <form id="form-character-profile">
-          <div>
-            <label for="">
-              Nombre
+  <body class="h-screen flex flex-col items-center">
+    <div class="block md:flex main-layout w-screen">
+      <div class="flex justify-center items-center p-5">
+        <form id="form-character-profile" class="w-full">
+          <div class="mb-5">
+            <label for="" class="block text-sky-900 font-bold">
+              Nombre: 
             </label>
-            <input type="text" name="name" placeholder="Nombre" value="" />
+            <input type="text" name="name" placeholder="Nombre" value="" class="block w-full p-3 border-2 border-sky-700 bg-sky-50 rounded" />
           </div>
-          <div>
-            <label for="">
-              Apellidos
+          <div class="mb-5">
+            <label for="" class="block text-sky-900 font-bold">
+              Apellidos: 
             </label>
-            <input type="text" name="surname" placeholder="Apellidos" value="" />
+            <input type="text" name="surname" placeholder="Apellidos" value="" class="block w-full p-3 border-2 border-sky-700 bg-sky-50 rounded" />
           </div>
-          <div>
-            <label for="">Descripción</label>
+          <div class="mb-5">
+            <label for="" class="block text-sky-900 font-bold">Descripción: </label>
             <textarea
               name="description"
               id=""
               cols="30"
               rows="5"
-              placeholder=""
+              class="block w-full p-3 border-2 border-sky-700 bg-sky-50 rounded"
+              placeholder="Descripción"
             ></textarea>
           </div>
-          <div>
-            <label for="">
-              Tipo
+          <div class="mb-5">
+            <label for="" class="block text-sky-900 font-bold">
+              Tipo:
             </label>
-            <select name="type" id="">
+            <select name="type" id="" class="block w-full p-3 border-2 border-sky-700 bg-sky-50 rounded">
               <option
                 value="bandit"
                 data-image-url="imgs/Bandit_Idle_1.png"
@@ -64,26 +65,34 @@
             </select>
           </div>
           <div>
-            <label for="">
-              Puntos de habilidad:
-            </label>
-            <div><span>Fuerza</span><input
+            <div>
+              <label class="block text-sky-900 font-bold">Fuerza:</label>
+              <input
                 type="range"
                 name="strength"
+                class="w-full"
                 id=""
               /></div>
-            <div><span>Magia</span><input type="range" name="magic" id="" /></div>
-            <div><span>Velocidad</span><input
+            <div>
+              <label class="block text-sky-900 font-bold">Magia:</label>
+              <input type="range" name="magic" id="" class="w-full" />
+            </div>
+            <div>
+              <label class="block text-sky-900 font-bold">Velocidad:</label>
+              <input
                 type="range"
                 name="velocity"
+                class="w-full"
                 id=""
               /></div>
           </div>
-          <div id="error-message-container" class="hidden">
+          <div id="error-message-container" class="hidden text-red-500 bg-red-100 p-4 rounded mt-3">
             *Error messages
           </div>
-          <div>
-            <button type="submit">Crear PDF!</button>
+          <hr class="my-5">
+          <div class="mt-3">
+            <button type="button" class="bg-sky-500 text-white px-3 py-2 rounded">Previsualizar PDF</button>
+            <button type="submit" class="bg-sky-500 text-white px-3 py-2 rounded">Descargar PDF</button>
           </div>
         </form>
       </div>
@@ -92,8 +101,6 @@
           id="frame"
           src=""
           frameborder="0"
-          width="500"
-          height="700"
         ></iframe>
       </div>
     </div>
