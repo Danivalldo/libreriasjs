@@ -49,15 +49,16 @@ const generatePDF = (characterData, preview) => {
   const docWidth = doc.internal.pageSize.getWidth();
   const docHeight = doc.internal.pageSize.getHeight();
   doc.line(0, 60, docWidth, 60);
+  doc.setFont("helvetica", "italic");
   const splitDescription = doc.splitTextToSize(
     characterData.description,
     docWidth - 20
   );
   doc.text(splitDescription, 10, 80);
   doc.setFontSize(20);
+  doc.setFont("helvetica", "bold");
   doc.text(characterData.type.name, docWidth - 20, 45, { align: "right" });
   doc.line(0, docHeight - 60, docWidth, docHeight - 60);
-  doc.setFont("helvetica", "bold");
   doc.text(`Fuerza: `, 10, docHeight - 40);
   doc.text(`Magia: `, 10, docHeight - 30);
   doc.text(`Velocidad: `, 10, docHeight - 20);
