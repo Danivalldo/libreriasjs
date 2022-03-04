@@ -6,3 +6,15 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.main-layout {
+  & > div {
+    width: 100%;
+    iframe {
+      width: 100%;
+      min-height: 500px;
+      height: 100%;
+      max-height: 800px;
+    }
+  }
+}
