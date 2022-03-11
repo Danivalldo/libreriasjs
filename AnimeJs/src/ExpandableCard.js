@@ -2,7 +2,7 @@
 
 import anime from "animejs";
 
-const duration = 300;
+const duration = 250;
 const leaveDuration = 250;
 
 class ExpandableCard {
@@ -13,6 +13,7 @@ class ExpandableCard {
       this.collapse();
     });
     this.hostEl = node;
+    this.initialHeight = 0;
     this.placeholderEl = document.createElement("div");
     this.placeholderEl.className = "expanding-card--placeholder";
     this.hostEl.appendChild(this.placeholderEl);
@@ -56,8 +57,10 @@ class ExpandableCard {
     this.expandedContentEl.style.visibility = "visible";
 
     const fromHeight = this.staticHeight(this.cardContentEl);
+    this.initialHeight = fromHeight;
     const expandedContentHeight = this.staticHeight(this.expandedContentEl);
-    const toHeight = fromHeight + expandedContentHeight;
+    // const toHeight = fromHeight + expandedContentHeight - 24;
+    const toHeight = window.innerHeight - 32;
 
     const targetBoundingRect = {
       left: 16,
@@ -69,9 +72,9 @@ class ExpandableCard {
       anime({
         targets: this.cardContentEl,
         height: [fromHeight, toHeight],
+        width: [cardBoundingRect.width, targetBoundingRect.width],
         translateX: [cardBoundingRect.left, targetBoundingRect.left],
         translateY: [cardBoundingRect.top, targetBoundingRect.top],
-        width: [cardBoundingRect.width, targetBoundingRect.width],
         boxShadow:
           "0 0 1px 0 rgba(33,43,54,.08), 0 8px 10px 0 rgba(33,43,54,.2)",
         duration: duration,
@@ -107,8 +110,10 @@ class ExpandableCard {
     const placeholderRect = this.placeholderEl.getBoundingClientRect();
     const cardContentRect = this.cardContentEl.getBoundingClientRect();
     const expandedContentHeight = this.expandedContentEl.offsetHeight;
-    const fromHeight = cardContentRect.height;
-    const toHeight = fromHeight - expandedContentHeight;
+    // const fromHeight = cardContentRect.height;
+    const fromHeight = window.innerHeight - 32;
+    // const toHeight = fromHeight - expandedContentHeight;
+    const toHeight = this.initialHeight;
     const promises = [
       anime({
         targets: this.cardContentEl,
