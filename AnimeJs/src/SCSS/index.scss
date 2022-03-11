@@ -32,7 +32,7 @@ html {
   position: relative;
   background: white;
   border-radius: 8px;
-
+  overflow: hidden;
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   [collapsedContent] {
@@ -45,7 +45,6 @@ html {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
     opacity: 0;
     padding: 24px;
     overflow: hidden;
@@ -78,7 +77,13 @@ html {
   color: black;
   font-size: 21px;
   font-weight: bold;
+  overflow: hidden;
   border-radius: 1000px;
+  position: relative;
+  img {
+    opacity: 0;
+    position: absolute;
+  }
 }
 
 .col:first-child {
