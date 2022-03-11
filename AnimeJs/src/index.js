@@ -1,4 +1,6 @@
-import anime from "animejs";
+import ExpandableCard from "./ExpandableCard";
 import "./SCSS/index.scss";
 
-console.log("Ready to go!", anime);
+document.querySelectorAll(".expandable-card").forEach((card) => {
+  new ExpandableCard(card);
+});

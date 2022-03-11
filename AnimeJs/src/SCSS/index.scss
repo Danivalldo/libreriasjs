@@ -1,30 +1,100 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap");
 
-body {
+$color-primary: #69f0ae;
+$color-secondary: #18ffff;
+$color-bg: #37474f;
+
+* {
+  font-size: 16px;
+  font-family: "Oxygen", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: rgb(33, 33, 33);
-  font-family: "Open Sans", sans-serif;
-  .card {
-    position: relative;
-    background-color: rgb(222, 222, 222);
-    .clip-photo {
-      align-items: center;
-      clip-path: inset(0px 0px 0px 0px);
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      // transform: scale(0.5);
-      img {
-        display: block;
-        // width: 100%;
-        height: 100%;
-        transform-origin: 0% 0%;
-        // transform: scale(0.3);
-      }
-    }
-    .card-content {
-      padding-left: 500px;
-    }
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background: $color-bg;
+}
+
+.page-wrapper {
+  max-width: 860px;
+  padding: 40px;
+  margin: 0 auto;
+}
+
+.expandable-card {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+[cardContent] {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+
+  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  [collapsedContent] {
+    display: flex;
+    flex-direction: row;
+    padding: 24px;
+  }
+  [expandedContent] {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    padding: 24px;
+    overflow: hidden;
+  }
+}
+
+.expanding-card--backdrop {
+  background: black;
+  opacity: 0.5;
+}
+
+.expandable-card--title {
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+.expandable-card--sub-title {
+  font-size: 14px;
+  color: #888888;
+}
+
+.expandable-card--profile-image {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-primary;
+  color: black;
+  font-size: 21px;
+  font-weight: bold;
+  border-radius: 1000px;
+}
+
+.col:first-child {
+  margin-right: 24px;
+}
+
+.expanding-card--placeholder {
+  position: relative;
+  height: 0;
+  visibility: hidden;
+}
+
+.mock-content {
+  .mock-content-line {
+    background: #888888;
+    height: 16px;
+    margin-bottom: 8px;
   }
 }
