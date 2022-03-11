@@ -2,8 +2,13 @@
 
 import anime from "animejs";
 
-const duration = 250;
-const leaveDuration = 250;
+let duration = 300;
+let leaveDuration = 250;
+
+export const toggleAnimation = () => {
+  duration = duration === 0 ? 250 : 0;
+  leaveDuration = leaveDuration === 0 ? 250 : 0;
+};
 
 class ExpandableCard {
   constructor(node) {
@@ -14,6 +19,7 @@ class ExpandableCard {
     });
     this.hostEl = node;
     this.initialHeight = 0;
+    this.windowResized = false;
     this.placeholderEl = document.createElement("div");
     this.placeholderEl.className = "expanding-card--placeholder";
     this.hostEl.appendChild(this.placeholderEl);
@@ -58,8 +64,6 @@ class ExpandableCard {
 
     const fromHeight = this.staticHeight(this.cardContentEl);
     this.initialHeight = fromHeight;
-    const expandedContentHeight = this.staticHeight(this.expandedContentEl);
-    // const toHeight = fromHeight + expandedContentHeight - 24;
     const toHeight = window.innerHeight - 32;
 
     const targetBoundingRect = {
@@ -69,6 +73,31 @@ class ExpandableCard {
       height: toHeight,
     };
     const promises = [
+      anime({
+        targets: this.cardContentEl.querySelector(
+          ".expandable-card--profile-image"
+        ),
+        translateX: [0, 0],
+        duration: duration,
+        scale: [1, 3],
+      }).finished,
+      anime({
+        targets: this.cardContentEl.querySelector(
+          ".expandable-card--profile-image img"
+        ),
+        opacity: [0, 1],
+        scale: [1, 0.5],
+        duration: duration,
+        easing: "easeOutCubic",
+      }).finished,
+      anime({
+        targets: this.cardContentEl.querySelector(
+          ".expandable-card--right-col"
+        ),
+        translateX: [0, 100],
+        duration: duration,
+        easing: "easeOutCubic",
+      }).finished,
       anime({
         targets: this.cardContentEl,
         height: [fromHeight, toHeight],
@@ -95,10 +124,16 @@ class ExpandableCard {
         easing: "easeOutCubic",
       }),
     ];
+
     return Promise.all(promises).then(() => {
+      window.addEventListener("resize", this.handleWindowResize);
       this.animating = false;
       this.expanded = true;
     });
+  }
+
+  handleWindowResize() {
+    this.windowResized = true;
   }
 
   collapse() {
@@ -110,11 +145,37 @@ class ExpandableCard {
     const placeholderRect = this.placeholderEl.getBoundingClientRect();
     const cardContentRect = this.cardContentEl.getBoundingClientRect();
     const expandedContentHeight = this.expandedContentEl.offsetHeight;
-    // const fromHeight = cardContentRect.height;
     const fromHeight = window.innerHeight - 32;
-    // const toHeight = fromHeight - expandedContentHeight;
-    const toHeight = this.initialHeight;
+    const toHeight = !this.windowResized
+      ? this.initialHeight
+      : fromHeight - expandedContentHeight;
     const promises = [
+      anime({
+        targets: this.cardContentEl.querySelector(
+          ".expandable-card--profile-image"
+        ),
+        translateX: [0, 0],
+        duration: leaveDuration,
+        scale: [3, 1],
+        easing: "easeInQuad",
+      }).finished,
+      anime({
+        targets: this.cardContentEl.querySelector(
+          ".expandable-card--profile-image img"
+        ),
+        opacity: [1, 0],
+        scale: [0.5, 1],
+        duration: leaveDuration,
+        easing: "easeInQuad",
+      }).finished,
+      anime({
+        targets: this.cardContentEl.querySelector(
+          ".expandable-card--right-col"
+        ),
+        translateX: [100, 0],
+        duration: leaveDuration,
+        easing: "easeInQuad",
+      }).finished,
       anime({
         targets: this.cardContentEl,
         height: [fromHeight, toHeight],
@@ -154,6 +215,8 @@ class ExpandableCard {
       this.cardContentEl.style.transform = null;
       this.expandedContentEl.style.visibility = "hidden";
       document.body.removeChild(this.backdropEl);
+      this.windowResized = false;
+      window.removeEventListener("resize", this.handleWindowResize);
     });
   }
 
