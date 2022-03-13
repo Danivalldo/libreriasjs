@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="page-wrapper">
-      <div>
+      <div class="toggle-animation-wrapper">
         <label for="animation-switch">Toggle Animation</label>
         <input type="checkbox" id="animation-switch" class="animation-switch" />
       </div>
@@ -16,6 +16,9 @@
         <div cardContent>
           <div collapsedContent>
             <div class="expandable-card--left-col col">
+              <div class="bg-card">
+                <img src="imgs/1.jpeg" alt="">
+              </div>
               <div class="expandable-card--profile-image">
                 <span>JD</span>
                 <img
@@ -26,65 +29,15 @@
             </div>
             <div class="expandable-card--right-col col">
               <div class="expandable-card--title">
-                Profile Information
-              </div>
-              <div class="expandable-card--sub-title">
-                <p>Jane Doe</p>
-                <p>03/03/1976</p>
-                <p>St. Louis, MO</p>
+                Jane Doe
               </div>
             </div>
           </div>
           <div expandedContent>
-            <div class="mock-content">
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque
-                reiciendis qui fugit dignissimos obcaecati similique voluptas ab
-                est doloribus? Sapiente voluptas tenetur, at perspiciatis
-                maiores nemo libero! Eum, asperiores dolor?
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque
-                reiciendis qui fugit dignissimos obcaecati similique voluptas ab
-                est doloribus? Sapiente voluptas tenetur, at perspiciatis
-                maiores nemo libero! Eum, asperiores dolor?
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque
-                reiciendis qui fugit dignissimos obcaecati similique voluptas ab
-                est doloribus? Sapiente voluptas tenetur, at perspiciatis
-                maiores nemo libero! Eum, asperiores dolor?
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque
-                reiciendis qui fugit dignissimos obcaecati similique voluptas ab
-                est doloribus? Sapiente voluptas tenetur, at perspiciatis
-                maiores nemo libero! Eum, asperiores dolor?
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque
-                reiciendis qui fugit dignissimos obcaecati similique voluptas ab
-                est doloribus? Sapiente voluptas tenetur, at perspiciatis
-                maiores nemo libero! Eum, asperiores dolor?
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque
-                reiciendis qui fugit dignissimos obcaecati similique voluptas ab
-                est doloribus? Sapiente voluptas tenetur, at perspiciatis
-                maiores nemo libero! Eum, asperiores dolor?
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque
-                reiciendis qui fugit dignissimos obcaecati similique voluptas ab
-                est doloribus? Sapiente voluptas tenetur, at perspiciatis
-                maiores nemo libero! Eum, asperiores dolor?
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque
-                reiciendis qui fugit dignissimos obcaecati similique voluptas ab
-                est doloribus? Sapiente voluptas tenetur, at perspiciatis
-                maiores nemo libero! Eum, asperiores dolor?
-              </p>
+            <div class="profile-data">
+              <h1>Jane Doe</h1>
+              <h2>03/03/1976</h2>
+              <p>St. Louis, MO</p>
             </div>
           </div>
         </div>
@@ -93,27 +46,29 @@
         <div cardContent>
           <div collapsedContent>
             <div class="expandable-card--left-col col">
-              <div class="expandable-card--profile-image">
-                <span>JD</span>
+              <div class="bg-card">
+                <img src="imgs/2.jpeg" alt="">
+              </div>
+              <div class="expandable-card--profile-image profile-blue">
+                <span>MB</span>
                 <img
-                  src="https://randomuser.me/api/portraits/men/10.jpg"
+                  src="https://randomuser.me/api/portraits/men/54.jpg"
                   alt=""
                 />
               </div>
             </div>
             <div class="expandable-card--right-col col">
               <div class="expandable-card--title">
-                Profile Information
-              </div>
-              <div class="expandable-card--sub-title">
-                <p>Jane Doe</p>
-                <p>03/03/1976</p>
-                <p>St. Louis, MO</p>
+                Mark Bale
               </div>
             </div>
           </div>
           <div expandedContent>
-            <div class="mock-content"></div>
+            <div class="profile-data">
+              <h1>Mark Bale</h1>
+              <h2>06/11/1984</h2>
+              <p>St. Charles, CN</p>
+            </div>
           </div>
         </div>
       </div>
@@ -121,27 +76,59 @@
         <div cardContent>
           <div collapsedContent>
             <div class="expandable-card--left-col col">
-              <div class="expandable-card--profile-image">
-                <span>JD</span>
+              <div class="bg-card">
+                <img src="imgs/3.jpeg" alt="">
+              </div>
+              <div class="expandable-card--profile-image profile-pink">
+                <span>RV</span>
                 <img
-                  src="https://randomuser.me/api/portraits/women/87.jpg"
+                  src="https://randomuser.me/api/portraits/women/15.jpg"
                   alt=""
                 />
               </div>
             </div>
             <div class="expandable-card--right-col col">
               <div class="expandable-card--title">
-                Profile Information
-              </div>
-              <div class="expandable-card--sub-title">
-                <p>Jane Doe</p>
-                <p>03/03/1976</p>
-                <p>St. Louis, MO</p>
+                Rose Vila
               </div>
             </div>
           </div>
           <div expandedContent>
-            <div class="mock-content"></div>
+            <div class="profile-data">
+              <h1>Rose Vila</h1>
+              <h2>12/02/1996</h2>
+              <p>St. Roye, 87</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="expandable-card">
+        <div cardContent>
+          <div collapsedContent>
+            <div class="expandable-card--left-col col">
+              <div class="bg-card">
+                <img src="imgs/4.jpeg" alt="">
+              </div>
+              <div class="expandable-card--profile-image profile-orange">
+                <span>DS</span>
+                <img
+                  src="https://randomuser.me/api/portraits/women/76.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="expandable-card--right-col col">
+              <div class="expandable-card--title">
+                Dan Smith
+              </div>
+            </div>
+          </div>
+          <div expandedContent>
+            <div class="profile-data">
+              <h1>Dan Smith</h1>
+              <h2>18/10/1984</h2>
+              <p>St. West, 17</p>
+            </div>
           </div>
         </div>
       </div>
