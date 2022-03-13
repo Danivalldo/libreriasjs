@@ -1,4 +1,4 @@
-//Exercise base on https://codepen.io/tt9/pen/NeZmwO?editors=1010
+//Exercise based on https://codepen.io/tt9/pen/NeZmwO?editors=1010
 
 import anime from "animejs";
 
