@@ -5,8 +5,7 @@ $color-secondary: #18ffff;
 $color-bg: #37474f;
 
 * {
-  font-size: 16px;
-  font-family: "Oxygen", sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -28,6 +27,14 @@ html {
   margin-bottom: 16px;
 }
 
+.toggle-animation-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  padding: 5px;
+}
+
 [cardContent] {
   position: relative;
   background: white;
@@ -39,6 +46,21 @@ html {
     display: flex;
     flex-direction: row;
     padding: 24px;
+    .bg-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      opacity: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center center;
+      }
+    }
   }
   [expandedContent] {
     visibility: hidden;
@@ -48,6 +70,11 @@ html {
     opacity: 0;
     padding: 24px;
     overflow: hidden;
+    color: #222222;
+    .profile-data {
+      padding-top: 20px;
+      text-align: center;
+    }
   }
 }
 
@@ -61,6 +88,7 @@ html {
   font-weight: bold;
   line-height: 24px;
   margin-bottom: 8px;
+  margin-top: 15px;
 }
 .expandable-card--sub-title {
   font-size: 14px;
@@ -79,7 +107,17 @@ html {
   font-weight: bold;
   overflow: hidden;
   border-radius: 1000px;
+  border: solid 3px white;
   position: relative;
+  &.profile-blue {
+    background-color: aqua;
+  }
+  &.profile-pink {
+    background-color: rgb(255, 109, 199);
+  }
+  &.profile-orange {
+    background-color: rgb(255, 180, 82);
+  }
   img {
     opacity: 0;
     position: absolute;
