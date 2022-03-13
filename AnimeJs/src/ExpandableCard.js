@@ -1,4 +1,4 @@
-//https://codepen.io/tt9/pen/NeZmwO?editors=1010
+//Exercise base on https://codepen.io/tt9/pen/NeZmwO?editors=1010
 
 import anime from "animejs";
 
@@ -64,7 +64,7 @@ class ExpandableCard {
 
     const fromHeight = this.staticHeight(this.cardContentEl);
     this.initialHeight = fromHeight;
-    const toHeight = window.innerHeight - 32;
+    const toHeight = 300;
 
     const targetBoundingRect = {
       left: 16,
@@ -72,7 +72,13 @@ class ExpandableCard {
       width: window.innerWidth - 32,
       height: toHeight,
     };
+
     const promises = [
+      anime({
+        targets: this.cardContentEl.querySelector(".bg-card"),
+        opacity: [0, 1],
+        duration: duration,
+      }).finished,
       anime({
         targets: this.cardContentEl.querySelector(
           ".expandable-card--profile-image"
@@ -94,7 +100,7 @@ class ExpandableCard {
         targets: this.cardContentEl.querySelector(
           ".expandable-card--right-col"
         ),
-        translateX: [0, 100],
+        opacity: [1, 0],
         duration: duration,
         easing: "easeOutCubic",
       }).finished,
@@ -145,11 +151,17 @@ class ExpandableCard {
     const placeholderRect = this.placeholderEl.getBoundingClientRect();
     const cardContentRect = this.cardContentEl.getBoundingClientRect();
     const expandedContentHeight = this.expandedContentEl.offsetHeight;
-    const fromHeight = window.innerHeight - 32;
+    const fromHeight = 300;
     const toHeight = !this.windowResized
       ? this.initialHeight
       : fromHeight - expandedContentHeight;
     const promises = [
+      anime({
+        targets: this.cardContentEl.querySelector(".bg-card"),
+        opacity: [1, 0],
+        duration: leaveDuration,
+        easing: "easeInQuad",
+      }).finished,
       anime({
         targets: this.cardContentEl.querySelector(
           ".expandable-card--profile-image"
@@ -172,7 +184,7 @@ class ExpandableCard {
         targets: this.cardContentEl.querySelector(
           ".expandable-card--right-col"
         ),
-        translateX: [100, 0],
+        opacity: [0, 1],
         duration: leaveDuration,
         easing: "easeInQuad",
       }).finished,
