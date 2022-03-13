@@ -119,7 +119,7 @@ class ExpandableCard {
         targets: this.expandedContentEl,
         translateY: [16, 0],
         opacity: [0, 1],
-        delay: 100,
+        delay: 200,
         duration: duration,
         easing: "easeOutCubic",
       }).finished,
