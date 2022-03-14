@@ -14,20 +14,22 @@ class ExpandableCard {
   constructor(node) {
     this.backdropEl = document.createElement("div");
     this.backdropEl.className = "expanding-card--backdrop";
-    this.backdropEl.addEventListener("click", () => {
-      this.collapse();
-    });
     this.hostEl = node;
-    this.initialHeight = 0;
-    this.windowResized = false;
     this.placeholderEl = document.createElement("div");
     this.placeholderEl.className = "expanding-card--placeholder";
     this.hostEl.appendChild(this.placeholderEl);
     this.cardContentEl = node.querySelector("[cardContent]");
     this.collapsedContentEl = node.querySelector("[collapsedContent]");
     this.expandedContentEl = node.querySelector("[expandedContent]");
+
+    this.initialHeight = 0;
+    this.windowResized = false;
     this.expanded = false;
     this.animatingFlag = false;
+
+    this.backdropEl.addEventListener("click", () => {
+      this.collapse();
+    });
     this.hostEl.addEventListener("click", () => {
       this.expand();
     });
@@ -45,7 +47,6 @@ class ExpandableCard {
     this.backdropEl.style.right = "0px";
     this.backdropEl.style.bottom = "0px";
     this.backdropEl.style.opacity = "0";
-
     this.backdropEl.style.zIndex = 9;
 
     document.body.appendChild(this.backdropEl);
