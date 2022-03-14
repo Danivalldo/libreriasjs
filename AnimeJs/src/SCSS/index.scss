@@ -20,63 +20,100 @@ html {
   max-width: 860px;
   padding: 40px;
   margin: 0 auto;
-}
 
-.expandable-card {
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.toggle-animation-wrapper {
-  background-color: #212f36;
-  padding: 5px;
-  border-radius: 3px;
-  text-align: center;
-  label {
-    color: white;
-    cursor: pointer;
-  }
-}
-
-[cardContent] {
-  position: relative;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  [collapsedContent] {
-    display: flex;
-    flex-direction: row;
-    padding: 24px;
-    .bg-card {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 120px;
-      opacity: 0;
+  .expandable-card {
+    position: relative;
+    margin-bottom: 16px;
+    .expandable-card--title {
+      font-size: 21px;
+      font-weight: bold;
+      line-height: 24px;
+      margin-bottom: 8px;
+      margin-top: 15px;
+    }
+    .col:first-child {
+      margin-right: 24px;
+    }
+    .expandable-card--profile-image {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $color-primary;
+      color: black;
+      font-size: 21px;
+      font-weight: bold;
+      overflow: hidden;
+      border-radius: 1000px;
+      border: solid 3px white;
+      position: relative;
+      &.profile-blue {
+        background-color: aqua;
+      }
+      &.profile-pink {
+        background-color: rgb(255, 109, 199);
+      }
+      &.profile-orange {
+        background-color: rgb(255, 180, 82);
+      }
       img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-        object-position: center center;
+        opacity: 0;
+        position: absolute;
+      }
+    }
+    [cardContent] {
+      position: relative;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      [collapsedContent] {
+        display: flex;
+        flex-direction: row;
+        padding: 24px;
+        .bg-card {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 120px;
+          opacity: 0;
+          img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center center;
+          }
+        }
+      }
+      [expandedContent] {
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        padding: 24px;
+        overflow: hidden;
+        color: #222222;
+        .profile-data {
+          padding-top: 20px;
+          text-align: center;
+        }
       }
     }
   }
-  [expandedContent] {
-    visibility: hidden;
-    position: absolute;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    padding: 24px;
-    overflow: hidden;
-    color: #222222;
-    .profile-data {
-      padding-top: 20px;
-      text-align: center;
+
+  .toggle-animation-wrapper {
+    background-color: #212f36;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+    label {
+      color: white;
+      cursor: pointer;
     }
   }
 }
@@ -84,63 +121,4 @@ html {
 .expanding-card--backdrop {
   background: black;
   opacity: 0.5;
-}
-
-.expandable-card--title {
-  font-size: 21px;
-  font-weight: bold;
-  line-height: 24px;
-  margin-bottom: 8px;
-  margin-top: 15px;
-}
-.expandable-card--sub-title {
-  font-size: 14px;
-  color: #888888;
-}
-
-.expandable-card--profile-image {
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: $color-primary;
-  color: black;
-  font-size: 21px;
-  font-weight: bold;
-  overflow: hidden;
-  border-radius: 1000px;
-  border: solid 3px white;
-  position: relative;
-  &.profile-blue {
-    background-color: aqua;
-  }
-  &.profile-pink {
-    background-color: rgb(255, 109, 199);
-  }
-  &.profile-orange {
-    background-color: rgb(255, 180, 82);
-  }
-  img {
-    opacity: 0;
-    position: absolute;
-  }
-}
-
-.col:first-child {
-  margin-right: 24px;
-}
-
-.expanding-card--placeholder {
-  position: relative;
-  height: 0;
-  visibility: hidden;
-}
-
-.mock-content {
-  .mock-content-line {
-    background: #888888;
-    height: 16px;
-    margin-bottom: 8px;
-  }
 }
