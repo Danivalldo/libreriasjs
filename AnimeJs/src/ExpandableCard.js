@@ -6,7 +6,7 @@ let duration = 300;
 let leaveDuration = 250;
 
 export const toggleAnimation = () => {
-  duration = duration === 0 ? 250 : 0;
+  duration = duration === 0 ? 300 : 0;
   leaveDuration = leaveDuration === 0 ? 250 : 0;
 };
 
