@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;600&display=swap');
-@import './colors.scss';
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;600&display=swap");
+@import "./colors.scss";
 @import "@yaireo/tagify/src/tagify.scss";
 
-*{
+* {
   box-sizing: border-box;
 }
 
-h1{
-  font-family: 'Nunito Sans', sans-serif;
+h1 {
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 600;
   font-size: 2.5rem;
   color: $mainColor;
   margin-bottom: 1rem;
 }
-h2{
+h2 {
   font-weight: 100;
   font-size: 1.5rem;
   color: $mainColor;
@@ -21,31 +21,31 @@ h2{
 }
 
 body {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   margin: 0;
   padding: 20px 0 20px 0;
   background-color: rgb(240, 240, 240);
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
-.btn{
+.btn {
   border: none;
-  padding:  15px 40px;
+  padding: 15px 40px;
   cursor: pointer;
   background-color: $mainColor;
   color: $lighterMainColor;
   border-radius: 3px;
-  box-shadow: 0 2px 3px rgba(0,0,0,.2);
-  &[disabled]{
-    cursor:not-allowed;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  &[disabled] {
+    cursor: not-allowed;
   }
 }
 
-.current-movie{
-  .gif-iframe-container{
+.current-movie {
+  .gif-iframe-container {
     background-color: black;
     display: block;
     width: 100%;
@@ -54,27 +54,27 @@ body {
     margin: 0 auto 20px auto;
   }
 }
-.input-tagify{
+.input-tagify {
   background-color: rgb(193, 193, 193);
   padding: 20px;
   min-height: 38px;
   margin-bottom: 20px;
 }
 
-.movies-list-container{
-  ul{
+.movies-list-container {
+  ul {
     list-style: none;
     padding: 0 20px 0 20px;
     display: flex;
     flex-wrap: wrap;
-    li{
+    li {
       width: 23%;
       margin: 0 1% 10px 1%;
       background-color: $mainColor;
       padding: 0 5px 10px 5px;
       border-radius: 3px;
-      box-shadow: 0 2px 3px rgba(0,0,0,.2);
-      h3{
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+      h3 {
         color: $lighterMainColor;
       }
     }
@@ -84,9 +84,9 @@ body {
 // Media queries
 
 @media screen and (max-width: 768px) {
-  .movies-list-container{
-    ul{
-      li{
+  .movies-list-container {
+    ul {
+      li {
         width: 48%;
       }
     }
