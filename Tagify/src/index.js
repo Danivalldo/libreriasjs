@@ -36,7 +36,6 @@ const saveCurrentMovie = (newMovieData) => {
   moviesListContainer.appendChild(liElement);
   new Tagify(liElement.querySelector("input"), {});
   tagify.removeAllTags();
-  console.log(tagify);
   tagify.DOM.input.focus();
 };
 
@@ -49,7 +48,6 @@ const loadMovie = (newMovieData) => {
 btnSave.addEventListener("click", () => {
   saveCurrentMovie(movies[i]);
   if (i >= movies.length - 1) {
-    // currentMovieContainer.innerHTML = "<h2 class='text-center'>FIN</h2>";
     movieTitleContainer.innerHTML = "";
     gifIFrameContainer.parentNode.removeChild(gifIFrameContainer);
     btnSave.setAttribute("disabled", "");
