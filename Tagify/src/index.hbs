@@ -1,13 +1,28 @@
-<!DOCTYPE html>
 <html lang="es">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library title</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tagify</title>
+  </head>
   <body>
-    
+    <h1 class="text-center">Etiqueta las películas</h1>
+    <div class="current-movie">
+      <h2 class="movie-title text-center"></h2>
+      <iframe src="" frameborder="0" class="gif-iframe-container"></iframe>
+      <div>
+        <input
+          type="text"
+          class="input-tagify"
+          placeholder="Añade algunos tags"
+        />
+      </div>
+      <div class="text-center">
+        <button class="btn btn-save" type="button">Guardar</button>
+      </div>
+    </div>
+    <div class="movies-list-container">
+      <ul></ul>
+    </div>
   </body>
 </html>
