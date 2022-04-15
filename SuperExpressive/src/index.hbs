@@ -6,6 +6,44 @@
     <title>Super Expressive</title>
   </head>
   <body>
-
+    <form class="main-form">
+      <label for="username">Nombre de usuario</label>
+      <input id="username" name="username" type="text" />
+      <ul>
+        <li>
+          Debe tener entre 3 y 5 carácteres
+        </li>
+        <li>
+          No puede tener mayúculas
+        </li>
+        <li>
+          Solo puede tener letras, números o los carácteres "_" y "-"
+        </li>
+      </ul>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="text" />
+      <ul>
+        <li>
+          Debe tener un formato de email válido
+        </li>
+      </ul>
+      <label for="password">Contraseña</label>
+      <input id="password" name="password" type="password" />
+      <ul>
+        <li>
+          Al menos 8 carácteres.
+        </li>
+        <li>
+          Debe contener al menos una letra en mayúscula, una en minúscula, y un
+          número.
+        </li>
+        <li>
+          Puede contener carácteres especiales.
+        </li>
+      </ul>
+      <div>
+        <button type="submit">Send</button>
+      </div>
+    </form>
   </body>
 </html>
