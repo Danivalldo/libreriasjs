@@ -2,6 +2,7 @@ import SuperExpressive from "super-expressive";
 import "./SCSS/index.scss";
 
 const form = document.querySelector(".main-form");
+const errorMessagesContainer = document.querySelector(".error-messages");
 
 const userNameRegex = SuperExpressive()
   .startOfInput.between(3, 5)
@@ -11,8 +12,6 @@ const userNameRegex = SuperExpressive()
   .string("-")
   .end()
   .endOfInput.toRegex();
-
-//^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$
 
 //^(?:[A-Za-z0-9][\._]{0,1})+[A-Za-z0-9]@(?:[A-Za-z0-9])+(?:\.{0,1}[A-Za-z0-9]){2}\.[a-z]{2,3}$/
 const emailRegex = SuperExpressive()
@@ -49,7 +48,6 @@ const emailRegex = SuperExpressive()
   .endOfInput.toRegex();
 
 //^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$
-//^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
 const paswordRegex = SuperExpressive()
   .startOfInput.assertAhead.zeroOrMore.anyChar.digit.end()
   .assertAhead.zeroOrMore.anyChar.range("a", "z")
@@ -63,12 +61,23 @@ const paswordRegex = SuperExpressive()
   .atLeast(8)
   .anyChar.endOfInput.toRegex();
 
-console.log(paswordRegex);
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  errorMessagesContainer.classList.remove("show");
+  errorMessagesContainer.innerHTML = "";
   const inputUserName = e.target.querySelector('[name="username"]');
-  // console.log(userNameRegex.test(inputUserName.value));
+  if (!userNameRegex.test(inputUserName.value)) {
+    errorMessagesContainer.classList.add("show");
+    errorMessagesContainer.innerHTML = `${errorMessagesContainer.innerHTML}<div>El nombre de usuario no tiene el formato adecuado</div>`;
+  }
   const inputEmail = e.target.querySelector('[name="email"]');
-  // console.log(emailRegex.test(inputEmail.value));
+  if (!emailRegex.test(inputEmail.value)) {
+    errorMessagesContainer.classList.add("show");
+    errorMessagesContainer.innerHTML = `${errorMessagesContainer.innerHTML}<div>El correo electrónico no tiene el formato adecuado</div>`;
+  }
+  const inputPassword = e.target.querySelector('[name="password"]');
+  if (!paswordRegex.test(inputPassword.value)) {
+    errorMessagesContainer.classList.add("show");
+    errorMessagesContainer.innerHTML = `${errorMessagesContainer.innerHTML}<div>El password tiene el formato válido</div>`;
+  }
 });
