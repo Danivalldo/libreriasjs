@@ -21,6 +21,8 @@
           Solo puede tener letras, números o los carácteres "_" y "-"
         </li>
       </ul>
+      <div class="error-messages error-username">El nombre de usuario no tiene
+        el formato adecuado</div>
       <label for="email">Email</label>
       <input id="email" name="email" type="text" />
       <ul>
@@ -28,6 +30,8 @@
           Debe tener un formato de email válido
         </li>
       </ul>
+      <div class="error-messages error-email">El correo electrónico no tiene el
+        formato adecuado</div>
       <label for="password">Contraseña</label>
       <input id="password" name="password" type="password" />
       <ul>
@@ -42,9 +46,8 @@
           Puede contener carácteres especiales.
         </li>
       </ul>
-      <div class="error-messages">
-        <div>El nombre de usuario no tiene el formato adecuado</div>
-      </div>
+      <div class="error-messages error-password">El password tiene el formato
+        válido</div>
       <div>
         <button type="submit" class="btn">ENVIAR</button>
       </div>
