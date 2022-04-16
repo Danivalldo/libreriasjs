@@ -7,6 +7,7 @@
   </head>
   <body>
     <form class="main-form">
+      <img src="imgs/blogging.svg" alt="" />
       <label for="username">Nombre de usuario</label>
       <input id="username" name="username" type="text" />
       <ul>
@@ -41,8 +42,11 @@
           Puede contener carácteres especiales.
         </li>
       </ul>
+      <div class="error-messages">
+        <div>El nombre de usuario no tiene el formato adecuado</div>
+      </div>
       <div>
-        <button type="submit">Send</button>
+        <button type="submit" class="btn">ENVIAR</button>
       </div>
     </form>
   </body>
