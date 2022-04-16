@@ -1,8 +1,8 @@
 import SuperExpressive from "super-expressive";
+import confetti from "canvas-confetti";
 import "./SCSS/index.scss";
 
 const form = document.querySelector(".main-form");
-const errorMessagesContainer = document.querySelector(".error-messages");
 
 const userNameRegex = SuperExpressive()
   .startOfInput.between(3, 5)
@@ -61,23 +61,48 @@ const paswordRegex = SuperExpressive()
   .atLeast(8)
   .anyChar.endOfInput.toRegex();
 
+const allRegex = {
+  username: userNameRegex,
+  email: emailRegex,
+  password: paswordRegex,
+};
+
+const checkInputByName = (name, value) => {
+  const errorContainet = document.querySelector(`.error-${name}`);
+  errorContainet.classList.remove("show");
+  const passed = allRegex[name].test(value);
+  if (!passed) {
+    errorContainet.classList.add("show");
+  }
+  return passed;
+};
+
+document.querySelectorAll("input").forEach((input) => {
+  input.addEventListener("keyup", (e) => {
+    const inputName = e.currentTarget.name;
+    checkInputByName(inputName, e.currentTarget.value);
+  });
+});
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  errorMessagesContainer.classList.remove("show");
-  errorMessagesContainer.innerHTML = "";
-  const inputUserName = e.target.querySelector('[name="username"]');
-  if (!userNameRegex.test(inputUserName.value)) {
-    errorMessagesContainer.classList.add("show");
-    errorMessagesContainer.innerHTML = `${errorMessagesContainer.innerHTML}<div>El nombre de usuario no tiene el formato adecuado</div>`;
+  let passed = true;
+  document.querySelectorAll("input").forEach((input) => {
+    passed = checkInputByName(input.name, input.value);
+  });
+  if (!passed) {
+    return;
   }
-  const inputEmail = e.target.querySelector('[name="email"]');
-  if (!emailRegex.test(inputEmail.value)) {
-    errorMessagesContainer.classList.add("show");
-    errorMessagesContainer.innerHTML = `${errorMessagesContainer.innerHTML}<div>El correo electrónico no tiene el formato adecuado</div>`;
-  }
-  const inputPassword = e.target.querySelector('[name="password"]');
-  if (!paswordRegex.test(inputPassword.value)) {
-    errorMessagesContainer.classList.add("show");
-    errorMessagesContainer.innerHTML = `${errorMessagesContainer.innerHTML}<div>El password tiene el formato válido</div>`;
-  }
+  confetti({
+    colors: ["#7655cb", "#ec615a"],
+    origin: { x: 0 },
+    spread: 55,
+    angle: 60,
+  });
+  confetti({
+    colors: ["#7655cb", "#ec615a"],
+    origin: { x: 1 },
+    spread: 55,
+    angle: 120,
+  });
 });
