@@ -88,7 +88,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   let passed = true;
   document.querySelectorAll("input").forEach((input) => {
-    passed = checkInputByName(input.name, input.value);
+    passed = checkInputByName(input.name, input.value) && passed;
   });
   if (!passed) {
     return;
