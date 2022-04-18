@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap");
+
+$mainColor: #7655cb;
+$secondColor: #ec615a;
+
+* {
+  box-sizing: border-box;
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(252, 252, 252);
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  background-color: #f8f5fe;
+}
+
+ul {
+  list-style: none;
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+  color: rgb(131, 131, 131);
+  border-bottom: solid 1px rgb(220, 220, 220);
+  font-style: italic;
+}
+
+form.main-form {
+  max-width: 600px;
+  padding: 10px;
+  margin: 20px auto 50px auto;
+  label {
+    font-weight: 900;
+    color: $mainColor;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 10px;
+  }
+  input {
+    display: block;
+    margin: 0 0 20px 0;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border: 2px solid $mainColor;
+    border-radius: 3px;
+    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.btn {
+  background-color: $mainColor;
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 3px;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.error-messages {
+  padding: 20px;
+  margin: 20px 0 20px 0;
+  border-radius: 5px;
+  background-color: $secondColor;
+  color: #590a06;
+  box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
+  display: none;
+  &.show {
+    display: block;
+  }
+}
