@@ -34,19 +34,20 @@
         formato adecuado</div>
       <label for="password">Contraseña</label>
       <input id="password" name="password" type="password" />
+      <div class="password-strength_container"></div>
       <ul>
-        <li>
+        <li data-contains="8-chars">
           Al menos 8 carácteres.
         </li>
-        <li>
+        <li data-contains="upper-lower-and-num">
           Debe contener al menos una letra en mayúscula, una en minúscula, y un
           número.
         </li>
-        <li>
+        <li data-contains="special-chars">
           Puede contener carácteres especiales.
         </li>
       </ul>
-      <div class="error-messages error-password">El password tiene el formato
+      <div class="error-messages error-password">El password no tiene el formato
         válido</div>
       <div>
         <button type="submit" class="btn">ENVIAR</button>
