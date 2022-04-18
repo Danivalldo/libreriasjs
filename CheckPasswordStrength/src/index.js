@@ -1,4 +1,5 @@
 import SuperExpressive from "super-expressive";
+import "./scripts/password-strengh-checker";
 import confetti from "canvas-confetti";
 import "./SCSS/index.scss";
 
