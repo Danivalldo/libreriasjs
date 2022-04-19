@@ -6,9 +6,7 @@ const containsList = document.querySelectorAll("[data-contains]");
 document
   .querySelector('input[name="password"]')
   .addEventListener("keyup", (e) => {
-    stengthContainer.classList.remove("level-1");
-    stengthContainer.classList.remove("level-2");
-    stengthContainer.classList.remove("level-3");
+    stengthContainer.classList.remove("level-1", "level-2", "level-3");
     const strength = passwordStrength(e.target.value);
     console.log(strength);
     containsList.forEach((listElement) => {
