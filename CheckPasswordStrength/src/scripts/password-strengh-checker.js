@@ -15,7 +15,7 @@ document
       listElement.classList.remove("crossed-out");
       switch (listElement.dataset.contains) {
         case "8-chars":
-          if (strength.length > 8) {
+          if (strength.length >= 8) {
             listElement.classList.add("crossed-out");
           }
           break;
