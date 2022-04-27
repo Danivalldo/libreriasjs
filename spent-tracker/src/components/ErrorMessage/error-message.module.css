@@ -1,0 +1,7 @@
+.error-message-container{
+  background-color: rgb(125, 0, 0);
+  padding: 10px;
+  text-align: center;
+  color: rgb(228, 197, 197);
+  font-weight: 700;
+}
