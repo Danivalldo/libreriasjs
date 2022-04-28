@@ -50,13 +50,14 @@ function App() {
     <div className="App">
       <Header />
       <div className="form-container">
+        <h2>Add expense</h2>
         <form onSubmit={handleOnSaveExpent}>
           <input type="text" name="subject" placeholder="Subject" />
           <input type="number" step={0.01} name="amount" placeholder="Amout" />
-          {error && <ErrorMessage message={error} />}
           <div>
-            <button type="submit">Save</button>
+            <button type="submit">Add</button>
           </div>
+          {error && <ErrorMessage message={error} />}
         </form>
       </div>
       <div className="list-expenses-container">
