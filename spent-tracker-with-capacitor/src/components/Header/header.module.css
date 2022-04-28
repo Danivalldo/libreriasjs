@@ -1,0 +1,84 @@
+.header-container{
+  padding-top: env(safe-area-inset-top);
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  position: relative;
+  border-top: solid 10px var(--main-color);
+  width: 100vw;
+}
+
+
+.header-container svg{
+  width: 80%;
+  margin: 0 auto 30px auto;
+  max-width: 600px;
+  display: block;
+}
+
+.title{
+  color: var(--main-color);
+  margin: 10px 0 40px 0;
+  position: relative;
+}
+
+/* .title:before{
+  content: '€';
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  margin-left: -25px;
+  width: 50px;
+  height: 50px;
+  font-weight: 100;
+  line-height: 54px;
+  color: white;
+  background-color: var(--main-color);
+  pointer-events: none;
+  border-radius: 50%;
+} */
+
+.title:after{
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  height: 3px;
+  background-color: var(--main-color);
+  pointer-events: none;
+}
+
+.wave {
+  position: absolute;
+  height:50px;
+  width: 98%;
+  background-color: #f5f5f5;
+  bottom: 0;
+  left: 0;
+  /* z-index: -1; */
+}
+
+.wave::before, .wave::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+}
+
+.wave::before {
+  width: 55%;
+  height: 109%;
+  background-color: #fff;
+  right: -1.5%;
+  top: 60%;
+}
+.wave::after {
+  width: 55%;
+  height: 100%;
+  background-color: #f5f5f5;
+  left: -1.5%;
+  top: 40%;
+}

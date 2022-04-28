@@ -1,0 +1,16 @@
+.footer-container{
+  background-color: var(--main-color);
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 -3px 5px rgba(0,0,0,.2);
+}
+
+.total{
+  font-weight: 600;
+}
