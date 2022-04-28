@@ -1,6 +1,32 @@
 .spent-card-container{
-  background-color: #f5f5f5;
-  padding: 20px; 
-  color: #666;
-  margin: 10px 0 10px;
+  background-color: #ffffff;   
+  color: white; 
+  text-align: center;
+  border-bottom: solid 1px rgb(229, 229, 229);
+  border-top: solid 1px rgb(229, 229, 229);
+  padding: 10px;
+}
+
+.date{
+  margin: 10px 0 0 0;
+}
+
+.subject{
+  margin: 10px 0 20px 0;
+}
+
+.amount{
+  font-weight: 100;
+  margin: 0 0 20px 0;
+}
+
+.wrapper{
+  background-color: var(--main-color);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn{
+  background-color: #ffffff;
+  color: var(--main-color);
 }
