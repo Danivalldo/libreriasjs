@@ -1,4 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+
 body {
   margin: 0;
   padding: 0;
+  font-family: "Work Sans", sans-serif;
+}
+
+.chat-container {
+  max-width: 600px;
+  margin: 0 auto;
+  .conversation-bubble {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    .wrapper-bubble {
+      display: inline-block;
+      background-color: rgb(107, 97, 170);
+      padding: 8px 15px;
+      border-radius: 8px;
+      color: #f8f7ff;
+      .time {
+        display: inline-block;
+        margin-left: 5px;
+        font-size: 0.7rem;
+        color: #c8c3e2;
+      }
+    }
+    &.r {
+      text-align: right;
+      margin-right: 10px;
+      .wrapper-bubble {
+        background-color: darkslateblue;
+        .time {
+          background-color: darkslateblue;
+        }
+      }
+    }
+  }
 }
