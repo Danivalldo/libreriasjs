@@ -3,9 +3,9 @@ import { PREFIX } from "./PREFIX";
 const defaultExpenses = [
   {
     id: 1,
-    subject: "Internet",
-    amount: 500,
-    date: "2019-01-01",
+    subject: "Coffee",
+    amount: 3,
+    date: "2022-01-03",
   },
 ];
 
