@@ -7,6 +7,7 @@
 :root {
   --main-color: #05bfa6;
   --darker-main-color: #246058;
+  --max-width: 500px;
 }
 
 ::placeholder {
@@ -22,6 +23,16 @@
 
 body{
   font-family: 'Josefin Sans', sans-serif;
+  background-color: rgb(230 230 230);
+}
+
+.App{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  background-color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 0 11px 5px rgb(0 0 0 / 5%);
 }
 
 .form-container{
@@ -78,5 +89,5 @@ button:focus{
 }
 
 .list-expenses-container{
-  margin-bottom: 80px;
+  margin-bottom: 0px;
 }
