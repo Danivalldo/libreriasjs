@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">spend-tracker</string>
+    <string name="title_activity_main">spend-tracker</string>
+    <string name="package_name">com.libreriasjs.spendtracker</string>
+    <string name="custom_url_scheme">com.libreriasjs.spendtracker</string>
+</resources>
