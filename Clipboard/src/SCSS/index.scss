@@ -1,14 +1,42 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500&display=swap");
+
+* {
+  outline: none;
+}
+
+:root {
+  --main-bubble-color: darkslateblue;
+  --second-bubble-color: rgb(107, 97, 170);
+  --white-bubble-color: rgb(234, 230, 255);
+  --bubble-radius: 20px;
+}
 
 body {
   margin: 0;
   padding: 0;
   font-family: "Work Sans", sans-serif;
+  background-image: url("../resources/bgs/memphis-mini-dark.png");
 }
 
 .chat-container {
+  padding: 10px 10px 120px 10px;
   max-width: 600px;
   margin: 0 auto;
+  position: relative;
+  .container-logo {
+    background-color: rgba(71, 61, 139, 0.757);
+    // background-color: rgba(255, 255, 255, 0.607);
+    margin-bottom: 10px;
+    padding: 20px 10px;
+    border-radius: 10px;
+    .logo-app {
+      display: block;
+      max-width: 50%;
+      // background-color: red;
+      filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.879));
+      margin: 0 auto;
+    }
+  }
   .conversation-bubble {
     margin-bottom: 10px;
     margin-left: 10px;
@@ -16,24 +44,112 @@ body {
       display: inline-block;
       background-color: rgb(107, 97, 170);
       padding: 8px 15px;
-      border-radius: 8px;
+      border-top-left-radius: var(--bubble-radius);
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: var(--bubble-radius);
+      border-bottom-right-radius: var(--bubble-radius);
       color: #f8f7ff;
+      position: relative;
+      font-weight: 300;
+      box-shadow: 0px 4px 4px 0px rgb(0, 0, 0);
+      .name {
+        display: block;
+        text-align: left;
+        font-weight: 500;
+        font-size: 0.8rem;
+        padding-bottom: 2px;
+      }
       .time {
         display: inline-block;
         margin-left: 5px;
         font-size: 0.7rem;
         color: #c8c3e2;
       }
+      .copy-btn {
+        display: block;
+        height: 20px;
+        width: 20px;
+        background-image: url("../resources/icons/copy.svg");
+        border: none;
+        background-color: transparent;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: relative;
+        background-color: var(--second-bubble-color);
+        border-radius: 3px;
+        margin-top: 5px;
+        .tooltip {
+          background-color: #fff;
+          position: absolute;
+          top: -25px;
+          left: -30px;
+          padding: 3px 5px;
+          margin-left: 10px;
+          font-size: 0.8rem;
+          border-radius: 3px;
+          color: rgb(78, 78, 78);
+          border: solid 1px rgb(209, 209, 209);
+          opacity: 0;
+          transition: opacity 1.8s ease;
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            margin-left: -3px;
+            width: 6px;
+            height: 6px;
+            background-color: #fff;
+            transform: rotate(45deg);
+          }
+        }
+        &:active {
+          background-color: darkslateblue;
+          .tooltip {
+            transition: opacity 0s linear;
+            opacity: 1;
+          }
+        }
+      }
     }
     &.r {
       text-align: right;
       margin-right: 10px;
       .wrapper-bubble {
-        background-color: darkslateblue;
+        background-color: var(--main-bubble-color);
+        border-bottom-left-radius: var(--bubble-radius);
+        border-bottom-right-radius: 0px;
         .time {
-          background-color: darkslateblue;
+          background-color: var(--main-bubble-color);
+        }
+        .copy-btn {
+          background-color: var(--main-bubble-color);
+          &:active {
+            background-color: rgb(45, 39, 84);
+          }
         }
       }
+    }
+  }
+  .chat-box__container {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    textarea {
+      display: block;
+      border-radius: 10px;
+      width: 95%;
+      max-width: 600px;
+      margin: 0 auto;
+      resize: none;
+      padding: 20px;
+      height: 100px;
+      font-size: 1.2rem;
+      color: var(--main-bubble-color);
+      background-color: #ffffffec;
+      font-family: "Work Sans", sans-serif;
     }
   }
 }
