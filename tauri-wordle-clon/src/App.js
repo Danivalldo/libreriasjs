@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import words from "./services/words";
 import wordleGuess from "./services/wordGuess";
 import Word from "./compontents/Word";
+import Attempts from "./compontents/Attempts";
 import "./App.css";
 
 const sizeWord = 5;
@@ -132,6 +133,7 @@ function App() {
 
   return (
     <div className="App">
+      <Attempts attempts={attempts.length} maxAttempts={5} />
       {attempts.map((attempt, i) => {
         return <Word key={i} word={attempt.guessed} result={attempt.result} />;
       })}
