@@ -1,10 +1,16 @@
 import { useState, useEffect, useCallback } from "react";
+import words from "./services/words";
 import wordleGuess from "./services/wordGuess";
 import Word from "./compontents/Word";
 import "./App.css";
 
 const sizeWord = 5;
 const maxAttempts = 5;
+
+//random value in array
+const randomWord = (arr) => {
+  return arr[Math.floor(Math.random() * arr.length)];
+};
 
 function App() {
   const fillWithNull = (max) => {
@@ -14,6 +20,8 @@ function App() {
     }
     return arr;
   };
+
+  const [word, setWord] = useState(randomWord(words));
 
   const [gameOver, setGameOver] = useState(false);
 
@@ -85,7 +93,7 @@ function App() {
           const updatedAttemps = [...prevAttempts];
           const resultGuessed = wordleGuess(
             prevAttempts[prevAttempts.length - 1].guessed.join(""),
-            "MUNDO"
+            word
           );
           const idResult = resultGuessed.join("");
           updatedAttemps[updatedAttemps.length - 1].result = resultGuessed;
@@ -102,7 +110,7 @@ function App() {
         });
       }
     },
-    [gameOver]
+    [gameOver, word]
   );
 
   const handleRestart = () => {
@@ -112,6 +120,7 @@ function App() {
       },
     ]);
     setGameOver(false);
+    setWord(randomWord(words));
   };
 
   useEffect(() => {
@@ -119,7 +128,7 @@ function App() {
     return () => {
       window.removeEventListener("keyup", handleOnKeyUp);
     };
-  }, [gameOver]);
+  }, [gameOver, word]);
 
   return (
     <div className="App">
@@ -128,7 +137,7 @@ function App() {
       })}
       {gameOver && (
         <>
-          <p>You {gameOver.won ? "WON!" : "LOSE"}</p>
+          <p>You {gameOver.won ? "WON!" : `LOSE, the word was ${word}`}</p>
           <button onClick={handleRestart}>Restart</button>
         </>
       )}
