@@ -54,6 +54,7 @@ function App() {
 
   const handleOnKeyUp = useCallback(
     (e) => {
+      e.preventDefault();
       if (gameOver) {
         return;
       }
