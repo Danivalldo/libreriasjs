@@ -15,6 +15,7 @@ const words = [
   "AUDIO",
   "CESTA",
   "PIZZA",
+  "ZARPA",
   "TARRO",
   "SILLA",
   "SISMO",
@@ -60,6 +61,8 @@ const words = [
   "CIFRA",
   "SALSA",
   "SAMBA",
+  "BARCA",
+  "BARCO",
   "COMBA",
   "CANTO",
   "BLUSA",
@@ -68,6 +71,7 @@ const words = [
   "MENTA",
   "MINGA",
   "CASPA",
+  "CASTA",
   "PACTO",
 ];
 
