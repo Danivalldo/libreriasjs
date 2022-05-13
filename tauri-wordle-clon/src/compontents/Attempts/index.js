@@ -1,10 +1,11 @@
 import React from "react";
+import style from "./attempts.module.css";
 
 const Attempts = ({ attempts, maxAttempts }) => {
   return (
-    <div>
+    <span className={style.container}>
       {attempts} / {maxAttempts}
-    </div>
+    </span>
   );
 };
 
