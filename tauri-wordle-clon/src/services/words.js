@@ -25,6 +25,7 @@ const words = [
   "CARTA",
   "TERSO",
   "PEINE",
+  "NEGRO",
   "MALLA",
   "COITO",
   "TORNO",
