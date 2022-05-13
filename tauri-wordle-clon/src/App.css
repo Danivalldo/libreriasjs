@@ -1,3 +1,24 @@
-.App {
- 
+.App .words-wrapper{
+  border: solid 1px rgb(33, 33, 33);
+}
+
+.App .logo-wrapper{
+  max-width: 150px;
+  margin: 0 0 20px 0;
+}
+
+.App .logo-wrapper img{
+  width: 100%;
+  display: block;
+}
+
+.btn{
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-size: 1.2rem;
+  background-color: #22c8db;
+  color: #00353b;
+  border-radius: 3px;
 }
