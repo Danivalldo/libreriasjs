@@ -3,6 +3,8 @@ import words from "./services/words";
 import wordleGuess from "./services/wordGuess";
 import Word from "./compontents/Word";
 import Attempts from "./compontents/Attempts";
+import Modal from "./compontents/Modal";
+import Logo from "./resources/logo_wordle_clon.svg";
 import "./App.css";
 
 const sizeWord = 5;
@@ -134,16 +136,39 @@ function App() {
 
   return (
     <div className="App">
-      <Attempts attempts={attempts.length} maxAttempts={5} />
-      {attempts.map((attempt, i) => {
-        return <Word key={i} word={attempt.guessed} result={attempt.result} />;
-      })}
-      {gameOver && (
-        <>
-          <p>You {gameOver.won ? "WON!" : `LOSE, the word was ${word}`}</p>
-          <button onClick={handleRestart}>Restart</button>
-        </>
-      )}
+      <div className="logo-wrapper">
+        <img src={Logo} alt="" />
+      </div>
+      <div className="words-wrapper">
+        {attempts.map((attempt, i) => {
+          return (
+            <Word key={i} word={attempt.guessed} result={attempt.result} />
+          );
+        })}
+      </div>
+      {
+        <Modal active={gameOver ? true : false}>
+          {!gameOver.won && (
+            <div>
+              <h1>Has perdido 😔</h1>
+              <p>La palabra era {word}</p>
+            </div>
+          )}
+          {gameOver.won && (
+            <div>
+              <h1>La has encontrado!😊</h1>
+              <p>Lo has logrado en {attempts.length} intentos</p>
+            </div>
+          )}
+          {/* <p>You {gameOver.won ? "WON!" : `LOSE, the word was ${word}`}</p> */}
+          <button onClick={handleRestart} className="btn">
+            Reiniciar
+          </button>
+        </Modal>
+      }
+      <div>
+        <Attempts attempts={attempts.length} maxAttempts={5} />
+      </div>
     </div>
   );
 }
