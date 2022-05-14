@@ -1,4 +1,8 @@
-import { useMemo } from "react";
+/*
+* Componente para mostrar cada palabra intentada
+*/
+
+
 import Letter from "../Letter";
 import style from './word.module.css';
 

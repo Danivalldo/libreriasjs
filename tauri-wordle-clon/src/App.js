@@ -7,15 +7,19 @@ import Modal from "./compontents/Modal";
 import Logo from "./resources/logo_wordle_clon.svg";
 import "./App.css";
 
+// Constantes para el número de carácteres de las palabras
+// y número máximo de intentos
 const sizeWord = 5;
 const maxAttempts = 5;
 
-//random value in array
+//Funcion para obtener un valor aleatorio de un array
 const randomWord = (arr) => {
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
+//Componente principal
 function App() {
+  // funcion para rellenar de "nulls" un array hasta un máximo dado
   const fillWithNull = (max) => {
     const arr = [];
     for (let i = 0; i < max; i++) {
@@ -24,16 +28,22 @@ function App() {
     return arr;
   };
 
+  // State interno para setear la palabra a encontrar
+  // Inicialmente selecciona una aleatoria dentro de un grupo
   const [word, setWord] = useState(randomWord(words));
 
+  //State boleano para setear si el juego ha terminado
   const [gameOver, setGameOver] = useState(false);
 
+  //State para guardar los intentos
   const [attempts, setAttempts] = useState([
     {
       guessed: fillWithNull(sizeWord),
     },
   ]);
 
+  //Funcion para rellenar con una letra, la palabra del intento actual
+  //Busca la primera coincidencia con null, y substituye su valor por la letra seleccionada
   const fillNextLetter = (guessed, letter) => {
     for (let i = 0; i < guessed.length; i++) {
       if (guessed[i] === null) {
@@ -44,6 +54,7 @@ function App() {
     return guessed;
   };
 
+  //Funcion para eliminar la ultima letra del actual intento
   const removeLastLetter = (guessed) => {
     for (let i = 0; i < guessed.length; i++) {
       if (!guessed[i + 1] || guessed[i + 1] === null) {
@@ -54,6 +65,8 @@ function App() {
     return guessed;
   };
 
+  //Funcion callback que se ejecuta al soltar una tecla del tecaldo
+  //En funcion del tipo de key, se ejecuta una instrucción u otra, actualizando los estados correspondientes
   const handleOnKeyUp = useCallback(
     (e) => {
       e.preventDefault();
@@ -117,6 +130,7 @@ function App() {
     [gameOver, word]
   );
 
+  //Funcion para resetear el juego
   const handleRestart = () => {
     setAttempts([
       {
@@ -127,6 +141,7 @@ function App() {
     setWord(randomWord(words));
   };
 
+  //useEffect para añadir y refrescar los listeners de teclado
   useEffect(() => {
     window.addEventListener("keyup", handleOnKeyUp);
     return () => {

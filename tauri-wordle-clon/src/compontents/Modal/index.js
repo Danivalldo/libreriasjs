@@ -1,4 +1,7 @@
-import React from "react";
+/*
+ * Componente Modal
+ */
+
 import styles from "./modal.module.css";
 
 const Modal = ({ active, children }) => {

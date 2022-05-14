@@ -1,3 +1,7 @@
+/*
+* Componente para mostrar cada letra
+*/
+
 import styles from './letter.module.css';
 
 const Letter = ({letter, result}) => {
