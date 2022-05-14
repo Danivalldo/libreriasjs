@@ -69,6 +69,7 @@ const words = [
   "CURSO",
   "BRISA",
   "MENTA",
+  "MENTE",
   "MINGA",
   "CASPA",
   "CASTA",
