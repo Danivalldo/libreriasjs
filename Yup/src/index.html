@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yup</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="banner-container">
+        <img src="undraw_cooking_lyxy.svg" alt="" />
+      </div>
+      <section class="hero">
+        <div class="hero-body">
+          <p class="title has-text-primary">Creador de recetas</p>
+          <p class="subtitle">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
+            saepe odit error asperiores veniam facere, ullam culpa et molestiae
+            similique natus nihil tenetur aliquam fugit nulla assumenda non quis
+            excepturi.
+          </p>
+        </div>
+      </section>
+      <form class="recipe-form">
+        <div class="columns">
+          <div class="column is-one-third">
+            <div class="file is-boxed">
+              <label class="file-label">
+                <input class="file-input" type="file" name="resume" />
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="mdi mdi-file-upload"></i>
+                  </span>
+                  <span class="file-label"> Foto del plato </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div class="column">
+            <div class="field">
+              <label class="label has-text-primary has-text-primary"
+                >Nombre</label
+              >
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Dorada al horno"
+                  value=""
+                />
+                <span class="icon is-small is-left">
+                  <i class="mdi mdi-noodles"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label has-text-primary has-text-primary"
+                >Descripción</label
+              >
+              <div class="control has-icons-left">
+                <textarea
+                  style="padding-left: 40px"
+                  class="textarea"
+                  placeholder="Deliciosa dorada al horno con patatas"
+                ></textarea>
+                <span class="icon is-small is-left">
+                  <i
+                    class="mdi mdi-newspaper-variant-outline Google @Google"
+                  ></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label has-text-primary has-text-primary"
+                >Dificultad</label
+              >
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="number"
+                  placeholder="1 - 5"
+                  value=""
+                />
+                <span class="icon is-small is-left">
+                  <i class="mdi mdi-glasses"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-primary">Comensales</label>
+          <div class="control has-icons-left">
+            <input class="input" type="number" placeholder="1 - 10" value="" />
+            <span class="icon is-small is-left">
+              <i class="mdi mdi-account-group"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-primary">Ingredientes</label>
+        </div>
+        <div class="field field-ingredients">
+          <div class="columns">
+            <div class="column">
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  name="ingredient-name"
+                  placeholder="Nombre del ingrediente"
+                  value=""
+                />
+                <span class="icon is-small is-left">
+                  <i class="mdi mdi-rice"></i>
+                </span>
+              </div>
+            </div>
+            <div class="column">
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="number"
+                  name="ingredient-quantity"
+                  placeholder="Cantidad"
+                  value=""
+                />
+                <span class="icon is-small is-left">
+                  <i class="mdi mdi-counter"></i>
+                </span>
+              </div>
+            </div>
+            <div class="column">
+              <button
+                class="button is-fullwidth is-primary add-ingredients-btn"
+                type="button"
+              >
+                Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-primary">Instrucciones</label>
+          <div class="control has-icons-left">
+            <textarea
+              style="padding-left: 40px"
+              class="textarea"
+              placeholder="Paso 1 precalentar el horno a ..."
+            ></textarea>
+            <span class="icon is-small is-left">
+              <i class="mdi mdi-clipboard-list"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="checkbox">
+            <input type="checkbox" />
+            Acepto las <a href="#">condiciones de uso</a>
+          </label>
+        </div>
+        <div class="field has-text-centered">
+          <button class="button is-medium is-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
