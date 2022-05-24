@@ -9,7 +9,7 @@ const templateColIngredient = `<div class="columns cols-ingredients">
       value=""
     />
     <span class="icon is-small is-left">
-      <i class="mdi mdi-signal-4g"></i>
+      <i class="mdi mdi-chili-mild"></i>
     </span>
   </div>
 </div>
@@ -23,7 +23,7 @@ const templateColIngredient = `<div class="columns cols-ingredients">
       value=""
     />
     <span class="icon is-small is-left">
-      <i class="mdi mdi-signal-4g"></i>
+      <i class="mdi mdi-counter"></i>
     </span>
   </div>
 </div>
