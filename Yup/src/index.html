@@ -9,7 +9,7 @@
   <body>
     <div class="main-container">
       <div class="banner-container">
-        <img src="undraw_cooking_lyxy.svg" alt="" />
+        <img src="undraw_cooking_lyxy_2.svg" alt="" />
       </div>
       <section class="hero">
         <div class="hero-body">
@@ -24,16 +24,19 @@
       </section>
       <form class="recipe-form">
         <div class="columns">
-          <div class="column is-one-third">
+          <div
+            class="column is-one-third is-flex is-justify-content-center is-align-items-center"
+          >
             <div class="file is-boxed">
               <label class="file-label">
-                <input class="file-input" type="file" name="resume" />
+                <input class="file-input" type="file" />
                 <span class="file-cta">
                   <span class="file-icon">
                     <i class="mdi mdi-file-upload"></i>
                   </span>
                   <span class="file-label"> Foto del plato </span>
                 </span>
+                <span class="file-name"> ... </span>
               </label>
             </div>
           </div>
@@ -46,7 +49,8 @@
                 <input
                   class="input"
                   type="text"
-                  placeholder="Dorada al horno"
+                  placeholder="p. ej Dorada al horno"
+                  name="title"
                   value=""
                 />
                 <span class="icon is-small is-left">
@@ -62,7 +66,8 @@
                 <textarea
                   style="padding-left: 40px"
                   class="textarea"
-                  placeholder="Deliciosa dorada al horno con patatas"
+                  name="description"
+                  placeholder="p. ej Deliciosa dorada al horno con patatas"
                 ></textarea>
                 <span class="icon is-small is-left">
                   <i
@@ -80,6 +85,7 @@
                   class="input"
                   type="number"
                   placeholder="1 - 5"
+                  name="difficulty"
                   value=""
                 />
                 <span class="icon is-small is-left">
@@ -92,7 +98,13 @@
         <div class="field">
           <label class="label has-text-primary">Comensales</label>
           <div class="control has-icons-left">
-            <input class="input" type="number" placeholder="1 - 10" value="" />
+            <input
+              class="input"
+              type="number"
+              placeholder="1 - 10"
+              value=""
+              name="numDiners"
+            />
             <span class="icon is-small is-left">
               <i class="mdi mdi-account-group"></i>
             </span>
@@ -113,7 +125,7 @@
                   value=""
                 />
                 <span class="icon is-small is-left">
-                  <i class="mdi mdi-rice"></i>
+                  <i class="mdi mdi-chili-mild"></i>
                 </span>
               </div>
             </div>
@@ -147,7 +159,8 @@
             <textarea
               style="padding-left: 40px"
               class="textarea"
-              placeholder="Paso 1 precalentar el horno a ..."
+              placeholder="p. ej Paso 1 precalentar el horno a ..."
+              name="instructions"
             ></textarea>
             <span class="icon is-small is-left">
               <i class="mdi mdi-clipboard-list"></i>
@@ -159,6 +172,13 @@
             <input type="checkbox" />
             Acepto las <a href="#">condiciones de uso</a>
           </label>
+        </div>
+        <div
+          class="errors-list has-text-danger has-background-danger-light my-3 p-3 is-hidden"
+        >
+          <ul>
+            <li>Error descripción aquí!</li>
+          </ul>
         </div>
         <div class="field has-text-centered">
           <button class="button is-medium is-primary">Guardar</button>
