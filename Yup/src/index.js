@@ -63,8 +63,17 @@ const handleOnSubmit = async (recipe) => {
         validationErrors[error.path] = error.message;
       }
     });
-    recipeManagement.applyErrors(validationErrors);
+    return recipeManagement.applyErrors(validationErrors);
   }
+
+  document.querySelector('button[type="submit"]').classList.add("is-loading");
+  document.querySelector(".success-feedback").classList.add("is-hidden");
+  window.setTimeout(() => {
+    document
+      .querySelector('button[type="submit"]')
+      .classList.remove("is-loading");
+    document.querySelector(".success-feedback").classList.remove("is-hidden");
+  }, 500);
 };
 
 const recipeManagement = new RecipeManagement(handleOnSubmit);
