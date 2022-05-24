@@ -44,7 +44,6 @@ class RecipeManagement {
           return;
         }
         const file = e.target.files[0];
-        console.log(file);
         e.currentTarget.closest(".file").querySelector(".file-name").innerHTML =
           file.name;
         this.recipe.image = {
@@ -91,7 +90,6 @@ class RecipeManagement {
 
     const element = template.children[0].children[1].children[0];
     colIngredient.parentElement.appendChild(element);
-    console.log(this.recipe.ingredients);
   }
   updateRecipe() {
     this.errorsContainer.classList.add("is-hidden");
