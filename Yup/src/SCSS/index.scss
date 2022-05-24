@@ -4,14 +4,15 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 20px 0 20px 0;
   background-image: url("../assets/images/restaurant_icons.png");
 }
 .main-container {
   background-color: rgba(255, 255, 255, 0.74);
   max-width: 800px;
-  padding: 50px 20px 50px 20px;
-  margin: 0 auto;
+  padding: 0 20px 50px 20px;
+  margin: 20px auto;
+  border-radius: 20px;
   .banner-container {
     img {
       display: block;
