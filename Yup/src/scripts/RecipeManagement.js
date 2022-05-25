@@ -98,7 +98,7 @@ class RecipeManagement {
       this.recipe[field.getAttribute("name")] = field.value;
     });
   }
-  applyErrors(errors) {
+  showErrors(errors) {
     this.errorsContainer.classList.remove("is-hidden");
     this.errorsContainer.innerHTML = "";
     const ul = document.createElement("ul");

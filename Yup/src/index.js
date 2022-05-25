@@ -63,7 +63,7 @@ const handleOnSubmit = async (recipe) => {
         validationErrors[error.path] = error.message;
       }
     });
-    return recipeManagement.applyErrors(validationErrors);
+    return recipeManagement.showErrors(validationErrors);
   }
 
   document.querySelector('button[type="submit"]').classList.add("is-loading");
