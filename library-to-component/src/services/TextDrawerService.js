@@ -5,11 +5,13 @@
 class TextDrawerService {
   constructor() {
     this.position = { x: 0, y: window.innerHeight / 2 };
+    this.offset = undefined;
     this.counter = 0;
     this.minFontSize = 3;
-    this.letters = "";
-    this.canvas;
-    this.context;
+    this.letters =
+      "There was a table set out under a tree in front of the house, and the March Hare and the Hatter were having tea at it: a Dormouse was sitting between them, fast asleep, and the other two were using it as a cushion, resting their elbows on it, and talking over its head. 'Very uncomfortable for the Dormouse,' thought Alice; 'only, as it's asleep, I suppose it doesn't mind.";
+    this.canvas = undefined;
+    this.context = undefined;
     this.mouse = { x: 0, y: 0, down: false };
     this._mouseMove = this.mouseMove.bind(this);
     this._mouseDown = this.mouseDown.bind(this);
@@ -18,11 +20,13 @@ class TextDrawerService {
     this._doubleClick = this.doubleClick.bind(this);
   }
 
-  init() {
-    this.canvas = document.getElementById("canvas");
+  init(canvas) {
+    this.canvas = canvas;
+    this.offset = this.canvas.getBoundingClientRect();
+
     this.context = this.canvas.getContext("2d");
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
+    // this.canvas.width = window.innerWidth;
+    // this.canvas.height = window.innerHeight;
 
     this.canvas.addEventListener("mousemove", this._mouseMove, false);
     this.canvas.addEventListener("mousedown", this._mouseDown, false);
@@ -47,7 +51,7 @@ class TextDrawerService {
       const d = this.distance(this.position, this.mouse);
       const fontSize = this.minFontSize + d / 2;
       const letter = this.letters[this.counter];
-      const stepSize = textWidth(letter, fontSize);
+      const stepSize = this.textWidth(letter, fontSize);
 
       if (d > stepSize) {
         const angle = Math.atan2(
@@ -89,8 +93,8 @@ class TextDrawerService {
 
   mouseDown(event) {
     this.mouse.down = true;
-    this.position.x = event.pageX;
-    this.position.y = event.pageY;
+    this.position.x = event.pageX - this.offset.x;
+    this.position.y = event.pageY - this.offset.y;
   }
 
   mouseUp() {
