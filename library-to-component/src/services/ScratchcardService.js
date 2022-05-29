@@ -59,8 +59,8 @@ class ScratchCardService {
     this.dragging = false;
   }
   updateImages(frontImage, backImage) {
-    this.background.texture = Texture.from(backImage);
-    this.imageToReveal.texture = Texture.from(frontImage);
+    this.background.texture = Texture.from(frontImage);
+    this.imageToReveal.texture = Texture.from(backImage);
   }
   on(eventKey, cb) {
     if (typeof cb !== "function") {
@@ -104,6 +104,23 @@ class ScratchCardService {
     if (this.listerens["scratchend"]) {
       this.listerens["scratchend"](event);
     }
+  }
+  destroy() {
+    this.app.destroy();
+    this.app = undefined;
+    this.stage = undefined;
+    this.container = undefined;
+    this.brush = undefined;
+    this.dragging = false;
+    this.renderTexture = undefined;
+    this.background = undefined;
+    this.imageToReveal = undefined;
+    this.renderTextureSprite = undefined;
+    this.listerens = {
+      scratchstart: undefined,
+      scratchend: undefined,
+      scratching: undefined,
+    };
   }
 }
 
