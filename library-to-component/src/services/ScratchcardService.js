@@ -18,6 +18,11 @@ class ScratchCardService {
     this.background = undefined;
     this.imageToReveal = undefined;
     this.renderTextureSprite = undefined;
+    this.listerens = {
+      scratchstart: undefined,
+      scratchend: undefined,
+      scratching: undefined,
+    };
   }
   launch(container, { frontImage, backImage }) {
     const containerSize = container.getBoundingClientRect();
@@ -56,22 +61,18 @@ class ScratchCardService {
     this.stage.on("pointerup", this.pointerUp.bind(this));
     this.stage.on("pointermove", this.pointerMove.bind(this));
     this.dragging = false;
-    this.loadResources(frontImage, backImage);
-  }
-  loadResources(frontImage, backImage) {
-    if (!this.app.loader.resources.t1 && !this.app.loader.resources.t1) {
-      this.app.loader.add("t1", frontImage);
-      this.app.loader.add("t2", backImage);
-      this.app.loader.load(this.setup.bind(this));
-      return;
-    }
   }
   updateImages(frontImage, backImage) {
     this.background.texture = Texture.from(backImage);
     this.imageToReveal.texture = Texture.from(frontImage);
   }
-  setup(loader, resources) {}
-  pointerMove(event) {
+  on(eventKey, cb) {
+    if (typeof cb !== "function") {
+      return;
+    }
+    this.listerens[eventKey] = cb;
+  }
+  pointerMove(event, first) {
     if (!event || !this.renderTexture) {
       return;
     }
@@ -83,14 +84,23 @@ class ScratchCardService {
         transform: null,
         skipUpdateTransform: false,
       });
+      if (this.listerens["scratching"] && !first) {
+        this.listerens["scratching"](event);
+      }
     }
   }
   pointerDown(event) {
     this.dragging = true;
-    this.pointerMove(event);
+    this.pointerMove(event, true);
+    if (this.listerens["scratchstart"]) {
+      this.listerens["scratchstart"](event);
+    }
   }
   pointerUp(event) {
     this.dragging = false;
+    if (this.listerens["scratchend"]) {
+      this.listerens["scratchend"](event);
+    }
   }
 }
 
