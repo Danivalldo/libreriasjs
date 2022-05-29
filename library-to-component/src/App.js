@@ -30,6 +30,7 @@ function App() {
       <ScratchCard
         frontImage={frontImage}
         backImage={backImage}
+        radius={10}
         onScratchStart={handleOnScratchStart}
         onScratchEnd={handleOnScratchEnd}
         onScratching={handleOnScratching}
