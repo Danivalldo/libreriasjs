@@ -3,6 +3,8 @@ import { useState } from "react";
 import ScratchCard from "./components/ScratchCard";
 
 function App() {
+  const [active, setActive] = useState(true);
+  const [radius, setRadius] = useState(10);
   const [frontImage, setFrontImage] = useState("textures/bg_grass.jpeg");
   const [backImage, setBackImage] = useState("textures/bg_rotate.jpeg");
 
@@ -27,15 +29,36 @@ function App() {
 
   return (
     <div className="App">
-      <ScratchCard
-        frontImage={frontImage}
-        backImage={backImage}
-        radius={10}
-        onScratchStart={handleOnScratchStart}
-        onScratchEnd={handleOnScratchEnd}
-        onScratching={handleOnScratching}
-      />
+      {active && (
+        <ScratchCard
+          frontImage={frontImage}
+          backImage={backImage}
+          radius={radius}
+          style={{ height: 400 }}
+          onScratchStart={handleOnScratchStart}
+          onScratchEnd={handleOnScratchEnd}
+          onScratching={handleOnScratching}
+        />
+      )}
       <button onClick={handleChangeImage}>Change Images</button>
+      <button
+        onClick={() => {
+          setActive((prevActive) => {
+            return !prevActive;
+          });
+        }}
+      >
+        Toggle Active
+      </button>
+      <input
+        type="range"
+        min={5}
+        max={50}
+        value={radius}
+        onChange={(e) => {
+          setRadius(e.currentTarget.value);
+        }}
+      />
     </div>
   );
 }
