@@ -8,6 +8,8 @@ const ScratchCard = ({
   onScratchStart,
   onScratchEnd,
   onScratching,
+  className,
+  style,
 }) => {
   const containerRef = useRef(null);
 
@@ -20,6 +22,9 @@ const ScratchCard = ({
       frontImage,
       backImage,
     });
+    return () => {
+      scratchCardSrv.destroy();
+    };
   }, []);
 
   useEffect(() => {
@@ -54,7 +59,8 @@ const ScratchCard = ({
   return (
     <div
       ref={containerRef}
-      style={{ height: 400, border: "solid 1px red" }}
+      className={{ ...className }}
+      style={{ ...style }}
     ></div>
   );
 };
