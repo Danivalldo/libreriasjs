@@ -1,7 +1,10 @@
 import {useEffect, useMemo, useRef} from 'react';
 import ScratchCardService from "../services/ScratchcardService";
 
-const ScratchCard = ({frontImage, backImage}) => {
+const ScratchCard = ({
+  frontImage, 
+  backImage,
+}) => {
   const containerRef = useRef(null);
   
   const scratchCardSrv = useMemo(()=>{
@@ -9,7 +12,10 @@ const ScratchCard = ({frontImage, backImage}) => {
   }, []);
 
   useEffect(()=>{
-    scratchCardSrv.launch(containerRef.current);
+    scratchCardSrv.launch(containerRef.current, {
+      frontImage,
+      backImage,
+    });
   }, []);
 
   useEffect(()=>{
