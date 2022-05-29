@@ -15,9 +15,15 @@ function App() {
     );
   };
 
-  const handleOnScratchStart = () => {};
-  const handleOnScratchEnd = () => {};
-  const handleOnScratching = () => {};
+  const handleOnScratchStart = () => {
+    console.log("scratch start");
+  };
+  const handleOnScratchEnd = () => {
+    console.log("scratch end");
+  };
+  const handleOnScratching = () => {
+    console.log("scratching");
+  };
 
   return (
     <div className="App">
