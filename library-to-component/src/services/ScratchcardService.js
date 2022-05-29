@@ -24,18 +24,14 @@ class ScratchCardService {
       scratching: undefined,
     };
   }
-  launch(container, { frontImage, backImage }) {
+  launch(container, { frontImage, backImage, radius = 50 }) {
     const containerSize = container.getBoundingClientRect();
     this.app = new Application({
       width: containerSize.width,
       height: containerSize.height,
     });
     this.stage = this.app.stage;
-    this.brush = new Graphics();
-    this.brush.beginFill(0xffffff);
-    this.brush.drawCircle(0, 0, 50);
-    this.brush.filters = [new filters.BlurFilter(5)];
-    this.brush.endFill();
+    this.setBrush(radius);
     this.container = container;
     this.container.appendChild(this.app.view);
     this.renderTexture = RenderTexture.create({
@@ -71,6 +67,13 @@ class ScratchCardService {
       return;
     }
     this.listerens[eventKey] = cb;
+  }
+  setBrush(radius) {
+    this.brush = new Graphics();
+    this.brush.beginFill(0xffffff);
+    this.brush.drawCircle(0, 0, radius);
+    this.brush.filters = [new filters.BlurFilter(5)];
+    this.brush.endFill();
   }
   pointerMove(event, first) {
     if (!event || !this.renderTexture) {
