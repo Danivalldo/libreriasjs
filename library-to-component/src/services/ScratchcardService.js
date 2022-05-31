@@ -40,6 +40,7 @@ class ScratchCardService {
     this.setBrush(radius);
 
     this.container.appendChild(this.app.view);
+
     this.renderTexture = RenderTexture.create({
       width: this.app.screen.width,
       height: this.app.screen.height,
