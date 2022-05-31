@@ -29,7 +29,8 @@ class ScratchCardService {
     this.handleOnPointerMove = this.pointerMove.bind(this);
   }
   launch(container, { frontImage, backImage, radius = 50 }) {
-    const containerSize = container.getBoundingClientRect();
+    this.container = container;
+    const containerSize = this.container.getBoundingClientRect();
     this.app = new Application({
       width: containerSize.width,
       height: containerSize.height,
@@ -37,7 +38,7 @@ class ScratchCardService {
     });
     this.stage = this.app.stage;
     this.setBrush(radius);
-    this.container = container;
+
     this.container.appendChild(this.app.view);
     this.renderTexture = RenderTexture.create({
       width: this.app.screen.width,
