@@ -50,11 +50,7 @@ class ScratchCardService {
     this.renderTextureSprite = new Sprite(this.renderTexture);
     this.stage.addChild(this.renderTextureSprite);
 
-    this.background.width = this.app.screen.width;
-    this.background.height = this.app.screen.height;
-
-    this.imageToReveal.width = this.app.screen.width;
-    this.imageToReveal.height = this.app.screen.height;
+    this.onReize();
     this.imageToReveal.mask = this.renderTextureSprite;
 
     this.stage.interactive = true;
