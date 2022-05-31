@@ -62,7 +62,6 @@ class ScratchCardService {
     this.stage.on("pointerup", this.handleOnPointerUp);
     this.stage.on("pointermove", this.handleOnPointerMove);
     window.addEventListener("resize", this.handleOnResize);
-    this.dragging = false;
   }
   updateImages(frontImage, backImage) {
     this.background.texture = Texture.from(frontImage);
