@@ -23,7 +23,7 @@ class ScratchCardService {
       scratchend: undefined,
       scratching: undefined,
     };
-    this.handleOnResize = this.onReize.bind(this);
+    this.handleOnResize = this.onResize.bind(this);
     this.handleOnPointerDown = this.pointerDown.bind(this);
     this.handleOnPointerUp = this.pointerUp.bind(this);
     this.handleOnPointerMove = this.pointerMove.bind(this);
@@ -51,7 +51,7 @@ class ScratchCardService {
     this.renderTextureSprite = new Sprite(this.renderTexture);
     this.stage.addChild(this.renderTextureSprite);
 
-    this.onReize();
+    this.onResize();
     this.imageToReveal.mask = this.renderTextureSprite;
 
     this.stage.interactive = true;
@@ -107,7 +107,7 @@ class ScratchCardService {
       this.listerens["scratchend"](event);
     }
   }
-  onReize() {
+  onResize() {
     this.app.resize();
     this.background.width = this.app.screen.width;
     this.background.height = this.app.screen.height;
