@@ -112,9 +112,6 @@ class ScratchCardService {
     }
   }
   onReize() {
-    this.stage.off("pointerdown", this.handleOnPointerDown);
-    this.stage.off("pointerup", this.handleOnPointerUp);
-    this.stage.off("pointermove", this.handleOnPointerMove);
     this.app.resize();
     this.background.width = this.app.screen.width;
     this.background.height = this.app.screen.height;
@@ -127,9 +124,6 @@ class ScratchCardService {
     );
     this.renderTextureSprite.width = this.app.screen.width;
     this.renderTextureSprite.height = this.app.screen.height;
-    this.stage.on("pointerdown", this.handleOnPointerDown);
-    this.stage.on("pointerup", this.handleOnPointerUp);
-    this.stage.on("pointermove", this.handleOnPointerMove);
   }
   destroy() {
     window.removeEventListener("resize", this.handleOnResize);
