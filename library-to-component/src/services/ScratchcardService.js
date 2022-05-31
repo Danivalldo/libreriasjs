@@ -77,8 +77,8 @@ class ScratchCardService {
     this.brush.filters = [new filters.BlurFilter(5)];
     this.brush.endFill();
   }
-  pointerMove(event, first) {
-    if (!event || !this.renderTexture) {
+  pointerMove(event) {
+    if (!event) {
       return;
     }
     if (this.dragging) {
@@ -89,17 +89,17 @@ class ScratchCardService {
         transform: null,
         skipUpdateTransform: false,
       });
-      if (this.listerens["scratching"] && !first) {
+      if (this.listerens["scratching"]) {
         this.listerens["scratching"](event);
       }
     }
   }
   pointerDown(event) {
     this.dragging = true;
-    this.pointerMove(event, true);
     if (this.listerens["scratchstart"]) {
       this.listerens["scratchstart"](event);
     }
+    this.pointerMove(event);
   }
   pointerUp(event) {
     this.dragging = false;
@@ -126,7 +126,11 @@ class ScratchCardService {
     this.stage.off("pointerdown", this.handleOnPointerDown);
     this.stage.off("pointerup", this.handleOnPointerUp);
     this.stage.off("pointermove", this.handleOnPointerMove);
-    this.app.destroy();
+    this.app.destroy(true, {
+      children: true,
+      texture: true,
+      baseTexture: true,
+    });
     this.app = undefined;
     this.stage = undefined;
     this.container = undefined;
