@@ -25,7 +25,7 @@ const ScratchCard = ({
     return () => {
       scratchCardSrv.destroy();
     };
-  }, []);
+  }, [scratchCardSrv, containerRef]);
 
   useEffect(() => {
     scratchCardSrv.setBrush(radius);
