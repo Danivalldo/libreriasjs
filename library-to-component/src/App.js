@@ -24,20 +24,18 @@ function App() {
 
   return (
     <div className="App">
-      <ScratchCard
-        frontImage={"textures/front-image.png"}
-        backImage={"textures/back-image.png"}
-        radius={25}
-        style={{ width: 737, height: 393 }}
-        className="cont-a"
-      />
-      <ScratchCard
-        frontImage={"textures/blurred_dog.png"}
-        backImage={"textures/dog.png"}
-        radius={50}
-        style={{ width: 737, height: 823 }}
-        className="cont-a"
-      />
+      {active && (
+        <ScratchCard
+          frontImage={frontImage}
+          backImage={backImage}
+          radius={radius}
+          style={{ width: 700, height: 700 }}
+          className="cont-a"
+          onScratchEnd={handleOnScratchEnd}
+          onScratchStart={handleOnScratchStart}
+          onScratching={handleOnScratching}
+        />
+      )}
       <div className="ui">
         <div>
           <span className="font-bold">Activo:</span>
@@ -89,18 +87,24 @@ function App() {
           }}
         />
       </div>
-      {active && (
-        <ScratchCard
-          frontImage={frontImage}
-          backImage={backImage}
-          radius={radius}
-          style={{ width: 700, height: 700 }}
-          className="cont-a"
-          onScratchEnd={handleOnScratchEnd}
-          onScratchStart={handleOnScratchStart}
-          onScratching={handleOnScratching}
-        />
-      )}
+      <hr />
+      <div>
+        <h2 className="text-center">Más ejemplos</h2>
+      </div>
+      <ScratchCard
+        frontImage={"textures/front-image.png"}
+        backImage={"textures/back-image.png"}
+        radius={25}
+        style={{ width: 737, height: 393 }}
+        className="cont-a"
+      />
+      <ScratchCard
+        frontImage={"textures/blurred_dog.png"}
+        backImage={"textures/dog.png"}
+        radius={50}
+        style={{ width: 737, height: 823 }}
+        className="cont-a"
+      />
     </div>
   );
 }
