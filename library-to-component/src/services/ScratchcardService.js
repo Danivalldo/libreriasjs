@@ -37,23 +37,25 @@ class ScratchCardService {
       resizeTo: container,
     });
     this.stage = this.app.stage;
+    this.container.appendChild(this.app.view);
+
     this.setBrush(radius);
 
-    this.container.appendChild(this.app.view);
+    this.background = new Sprite(Texture.from(backImage));
+    this.stage.addChild(this.background);
+    this.imageToReveal = new Sprite(Texture.from(frontImage));
+    this.stage.addChild(this.imageToReveal);
 
     this.renderTexture = RenderTexture.create({
       width: this.app.screen.width,
       height: this.app.screen.height,
     });
-    this.background = new Sprite(Texture.from(backImage));
-    this.stage.addChild(this.background);
-    this.imageToReveal = new Sprite(Texture.from(frontImage));
-    this.stage.addChild(this.imageToReveal);
     this.renderTextureSprite = new Sprite(this.renderTexture);
     this.stage.addChild(this.renderTextureSprite);
 
-    this.onResize();
     this.imageToReveal.mask = this.renderTextureSprite;
+
+    this.onResize();
 
     this.stage.interactive = true;
     this.stage.on("pointerdown", this.handleOnPointerDown);
@@ -79,20 +81,18 @@ class ScratchCardService {
     this.brush.endFill();
   }
   pointerMove(event) {
-    if (!event) {
+    if (!event || !this.dragging) {
       return;
     }
-    if (this.dragging) {
-      this.brush.position.copyFrom(event.data.global);
-      this.app.renderer.render(this.brush, {
-        renderTexture: this.renderTexture,
-        clear: false,
-        transform: null,
-        skipUpdateTransform: false,
-      });
-      if (this.listerens["scratching"]) {
-        this.listerens["scratching"](event);
-      }
+    this.brush.position.copyFrom(event.data.global);
+    this.app.renderer.render(this.brush, {
+      renderTexture: this.renderTexture,
+      clear: false,
+      transform: null,
+      skipUpdateTransform: false,
+    });
+    if (this.listerens["scratching"]) {
+      this.listerens["scratching"](event);
     }
   }
   pointerDown(event) {
