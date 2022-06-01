@@ -1,10 +1,49 @@
-body{
-  margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;700&display=swap');
+
+*{
+  box-sizing: border-box;
 }
 
-.cont-a{
-  margin: 0 auto;
-  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+.App{
+  padding:10px;
+}
+
+body {
+  color: #1e1e22;
+  margin: 0;
+  background-color: #e7e5ff;
+  font-family: 'Heebo', sans-serif;
+}
+
+hr{
+  opacity: .3;
+}
+
+.font-bold{
+  font-weight: 700;
+}
+
+.cont-a {
+  margin: 0 auto 20px auto;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   border-radius: 24px;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="range"]{
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.3rem;
+  font-family: 'Heebo', sans-serif;
+}
+
+.ui{
+  padding: 40px;
 }
