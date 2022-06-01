@@ -21,6 +21,7 @@ const ScratchCard = ({
     scratchCardSrv.launch(containerRef.current, {
       frontImage,
       backImage,
+      radius,
     });
     return () => {
       scratchCardSrv.destroy();
@@ -30,6 +31,10 @@ const ScratchCard = ({
   useEffect(() => {
     scratchCardSrv.setBrush(radius);
   }, [radius]);
+
+  useEffect(() => {
+    scratchCardSrv.updateImages(frontImage, backImage);
+  }, [frontImage, backImage]);
 
   useEffect(() => {
     if (typeof onScratchStart !== "function") {
@@ -52,16 +57,8 @@ const ScratchCard = ({
     scratchCardSrv.on("scratching", onScratching);
   }, [onScratching]);
 
-  useEffect(() => {
-    scratchCardSrv.updateImages(frontImage, backImage);
-  }, [frontImage, backImage]);
-
   return (
-    <div
-      ref={containerRef}
-      className={{ ...className }}
-      style={{ ...style }}
-    ></div>
+    <div ref={containerRef} className={className} style={{ ...style }}></div>
   );
 };
 
