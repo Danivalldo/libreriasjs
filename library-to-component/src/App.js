@@ -5,8 +5,8 @@ import ScratchCard from "./components/ScratchCard";
 function App() {
   const [active, setActive] = useState(true);
   const [radius, setRadius] = useState(10);
-  const [frontImage, setFrontImage] = useState("textures/bg_grass.jpeg");
-  const [backImage, setBackImage] = useState("textures/bg_rotate.jpeg");
+  const [frontImage, setFrontImage] = useState("textures/front-image.png");
+  const [backImage, setBackImage] = useState("textures/back-image.png");
 
   const handleChangeImage = () => {
     setFrontImage(
@@ -33,7 +33,7 @@ function App() {
           frontImage={frontImage}
           backImage={backImage}
           radius={radius}
-          style={{ height: 400 }}
+          style={{ width: 737, height: 393 }}
           onScratchStart={handleOnScratchStart}
           onScratchEnd={handleOnScratchEnd}
           onScratching={handleOnScratching}
@@ -58,6 +58,13 @@ function App() {
         onChange={(e) => {
           setRadius(e.currentTarget.value);
         }}
+      />
+      <ScratchCard
+        frontImage={"textures/blurred_dog.png"}
+        backImage={"textures/dog.png"}
+        radius={50}
+        style={{ width: 737, height: 823 }}
+        className="cont-a"
       />
     </div>
   );
