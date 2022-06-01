@@ -37,6 +37,7 @@ function App() {
           onScratchStart={handleOnScratchStart}
           onScratchEnd={handleOnScratchEnd}
           onScratching={handleOnScratching}
+          className="cont-a"
         />
       )}
       <button onClick={handleChangeImage}>Change Images</button>
