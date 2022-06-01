@@ -9,7 +9,7 @@
 }
 
 body {
-  color: #1e1e22;
+  color: #4b4b9e;
   margin: 0;
   background-color: #e7e5ff;
   font-family: 'Heebo', sans-serif;
@@ -21,6 +21,10 @@ hr{
 
 .font-bold{
   font-weight: 700;
+}
+
+.text-center{
+  text-align: center;
 }
 
 .cont-a {
