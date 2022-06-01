@@ -3,5 +3,8 @@ body{
 }
 
 .cont-a{
-  border: solid 1px red;
+  margin: 0 auto;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  overflow: hidden;
+  border-radius: 24px;
 }
