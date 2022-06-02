@@ -18,7 +18,7 @@ class ScratchCardService {
     this.background = undefined;
     this.imageToReveal = undefined;
     this.renderTextureSprite = undefined;
-    this.listerens = {
+    this.listeners = {
       scratchstart: undefined,
       scratchend: undefined,
       scratching: undefined,
@@ -71,7 +71,7 @@ class ScratchCardService {
     if (typeof cb !== "function") {
       return;
     }
-    this.listerens[eventKey] = cb;
+    this.listeners[eventKey] = cb;
   }
   setBrush(radius) {
     this.brush = new Graphics();
@@ -91,21 +91,21 @@ class ScratchCardService {
       transform: null,
       skipUpdateTransform: false,
     });
-    if (this.listerens["scratching"]) {
-      this.listerens["scratching"](event);
+    if (this.listeners["scratching"]) {
+      this.listeners["scratching"](event);
     }
   }
   pointerDown(event) {
     this.dragging = true;
-    if (this.listerens["scratchstart"]) {
-      this.listerens["scratchstart"](event);
+    if (this.listeners["scratchstart"]) {
+      this.listeners["scratchstart"](event);
     }
     this.pointerMove(event);
   }
   pointerUp(event) {
     this.dragging = false;
-    if (this.listerens["scratchend"]) {
-      this.listerens["scratchend"](event);
+    if (this.listeners["scratchend"]) {
+      this.listeners["scratchend"](event);
     }
   }
   onResize() {
@@ -141,7 +141,7 @@ class ScratchCardService {
     this.background = undefined;
     this.imageToReveal = undefined;
     this.renderTextureSprite = undefined;
-    this.listerens = {
+    this.listeners = {
       scratchstart: undefined,
       scratchend: undefined,
       scratching: undefined,
