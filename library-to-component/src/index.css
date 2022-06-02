@@ -51,3 +51,25 @@ input[type="range"]{
 .ui{
   padding: 40px;
 }
+
+@media screen and (max-width: 850px) {
+  .cont-a{
+    max-width: 500px;
+    max-height: 500px;
+  }
+  .App :nth-child(5){
+    max-width: 500px;
+    max-height: 300px;
+  }
+}
+@media screen and (max-width: 530px) {
+  .cont-a{
+    border-radius: 10px;
+    max-width: 300px;
+    max-height: 300px;
+  }
+  .App :nth-child(5){
+    max-width: 300px;
+    max-height: 200px;
+  }
+}
