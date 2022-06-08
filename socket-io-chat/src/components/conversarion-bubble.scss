@@ -1,0 +1,42 @@
+.conversation-bubble {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  .wrapper-bubble {
+    display: inline-block;
+    background-color: rgb(107, 97, 170);
+    padding: 8px 15px;
+    border-top-left-radius: var(--bubble-radius);
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: var(--bubble-radius);
+    border-bottom-right-radius: var(--bubble-radius);
+    color: #f8f7ff;
+    position: relative;
+    font-weight: 300;
+    box-shadow: 0px 4px 4px 0px rgb(0, 0, 0);
+    .name {
+      display: block;
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.8rem;
+      padding-bottom: 2px;
+    }
+    .time {
+      display: inline-block;
+      margin-left: 5px;
+      font-size: 0.7rem;
+      color: #c8c3e2;
+    }
+  }
+  &.r {
+    text-align: right;
+    margin-right: 10px;
+    .wrapper-bubble {
+      background-color: var(--main-bubble-color);
+      border-bottom-left-radius: var(--bubble-radius);
+      border-bottom-right-radius: 0px;
+      .time {
+        background-color: var(--main-bubble-color);
+      }
+    }
+  }
+}
