@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const http = require("http");
@@ -5,16 +6,14 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_HOST,
     methods: ["GET", "POST"],
   },
 });
 
 let users = [];
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
+app.use(express.static("build"));
 
 io.on("connection", (socket) => {
   console.log("a user connected!");
@@ -44,6 +43,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(9000, () => {
-  console.log("listening on *:9000");
+server.listen(process.env.SOCKET_PORT, () => {
+  console.log(`listening on *:${process.env.SOCKET_PORT}`);
 });
