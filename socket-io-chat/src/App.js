@@ -1,12 +1,24 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import dayjs from "dayjs";
 import ConversationBubble from "./components/ConversationBubble";
+import TotalUsersBadge from "./components/TotalUsersBadge";
 import SocketCtrl from "./services/SocketCtrl";
 import Logo from "./resources/logo_copy_u.png";
 import "./App.scss";
 
 function App() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    const time = Date.now();
+    return [
+      {
+        id: `i-copy-u-${time}`,
+        time: dayjs(time).format("HH:mm"),
+        message: `Bienvenido a iCopyU!, se respetuoso con todo el mundo`,
+        userName: "iCopyU!",
+        position: "l",
+      },
+    ];
+  });
   const [socketId, setSocketId] = useState(null);
   const [totalUsers, setTotalUsers] = useState(1);
 
@@ -28,15 +40,14 @@ function App() {
             id: `${enterUser.id}-${time}`,
             time: dayjs(time).format("HH:mm"),
             message: `El usuario ${enterUser.id} ha entrado en la sala`,
-            userName: "Machine",
-            position: "r",
+            userName: "iCopyU!",
+            position: "l",
           },
         ];
       });
       setTotalUsers(enterUser.totalUsers);
     });
     socket.on("USER_DISCONNECTED", (goneUser) => {
-      console.log(goneUser);
       const time = Date.now();
       setMessages((prevMessages) => {
         return [
@@ -45,8 +56,8 @@ function App() {
             id: `${goneUser.id}-${time}`,
             time: dayjs(time).format("HH:mm"),
             message: `El usuario ${goneUser.id} ha dejado la sala`,
-            userName: "Machine",
-            position: "r",
+            userName: "iCopyU!",
+            position: "l",
           },
         ];
       });
@@ -62,7 +73,7 @@ function App() {
             time: dayjs(messageData.time).format("HH:mm"),
             message: messageData.message,
             userName: messageData.userId,
-            position: "r",
+            position: "l",
           },
         ];
       });
@@ -85,7 +96,7 @@ function App() {
               time: dayjs(time).format("HH:mm"),
               message,
               userName: socketId,
-              position: "l",
+              position: "r",
             },
           ];
         });
@@ -104,8 +115,8 @@ function App() {
     <div className="chat-container">
       <div className="container-logo">
         <img src={Logo} alt="" className="logo-app" />
+        <TotalUsersBadge totalUsers={totalUsers} />
       </div>
-
       {messages.map((message) => {
         return (
           <ConversationBubble
@@ -117,19 +128,13 @@ function App() {
           />
         );
       })}
-      {/* <ConversationBubble
-        userName={"Dani"}
-        message="Lorem Ipsum"
-        time={"10:00"}
-        position={"r"}
-      /> */}
       <div className="chat-box__container">
         <textarea
           name=""
           id=""
           cols="30"
           rows="10"
-          placeholder={`${socketId} ${totalUsers}`}
+          placeholder={`Tu nombre de usuario es ${socketId}. Escribe algo aquí`}
           onKeyDown={handleKeyDown}
         ></textarea>
       </div>
