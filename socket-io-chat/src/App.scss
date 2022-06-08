@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500&display=swap");
+
+* {
+  outline: none;
+}
+
+:root {
+  --main-bubble-color: darkslateblue;
+  --second-bubble-color: rgb(107, 97, 170);
+  --white-bubble-color: rgb(234, 230, 255);
+  --bubble-radius: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Work Sans", sans-serif;
+  background-image: url("./resources/bgs/memphis-mini-dark.png");
+}
+
+.chat-container {
+  padding: 10px 10px 120px 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  .container-logo {
+    background-color: rgba(71, 61, 139, 0.757);
+    margin-bottom: 10px;
+    padding: 20px 10px;
+    border-radius: 10px;
+    .logo-app {
+      display: block;
+      max-width: 50%;
+      filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.879));
+      margin: 0 auto;
+    }
+  }
+  .chat-box__container {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    textarea {
+      display: block;
+      border-radius: 10px;
+      box-sizing: border-box;
+      width: 95%;
+      max-width: 600px;
+      margin: 0 auto;
+      resize: none;
+      padding: 20px;
+      height: 100px;
+      font-size: 1.2rem;
+      color: var(--main-bubble-color);
+      background-color: #ffffffec;
+      font-family: "Work Sans", sans-serif;
+    }
+  }
+}
