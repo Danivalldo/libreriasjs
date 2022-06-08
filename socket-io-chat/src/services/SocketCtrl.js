@@ -8,7 +8,7 @@ class SocketCtrl {
     if (this.socket) {
       return;
     }
-    this.socket = io("http://localhost:9000", {
+    this.socket = io(process.env.REACT_APP_SOCKET_HOST, {
       query: {
         type: "",
       },
