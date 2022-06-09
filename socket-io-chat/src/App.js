@@ -83,6 +83,10 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }, [messages]);
+
   const handleKeyDown = useCallback(
     (e) => {
       const message = e.target.value;
