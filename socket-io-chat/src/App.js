@@ -7,18 +7,7 @@ import Logo from "./resources/logo_copy_u.png";
 import "./App.scss";
 
 function App() {
-  const [messages, setMessages] = useState(() => {
-    const time = Date.now();
-    return [
-      {
-        id: `i-copy-u-${time}`,
-        time: dayjs(time).format("HH:mm"),
-        message: `Bienvenido a iCopyU!, se respetuoso con todo el mundo`,
-        userName: "iCopyU!",
-        position: "l",
-      },
-    ];
-  });
+  const [messages, setMessages] = useState([]);
   const [socketId, setSocketId] = useState(null);
   const [totalUsers, setTotalUsers] = useState(1);
 
@@ -30,19 +19,26 @@ function App() {
     socket.connect((socket) => {
       setSocketId(socket.id);
     });
-
     socket.on("USER_CONNECTED", (enterUser) => {
       const time = Date.now();
       setMessages((prevMessages) => {
         return [
           ...prevMessages,
-          {
-            id: `${enterUser.id}-${time}`,
-            time: dayjs(time).format("HH:mm"),
-            message: `El usuario ${enterUser.id} ha entrado en la sala`,
-            userName: "iCopyU!",
-            position: "l",
-          },
+          socket.socket.id === enterUser.id
+            ? {
+                id: `i-copy-u-${time}`,
+                time: dayjs(time).format("HH:mm"),
+                message: `Bienvenido a iCopyU!, se respetuoso con todo el mundo`,
+                userName: "iCopyU!",
+                position: "l",
+              }
+            : {
+                id: `${enterUser.id}-${time}`,
+                time: dayjs(time).format("HH:mm"),
+                message: `El usuario ${enterUser.id} ha entrado en la sala`,
+                userName: "iCopyU!",
+                position: "l",
+              },
         ];
       });
       setTotalUsers(enterUser.totalUsers);
@@ -77,9 +73,6 @@ function App() {
           },
         ];
       });
-    });
-    socket.on("UPDATE_TOTAL_USERS", ({ totalUsers }) => {
-      setTotalUsers(totalUsers);
     });
   }, []);
 
