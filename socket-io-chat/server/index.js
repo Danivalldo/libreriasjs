@@ -19,11 +19,8 @@ let users = 0;
 io.on("connection", (socket) => {
   console.log("a user connected!");
   users++;
-  socket.broadcast.emit("USER_CONNECTED", {
+  io.emit("USER_CONNECTED", {
     id: socket.id,
-    totalUsers: users,
-  });
-  socket.emit("UPDATE_TOTAL_USERS", {
     totalUsers: users,
   });
   socket.on("MESSAGE", (data) => {
@@ -42,6 +39,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(process.env.PORT, () => {
-  console.log(`listening on *:${process.env.PORT}`);
+server.listen(process.env.SOCKET_PORT, () => {
+  console.log(`listening on *:${process.env.SOCKET_PORT}`);
 });
