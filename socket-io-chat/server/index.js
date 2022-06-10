@@ -14,17 +14,17 @@ const io = new Server(server, {
 
 app.use(express.static("build"));
 
-let users = [];
+let users = 0;
 
 io.on("connection", (socket) => {
   console.log("a user connected!");
-  users.push(socket);
+  users++;
   socket.broadcast.emit("USER_CONNECTED", {
     id: socket.id,
-    totalUsers: users.length,
+    totalUsers: users,
   });
   socket.emit("UPDATE_TOTAL_USERS", {
-    totalUsers: users.length,
+    totalUsers: users,
   });
   socket.on("MESSAGE", (data) => {
     socket.broadcast.emit("MESSAGE", {
@@ -34,16 +34,14 @@ io.on("connection", (socket) => {
   });
   socket.on("disconnect", () => {
     console.log("user disconnected");
-    users = users.filter((user) => {
-      return user.id !== socket.id;
-    });
+    users--;
     socket.broadcast.emit("USER_DISCONNECTED", {
       id: socket.id,
-      totalUsers: users.length,
+      totalUsers: users,
     });
   });
 });
 
-server.listen(process.env.SOCKET_PORT, () => {
-  console.log(`listening on *:${process.env.SOCKET_PORT}`);
+server.listen(process.env.PORT, () => {
+  console.log(`listening on *:${process.env.PORT}`);
 });
