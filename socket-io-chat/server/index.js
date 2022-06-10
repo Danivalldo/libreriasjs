@@ -1,9 +1,10 @@
 require("dotenv").config();
 const express = require("express");
-const app = express();
 const http = require("http");
-const server = http.createServer(app);
 const { Server } = require("socket.io");
+
+const app = express();
+const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: process.env.CLIENT_HOST,
@@ -11,9 +12,9 @@ const io = new Server(server, {
   },
 });
 
-let users = [];
-
 app.use(express.static("build"));
+
+let users = [];
 
 io.on("connection", (socket) => {
   console.log("a user connected!");
