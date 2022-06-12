@@ -8,11 +8,7 @@ class SocketCtrl {
     if (this.socket) {
       return;
     }
-    this.socket = io(process.env.REACT_APP_SOCKET_HOST, {
-      query: {
-        type: "",
-      },
-    });
+    this.socket = io(process.env.REACT_APP_SOCKET_HOST);
     this.socket.on("connect", () => {
       if (typeof onConnected === "function") {
         onConnected(this.socket);
