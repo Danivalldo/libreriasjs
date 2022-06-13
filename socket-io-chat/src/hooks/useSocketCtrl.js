@@ -7,20 +7,20 @@ const useSocketCtrl = () => {
   const [socketId, setSocketId] = useState(null);
   const [totalUsers, setTotalUsers] = useState(1);
 
-  const socket = useMemo(() => {
+  const socketCtrl = useMemo(() => {
     return new SocketCtrl();
   }, []);
 
   useEffect(() => {
-    socket.connect((socket) => {
+    socketCtrl.connect((socket) => {
       setSocketId(socket.id);
     });
-    socket.on("USER_CONNECTED", (enterUser) => {
+    socketCtrl.on("USER_CONNECTED", (enterUser) => {
       const time = Date.now();
       setMessages((prevMessages) => {
         return [
           ...prevMessages,
-          socket.socket.id === enterUser.id
+          socketCtrl.socket.id === enterUser.id
             ? {
                 id: `i-copy-u-${time}`,
                 time: dayjs(time).format("HH:mm"),
@@ -39,7 +39,7 @@ const useSocketCtrl = () => {
       });
       setTotalUsers(enterUser.totalUsers);
     });
-    socket.on("USER_DISCONNECTED", (goneUser) => {
+    socketCtrl.on("USER_DISCONNECTED", (goneUser) => {
       const time = Date.now();
       setMessages((prevMessages) => {
         return [
@@ -55,7 +55,7 @@ const useSocketCtrl = () => {
       });
       setTotalUsers(goneUser.totalUsers);
     });
-    socket.on("MESSAGE", (messageData) => {
+    socketCtrl.on("MESSAGE", (messageData) => {
       const time = Date.now();
       setMessages((prevMessages) => {
         return [
@@ -71,7 +71,7 @@ const useSocketCtrl = () => {
       });
     });
     return () => {
-      socket.destroy();
+      socketCtrl.destroy();
     };
   }, []);
 
@@ -90,12 +90,12 @@ const useSocketCtrl = () => {
           },
         ];
       });
-      socket.emit("MESSAGE", {
+      socketCtrl.emit("MESSAGE", {
         time,
         message,
       });
     },
-    [socketId, socket]
+    [socketId, socketCtrl]
   );
 
   return { messages, socketId, totalUsers, sendMessage };
