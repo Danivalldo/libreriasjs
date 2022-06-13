@@ -1,112 +1,25 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
-import dayjs from "dayjs";
+import { useEffect } from "react";
 import ConversationBubble from "./components/ConversationBubble";
 import TotalUsersBadge from "./components/TotalUsersBadge";
-import SocketCtrl from "./services/SocketCtrl";
+import useSocketCtrl from "./hooks/useSocketCtrl";
 import Logo from "./resources/logo_copy_u.png";
 import "./App.scss";
 
 function App() {
-  const [messages, setMessages] = useState([]);
-  const [socketId, setSocketId] = useState(null);
-  const [totalUsers, setTotalUsers] = useState(1);
-
-  const socket = useMemo(() => {
-    return new SocketCtrl();
-  }, []);
-
-  useEffect(() => {
-    socket.connect((socket) => {
-      setSocketId(socket.id);
-    });
-    socket.on("USER_CONNECTED", (enterUser) => {
-      const time = Date.now();
-      setMessages((prevMessages) => {
-        return [
-          ...prevMessages,
-          socket.socket.id === enterUser.id
-            ? {
-                id: `i-copy-u-${time}`,
-                time: dayjs(time).format("HH:mm"),
-                message: `Bienvenido a iCopyU!, se respetuoso con todo el mundo`,
-                userName: "iCopyU!",
-                position: "l",
-              }
-            : {
-                id: `${enterUser.id}-${time}`,
-                time: dayjs(time).format("HH:mm"),
-                message: `El usuario ${enterUser.id} ha entrado en la sala`,
-                userName: "iCopyU!",
-                position: "l",
-              },
-        ];
-      });
-      setTotalUsers(enterUser.totalUsers);
-    });
-    socket.on("USER_DISCONNECTED", (goneUser) => {
-      const time = Date.now();
-      setMessages((prevMessages) => {
-        return [
-          ...prevMessages,
-          {
-            id: `${goneUser.id}-${time}`,
-            time: dayjs(time).format("HH:mm"),
-            message: `El usuario ${goneUser.id} ha dejado la sala`,
-            userName: "iCopyU!",
-            position: "l",
-          },
-        ];
-      });
-      setTotalUsers(goneUser.totalUsers);
-    });
-    socket.on("MESSAGE", (messageData) => {
-      const time = Date.now();
-      setMessages((prevMessages) => {
-        return [
-          ...prevMessages,
-          {
-            id: `${messageData.userId}-${time}`,
-            time: dayjs(messageData.time).format("HH:mm"),
-            message: messageData.message,
-            userName: messageData.userId,
-            position: "l",
-          },
-        ];
-      });
-    });
-  }, []);
+  const { messages, socketId, totalUsers, sendMessage } = useSocketCtrl();
 
   useEffect(() => {
     window.scrollTo(0, document.body.scrollHeight);
   }, [messages]);
 
-  const handleKeyDown = useCallback(
-    (e) => {
-      const message = e.target.value;
-      if (e.keyCode === 13 && message) {
-        const time = Date.now();
-        setMessages((prevMessages) => {
-          return [
-            ...prevMessages,
-            {
-              id: `${socketId}-${time}`,
-              time: dayjs(time).format("HH:mm"),
-              message,
-              userName: socketId,
-              position: "r",
-            },
-          ];
-        });
-        socket.emit("MESSAGE", {
-          time,
-          message,
-        });
-        e.preventDefault();
-        e.target.value = "";
-      }
-    },
-    [socketId, socket]
-  );
+  const handleKeyDown = (e) => {
+    const message = e.target.value;
+    if (e.keyCode === 13 && message) {
+      sendMessage(message);
+      e.preventDefault();
+      e.target.value = "";
+    }
+  };
 
   return (
     <div className="chat-container">
