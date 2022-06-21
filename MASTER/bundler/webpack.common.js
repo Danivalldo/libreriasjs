@@ -25,7 +25,10 @@ module.exports = {
       // HTML
       {
         test: /\.(html)$/,
-        use: ["html-loader"],
+        loader: "html-loader",
+        options: {
+          sources: false,
+        },
       },
       //Handlebars
       {
@@ -125,7 +128,7 @@ module.exports = {
       patterns: [{ from: path.resolve(__dirname, "../static") }],
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "../src/index.hbs"),
+      template: path.resolve(__dirname, "../src/index.html"),
       minify: true,
     }),
     new MiniCSSExtractPlugin({
