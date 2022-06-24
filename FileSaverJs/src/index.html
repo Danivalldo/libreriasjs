@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library title</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Saver</title>
+  </head>
   <body>
-    BASE TEMPLATE
+    <div class="logo-container">
+      <img src="icon.svg" alt="" />
+    </div>
+    <div class="painter-container">
+      <div class="painter-actions">
+        <div>
+          <input type="color" value="#e46360" />
+          <input type="range" min="1" max="100" value="10" />
+          <div class="save-file-container">
+            <input
+              type="text"
+              class="file-name-field"
+              placeholder="Ponle un nombre a tu obra"
+            /><button>Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
