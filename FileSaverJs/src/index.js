@@ -6,8 +6,8 @@ window.addEventListener("load", () => {
   const slider = document.querySelector('input[type="range"]');
   const colorPicker = document.querySelector('input[type="color"]');
   const nameField = document.querySelector(".file-name-field");
-
   const saveBtn = document.querySelector("button");
+
   const painter = new Painter(document.querySelector(".painter-container"), {
     lineWidth: slider.value,
     color: colorPicker.value,
