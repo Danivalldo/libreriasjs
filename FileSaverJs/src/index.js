@@ -12,12 +12,14 @@ window.addEventListener("load", () => {
     lineWidth: slider.value,
     color: colorPicker.value,
   });
+
   slider.addEventListener("change", (e) => {
     painter.updateBrush(null, e.target.value);
   });
   colorPicker.addEventListener("change", (e) => {
     painter.updateBrush(e.target.value);
   });
+
   saveBtn.addEventListener("click", () => {
     const fileName = nameField.value;
     if (!fileName) {
