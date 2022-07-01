@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "./firebaseConfig";
 import { getAnalytics } from "firebase/analytics";
 import {
   getAuth,
@@ -15,15 +16,7 @@ class FirebaseCtrl {
     this.analytics = undefined;
     this.auth = undefined;
     this.googleAuthProvider = undefined;
-    this.firebaseConfig = {
-      apiKey: "AIzaSyBW775zwonhEGUOL6LOnAf90LVepyCkiUA",
-      authDomain: "libreriasjs-firebase-demo.firebaseapp.com",
-      projectId: "libreriasjs-firebase-demo",
-      storageBucket: "libreriasjs-firebase-demo.appspot.com",
-      messagingSenderId: "628146334298",
-      appId: "1:628146334298:web:4b945e76fc27fd5e374663",
-      measurementId: "G-MEEP74XKZJ",
-    };
+    this.firebaseConfig = firebaseConfig;
   }
   initApp() {
     this.app = initializeApp(this.firebaseConfig);
