@@ -10,13 +10,13 @@ const infoColor = (_message) => {
 module.exports = merge(commonConfiguration, {
   mode: "development",
   devServer: {
-    host: "0.0.0.0",
+    host: "localhost",
     port: portFinderSync.getPort(8080),
     contentBase: "./dist",
     watchContentBase: true,
     open: true,
     https: false,
-    useLocalIp: true,
+    useLocalIp: false,
     disableHostCheck: true,
     overlay: true,
     noInfo: true,
