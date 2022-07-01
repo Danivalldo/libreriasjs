@@ -16,6 +16,7 @@ class FirebaseCtrl {
     this.analytics = undefined;
     this.auth = undefined;
     this.googleAuthProvider = undefined;
+    this.listeners = {};
     this.firebaseConfig = firebaseConfig;
   }
   initApp() {
@@ -28,19 +29,33 @@ class FirebaseCtrl {
   }
   async logInAnonymously() {
     try {
+      if (typeof this.listeners["userloginstarted"] === "function") {
+        this.listeners["userloginstarted"]();
+      }
       await signInAnonymously(this.auth);
     } catch (error) {
       console.log("error", error);
+    } finally {
+      if (typeof this.listeners["userloginended"] === "function") {
+        this.listeners["userloginended"]();
+      }
     }
   }
   async logInWithGoogle() {
     try {
+      if (typeof this.listeners["userloginstarted"] === "function") {
+        this.listeners["userloginstarted"]();
+      }
       const result = await signInWithPopup(this.auth, this.googleAuthProvider);
       const credential = GoogleAuthProvider.credentialFromResult(result);
       // const token = credential.accessToken;
       // const user = result.user;
     } catch (error) {
       console.log(error);
+    } finally {
+      if (typeof this.listeners["userloginended"] === "function") {
+        this.listeners["userloginended"]();
+      }
     }
   }
   logOut() {
@@ -49,9 +64,18 @@ class FirebaseCtrl {
   onUserLoggedIn(user) {
     if (user) {
       console.log(user);
+      if (typeof this.listeners["userauthchanged"] === "function") {
+        this.listeners["userauthchanged"](user);
+      }
       return;
     }
     console.log("User is signed out");
+    if (typeof this.listeners["userauthchanged"] === "function") {
+      this.listeners["userauthchanged"](null);
+    }
+  }
+  on(eventKey, cb) {
+    this.listeners[eventKey] = cb;
   }
 }
 
