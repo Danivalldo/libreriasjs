@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 
 class FirebaseCtrl {
   constructor() {
@@ -18,12 +19,14 @@ class FirebaseCtrl {
     this.googleAuthProvider = undefined;
     this.listeners = {};
     this.firebaseConfig = firebaseConfig;
+    this.db = undefined;
   }
   initApp() {
     this.app = initializeApp(this.firebaseConfig);
     this.analytics = getAnalytics(this.app);
     this.auth = getAuth(this.app);
     this.auth.useDeviceLanguage();
+    this.db = getFirestore(this.app);
     this.googleAuthProvider = new GoogleAuthProvider();
     onAuthStateChanged(this.auth, this.onUserLoggedIn.bind(this));
   }
