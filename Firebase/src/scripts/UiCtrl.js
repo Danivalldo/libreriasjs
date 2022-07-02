@@ -23,6 +23,9 @@ class UiCtrl {
     this.body.classList.add("logged-in");
   }
   on(domProp, keyEvent, cb) {
+    if (!this[domProp]) {
+      return;
+    }
     this[domProp].addEventListener(keyEvent, cb);
   }
   updateUserImage(image) {
