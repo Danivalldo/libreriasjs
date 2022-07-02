@@ -1,34 +1,34 @@
 import FirebaseCtrl from "./scripts/FirebaseCtrl";
+import UiCtrl from "./scripts/UiCtrl";
 import "./SCSS/index.scss";
 
 const firebaseCtrl = new FirebaseCtrl();
+const uiCtrl = new UiCtrl();
 
 window.addEventListener("load", () => {
   firebaseCtrl.initApp();
+  uiCtrl.init();
   firebaseCtrl.on("userloginstarted", () => {
-    document.body.classList.add("logging");
+    uiCtrl.showSpinner();
   });
   firebaseCtrl.on("userloginended", () => {
-    document.body.classList.remove("logging");
+    uiCtrl.removeSpinner();
   });
   firebaseCtrl.on("userauthchanged", (user) => {
     if (user) {
-      document.body.classList.add("logged-in");
-      console.log(user);
+      uiCtrl.removeLogin();
+      uiCtrl.updateUserImage(user.photoURL || "imgs/space-invaders.svg");
       return;
     }
-    document.body.classList.remove("logged-in");
-    document.body.classList.remove("logging");
+    uiCtrl.showLogin();
   });
-  document
-    .querySelector(".anonymous-log-in-btn")
-    .addEventListener("click", () => {
-      firebaseCtrl.logInAnonymously();
-    });
-  document.querySelector(".google-log-in-btn").addEventListener("click", () => {
+  uiCtrl.on("anonymousLogInBtn", "click", () => {
+    firebaseCtrl.logInAnonymously();
+  });
+  uiCtrl.on("googleLogInBtn", "click", () => {
     firebaseCtrl.logInWithGoogle();
   });
-  document.querySelector(".log-out").addEventListener("click", () => {
+  uiCtrl.on("logOutBtn", "click", () => {
     firebaseCtrl.logOut();
   });
 });
