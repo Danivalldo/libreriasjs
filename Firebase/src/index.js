@@ -14,10 +14,12 @@ window.addEventListener("load", () => {
   firebaseCtrl.on("userloginended", () => {
     uiCtrl.removeSpinner();
   });
-  firebaseCtrl.on("userauthchanged", (user) => {
+  firebaseCtrl.on("userauthchanged", async (user) => {
     if (user) {
       uiCtrl.removeLogin();
       uiCtrl.updateUserImage(user.photoURL || "imgs/space-invaders.svg");
+      const novel = await firebaseCtrl.getNovel();
+      uiCtrl.updateNovel(novel);
       return;
     }
     uiCtrl.showLogin();
@@ -30,5 +32,16 @@ window.addEventListener("load", () => {
   });
   uiCtrl.on("logOutBtn", "click", () => {
     firebaseCtrl.logOut();
+  });
+  uiCtrl.on("newNovelPartForm", "submit", async (e) => {
+    e.preventDefault();
+    const newParagraph = e.target.querySelector("textarea").value.trim();
+    if (!newParagraph) {
+      return;
+    }
+    const response = await firebaseCtrl.addPartToNovel(newParagraph);
+    const novel = await firebaseCtrl.getNovel();
+    uiCtrl.updateNovel(novel);
+    console.log(response);
   });
 });
