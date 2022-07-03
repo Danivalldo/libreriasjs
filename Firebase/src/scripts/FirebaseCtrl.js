@@ -9,7 +9,17 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  limit,
+  orderBy,
+  Timestamp,
+} from "firebase/firestore";
 
 class FirebaseCtrl {
   constructor() {
@@ -20,6 +30,7 @@ class FirebaseCtrl {
     this.listeners = {};
     this.firebaseConfig = firebaseConfig;
     this.db = undefined;
+    this.userID = undefined;
   }
   initApp() {
     this.app = initializeApp(this.firebaseConfig);
@@ -67,6 +78,7 @@ class FirebaseCtrl {
   onUserLoggedIn(user) {
     if (user) {
       console.log(user);
+      this.userID = user.uid;
       if (typeof this.listeners["userauthchanged"] === "function") {
         this.listeners["userauthchanged"](user);
       }
@@ -79,6 +91,45 @@ class FirebaseCtrl {
   }
   on(eventKey, cb) {
     this.listeners[eventKey] = cb;
+  }
+  async getNovel() {
+    if (!this.db) {
+      return;
+    }
+    // const q = query(collection(this.db, 'collaborative-novel'), where('date', '>=', ))
+    const q = query(
+      collection(this.db, "collaborative-novel"),
+      orderBy("date"),
+      limit(10)
+    );
+    const querySnapshot = await getDocs(q);
+    const novel = [];
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      novel.push({
+        id: doc.id,
+        data: {
+          ...data,
+          date: data.date.toDate().toLocaleString(),
+        },
+      });
+    });
+    return novel;
+  }
+  async addPartToNovel(pharagraph) {
+    if (!this.db || !this.userID) {
+      return;
+    }
+    try {
+      const docRef = await addDoc(collection(this.db, "collaborative-novel"), {
+        date: Timestamp.fromDate(new Date()),
+        pharagraph,
+        uid: this.userID,
+      });
+      return docRef.id;
+    } catch (err) {
+      debugger;
+    }
   }
 }
 
