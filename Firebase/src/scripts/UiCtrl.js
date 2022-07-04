@@ -15,9 +15,14 @@ class UiCtrl {
       if (!e.target.classList.contains("delete-btn")) {
         return;
       }
-      console.log("delete part");
+      if (typeof this.onClickDeleteNovelPartBtn !== "function") {
+        return;
+      }
+      const partId = e.target.closest(".novel-part-container").id;
+      this.onClickDeleteNovelPartBtn(partId);
     });
     this.newNovelPartForm = document.querySelector(".new-novel-part-form");
+    this.onClickDeleteNovelPartBtn = undefined;
   }
   showSpinner() {
     this.body.classList.add("logging");
@@ -50,7 +55,9 @@ class UiCtrl {
       this.novelContainer.appendChild(div);
     });
   }
-  onClickNovelPartDeleteBtn(_cb) {}
+  onClickNovelPartDeleteBtn(_cb) {
+    this.onClickDeleteNovelPartBtn = _cb;
+  }
 }
 
 export default UiCtrl;
