@@ -12,9 +12,9 @@ body {
       .login-buttons-container {
         display: none;
       }
-      .loading-container {
-        display: block;
-      }
+    }
+    .loading-container {
+      display: block;
     }
   }
   .login-view {
@@ -34,8 +34,8 @@ body {
         padding: 10px;
       }
     }
-    .loading-container {
-      display: none;
-    }
+  }
+  .loading-container {
+    display: none;
   }
 }
