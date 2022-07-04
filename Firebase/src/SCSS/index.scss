@@ -1,6 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap");
+
 body {
+  font-family: "Space Mono", monospace;
   margin: 0;
   padding: 0;
+  background-image: url("../assets/images/bananas.jpg");
   &.logged-in {
     .login-view {
       opacity: 0;
@@ -26,16 +30,55 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(92, 92, 92);
+    background-image: url("../assets/images/bananas.jpg");
     .login-buttons-container {
       .btn {
+        cursor: pointer;
         display: block;
         width: 100%;
-        padding: 10px;
+        padding: 20px;
+        background-image: url("../../static/imgs/google-original.svg");
+        background-repeat: no-repeat;
+        background-size: 30px;
+        background-position: 10% center;
+        background-color: #fffcef;
+        border: none;
+        margin-bottom: 20px;
+        border-radius: 3px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        &.anonymous-log-in-btn {
+          background-image: url("../../static/imgs/account.svg");
+        }
       }
     }
   }
   .loading-container {
     display: none;
+  }
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & > :nth-child(1) {
+      width: 200px;
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+    & > :nth-child(2) {
+      img {
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #fff;
+        width: 80px;
+        border: solid 1px red;
+      }
+    }
+  }
+  .novel-container {
+    .novel-part-container {
+      background-image: url("../../static/imgs/lined_paper.png");
+    }
   }
 }
