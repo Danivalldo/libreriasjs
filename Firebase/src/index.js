@@ -39,9 +39,17 @@ window.addEventListener("load", () => {
     if (!newParagraph) {
       return;
     }
+    uiCtrl.showSpinner();
     const response = await firebaseCtrl.addPartToNovel(newParagraph);
     const novel = await firebaseCtrl.getNovel();
     uiCtrl.updateNovel(novel);
-    console.log(response);
+    uiCtrl.removeSpinner();
+  });
+  uiCtrl.onClickNovelPartDeleteBtn(async (idPart) => {
+    uiCtrl.showSpinner();
+    await firebaseCtrl.removeNovelPart(idPart);
+    const novel = await firebaseCtrl.getNovel();
+    uiCtrl.updateNovel(novel);
+    uiCtrl.removeSpinner();
   });
 });
