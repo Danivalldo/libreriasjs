@@ -5,10 +5,10 @@ const templateNovelPortion = (portion) => {
         <button class="delete-btn">X</button>
       </div>
       <div>
-        ${portion.data.date}
+        ${portion.data.pharagraph}
       </div>
       <div>
-        ${portion.data.pharagraph}
+        ${portion.data.date}
       </div>
     </div>
   `;
