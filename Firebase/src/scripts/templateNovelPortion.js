@@ -1,6 +1,6 @@
 const templateNovelPortion = (portion) => {
   return `
-    <div>
+    <div id="${portion.id}" class="novel-part-container">
       <div>
         <button class="delete-btn">X</button>
       </div>
