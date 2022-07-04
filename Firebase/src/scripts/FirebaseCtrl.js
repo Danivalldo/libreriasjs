@@ -19,6 +19,8 @@ import {
   limit,
   orderBy,
   Timestamp,
+  doc,
+  deleteDoc,
 } from "firebase/firestore";
 
 class FirebaseCtrl {
@@ -127,9 +129,14 @@ class FirebaseCtrl {
         uid: this.userID,
       });
       return docRef.id;
-    } catch (err) {
-      debugger;
+    } catch (err) {}
+  }
+
+  async removeNovelPart(partId) {
+    if (!this.db) {
+      return;
     }
+    await deleteDoc(doc(this.db, "collaborative-novel", partId));
   }
 }
 
