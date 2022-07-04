@@ -18,8 +18,10 @@ window.addEventListener("load", () => {
     if (user) {
       uiCtrl.removeLogin();
       uiCtrl.updateUserImage(user.photoURL || "imgs/space-invaders.svg");
+      uiCtrl.showSpinner();
       const novel = await firebaseCtrl.getNovel();
       uiCtrl.updateNovel(novel);
+      uiCtrl.removeSpinner();
       return;
     }
     uiCtrl.showLogin();
