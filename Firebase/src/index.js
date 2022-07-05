@@ -37,7 +37,8 @@ window.addEventListener("load", () => {
   });
   uiCtrl.on("newNovelPartForm", "submit", async (e) => {
     e.preventDefault();
-    const newParagraph = e.target.querySelector("textarea").value.trim();
+    const textArea = e.target.querySelector("textarea");
+    const newParagraph = textArea.value.trim();
     if (!newParagraph) {
       return;
     }
@@ -45,6 +46,7 @@ window.addEventListener("load", () => {
     const response = await firebaseCtrl.addPartToNovel(newParagraph);
     const novel = await firebaseCtrl.getNovel();
     uiCtrl.updateNovel(novel);
+    textArea.value = "";
     uiCtrl.removeSpinner();
   });
   uiCtrl.onClickNovelPartDeleteBtn(async (idPart) => {
