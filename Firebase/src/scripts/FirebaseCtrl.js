@@ -10,6 +10,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import {
+  serverTimestamp,
   getFirestore,
   collection,
   addDoc,
@@ -124,7 +125,7 @@ class FirebaseCtrl {
     }
     try {
       const docRef = await addDoc(collection(this.db, "collaborative-novel"), {
-        date: Timestamp.fromDate(new Date()),
+        date: serverTimestamp(),
         pharagraph,
         uid: this.userID,
       });
