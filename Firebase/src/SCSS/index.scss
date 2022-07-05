@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap");
 
+@import "./dots-animation.scss";
+
 body {
   font-family: "Space Mono", monospace;
   margin: 0;
   padding: 0;
+  color: rgb(42, 42, 42);
   background-image: url("../assets/images/bananas.jpg");
+  box-sizing: border-box;
   &.logged-in {
     .login-view {
       opacity: 0;
@@ -19,6 +23,7 @@ body {
     }
     .loading-container {
       display: block;
+      font-size: 2.3rem;
     }
   }
   .login-view {
@@ -30,6 +35,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
     background-image: url("../assets/images/bananas.jpg");
     .login-buttons-container {
       .btn {
@@ -59,10 +65,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #e3dbb6;
+    padding: 12px 5px 0px 5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    border-bottom: solid 3px #a9a078;
     & > :nth-child(1) {
       width: 200px;
+      height: 95px;
+      overflow: hidden;
       img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center bottom;
         display: block;
       }
     }
@@ -72,13 +87,24 @@ body {
         overflow: hidden;
         background-color: #fff;
         width: 80px;
-        border: solid 1px red;
+        border: solid 3px #fffbe9;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
       }
     }
   }
   .novel-container {
+    padding: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
     .novel-part-container {
+      padding: 10px;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
       background-image: url("../../static/imgs/lined_paper.png");
+      font-size: 1.3rem;
     }
   }
+}
+
+hr {
+  border-bottom: none;
 }
