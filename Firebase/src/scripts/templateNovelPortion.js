@@ -1,9 +1,15 @@
 const templateNovelPortion = (portion) => {
   return `
     <div id="${portion.id}" class="novel-part-container">
-      <div>
-        <button class="delete-btn">X</button>
-      </div>
+      ${
+        portion.isOwner
+          ? `
+        <div>
+          <button class="delete-btn">X</button>
+        </div>
+        `
+          : ""
+      }
       <div>
         ${portion.data.pharagraph}
       </div>

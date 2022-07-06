@@ -111,6 +111,7 @@ class FirebaseCtrl {
       const data = doc.data();
       novel.push({
         id: doc.id,
+        isOwner: data.uid === this.userID,
         data: {
           ...data,
           date: data.date.toDate().toLocaleString(),
@@ -137,7 +138,11 @@ class FirebaseCtrl {
     if (!this.db) {
       return;
     }
-    await deleteDoc(doc(this.db, "collaborative-novel", partId));
+    try {
+      await deleteDoc(doc(this.db, "collaborative-novel", partId));
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 
