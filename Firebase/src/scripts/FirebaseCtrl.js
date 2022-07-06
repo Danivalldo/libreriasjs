@@ -23,6 +23,7 @@ import {
   doc,
   deleteDoc,
 } from "firebase/firestore";
+import sanitizeHtml from "sanitize-html";
 
 class FirebaseCtrl {
   constructor() {
@@ -108,12 +109,14 @@ class FirebaseCtrl {
     const querySnapshot = await getDocs(q);
     const novel = [];
     querySnapshot.forEach((doc) => {
+      const snt = sanitizeHtml;
       const data = doc.data();
       novel.push({
         id: doc.id,
         isOwner: data.uid === this.userID,
         data: {
           ...data,
+          pharagraph: sanitizeHtml(data.pharagraph, { allowedTags: [] }),
           date: data.date.toDate().toLocaleString(),
         },
       });
@@ -127,7 +130,7 @@ class FirebaseCtrl {
     try {
       const docRef = await addDoc(collection(this.db, "collaborative-novel"), {
         date: serverTimestamp(),
-        pharagraph,
+        pharagraph: sanitizeHtml(pharagraph, { allowedTags: [] }),
         uid: this.userID,
       });
       return docRef.id;
