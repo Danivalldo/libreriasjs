@@ -118,10 +118,25 @@ body {
     }
     .novel-container {
       .novel-part-container {
-        padding: 10px;
+        position: relative;
+        padding: 20px 30px;
+        border-bottom: solid 1px #cdcdcd;
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
         background-image: url("../../static/imgs/lined_paper.png");
         font-size: 1.3rem;
+        .delete-btn {
+          position: absolute;
+          top: 5px;
+          right: 25px;
+          font-size: 1.5rem;
+          cursor: pointer;
+          background-color: transparent;
+          border: none;
+        }
+        .meta {
+          text-align: right;
+          font-size: 0.8rem;
+        }
       }
     }
     .form-container {
