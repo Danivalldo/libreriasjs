@@ -1,19 +1,11 @@
 const templateNovelPortion = (portion) => {
   return `
     <div id="${portion.id}" class="novel-part-container">
-      ${
-        portion.isOwner
-          ? `
-        <div>
-          <button class="delete-btn">X</button>
-        </div>
-        `
-          : ""
-      }
+      ${portion.isOwner ? `<button class="delete-btn">🗑️</button>` : ""}
       <div>
         ${portion.data.pharagraph}
       </div>
-      <div>
+      <div class="meta">
         ${portion.data.date}
       </div>
     </div>
