@@ -132,6 +132,9 @@ body {
           cursor: pointer;
           background-color: transparent;
           border: none;
+          .delete-label {
+            font-size: 0.8rem;
+          }
         }
         .meta {
           text-align: right;
