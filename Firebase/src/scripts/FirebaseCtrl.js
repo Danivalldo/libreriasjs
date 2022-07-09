@@ -109,11 +109,11 @@ class FirebaseCtrl {
     const querySnapshot = await getDocs(q);
     const novel = [];
     querySnapshot.forEach((doc) => {
-      const snt = sanitizeHtml;
       const data = doc.data();
       novel.push({
         id: doc.id,
         isOwner: data.uid === this.userID,
+        canDelete: Date.now() - 1 * 60 * 60 * 1000 <= data.date.toMillis(),
         data: {
           ...data,
           pharagraph: sanitizeHtml(data.pharagraph, { allowedTags: [] }),
