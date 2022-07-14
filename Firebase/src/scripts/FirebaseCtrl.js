@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebaseConfig";
-import { getAnalytics } from "firebase/analytics";
 import {
   getAuth,
   signInAnonymously,
@@ -16,10 +15,8 @@ import {
   addDoc,
   getDocs,
   query,
-  where,
   limit,
   orderBy,
-  Timestamp,
   doc,
   deleteDoc,
 } from "firebase/firestore";
@@ -28,7 +25,6 @@ import sanitizeHtml from "sanitize-html";
 class FirebaseCtrl {
   constructor() {
     this.app = undefined;
-    this.analytics = undefined;
     this.auth = undefined;
     this.googleAuthProvider = undefined;
     this.listeners = {};
@@ -38,7 +34,6 @@ class FirebaseCtrl {
   }
   initApp() {
     this.app = initializeApp(this.firebaseConfig);
-    this.analytics = getAnalytics(this.app);
     this.auth = getAuth(this.app);
     this.auth.useDeviceLanguage();
     this.db = getFirestore(this.app);
@@ -136,7 +131,6 @@ class FirebaseCtrl {
       return docRef.id;
     } catch (err) {}
   }
-
   async removeNovelPart(partId) {
     if (!this.db) {
       return;
