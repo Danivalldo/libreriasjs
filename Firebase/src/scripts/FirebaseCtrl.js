@@ -28,12 +28,11 @@ class FirebaseCtrl {
     this.auth = undefined;
     this.googleAuthProvider = undefined;
     this.listeners = {};
-    this.firebaseConfig = firebaseConfig;
     this.db = undefined;
     this.userID = undefined;
   }
   initApp() {
-    this.app = initializeApp(this.firebaseConfig);
+    this.app = initializeApp(firebaseConfig);
     this.auth = getAuth(this.app);
     this.auth.useDeviceLanguage();
     this.db = getFirestore(this.app);
