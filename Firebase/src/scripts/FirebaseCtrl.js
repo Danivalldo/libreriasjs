@@ -16,10 +16,8 @@ import {
   addDoc,
   getDocs,
   query,
-  where,
   limit,
   orderBy,
-  Timestamp,
   doc,
   deleteDoc,
 } from "firebase/firestore";
@@ -136,7 +134,6 @@ class FirebaseCtrl {
       return docRef.id;
     } catch (err) {}
   }
-
   async removeNovelPart(partId) {
     if (!this.db) {
       return;
