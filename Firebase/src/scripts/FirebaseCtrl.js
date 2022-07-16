@@ -37,7 +37,7 @@ class FirebaseCtrl {
     this.auth.useDeviceLanguage();
     this.db = getFirestore(this.app);
     this.googleAuthProvider = new GoogleAuthProvider();
-    onAuthStateChanged(this.auth, this.onUserLoggedIn.bind(this));
+    onAuthStateChanged(this.auth, this.onAuthChanged.bind(this));
   }
   async logInAnonymously() {
     try {
@@ -73,18 +73,10 @@ class FirebaseCtrl {
   logOut() {
     this.auth.signOut();
   }
-  onUserLoggedIn(user) {
-    if (user) {
-      console.log(user);
-      this.userID = user.uid;
-      if (typeof this.listeners["userauthchanged"] === "function") {
-        this.listeners["userauthchanged"](user);
-      }
-      return;
-    }
-    console.log("User is signed out");
+  onAuthChanged(user) {
+    this.userID = user ? user.uid : undefined;
     if (typeof this.listeners["userauthchanged"] === "function") {
-      this.listeners["userauthchanged"](null);
+      this.listeners["userauthchanged"](this.userID || null);
     }
   }
   on(eventKey, cb) {
