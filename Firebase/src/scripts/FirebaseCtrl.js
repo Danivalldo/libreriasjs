@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebaseConfig";
-import { getAnalytics } from "firebase/analytics";
 import {
   getAuth,
   signInAnonymously,
@@ -26,17 +25,14 @@ import sanitizeHtml from "sanitize-html";
 class FirebaseCtrl {
   constructor() {
     this.app = undefined;
-    this.analytics = undefined;
     this.auth = undefined;
     this.googleAuthProvider = undefined;
     this.listeners = {};
-    this.firebaseConfig = firebaseConfig;
     this.db = undefined;
     this.userID = undefined;
   }
   initApp() {
-    this.app = initializeApp(this.firebaseConfig);
-    this.analytics = getAnalytics(this.app);
+    this.app = initializeApp(firebaseConfig);
     this.auth = getAuth(this.app);
     this.auth.useDeviceLanguage();
     this.db = getFirestore(this.app);
