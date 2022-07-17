@@ -74,11 +74,10 @@ class FirebaseCtrl {
     if (!this.db) {
       return;
     }
-    // const q = query(collection(this.db, 'collaborative-novel'), where('date', '>=', ))
     const q = query(
       collection(this.db, "collaborative-novel"),
       orderBy("date"),
-      limit(10)
+      limit(500)
     );
     const querySnapshot = await getDocs(q);
     const novel = [];
