@@ -39,31 +39,19 @@ class FirebaseCtrl {
     this.googleAuthProvider = new GoogleAuthProvider();
     onAuthStateChanged(this.auth, this.onAuthChanged.bind(this));
   }
-  async logInAnonymously() {
+
+  async logIn(anonymously) {
     try {
       if (typeof this.listeners["userloginstarted"] === "function") {
         this.listeners["userloginstarted"]();
       }
-      await signInAnonymously(this.auth);
+      if (anonymously) {
+        await signInAnonymously(this.auth);
+      } else {
+        await signInWithPopup(this.auth, this.googleAuthProvider);
+      }
     } catch (error) {
       console.log("error", error);
-    } finally {
-      if (typeof this.listeners["userloginended"] === "function") {
-        this.listeners["userloginended"]();
-      }
-    }
-  }
-  async logInWithGoogle() {
-    try {
-      if (typeof this.listeners["userloginstarted"] === "function") {
-        this.listeners["userloginstarted"]();
-      }
-      const result = await signInWithPopup(this.auth, this.googleAuthProvider);
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential.accessToken;
-      // const user = result.user;
-    } catch (error) {
-      console.log(error);
     } finally {
       if (typeof this.listeners["userloginended"] === "function") {
         this.listeners["userloginended"]();

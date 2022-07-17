@@ -27,10 +27,10 @@ window.addEventListener("load", () => {
     uiCtrl.showLogin();
   });
   uiCtrl.on("anonymousLogInBtn", "click", () => {
-    firebaseCtrl.logInAnonymously();
+    firebaseCtrl.logIn(true);
   });
   uiCtrl.on("googleLogInBtn", "click", () => {
-    firebaseCtrl.logInWithGoogle();
+    firebaseCtrl.logIn();
   });
   uiCtrl.on("logOutBtn", "click", () => {
     firebaseCtrl.logOut();
