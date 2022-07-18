@@ -64,7 +64,7 @@ class FirebaseCtrl {
   onAuthChanged(user) {
     this.userID = user ? user.uid : undefined;
     if (typeof this.listeners["userauthchanged"] === "function") {
-      this.listeners["userauthchanged"](this.userID || null);
+      this.listeners["userauthchanged"](user || null);
     }
   }
   on(eventKey, cb) {
