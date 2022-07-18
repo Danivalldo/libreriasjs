@@ -59,9 +59,7 @@ class FirebaseCtrl {
         this.listeners["userloginstarted"]();
       }
       const result = await signInWithPopup(this.auth, this.googleAuthProvider);
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential.accessToken;
-      // const user = result.user;
+      
     } catch (error) {
       console.log(error);
     } finally {
