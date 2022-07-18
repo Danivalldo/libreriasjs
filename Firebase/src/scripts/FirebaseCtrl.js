@@ -37,31 +37,21 @@ class FirebaseCtrl {
     this.auth.useDeviceLanguage();
     this.db = getFirestore(this.app);
     this.googleAuthProvider = new GoogleAuthProvider();
-    onAuthStateChanged(this.auth, this.onUserLoggedIn.bind(this));
+    onAuthStateChanged(this.auth, this.onAuthChanged.bind(this));
   }
-  async logInAnonymously() {
+
+  async logIn(anonymously) {
     try {
       if (typeof this.listeners["userloginstarted"] === "function") {
         this.listeners["userloginstarted"]();
       }
-      await signInAnonymously(this.auth);
+      if (anonymously) {
+        await signInAnonymously(this.auth);
+      } else {
+        await signInWithPopup(this.auth, this.googleAuthProvider);
+      }
     } catch (error) {
       console.log("error", error);
-    } finally {
-      if (typeof this.listeners["userloginended"] === "function") {
-        this.listeners["userloginended"]();
-      }
-    }
-  }
-  async logInWithGoogle() {
-    try {
-      if (typeof this.listeners["userloginstarted"] === "function") {
-        this.listeners["userloginstarted"]();
-      }
-      const result = await signInWithPopup(this.auth, this.googleAuthProvider);
-      
-    } catch (error) {
-      console.log(error);
     } finally {
       if (typeof this.listeners["userloginended"] === "function") {
         this.listeners["userloginended"]();
@@ -71,18 +61,10 @@ class FirebaseCtrl {
   logOut() {
     this.auth.signOut();
   }
-  onUserLoggedIn(user) {
-    if (user) {
-      console.log(user);
-      this.userID = user.uid;
-      if (typeof this.listeners["userauthchanged"] === "function") {
-        this.listeners["userauthchanged"](user);
-      }
-      return;
-    }
-    console.log("User is signed out");
+  onAuthChanged(user) {
+    this.userID = user ? user.uid : undefined;
     if (typeof this.listeners["userauthchanged"] === "function") {
-      this.listeners["userauthchanged"](null);
+      this.listeners["userauthchanged"](this.userID || null);
     }
   }
   on(eventKey, cb) {
@@ -92,11 +74,10 @@ class FirebaseCtrl {
     if (!this.db) {
       return;
     }
-    // const q = query(collection(this.db, 'collaborative-novel'), where('date', '>=', ))
     const q = query(
       collection(this.db, "collaborative-novel"),
       orderBy("date"),
-      limit(10)
+      limit(500)
     );
     const querySnapshot = await getDocs(q);
     const novel = [];
