@@ -2,6 +2,10 @@
 
 @import "./dots-animation.scss";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Space Mono", monospace;
   margin: 0;
@@ -42,7 +46,7 @@ body {
         cursor: pointer;
         display: block;
         width: 100%;
-        padding: 20px;
+        padding: 20px 20px 20px 60px;
         background-image: url("../../static/imgs/google-original.svg");
         background-repeat: no-repeat;
         background-size: 30px;
@@ -165,6 +169,18 @@ body {
         font-family: "Space Mono", monospace;
         cursor: pointer;
         padding: 15px 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    .login-view {
+      display: block;
+      padding: 20px;
+      img {
+        width: 100%;
       }
     }
   }
