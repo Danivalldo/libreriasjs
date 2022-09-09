@@ -1,5 +1,5 @@
 import html2canvas from "html2canvas";
-import "./SCSS/index.scss";
+import "./SASS/index.sass";
 
 const captureBtn = document.querySelector("#capture-btn");
 
