@@ -2,14 +2,35 @@ import html2canvas from "html2canvas";
 import "./SASS/index.sass";
 
 const captureBtn = document.querySelector("#capture-btn");
+const modal = document.querySelector(".modal");
+modal.querySelector(".close-modal-btn").addEventListener("click", () => {
+  toggleModal();
+});
+const canvasContainer = modal.querySelector(".placeholder-canvas");
+const selectArea = document.querySelector(".select-area");
+
+const toggleModal = () => {
+  if (modal.classList.contains("active")) {
+    canvasContainer.innerHTML = "";
+    return modal.classList.remove("active");
+  }
+  modal.classList.add("active");
+};
+
+const getAreaById = (areaId) => {
+  if (areaId === "fullscreen") {
+    return document.body;
+  }
+  return document.querySelector(`#${areaId}`);
+};
 
 captureBtn.addEventListener("click", async () => {
-  const canvas = await html2canvas(document.body, {
+  let area = getAreaById(selectArea.value);
+  const canvas = await html2canvas(area, {
     allowTaint: true,
-    // useCORS: true,
   });
-  console.log(canvas);
-  document.body.appendChild(canvas);
+  canvasContainer.appendChild(canvas);
+  toggleModal();
 });
 
 console.log("Ready to go!", html2canvas);
