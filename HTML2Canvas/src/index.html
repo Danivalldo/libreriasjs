@@ -31,24 +31,26 @@
             <div class="profile-img">
               <img src="images/user.jpg" alt="" />
             </div>
-            <span>Diana Foe</span>
+            <span>Jane Doe</span>
           </div>
         </div>
-        <div class="content-container">
+        <div id="content" class="content-container">
           <div class="row">
-            <div class="card bg-gradient">
+            <div class="card bg-gradient sticky">
               <h2>Captura de pantalla</h2>
-              <div>
-                <select name="" id="">
-                  <option value="" disabled selected>
-                    Selecciona una seccion
-                  </option>
+              <div style="display: flex; align-items: center">
+                <select name="" class="select-area">
+                  <option value="" disabled>Selecciona una seccion</option>
+                  <option value="fullscreen" selected>Pantalla completa</option>
+                  <option value="content">Contenido</option>
+                  <option value="table">Tabla</option>
+                  <option value="chart">Gráfico</option>
                 </select>
+                <button id="capture-btn" class="btn with-icon tertiary">
+                  <img src="icons/camera.svg" alt="" />
+                  <span>Realizar captura de pantalla</span>
+                </button>
               </div>
-              <button id="capture-btn" class="btn with-icon tertiary" disabled>
-                <img src="icons/camera.svg" alt="" />
-                <span>Realizar captura de pantalla</span>
-              </button>
             </div>
           </div>
           <div class="row">
@@ -114,7 +116,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="card">
+            <div id="table" class="card">
               <h2>Tabla de contenido</h2>
               <table class="table">
                 <thead>
@@ -157,8 +159,11 @@
                   </tr>
                 </tbody>
               </table>
+              <p>
+                <a href="#" class="btn">Exportar CSV</a>
+              </p>
             </div>
-            <div class="card">
+            <div id="chart" class="card">
               <h2>Evolución</h2>
               <div>
                 <img src="images/linecharts.svg" alt="" class="img-chart" />
@@ -167,6 +172,16 @@
           </div>
         </div>
         <div class="footer-container">Fake Dashboard 2022 | libreriasJs</div>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="content-modal card">
+        <h2>Captura de pantalla</h2>
+        <div class="placeholder-canvas"></div>
+        <div>
+          <button class="btn">Guardar</button>
+          <button class="btn close-modal-btn">Cerrar</button>
+        </div>
       </div>
     </div>
   </body>
