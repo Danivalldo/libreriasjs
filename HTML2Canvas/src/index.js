@@ -7,6 +7,9 @@ const modal = document.querySelector(".modal");
 modal.querySelector(".close-modal-btn").addEventListener("click", () => {
   toggleModal();
 });
+modal.querySelector(".save-snapshot-btn").addEventListener("click", () => {
+  saveImage();
+});
 const canvasContainer = modal.querySelector(".placeholder-canvas");
 const selectArea = document.querySelector(".select-area");
 
@@ -30,6 +33,9 @@ const saveImage = () => {
   if (!canvas) {
     return;
   }
+  canvas.toBlob((blob) => {
+    saveAs(blob, `snapshot-${Date.now()}.png`);
+  });
 };
 
 captureBtn.addEventListener("click", async () => {
