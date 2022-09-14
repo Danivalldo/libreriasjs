@@ -1,10 +1,9 @@
 .table-wrapper
-  width: 100%
-  overflow-x: scroll
+  position: relative
   .table
-    // width: 100%
-    display: block
+    width: 100%
     min-width: 500px
+    display: table
     border-spacing: 0
     border-radius: 10px
     thead
@@ -21,3 +20,7 @@
           background-color: #ffffff
         td
           padding: 10px
+
+@media screen and (max-width: 500px)
+  .table-wrapper
+    overflow-x: auto
