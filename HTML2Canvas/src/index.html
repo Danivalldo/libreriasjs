@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>HTML2Canvas</title>
   </head>
   <body>
@@ -24,7 +27,7 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="main-container">
         <div class="header-container">
           <h1>Dashboard</h1>
           <div class="user-badge">
@@ -36,9 +39,9 @@
         </div>
         <div id="content" class="content-container">
           <div class="row">
-            <div class="card bg-gradient sticky">
+            <div class="card bg-gradient take-screenshot-card">
               <h2>Captura de pantalla</h2>
-              <div style="display: flex; align-items: center">
+              <div class="form-wrapper">
                 <select name="" class="select-area">
                   <option value="" disabled>Selecciona una seccion</option>
                   <option value="fullscreen" selected>Pantalla completa</option>
@@ -118,47 +121,49 @@
           <div class="row">
             <div id="table" class="card">
               <h2>Tabla de contenido</h2>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Empresa</th>
-                    <th>Contacto</th>
-                    <th>País</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany</td>
-                  </tr>
-                  <tr>
-                    <td>Centro comercial Moctezuma</td>
-                    <td>Francisco Chang</td>
-                    <td>Mexico</td>
-                  </tr>
-                  <tr>
-                    <td>Ernst Handel</td>
-                    <td>Roland Mendel</td>
-                    <td>Austria</td>
-                  </tr>
-                  <tr>
-                    <td>Island Trading</td>
-                    <td>Helen Bennett</td>
-                    <td>UK</td>
-                  </tr>
-                  <tr>
-                    <td>Laughing Bacchus Winecellars</td>
-                    <td>Yoshi Tannamuri</td>
-                    <td>Canada</td>
-                  </tr>
-                  <tr>
-                    <td>Magazzini Alimentari Riuniti</td>
-                    <td>Giovanni Rovelli</td>
-                    <td>Italy</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="table-wrapper">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Empresa</th>
+                      <th>Contacto</th>
+                      <th>País</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Alfreds Futterkiste</td>
+                      <td>Maria Anders</td>
+                      <td>Germany</td>
+                    </tr>
+                    <tr>
+                      <td>Centro comercial Moctezuma</td>
+                      <td>Francisco Chang</td>
+                      <td>Mexico</td>
+                    </tr>
+                    <tr>
+                      <td>Ernst Handel</td>
+                      <td>Roland Mendel</td>
+                      <td>Austria</td>
+                    </tr>
+                    <tr>
+                      <td>Island Trading</td>
+                      <td>Helen Bennett</td>
+                      <td>UK</td>
+                    </tr>
+                    <tr>
+                      <td>Laughing Bacchus Winecellars</td>
+                      <td>Yoshi Tannamuri</td>
+                      <td>Canada</td>
+                    </tr>
+                    <tr>
+                      <td>Magazzini Alimentari Riuniti</td>
+                      <td>Giovanni Rovelli</td>
+                      <td>Italy</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               <p>
                 <a href="#" class="btn">Exportar CSV</a>
               </p>
