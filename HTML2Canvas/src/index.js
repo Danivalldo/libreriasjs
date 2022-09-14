@@ -1,4 +1,5 @@
 import html2canvas from "html2canvas";
+import { saveAs } from "file-saver";
 import "./SASS/index.sass";
 
 const captureBtn = document.querySelector("#capture-btn");
@@ -22,6 +23,13 @@ const getAreaById = (areaId) => {
     return document.body;
   }
   return document.querySelector(`#${areaId}`);
+};
+
+const saveImage = () => {
+  const canvas = canvasContainer.querySelector("canvas");
+  if (!canvas) {
+    return;
+  }
 };
 
 captureBtn.addEventListener("click", async () => {
