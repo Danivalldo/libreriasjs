@@ -5,25 +5,25 @@
   box-shadow: 0 3px 5px rgba(0,0,0,.2)
   color: #696969
   margin: 10px 10px
-  &.sticky
-    position: sticky
   svg
     max-width: 200px
-    // margin: 0 auto
     width: 100%
   .img-chart
     display: block
     width: 100%
     max-width: 800px
-  select
-    padding: 10px
-    margin-right: 10px
-    border-radius: 50px
-    background-color: var(--tertiary)
-    color: white
-    border: solid 1px var(--secondary)
-    cursor: pointer
-    font-family: 'Nunito', sans-serif
+  .form-wrapper
+    display: flex
+    align-items: center
+    select
+      padding: 10px
+      margin-right: 10px
+      border-radius: 50px
+      background-color: var(--tertiary)
+      color: white
+      border: solid 1px var(--secondary)
+      cursor: pointer
+      font-family: 'Nunito', sans-serif
   h2
     margin: 0
     font-weight: 700
@@ -67,3 +67,8 @@
     background-repeat: no-repeat
     background-position: bottom right
     background-size: 60%
+
+@media screen and (max-width: 900px)
+  .card
+    .form-wrapper
+      display: block
