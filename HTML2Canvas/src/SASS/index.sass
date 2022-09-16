@@ -2,7 +2,6 @@
 
 @import './header'
 @import './sidebar'
-@import './content'
 @import './footer'
 
 @import './card'
@@ -38,7 +37,22 @@ body
 .app
   box-sizing: border-box
   display: flex
+  min-height: 100vh
   flex-direction: row
   .main-container
     flex: 1
     overflow-x: auto
+
+.content-container
+  box-sizing: border-box
+  padding: 10px
+  .row
+    display: flex
+    flex-direction: row
+    & > div
+      flex: 1
+
+@media screen and (max-width: 910px)
+  .content-container
+    .row
+      display: block
