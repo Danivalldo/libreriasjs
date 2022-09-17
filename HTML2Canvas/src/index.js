@@ -4,12 +4,6 @@ import "./SASS/index.sass";
 
 const captureBtn = document.querySelector("#capture-btn");
 const modal = document.querySelector(".modal");
-modal.querySelector(".close-modal-btn").addEventListener("click", () => {
-  toggleModal();
-});
-modal.querySelector(".save-snapshot-btn").addEventListener("click", () => {
-  saveImage();
-});
 const canvasContainer = modal.querySelector(".placeholder-canvas");
 const selectArea = document.querySelector(".select-area");
 
@@ -21,30 +15,42 @@ const toggleModal = () => {
   modal.classList.add("active");
 };
 
-const getAreaById = (areaId) => {
-  if (areaId === "fullscreen") {
-    return document.body;
-  }
-  return document.querySelector(`#${areaId}`);
-};
-
 const saveImage = () => {
   const canvas = canvasContainer.querySelector("canvas");
   if (!canvas) {
     return;
   }
-  canvas.toBlob((blob) => {
-    saveAs(blob, `snapshot-${Date.now()}.png`);
+  canvas.toBlob(async (blob) => {
+    try {
+      await saveAs(blob, `snapshot-${Date.now()}.png`);
+    } catch (err) {
+      console.log("Error", err);
+    }
   });
 };
 
+modal.addEventListener("click", (e) => {
+  if (e.target.classList.contains("close-modal-btn")) {
+    return toggleModal();
+  }
+  const container = e.target.closest(".card");
+  if (!container) {
+    return toggleModal();
+  }
+});
+
+modal.querySelector(".save-snapshot-btn").addEventListener("click", () => {
+  saveImage();
+});
+
 captureBtn.addEventListener("click", async () => {
-  let area = getAreaById(selectArea.value);
+  const area =
+    selectArea.value === "fullscreen"
+      ? document.body
+      : document.querySelector(`#${selectArea.value}`);
   const canvas = await html2canvas(area, {
     allowTaint: true,
   });
   canvasContainer.appendChild(canvas);
   toggleModal();
 });
-
-console.log("Ready to go!", html2canvas);
