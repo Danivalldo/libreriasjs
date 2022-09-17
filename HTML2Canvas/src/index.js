@@ -2,7 +2,7 @@ import html2canvas from "html2canvas";
 import { saveAs } from "file-saver";
 import "./SASS/index.sass";
 
-const captureBtn = document.querySelector("#capture-btn");
+const captureBtn = document.querySelector(".capture-btn");
 const modal = document.querySelector(".modal");
 const canvasContainer = modal.querySelector(".placeholder-canvas");
 const selectArea = document.querySelector(".select-area");
@@ -13,6 +13,17 @@ const toggleModal = () => {
     return modal.classList.remove("active");
   }
   modal.classList.add("active");
+};
+
+const takeSnapShot = async () => {
+  const area =
+    selectArea.value === "fullscreen"
+      ? document.body
+      : document.querySelector(`#${selectArea.value}`);
+  const canvas = await html2canvas(area, {
+    allowTaint: true,
+  });
+  canvasContainer.appendChild(canvas);
 };
 
 const saveImage = () => {
@@ -29,7 +40,7 @@ const saveImage = () => {
   });
 };
 
-modal.addEventListener("click", (e) => {
+modal.addEventListener("click", async (e) => {
   if (e.target.classList.contains("close-modal-btn")) {
     return toggleModal();
   }
@@ -39,18 +50,11 @@ modal.addEventListener("click", (e) => {
   }
 });
 
-modal.querySelector(".save-snapshot-btn").addEventListener("click", () => {
-  saveImage();
+captureBtn.addEventListener("click", async () => {
+  await takeSnapShot();
+  toggleModal();
 });
 
-captureBtn.addEventListener("click", async () => {
-  const area =
-    selectArea.value === "fullscreen"
-      ? document.body
-      : document.querySelector(`#${selectArea.value}`);
-  const canvas = await html2canvas(area, {
-    allowTaint: true,
-  });
-  canvasContainer.appendChild(canvas);
-  toggleModal();
+modal.querySelector(".save-snapshot-btn").addEventListener("click", () => {
+  saveImage();
 });
