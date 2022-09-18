@@ -40,6 +40,11 @@ const saveImage = () => {
   });
 };
 
+captureBtn.addEventListener("click", async () => {
+  await takeSnapShot();
+  toggleModal();
+});
+
 modal.addEventListener("click", async (e) => {
   if (e.target.classList.contains("close-modal-btn")) {
     return toggleModal();
@@ -48,11 +53,6 @@ modal.addEventListener("click", async (e) => {
   if (!container) {
     return toggleModal();
   }
-});
-
-captureBtn.addEventListener("click", async () => {
-  await takeSnapShot();
-  toggleModal();
 });
 
 modal.querySelector(".save-snapshot-btn").addEventListener("click", () => {
