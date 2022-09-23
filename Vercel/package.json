@@ -1,0 +1,19 @@
+{
+  "name": "master-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vercel --prod"
+  },
+  "devDependencies": {
+    "vite": "^3.0.7"
+  },
+  "dependencies": {
+    "sass": "^1.54.9",
+    "vercel": "^28.4.0"
+  }
+}
