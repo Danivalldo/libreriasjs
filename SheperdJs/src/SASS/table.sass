@@ -1,0 +1,26 @@
+.table-wrapper
+  position: relative
+  .table
+    width: 100%
+    min-width: 500px
+    display: table
+    border-spacing: 0
+    border-radius: 10px
+    thead
+      background-color: var(--main)
+      color: white
+      font-weight: 700
+      tr
+        th
+          padding: 10px
+    tbody
+      tr
+        background-color: #f7f7f7
+        &:nth-child(odd)
+          background-color: #ffffff
+        td
+          padding: 10px
+
+@media screen and (max-width: 500px)
+  .table-wrapper
+    overflow-x: auto

@@ -1,0 +1,30 @@
+.btn
+  background-color: var(--main)
+  color: white
+  border-radius: 50px
+  padding: 8px 25px
+  display: inline-block
+  font-weight: 700
+  text-decoration: none
+  border: solid 2px var(--main)
+  font-size: .9rem
+  cursor: pointer
+  &[disabled]
+    opacity: .3
+    cursor: not-allowed
+  &.tertiary
+    background-color: var(--tertiary)
+    &:hover
+      background-color: white
+      color: var(--main)
+  &.with-icon
+    display: inline-flex
+    align-items: center
+    &:hover
+      color: white
+      background-color: var(--secondary)
+    img
+      margin-right: 10px
+  &:hover
+    background-color: white
+    color: var(--main)

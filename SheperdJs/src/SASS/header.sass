@@ -1,0 +1,38 @@
+.header-container
+  width: 100%
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 10px 20px
+  box-sizing: border-box
+  box-shadow: 0 2px 3px rgba(0,0,0,.1)
+  position: relative
+  z-index: 1
+  h1
+    color: var(--secondary)
+    margin: 0
+    padding: 0
+  .user-badge
+    display: flex
+    justify-content: center
+    align-items: center
+    color: var(--secondary)
+    .profile-img
+      width: 50px
+      overflow: hidden
+      border-radius: 50%
+      border: solid 3px var(--secondary)
+      img
+        display: block
+        width: 100%
+    span
+      display: inline-block
+      margin-left: 10px
+      font-weight: 700
+
+@media screen and (max-width: 400px)
+  .header-container
+    width: auto
+    display: block
+    .user-badge
+      justify-content: flex-start

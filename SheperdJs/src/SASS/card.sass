@@ -1,0 +1,74 @@
+.card
+  background-color: white
+  border-radius: 20px
+  padding: 20px
+  box-shadow: 0 3px 5px rgba(0,0,0,.2)
+  color: #696969
+  margin: 10px 10px
+  svg
+    max-width: 200px
+    width: 100%
+  .img-chart
+    display: block
+    width: 100%
+    max-width: 800px
+  .form-wrapper
+    display: flex
+    align-items: center
+    select
+      padding: 10px
+      margin-right: 10px
+      border-radius: 50px
+      background-color: var(--tertiary)
+      color: white
+      border: solid 1px var(--secondary)
+      cursor: pointer
+      font-family: 'Nunito', sans-serif
+  h2
+    margin: 0
+    font-weight: 700
+    margin-bottom: 10px
+    color: var(--main)
+  h3
+    font-weight: 100
+    margin-bottom: 10px
+    margin: 0
+  &.bg-gradient
+    background: rgb(52,77,200)
+    background: -moz-linear-gradient(90deg, rgba(52,77,200,1) 0%, rgba(29,47,124,1) 100%)
+    background: -webkit-linear-gradient(90deg, rgba(52,77,200,1) 0%, rgba(29,47,124,1) 100%)
+    background: linear-gradient(90deg, rgba(52,77,200,1) 0%, rgba(29,47,124,1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#344dc8",endColorstr="#1d2f7c",GradientType=1)
+    color: white
+    h2
+      color: white
+  &.bg-main
+    background-color: var(--main)
+    color: white
+    h2
+      color: white
+  .users-meeting
+    margin: 5px 0
+    span
+      display: inline-block
+      border: solid 3px var(--secondary)
+      border-radius: 50%
+      overflow: hidden
+      width: 80px
+      margin-left: -10px
+      &:nth-child(1)
+        margin-left: 0px
+      img
+        width: 100%
+        height: 100%
+        display: block
+  &.card-documents
+    background-image: url('../assets/images/undraw_my_files_swob.svg')
+    background-repeat: no-repeat
+    background-position: bottom right
+    background-size: 60%
+
+@media screen and (max-width: 550px)
+  .card
+    .form-wrapper
+      display: block

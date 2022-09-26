@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&display=swap')
+@import '../../node_modules/shepherd.js/dist/css/shepherd.css'
+
+@import './header'
+@import './sidebar'
+@import './footer'
+
+@import './card'
+@import './button'
+@import './lists'
+@import './table'
+
+*
+  box-sizing: border-box
+
+:root
+  --main: rgb(52,77,200)
+  --secondary: rgb(29,46,124)
+  --tertiary: rgb(90,110, 209)
+  --complementary: rgb(244,247,250)
+
+.text-main
+  color: var(--main)
+
+.text-secondary
+  color: var(--secondary)
+
+.text-center
+  text-align: center
+
+body
+  margin: 0
+  padding: 0
+  background-color: var(--complementary)
+  font-family: 'Nunito', sans-serif
+  scroll-behavior: smooth
+
+.app
+  box-sizing: border-box
+  display: flex
+  min-height: 100vh
+  flex-direction: row
+  .main-container
+    flex: 1
+    overflow-x: auto
+
+.content-container
+  box-sizing: border-box
+  padding: 10px
+  .row
+    display: flex
+    flex-direction: row
+    & > div
+      flex: 1
+
+@media screen and (max-width: 910px)
+  .content-container
+    .row
+      display: block
