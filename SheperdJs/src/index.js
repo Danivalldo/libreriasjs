@@ -3,10 +3,10 @@ import Shepherd from "shepherd.js";
 
 const tour = new Shepherd.Tour({
   useModalOverlay: true,
-  cancelIcon: {
-    enabled: true,
-  },
   defaultStepOptions: {
+    cancelIcon: {
+      enabled: true,
+    },
     classes: "shadow-md bg-purple-dark",
     scrollTo: { behavior: "smooth", block: "center" },
   },
@@ -15,6 +15,7 @@ const tour = new Shepherd.Tour({
 tour.addSteps([
   {
     id: "step-1",
+    title: "Step 1",
     text: "This step is attached to the bottom of the <code>.example-css-selector</code> element.",
     attachTo: {
       element: ".menu",
@@ -35,6 +36,7 @@ tour.addSteps([
   },
   {
     id: "step-2",
+    title: "Step 2",
     text: "This is the second step",
     attachTo: {
       element: ".take-screenshot-card",
