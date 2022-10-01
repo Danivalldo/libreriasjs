@@ -7,7 +7,9 @@ import {
   INPUT_EVENT_TYPE,
 } from "cm-chessboard/src/cm-chessboard/Chessboard";
 
-const chess = new Chess();
+const chess = new Chess(
+  `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1`
+);
 
 function isPromoting(fen, move) {
   const chess = new Chess(fen);
@@ -36,6 +38,8 @@ const chessboard = new Chessboard(document.querySelector("#board1"), {
   responsive: true,
   position: chess.fen(),
 });
+
+chessboard.setOrientation(COLOR.black);
 
 const inputHandler = async (event) => {
   console.log("event", event);
@@ -75,7 +79,7 @@ const inputHandler = async (event) => {
             // setTimeout(() => {
             // smoother with 500ms delay
             chess.move({ from: randomMove.from, to: randomMove.to });
-            chessboard.enableMoveInput(inputHandler, COLOR.white);
+            chessboard.enableMoveInput(inputHandler, COLOR.black);
             chessboard.setPosition(chess.fen(), true);
             // }, 500);
           }
@@ -89,12 +93,12 @@ const inputHandler = async (event) => {
     chessboard.state.moveInputProcess.then(async () => {
       chessboard.disableMoveInput();
       await chessboard.setPosition(chess.fen(), true);
-      chessboard.enableMoveInput(inputHandler, COLOR.white);
+      chessboard.enableMoveInput(inputHandler, COLOR.black);
       console.log("DONE!");
     });
   }
 };
 
-chessboard.enableMoveInput(inputHandler, COLOR.white);
+chessboard.enableMoveInput(inputHandler, COLOR.black);
 
 console.log(chessboard);
