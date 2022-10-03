@@ -1,5 +1,5 @@
 import "./style.sass";
-import ChessGameCtrl from "./ChessGameCtrl";
+import ChessGame from "./ChessGame";
 import { Chess } from "chess.js";
 import { Chessboard } from "cm-chessboard";
 import {
@@ -8,7 +8,7 @@ import {
   INPUT_EVENT_TYPE,
 } from "cm-chessboard/src/cm-chessboard/Chessboard";
 
-const chessGameCtrl = new ChessGameCtrl(
+const chessGame = new ChessGame(
   document.querySelector("#board1"),
   `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1`
 );
