@@ -6,7 +6,7 @@ import {
   INPUT_EVENT_TYPE,
 } from "cm-chessboard/src/cm-chessboard/Chessboard";
 
-class ChessGameCtrl {
+class ChessGame {
   constructor(element, fen) {
     this.chess = new Chess(fen);
     this.board = new Chessboard(element, {
@@ -79,4 +79,4 @@ class ChessGameCtrl {
   }
 }
 
-export default ChessGameCtrl;
+export default ChessGame;
