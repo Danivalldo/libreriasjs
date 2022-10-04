@@ -1,7 +1,5 @@
 import "./style.sass";
 import ChessGame from "./ChessGame";
-import { Chess } from "chess.js";
-import { Chessboard } from "cm-chessboard";
 import {
   COLOR,
   MARKER_TYPE,
@@ -13,34 +11,32 @@ const chessGame = new ChessGame(
   `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1`
 );
 
+chessGame.onPlayerMove(() => {
+  // chessGame.setBoardOrientation(chessGame.getTurn());
+  chessGame.randomMove();
+});
+
+// const launchRandomGame = () => {
+//   const totalmoves = 100;
+//   let move = 0;
+//   const performRandomMove = () => {
+//     if (move >= totalmoves) {
+//       return;
+//     }
+//     move++;
+//     chessGame.randomMove();
+//     window.setTimeout(performRandomMove, 500);
+//   };
+//   performRandomMove();
+// };
+
+// launchRandomGame();
+
 window.chessGame = chessGame;
 
 // const chess = new Chess(
 //   `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1`
 // );
-
-// function isPromoting(fen, move) {
-//   const chess = new Chess(fen);
-
-//   const piece = chess.get(move.from);
-
-//   if (piece?.type !== "p") {
-//     return false;
-//   }
-
-//   if (piece.color !== chess.turn()) {
-//     return false;
-//   }
-
-//   if (!["1", "8"].some((it) => move.to.endsWith(it))) {
-//     return false;
-//   }
-
-//   return chess
-//     .moves({ square: move.from, verbose: true })
-//     .map((it) => it.to)
-//     .includes(move.to);
-// }
 
 // const chessboard = new Chessboard(document.querySelector("#board1"), {
 //   responsive: true,
