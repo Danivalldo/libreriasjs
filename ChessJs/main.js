@@ -13,6 +13,8 @@ const chessGame = new ChessGame(
   `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1`
 );
 
+window.chessGame = chessGame;
+
 // const chess = new Chess(
 //   `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1`
 // );
