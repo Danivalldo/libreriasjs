@@ -52,6 +52,15 @@ class ChessGame {
     await this.board.setPosition(this.chess.fen(), true);
   }
 
+  exportPGN() {
+    return this.chess.pgn();
+  }
+
+  loadPGN(pgn) {
+    this.chess.loadPgn(pgn);
+    this.board.setPosition(this.chess.fen(), true);
+  }
+
   randomMove() {
     this.disablePlayerMove();
     const possibleMoves = this.chess.moves({ verbose: true });
