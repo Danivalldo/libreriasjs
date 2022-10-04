@@ -13,8 +13,9 @@ class ChessGame {
       responsive: true,
       position: this.chess.fen(),
     });
+    this.onPlayerMoveCb = undefined;
     this.board.setOrientation(this.chess.turn());
-    this.board.enableMoveInput(this.inputHandler.bind(this), this.chess.turn());
+    this.enablePlayerMove();
   }
 
   isPromotingMove(move) {
@@ -34,9 +35,41 @@ class ChessGame {
       .includes(move.to);
   }
 
+  onPlayerMove(cb) {
+    this.onPlayerMoveCb = cb;
+  }
+
+  enablePlayerMove() {
+    this.board.enableMoveInput(this.inputHandler.bind(this), this.chess.turn());
+  }
+
+  disablePlayerMove() {
+    this.board.disableMoveInput();
+  }
+
   async clear() {
     this.chess.clear();
     await this.board.setPosition(this.chess.fen(), true);
+  }
+
+  randomMove() {
+    this.disablePlayerMove();
+    const possibleMoves = this.chess.moves({ verbose: true });
+    if (possibleMoves.length > 0) {
+      const randomIndex = Math.floor(Math.random() * possibleMoves.length);
+      const randomMove = possibleMoves[randomIndex];
+      this.chess.move({ from: randomMove.from, to: randomMove.to });
+      this.board.setPosition(this.chess.fen(), true);
+    }
+    this.enablePlayerMove();
+  }
+
+  setBoardOrientation(color = COLOR.white) {
+    this.board.setOrientation(color);
+  }
+
+  getTurn() {
+    return this.chess.turn();
   }
 
   async inputHandler(event) {
@@ -52,7 +85,7 @@ class ChessGame {
       const move = {
         from: event.squareFrom,
         to: event.squareTo,
-        promotion: this.isPromotingMove(this.chess.fen(), {
+        promotion: this.isPromotingMove({
           from: event.squareFrom,
           to: event.squareTo,
         })
@@ -60,26 +93,15 @@ class ChessGame {
           : undefined,
       };
       const result = this.chess.move(move);
-      //if (result) {
-      this.board.disableMoveInput();
+      this.disablePlayerMove();
       this.board.state.moveInputProcess.then(async () => {
         await this.board.setPosition(this.chess.fen(), true);
-        this.board.enableMoveInput(
-          this.inputHandler.bind(this),
-          this.chess.turn()
-        );
-        // this.board.setOrientation(this.chess.turn());
+        if (typeof this.onPlayerMoveCb === "function" && result) {
+          this.onPlayerMoveCb();
+        }
+        this.enablePlayerMove();
       });
       return result;
-      //}
-      // this.board.state.moveInputProcess.then(async () => {
-      //   this.board.disableMoveInput();
-      //   await this.board.setPosition(this.chess.fen(), true);
-      //   this.board.enableMoveInput(
-      //     this.inputHandler.bind(this),
-      //     this.chess.turn()
-      //   );
-      // });
     }
   }
 }
