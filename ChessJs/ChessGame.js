@@ -34,6 +34,11 @@ class ChessGame {
       .includes(move.to);
   }
 
+  async clear() {
+    this.chess.clear();
+    await this.board.setPosition(this.chess.fen(), true);
+  }
+
   async inputHandler(event) {
     this.board.removeMarkers(MARKER_TYPE.dot);
     if (event.type === INPUT_EVENT_TYPE.moveInputStarted) {
