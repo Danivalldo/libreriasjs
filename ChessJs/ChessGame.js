@@ -35,6 +35,25 @@ class ChessGame {
       .includes(move.to);
   }
 
+  playGameFromHistory() {
+    const history = this.chess.history();
+    this.disablePlayerMove();
+    this.chess.reset();
+    this.board.setPosition(this.chess.fen(), true);
+    const recursiveFunction = (pointer) => {
+      const nextMove = history[pointer];
+      console.log(nextMove);
+      if (!nextMove) {
+        this.enablePlayerMove();
+        return;
+      }
+      this.chess.move(nextMove);
+      this.board.setPosition(this.chess.fen(), true);
+      window.setTimeout(recursiveFunction.bind(this, ++pointer), 500);
+    };
+    recursiveFunction(0);
+  }
+
   onPlayerMove(cb) {
     this.onPlayerMoveCb = cb;
   }
@@ -45,6 +64,11 @@ class ChessGame {
 
   disablePlayerMove() {
     this.board.disableMoveInput();
+  }
+
+  reset() {
+    this.chess.reset();
+    this.board.setPosition(this.chess.fen(), true);
   }
 
   async clear() {
