@@ -1,10 +1,8 @@
 import "./style.sass";
 import ChessGame from "./ChessGame";
-import {
-  COLOR,
-  MARKER_TYPE,
-  INPUT_EVENT_TYPE,
-} from "cm-chessboard/src/cm-chessboard/Chessboard";
+import { saveAs } from "file-saver";
+
+const exportPGNBtn = document.querySelector(".export-png-btn");
 
 const chessGame = new ChessGame(
   document.querySelector("#board1"),
@@ -14,6 +12,12 @@ const chessGame = new ChessGame(
 chessGame.onPlayerMove(() => {
   // chessGame.setBoardOrientation(chessGame.getTurn());
   chessGame.randomMove();
+});
+
+exportPGNBtn.addEventListener("click", () => {
+  const pgn = chessGame.exportPGN();
+  var blob = new Blob([pgn], { type: "text/plain;charset=utf-8" });
+  saveAs(blob, `game.pgn`);
 });
 
 // const launchRandomGame = () => {
