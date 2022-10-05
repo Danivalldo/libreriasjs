@@ -12,6 +12,12 @@ class ChessGame {
     this.board = new Chessboard(element, {
       responsive: true,
       position: this.chess.fen(),
+      style: {
+        cssClass: "blue",
+      },
+      sprite: {
+        url: "./assets/images/chessboard-sprite-staunty.svg",
+      },
     });
     this.onPlayerMoveCb = undefined;
     this.board.setOrientation(this.chess.turn());
@@ -39,7 +45,6 @@ class ChessGame {
     const history = this.chess.history();
     this.disablePlayerMove();
     this.chess.reset();
-    this.board.setPosition(this.chess.fen(), true);
     const recursiveFunction = (pointer) => {
       const nextMove = history[pointer];
       console.log(nextMove);
@@ -54,7 +59,7 @@ class ChessGame {
     recursiveFunction(0);
   }
 
-  onPlayerMove(cb) {
+  afterMove(cb) {
     this.onPlayerMoveCb = cb;
   }
 
@@ -97,12 +102,8 @@ class ChessGame {
     this.enablePlayerMove();
   }
 
-  setBoardOrientation(color = COLOR.white) {
-    this.board.setOrientation(color);
-  }
-
-  getTurn() {
-    return this.chess.turn();
+  updateBoardOrientation() {
+    this.board.setOrientation(this.chess.turn());
   }
 
   async inputHandler(event) {
