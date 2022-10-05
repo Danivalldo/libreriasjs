@@ -13,10 +13,10 @@ class ChessGame {
       responsive: true,
       position: this.chess.fen(),
       style: {
-        cssClass: "blue",
+        cssClass: "default",
       },
       sprite: {
-        url: "./assets/images/chessboard-sprite-staunty.svg",
+        url: "./assets/images/chessboard-sprite.svg",
       },
     });
     this.onPlayerMoveCb = undefined;
@@ -57,6 +57,10 @@ class ChessGame {
       window.setTimeout(recursiveFunction.bind(this, ++pointer), 500);
     };
     recursiveFunction(0);
+  }
+
+  isGameOver() {
+    return this.chess.isGameOver();
   }
 
   afterMove(cb) {
