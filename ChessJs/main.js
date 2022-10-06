@@ -5,6 +5,11 @@ import { saveAs } from "file-saver";
 
 const exportPGNBtn = document.querySelector(".export-png-btn");
 const resetBtn = document.querySelector(".reset-btn");
+const rotateBoardBtn = document.querySelector(".rotate-board-btn");
+const startGameBtn = document.querySelector(".start-game-btn");
+const pgnInputLoader = document.querySelector('[name="png-input-loader"]');
+
+let vsMode = "vs-computer";
 
 const chessGame = new ChessGame(
   document.querySelector("#board1"),
@@ -12,20 +17,45 @@ const chessGame = new ChessGame(
 );
 
 chessGame.afterMove(() => {
-  // chessGame.updateBoardOrientation();
-  // if (chessGame.chess.turn() === "b") {
-  chessGame.randomMove();
-  // }
+  if (vsMode === "vs-computer") {
+    return chessGame.randomMove();
+  }
 });
 
 exportPGNBtn.addEventListener("click", () => {
+  if (chessGame.getIsReplaying()) {
+    return;
+  }
   const pgn = chessGame.exportPGN();
   var blob = new Blob([pgn], { type: "text/plain;charset=utf-8" });
   saveAs(blob, `game.pgn`);
 });
 
 resetBtn.addEventListener("click", () => {
+  if (chessGame.getIsReplaying()) {
+    return;
+  }
   chessGame.reset();
 });
 
+startGameBtn.addEventListener("click", () => {
+  vsMode = document.querySelector('input[name="game-vs"]:checked').value;
+  if (pgnInputLoader.value) {
+    exportPGNBtn.classList.add("opacity-25", "cursor-not-allowed");
+    resetBtn.classList.add("opacity-25", "cursor-not-allowed");
+    chessGame.loadPGN(pgnInputLoader.value);
+    return chessGame.replayGameFromHistory(() => {
+      exportPGNBtn.classList.remove("opacity-25", "cursor-not-allowed");
+      resetBtn.classList.remove("opacity-25", "cursor-not-allowed");
+      if (chessGame.getTurn() === "b") {
+        chessGame.randomMove();
+      }
+    });
+  }
+  chessGame.reset();
+});
+
+rotateBoardBtn.addEventListener("click", () => {
+  chessGame.changeBoardOrientation();
+});
 window.chessGame = chessGame;
