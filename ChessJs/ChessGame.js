@@ -19,6 +19,7 @@ class ChessGame {
         url: "./assets/images/chessboard-sprite.svg",
       },
     });
+    this.isReplayingGame = false;
     this.onPlayerMoveCb = undefined;
     this.board.setOrientation(this.chess.turn());
     this.enablePlayerMove();
@@ -41,7 +42,8 @@ class ChessGame {
       .includes(move.to);
   }
 
-  playGameFromHistory() {
+  replayGameFromHistory(onEndReplay) {
+    this.isReplayingGame = true;
     const history = this.chess.history();
     this.disablePlayerMove();
     this.chess.reset();
@@ -49,7 +51,11 @@ class ChessGame {
       const nextMove = history[pointer];
       console.log(nextMove);
       if (!nextMove) {
+        this.isReplayingGame = false;
         this.enablePlayerMove();
+        if (typeof onEndReplay === "function") {
+          onEndReplay();
+        }
         return;
       }
       this.chess.move(nextMove);
@@ -57,6 +63,10 @@ class ChessGame {
       window.setTimeout(recursiveFunction.bind(this, ++pointer), 500);
     };
     recursiveFunction(0);
+  }
+
+  getIsReplaying() {
+    return this.isReplayingGame;
   }
 
   isGameOver() {
@@ -76,8 +86,10 @@ class ChessGame {
   }
 
   reset() {
+    this.disablePlayerMove();
     this.chess.reset();
     this.board.setPosition(this.chess.fen(), true);
+    this.enablePlayerMove();
   }
 
   async clear() {
@@ -91,7 +103,6 @@ class ChessGame {
 
   loadPGN(pgn) {
     this.chess.loadPgn(pgn);
-    this.board.setPosition(this.chess.fen(), true);
   }
 
   randomMove() {
@@ -106,8 +117,16 @@ class ChessGame {
     this.enablePlayerMove();
   }
 
-  updateBoardOrientation() {
-    this.board.setOrientation(this.chess.turn());
+  changeBoardOrientation(color) {
+    this.board.setOrientation(
+      color || this.board.getOrientation() === COLOR.white
+        ? COLOR.black
+        : COLOR.white
+    );
+  }
+
+  getTurn() {
+    return this.chess.turn();
   }
 
   async inputHandler(event) {
