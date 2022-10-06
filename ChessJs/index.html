@@ -6,43 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ChessJs</title>
   </head>
-  <body>
+  <body class="bg-blue-100">
     <div class="min-h-screen flex flex-col">
       <div class="flex-1 flex flex-row">
-        <nav class="bg-purple-200 p-3">
+        <nav class="bg-blue-500 p-3">
           <ul>
             <li>
               <button
                 type="button"
                 data-modal-toggle="defaultModal"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
+                data-tooltip-target="tooltip-right"
+                data-tooltip-placement="right"
+                class="text-white bg-white hover:bg-grey-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center shadow-md"
               >
-                <img src="assets/images/laptop.svg" class="w-4 h-4" alt="" />
+                <img src="assets/images/plus.svg" class="w-6 h-6" alt="" />
               </button>
+              <div
+                id="tooltip-right"
+                role="tooltip"
+                class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+              >
+                Nueva partida
+                <div class="tooltip-arrow" data-popper-arrow></div>
+              </div>
             </li>
           </ul>
         </nav>
         <main class="bg-indigo-10 flex-1 overflow-x-auto">
-          <div>Header</div>
-          <div id="board1" class="chessboard aspect-square"></div>
-          <div class="flex flex-row justify-center p-3">
+          <div
+            class="bg-gradient-to-r from-blue-500 to-chessblue p-2 mb-2 text-white shadow-md"
+          >
+            <img
+              src="assets/images/chess-pawn.svg"
+              alt=""
+              class="w-10 h-10 inline-block"
+            />
+            <h1 class="inline-block font-bold">Appjedrez</h1>
+          </div>
+          <div class="px-2">
+            <div id="board1" class="chessboard aspect-square shadow-md"></div>
+          </div>
+          <div class="flex flex-row justify-center pt-3">
             <button
               type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 font-medium text-sm p-2.5 text-center items-center mr-2 rounded-md export-png-btn"
+              class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 font-medium text-sm p-2.5 text-center items-center mr-2 rounded-md export-png-btn"
             >
-              Export PGN
+              Exportar PGN
             </button>
             <button
               type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 font-medium text-sm p-2.5 text-center items-center mr-2 rounded-md reset-btn"
+              class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 font-medium text-sm p-2.5 text-center items-center mr-2 rounded-md rotate-board-btn"
             >
-              Reset
+              Rotar el tablero
             </button>
             <button
               type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 font-medium text-sm p-2.5 text-center items-center mr-2 rounded-md rotate-board-btn"
+              class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 font-medium text-sm p-2.5 text-center items-center mr-2 rounded-md reset-btn"
             >
-              Girar Tablero
+              Reiniciar
             </button>
           </div>
         </main>
@@ -92,7 +113,7 @@
                       Contra la máquina
                     </div>
                     <div class="w-full">
-                      Tranquila, solo hace movimientos aleatorios
+                      Solo hace movimientos aleatorios. Es fácil ganarla.
                     </div>
                   </div>
                   <img
@@ -119,7 +140,9 @@
                     <div class="w-full text-lg font-semibold">
                       Contra otra persona
                     </div>
-                    <div class="w-full">En local sobre el mismo tablero</div>
+                    <div class="w-full">
+                      Sobre el mismo tablero. Puedes rotarlo a cada turno.
+                    </div>
                   </div>
                   <img
                     src="assets/images/arrow.svg"
@@ -130,12 +153,13 @@
               </li>
             </ul>
             <hr />
+            <h2 class="mt-0">Cargar PGN</h2>
             <textarea
               id="png-loader"
               rows="4"
               name="png-input-loader"
               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700"
-              placeholder="Cargar PGN"
+              placeholder="Pega un texto en formato PGN para visualizar y continuar con una partida empezada"
             ></textarea>
           </div>
           <!-- Modal footer -->
@@ -145,7 +169,7 @@
             <button
               data-modal-toggle="defaultModal"
               type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center start-game-btn"
+              class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center start-game-btn"
             >
               Empezar
             </button>
