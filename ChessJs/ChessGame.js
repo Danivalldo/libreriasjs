@@ -13,7 +13,7 @@ class ChessGame {
       responsive: true,
       position: this.chess.fen(),
       style: {
-        cssClass: "default",
+        cssClass: "blue", //default
       },
       sprite: {
         url: "./assets/images/chessboard-sprite.svg",
