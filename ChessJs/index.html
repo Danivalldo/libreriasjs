@@ -14,6 +14,7 @@
             <li>
               <button
                 type="button"
+                data-modal-toggle="defaultModal"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
               >
                 <img src="assets/images/laptop.svg" class="w-4 h-4" alt="" />
@@ -24,25 +25,24 @@
         <main class="bg-indigo-10 flex-1 overflow-x-auto">
           <div>Header</div>
           <div id="board1" class="chessboard aspect-square"></div>
-          <div>
+          <div class="flex flex-row justify-center p-3">
             <button
               type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 font-medium text-sm p-2.5 text-center items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 export-png-btn"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 font-medium text-sm p-2.5 text-center items-center mr-2 rounded-md export-png-btn"
             >
               Export PGN
             </button>
             <button
               type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 font-medium text-sm p-2.5 text-center items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 reset-btn"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 font-medium text-sm p-2.5 text-center items-center mr-2 rounded-md reset-btn"
             >
               Reset
             </button>
             <button
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               type="button"
-              data-modal-toggle="defaultModal"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 font-medium text-sm p-2.5 text-center items-center mr-2 rounded-md rotate-board-btn"
             >
-              Toggle modal
+              Girar Tablero
             </button>
           </div>
         </main>
@@ -58,17 +58,13 @@
     >
       <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white rounded-lg shadow">
           <!-- Modal header -->
-          <div
-            class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600"
-          >
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-              Nueva partida
-            </h3>
+          <div class="flex justify-between items-start p-4 rounded-t border-b">
+            <h3 class="text-xl font-semibold text-gray-900">Nueva partida</h3>
             <button
               type="button"
-              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
               data-modal-toggle="defaultModal"
             >
               <img src="assets/images/cross.svg" alt="" class="w-5 h-5" />
@@ -81,90 +77,84 @@
               <li>
                 <input
                   type="radio"
-                  id="hosting-small"
-                  name="hosting"
-                  value="hosting-small"
-                  class="hidden peer"
+                  id="vs-computer"
+                  name="game-vs"
                   checked="checked"
-                  required=""
+                  value="vs-computer"
+                  class="hidden peer"
                 />
                 <label
-                  for="hosting-small"
-                  class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                  for="vs-computer"
+                  class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100"
                 >
                   <div class="block">
                     <div class="w-full text-lg font-semibold">
-                      Humano vs Humano
+                      Contra la máquina
                     </div>
-                    <div class="w-full">Good for small websites</div>
+                    <div class="w-full">
+                      Tranquila, solo hace movimientos aleatorios
+                    </div>
                   </div>
-                  <svg
-                    aria-hidden="true"
+                  <img
+                    src="assets/images/arrow.svg"
                     class="ml-3 w-6 h-6"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
+                    alt=""
+                  />
                 </label>
               </li>
               <li>
                 <input
                   type="radio"
-                  id="hosting-big"
-                  name="hosting"
-                  value="hosting-big"
+                  id="vs-human"
+                  name="game-vs"
+                  value="vs-human"
                   class="hidden peer"
+                  required=""
                 />
                 <label
-                  for="hosting-big"
-                  class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                  for="vs-human"
+                  class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100"
                 >
                   <div class="block">
                     <div class="w-full text-lg font-semibold">
-                      Humano vs máquina
+                      Contra otra persona
                     </div>
-                    <div class="w-full">Good for large websites</div>
+                    <div class="w-full">En local sobre el mismo tablero</div>
                   </div>
-                  <svg
-                    aria-hidden="true"
+                  <img
+                    src="assets/images/arrow.svg"
                     class="ml-3 w-6 h-6"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
+                    alt=""
+                  />
                 </label>
               </li>
             </ul>
+            <hr />
+            <textarea
+              id="png-loader"
+              rows="4"
+              name="png-input-loader"
+              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700"
+              placeholder="Cargar PGN"
+            ></textarea>
           </div>
           <!-- Modal footer -->
           <div
-            class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+            class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200"
           >
             <button
               data-modal-toggle="defaultModal"
               type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center start-game-btn"
             >
-              I accept
+              Empezar
             </button>
             <button
               data-modal-toggle="defaultModal"
               type="button"
-              class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+              class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10"
             >
-              Decline
+              Cancelar
             </button>
           </div>
         </div>
