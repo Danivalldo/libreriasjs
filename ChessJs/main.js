@@ -17,8 +17,15 @@ const chessGame = new ChessGame(
 );
 
 chessGame.afterMove(() => {
+  const gameOver = chessGame.isGameOver();
+  if (gameOver) {
+    return alert("Game over!");
+  }
   if (vsMode === "vs-computer") {
-    return chessGame.randomMove();
+    chessGame.randomMove();
+    if (gameOver) {
+      alert("Game over!");
+    }
   }
 });
 
