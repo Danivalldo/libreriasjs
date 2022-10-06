@@ -10,27 +10,23 @@
     <div class="min-h-screen flex flex-col">
       <div class="flex-1 flex flex-row">
         <nav class="bg-blue-500 p-3">
-          <ul>
-            <li>
-              <button
-                type="button"
-                data-modal-toggle="defaultModal"
-                data-tooltip-target="tooltip-right"
-                data-tooltip-placement="right"
-                class="text-white bg-white hover:bg-grey-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center shadow-md"
-              >
-                <img src="assets/images/plus.svg" class="w-6 h-6" alt="" />
-              </button>
-              <div
-                id="tooltip-right"
-                role="tooltip"
-                class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-              >
-                Nueva partida
-                <div class="tooltip-arrow" data-popper-arrow></div>
-              </div>
-            </li>
-          </ul>
+          <button
+            type="button"
+            data-modal-toggle="defaultModal"
+            data-tooltip-target="tooltip-right"
+            data-tooltip-placement="right"
+            class="text-white bg-white hover:bg-grey-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center shadow-md"
+          >
+            <img src="assets/images/plus.svg" class="w-6 h-6" alt="" />
+          </button>
+          <div
+            id="tooltip-right"
+            role="tooltip"
+            class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+          >
+            Nueva partida
+            <div class="tooltip-arrow" data-popper-arrow></div>
+          </div>
         </nav>
         <main class="bg-indigo-10 flex-1 overflow-x-auto">
           <div
