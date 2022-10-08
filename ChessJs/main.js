@@ -46,11 +46,17 @@ resetBtn.addEventListener("click", () => {
 });
 
 startGameBtn.addEventListener("click", () => {
+  if (chessGame.getIsReplaying()) {
+    return;
+  }
   vsMode = document.querySelector('input[name="game-vs"]:checked').value;
   if (pgnInputLoader.value) {
+    const validPGN = chessGame.loadPGN(pgnInputLoader.value);
+    if (!validPGN) {
+      return;
+    }
     exportPGNBtn.classList.add("opacity-25", "cursor-not-allowed");
     resetBtn.classList.add("opacity-25", "cursor-not-allowed");
-    chessGame.loadPGN(pgnInputLoader.value);
     return chessGame.replayGameFromHistory(() => {
       exportPGNBtn.classList.remove("opacity-25", "cursor-not-allowed");
       resetBtn.classList.remove("opacity-25", "cursor-not-allowed");
