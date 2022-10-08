@@ -96,7 +96,7 @@ class ChessGame {
   }
 
   loadPGN(pgn) {
-    this.chess.loadPgn(pgn);
+    return this.chess.loadPgn(pgn);
   }
 
   randomMove() {
