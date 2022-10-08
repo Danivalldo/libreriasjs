@@ -21,7 +21,7 @@ class ChessGame {
     });
     this.isReplayingGame = false;
     this.onPlayerMoveCb = undefined;
-    this.board.setOrientation(this.chess.turn());
+    this.changeBoardOrientation(this.chess.turn());
     this.enablePlayerMove();
   }
 
@@ -119,7 +119,9 @@ class ChessGame {
 
   changeBoardOrientation(color) {
     this.board.setOrientation(
-      color || this.board.getOrientation() === COLOR.white
+      color
+        ? color
+        : this.board.getOrientation() === COLOR.white
         ? COLOR.black
         : COLOR.white
     );
