@@ -49,7 +49,6 @@ class ChessGame {
     this.chess.reset();
     const recursiveFunction = (pointer) => {
       const nextMove = history[pointer];
-      console.log(nextMove);
       if (!nextMove) {
         this.isReplayingGame = false;
         this.enablePlayerMove();
