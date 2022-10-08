@@ -1,7 +1,7 @@
 import "./style.sass";
 import "flowbite";
-import ChessGame from "./ChessGame";
 import { saveAs } from "file-saver";
+import ChessGame from "./ChessGame";
 
 const exportPGNBtn = document.querySelector(".export-png-btn");
 const resetBtn = document.querySelector(".reset-btn");
