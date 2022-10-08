@@ -92,11 +92,6 @@ class ChessGame {
     this.enablePlayerMove();
   }
 
-  async clear() {
-    this.chess.clear();
-    await this.board.setPosition(this.chess.fen(), true);
-  }
-
   exportPGN() {
     return this.chess.pgn();
   }
