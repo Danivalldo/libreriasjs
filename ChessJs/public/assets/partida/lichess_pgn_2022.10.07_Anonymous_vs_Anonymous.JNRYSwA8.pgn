@@ -1,0 +1,20 @@
+[Event "Casual Rapid game"]
+[Site "https://lichess.org/JNRYSwA8"]
+[Date "2022.10.07"]
+[White "Anonymous"]
+[Black "Anonymous"]
+[Result "1-0"]
+[UTCDate "2022.10.07"]
+[UTCTime "19:29:21"]
+[WhiteElo "?"]
+[BlackElo "?"]
+[Variant "Standard"]
+[TimeControl "600+5"]
+[ECO "C62"]
+[Opening "Ruy Lopez: Steinitz Defense"]
+[Termination "Normal"]
+[Annotator "lichess.org"]
+
+1. e4 { [%clk 0:10:00] } 1... e5 { [%clk 0:10:00] } 2. Nf3 { [%clk 0:10:04] } 2... Nc6 { [%clk 0:09:59] } 3. Bb5 { [%clk 0:09:34] } 3... d6 { [%clk 0:09:45] } { C62 Ruy Lopez: Steinitz Defense } 4. Bxc6+ { [%clk 0:09:31] } 4... bxc6 { [%clk 0:09:24] } 5. d3 { [%clk 0:08:45] } 5... Nf6 { [%clk 0:09:20] } 6. Bg5 { [%clk 0:08:30] } 6... Be7 { [%clk 0:09:17] } 7. h3 { [%clk 0:08:06] } 7... O-O { [%clk 0:09:03] } 8. Nc3 { [%clk 0:08:01] } 8... Be6 { [%clk 0:09:01] } 9. O-O { [%clk 0:07:56] } 9... d5 { [%clk 0:08:56] } 10. Nxe5 { [%clk 0:07:45] } 10... Qd6 { [%clk 0:08:43] } 11. Nf3 { [%clk 0:07:35] } 11... dxe4 { [%clk 0:08:44] } 12. dxe4 { [%clk 0:07:40] } 12... Qxd1 { [%clk 0:08:44] } 13. Raxd1 { [%clk 0:07:45] } 13... Rfe8 { [%clk 0:08:26] } 14. e5 { [%clk 0:07:48] } 14... Nd5 { [%clk 0:08:23] } 15. Nxd5 { [%clk 0:07:47] } 15... cxd5 { [%clk 0:08:13] } 16. Bxe7 { [%clk 0:07:49] } 16... Rxe7 { [%clk 0:08:15] } 17. Rd4 { [%clk 0:07:52] } 17... Rb8 { [%clk 0:08:12] } 18. b3 { [%clk 0:07:55] } 18... c5 { [%clk 0:08:12] } 19. Rd2 { [%clk 0:07:56] } 19... h6 { [%clk 0:08:00] } 20. Rfd1 { [%clk 0:07:55] } 20... Rd8 { [%clk 0:08:00] } 21. c4 { [%clk 0:07:57] } 21... d4 { [%clk 0:08:00] } 22. b4 { [%clk 0:07:51] } 22... Bxc4 { [%clk 0:07:38] } 23. bxc5 { [%clk 0:07:52] } 23... Rd5 { [%clk 0:07:31] } 24. Nxd4 { [%clk 0:07:42] } 24... Rdxe5 { [%clk 0:07:20] } 25. Nc6 { [%clk 0:07:00] } 25... Re1+ { [%clk 0:07:19] } 26. Rxe1 { [%clk 0:06:56] } 26... Rxe1+ { [%clk 0:07:20] } 27. Kh2 { [%clk 0:07:01] } 27... Kh7 { [%clk 0:07:02] } 28. Nxa7 { [%clk 0:07:03] } 28... g5 { [%clk 0:07:02] } 29. c6 { [%clk 0:07:07] } 29... Rc1 { [%clk 0:07:01] } 30. c7 { [%clk 0:07:09] } 30... Be6 { [%clk 0:07:04] } 31. Nb5 { [%clk 0:07:07] } 31... Rc5 { [%clk 0:06:49] } 32. a4 { [%clk 0:07:09] } 32... Kg6 { [%clk 0:06:36] } 33. Rd6 { [%clk 0:07:03] } 33... Kf6 { [%clk 0:06:22] } 34. a5 { [%clk 0:06:57] } 34... Ke5 { [%clk 0:06:12] } 35. a6 { [%clk 0:06:57] } 35... Bc4 { Black offers draw } { [%clk 0:06:14] } 36. a7 { [%clk 0:06:08] } 36... Bxb5 { [%clk 0:06:05] } 37. a8=Q { [%clk 0:06:10] } 37... Kxd6 { [%clk 0:05:57] } 38. c8=Q { [%clk 0:06:09] } 38... Rxc8 { [%clk 0:06:02] } 39. Qxc8 { [%clk 0:06:13] } { Black resigns. } 1-0
+
+
