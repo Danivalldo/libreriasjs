@@ -65,4 +65,3 @@ startGameBtn.addEventListener("click", () => {
 rotateBoardBtn.addEventListener("click", () => {
   chessGame.changeBoardOrientation();
 });
-window.chessGame = chessGame;
