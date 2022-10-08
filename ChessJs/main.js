@@ -7,7 +7,6 @@ const exportPGNBtn = document.querySelector(".export-png-btn");
 const resetBtn = document.querySelector(".reset-btn");
 const rotateBoardBtn = document.querySelector(".rotate-board-btn");
 const startGameBtn = document.querySelector(".start-game-btn");
-const pgnInputLoader = document.querySelector('[name="png-input-loader"]');
 
 let vsMode = "vs-computer";
 
@@ -49,7 +48,10 @@ startGameBtn.addEventListener("click", () => {
   if (chessGame.getIsReplaying()) {
     return;
   }
+
   vsMode = document.querySelector('input[name="game-vs"]:checked').value;
+  const pgnInputLoader = document.querySelector('[name="png-input-loader"]');
+
   if (pgnInputLoader.value) {
     const validPGN = chessGame.loadPGN(pgnInputLoader.value);
     if (!validPGN) {
