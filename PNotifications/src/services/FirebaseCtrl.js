@@ -7,6 +7,7 @@ class FirebaseCtrl {
     this.app = undefined;
     this.messaging = undefined;
     this.token = undefined;
+    this.onRecieveNotificationCb = undefined;
   }
   async initApp() {
     this.app = initializeApp(firebaseConfig);
@@ -35,10 +36,16 @@ class FirebaseCtrl {
 
     navigator.serviceWorker.addEventListener("message", (event) => {
       console.log("event listener data", event.data);
+      if (typeof this.onRecieveNotificationCb === "function") {
+        this.onRecieveNotificationCb(event.data.notification);
+      }
     });
   }
-  onRecieveNotification(payload) {
+  onRecieveNotification(cb) {
     //console.log("Message received. ", payload);
+    if (typeof cb === "function") {
+      this.onRecieveNotificationCb = cb;
+    }
   }
 }
 
