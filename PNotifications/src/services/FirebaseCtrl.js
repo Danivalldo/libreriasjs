@@ -1,4 +1,5 @@
 import firebaseConfig from "../firebaseConfig";
+import { Capacitor } from "@capacitor/core";
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
@@ -10,6 +11,13 @@ class FirebaseCtrl {
     this.onRecieveNotificationCb = undefined;
   }
   async initApp() {
+    if (Capacitor.isNativePlatform()) {
+      return this.enableMobileNotifications();
+    }
+    this.enableWebNotifications();
+  }
+
+  async enableWebNotifications() {
     this.app = initializeApp(firebaseConfig);
     this.messaging = getMessaging(this.app);
 
@@ -41,6 +49,9 @@ class FirebaseCtrl {
       }
     });
   }
+
+  enableMobileNotifications() {}
+
   onRecieveNotification(cb) {
     //console.log("Message received. ", payload);
     if (typeof cb === "function") {
