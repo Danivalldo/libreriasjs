@@ -4,8 +4,6 @@ importScripts(
 importScripts(
   "https://www.gstatic.com/firebasejs/9.2.0/firebase-messaging-compat.js"
 );
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-// import { getMessaging } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging-sw.js";
 
 // Initialize the Firebase app in the service worker by passing in
 // your app's Firebase config object.
@@ -19,8 +17,6 @@ const firebaseApp = firebase.initializeApp({
   messagingSenderId: "892795652792",
   appId: "1:892795652792:web:e01b4ff96316b6bb7c024d",
 });
-
-// // debugger;
 
 // // Retrieve an instance of Firebase Messaging so that it can handle background
 // // messages.
@@ -70,28 +66,9 @@ const messaging = firebase.messaging();
 // https://firebase.google.com/docs/cloud-messaging/concept-options
 messaging.onBackgroundMessage((payload) => {
   console.log(
-    "[firebase-messaging-sw.js] Received background message cbonBackgroundMessage ",
+    "_____[firebase-messaging-sw.js] Received background message cbonBackgroundMessage ",
     payload
   );
-
-  // if (client) {
-  //   client.postMessage({
-  //     msg: "Hey I just got a fetch from you!",
-  //     url: "myass",
-  //   });
-  // }
-
-  // console.log("self Clients", self.clients);
-
-  // self.clients.matchAll().then(function (clients) {
-  //   clients.forEach(function (client) {
-  //     console.log(client);
-  //     client.postMessage({
-  //       msg: "Hey I just got a fetch from you!",
-  //       url: "myass",
-  //     });
-  //   });
-  // });
 
   self.clients.matchAll({ includeUncontrolled: true }).then(function (clients) {
     //you can see your main window client in this list.
