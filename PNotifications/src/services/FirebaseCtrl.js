@@ -53,7 +53,6 @@ class FirebaseCtrl {
   enableMobileNotifications() {}
 
   onRecieveNotification(cb) {
-    //console.log("Message received. ", payload);
     if (typeof cb === "function") {
       this.onRecieveNotificationCb = cb;
     }
