@@ -1,5 +1,6 @@
 import firebaseConfig from "../firebaseConfig";
 import { Capacitor } from "@capacitor/core";
+import { PushNotifications } from "@capacitor/push-notifications";
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
@@ -50,7 +51,41 @@ class FirebaseCtrl {
     });
   }
 
-  enableMobileNotifications() {}
+  async enableMobileNotifications() {
+    // Request permission to use push notifications
+    // iOS will prompt user and return if they granted permission or not
+    // Android will just grant without prompting
+    const result = await PushNotifications.requestPermissions();
+    if (result.receive === "granted") {
+      // Register with Apple / Google to receive push via APNS/FCM
+      PushNotifications.register();
+    } else {
+      // Show some error
+      console.log("an error ocurred");
+    }
+
+    PushNotifications.addListener("registration", (token) => {
+      console.log("Push registration success, token: " + token.value);
+    });
+
+    PushNotifications.addListener("registrationError", (error) => {
+      console.log("Error on registration: ", error);
+    });
+
+    PushNotifications.addListener(
+      "pushNotificationReceived",
+      (notification) => {
+        console.log("Push received: ", notification);
+      }
+    );
+
+    PushNotifications.addListener(
+      "pushNotificationActionPerformed",
+      (notification) => {
+        alert("Push action performed: ", notification);
+      }
+    );
+  }
 
   onRecieveNotification(cb) {
     if (typeof cb === "function") {
