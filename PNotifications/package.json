@@ -17,6 +17,7 @@
   "dependencies": {
     "@capacitor/android": "^4.3.0",
     "@capacitor/core": "^4.3.0",
+    "@capacitor/push-notifications": "^4.1.0",
     "@vitejs/plugin-basic-ssl": "^0.1.2",
     "firebase": "^9.9.3",
     "vercel": "^28.2.0"
