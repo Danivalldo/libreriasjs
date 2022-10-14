@@ -3,3 +3,4 @@ node_modules/
 misc/
 dist/
 .env
+PNotifications/android/app/google-services.json
