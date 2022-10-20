@@ -10,5 +10,11 @@
   },
   "devDependencies": {
     "vite": "^3.0.7"
+  },
+  "dependencies": {
+    "bulma": "^0.9.4",
+    "jsqr": "^1.4.0",
+    "qrcode": "^1.5.1",
+    "sass": "^1.55.0"
   }
 }
