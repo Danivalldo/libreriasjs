@@ -20,6 +20,7 @@
     "@capacitor/push-notifications": "^4.1.0",
     "@vitejs/plugin-basic-ssl": "^0.1.2",
     "firebase": "^9.9.3",
+    "sass": "^1.55.0",
     "vercel": "^28.2.0"
   }
 }
