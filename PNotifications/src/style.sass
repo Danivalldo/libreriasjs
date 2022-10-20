@@ -2,7 +2,7 @@
 body
   margin: 0
   padding: 0
-  background-color: #2c2c2c
+  background-color: #111111
 
 .main-container
   max-width: 800px
@@ -11,14 +11,52 @@ body
   border-radius: 5px
   display: flex
   flex-direction: column
+  padding: 40px
   .blog-post
     display: block
     background-color: #fff
     color: #000
     text-decoration: none
     box-shadow: 0 2px 3px rgba(0, 0, 0, .2)
+    color: #fff
+    position: relative
+    padding: 20% 20px 20px 20px
+    overflow: hidden
+    border-radius: 4px
+    margin-bottom: 20px
+
+    &::after
+      content: ''
+      position: absolute
+      z-index: 1
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      transform: translateY(30%)
+      transition: transform .2s ease
+      background: rgb(0,0,0)
+      background: -moz-linear-gradient(0deg, rgba(0,0,0,0.9094231442577031) 30%, rgba(0,2,9,0.7861738445378151) 52%, rgba(3,28,135,0) 100%)
+      background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.9094231442577031) 30%, rgba(0,2,9,0.7861738445378151) 52%, rgba(3,28,135,0) 100%)
+      background: linear-gradient(0deg, rgba(0,0,0,0.9094231442577031) 30%, rgba(0,2,9,0.7861738445378151) 52%, rgba(3,28,135,0) 100%)
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#031c87",GradientType=1)
+    &:hover
+      &::after
+        transform: translateY(0%)
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      display: block
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 1
     .title-wrapper
+      position: relative
+      z-index: 2
       h2, h3
         margin: 0
     .content-excerpt
-      opacity: 0
+      position: relative
+      z-index: 2
