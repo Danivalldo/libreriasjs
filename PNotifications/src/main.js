@@ -1,4 +1,4 @@
-import "./style.css";
+import "./style.sass";
 import FirebaseCtrl from "./services/FirebaseCtrl";
 
 const fireBaseCtrl = new FirebaseCtrl();
