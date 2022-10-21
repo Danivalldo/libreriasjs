@@ -21,6 +21,6 @@
     "@vitejs/plugin-basic-ssl": "^0.1.2",
     "firebase": "^9.9.3",
     "sass": "^1.55.0",
-    "vercel": "^28.2.0"
+    "vercel": "^28.4.12"
   }
 }
