@@ -1,17 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap')
 
 body
   margin: 0
   padding: 0
   background-color: #111111
+  font-family: 'Raleway', sans-serif
 
 .main-container
-  max-width: 800px
-  margin: 0 auto
-  background-color: #e6e6e6
+  max-width: 1000px
+  margin: 10px auto
+  background-color: #fefefe
   border-radius: 5px
   display: flex
   flex-direction: column
-  padding: 40px
+  padding: 40px 60px 40px 60px
+  background-image: url('public/images/topography.webp')
+  .header
+    color: #ffffff
+    padding: 40px
+    background-color: #232323
+    background-image: url('public/images/double-bubble-dark.webp')
+    margin: 0 0 30px 0
+    h1
+      margin: 0
   .blog-post
     display: block
     background-color: #fff
@@ -24,7 +35,8 @@ body
     overflow: hidden
     border-radius: 4px
     margin-bottom: 20px
-
+    transition: transform .1s ease
+    transform: scale(1)
     &::after
       content: ''
       position: absolute
@@ -36,13 +48,18 @@ body
       transform: translateY(30%)
       transition: transform .2s ease
       background: rgb(0,0,0)
-      background: -moz-linear-gradient(0deg, rgba(0,0,0,0.9094231442577031) 30%, rgba(0,2,9,0.7861738445378151) 52%, rgba(3,28,135,0) 100%)
-      background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.9094231442577031) 30%, rgba(0,2,9,0.7861738445378151) 52%, rgba(3,28,135,0) 100%)
-      background: linear-gradient(0deg, rgba(0,0,0,0.9094231442577031) 30%, rgba(0,2,9,0.7861738445378151) 52%, rgba(3,28,135,0) 100%)
+      background: -moz-linear-gradient(0deg, rgba(0,0,0,0.8) 50%, rgba(0,2,9,0.5) 70%, rgba(3,28,135,0) 100%)
+      background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.8) 50%, rgba(0,2,9,0.5) 70%, rgba(3,28,135,0) 100%)
+      background: linear-gradient(0deg, rgba(0,0,0,0.8) 50%, rgba(0,2,9,0.5) 70%, rgba(3,28,135,0) 100%)
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#031c87",GradientType=1)
     &:hover
+      transform: scale(1.02)
       &::after
         transform: translateY(0%)
+      .post-content
+        transform: translate(0%)
+        .content-excerpt
+          opacity: 1
     img
       width: 100%
       height: 100%
@@ -52,11 +69,28 @@ body
       top: 0
       left: 0
       z-index: 1
-    .title-wrapper
+      &.bottom
+        object-position: center bottom
+      &.top
+        object-position: center top
+    .post-content
       position: relative
       z-index: 2
-      h2, h3
-        margin: 0
-    .content-excerpt
-      position: relative
-      z-index: 2
+      transform: translateY(50%)
+      transition: transform .2s ease .2s
+      .title-wrapper
+        border-left: solid 2px #fff
+        padding: 0 0 0 20px
+        h2
+          margin: 0 0 8px 0
+          font-weight: 700
+        h3
+          margin: 0
+          font-weight: 300
+      .content-excerpt
+        opacity: 0
+        transition: opacity .2s ease .3s
+        max-width: 60%
+  .footer
+    font-size: .8rem
+    text-align: right
