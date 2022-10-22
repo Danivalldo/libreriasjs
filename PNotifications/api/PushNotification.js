@@ -1,4 +1,6 @@
-import firebaseAdmin from "firebase-admin";
+import { initializeApp } from "firebase-admin/app";
+import { getMessaging } from "firebase-admin/messaging";
+import admin from "firebase-admin";
 
 class PushNotification {
   constructor() {
@@ -15,8 +17,8 @@ class PushNotification {
         process.env.FIREBASE_ADMIN_AUTH_PROVIDER_CERT_URL,
       client_x509_cert_url: process.env.FIREBASE_ADMIN_CLIENT_CERT_URL,
     };
-    this.app = firebaseAdmin.initializeApp({
-      credential: firebaseAdmin.credential.cert(this.credentials),
+    this.app = initializeApp({
+      credential: admin.credential.cert(this.credentials),
     });
   }
   async sendMessage(registrationToken, message) {
@@ -25,7 +27,7 @@ class PushNotification {
       token: registrationToken,
     };
     try {
-      const response = await firebaseAdmin.messaging().send(cloudMessageData);
+      const response = await getMessaging(this.app).send(cloudMessageData);
       console.log("Successfully sent message:", response);
       return {
         success: true,
