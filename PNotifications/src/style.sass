@@ -36,8 +36,11 @@ body
     overflow: hidden
     border-radius: 4px
     margin-bottom: 20px
-    transition: transform .1s ease
+    transition: transform .1s ease, opacity .5s ease
     transform: scale(1)
+    opacity: 1
+    &.appear
+      opacity: 0
     &::after
       content: ''
       position: absolute
