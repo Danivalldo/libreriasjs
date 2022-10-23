@@ -11,4 +11,7 @@ fireBaseCtrl.onRecieveNotification((notificationData) => {
   // document.title = notificationData.notification.title;
   const element = createCard(notificationData.data);
   cardsContainer.prepend(element);
+  window.setTimeout(() => {
+    element.classList.remove("appear");
+  }, 500);
 });
