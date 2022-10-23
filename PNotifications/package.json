@@ -19,7 +19,9 @@
     "@capacitor/core": "^4.3.0",
     "@capacitor/push-notifications": "^4.1.0",
     "@vitejs/plugin-basic-ssl": "^0.1.2",
+    "custom-env": "^2.0.1",
     "firebase": "^9.9.3",
+    "firebase-admin": "^11.2.0",
     "sass": "^1.55.0",
     "vercel": "^28.4.12"
   }
