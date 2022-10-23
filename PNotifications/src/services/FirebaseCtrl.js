@@ -7,7 +7,6 @@ import { getMessaging, getToken, onMessage } from "firebase/messaging";
 class FirebaseCtrl {
   constructor() {
     this.app = undefined;
-    this.messaging = undefined;
     this.token = undefined;
     this.onRecieveNotificationCb = undefined;
   }
@@ -20,10 +19,10 @@ class FirebaseCtrl {
 
   async enableWebNotifications() {
     this.app = initializeApp(firebaseConfig);
-    this.messaging = getMessaging(this.app);
+    const messaging = getMessaging(this.app);
 
     try {
-      this.token = await getToken(this.messaging, {
+      this.token = await getToken(messaging, {
         vapidKey: import.meta.env.VITE_PUSH_CERTIFICATES_KEY_PAIR,
       });
     } catch (err) {
@@ -40,7 +39,7 @@ class FirebaseCtrl {
       return;
     }
 
-    const messaging = getMessaging();
+    // const messaging = getMessaging();
     onMessage(messaging, this.onRecieveNotification);
 
     navigator.serviceWorker.addEventListener("message", (event) => {
