@@ -1,6 +1,6 @@
 const createCard = (dataCard) => {
   const a = document.createElement("a");
-  a.classList.add("blog-post");
+  a.classList.add("blog-post", "appear");
   a.setAttribute("href", "#");
   a.innerHTML = `
   <img src="${dataCard.snap}" alt="" />
