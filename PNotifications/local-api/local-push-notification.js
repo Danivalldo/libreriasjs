@@ -12,7 +12,7 @@ import PushNotification from "../api/PushNotification.js";
 
 const pushNotification = new PushNotification();
 pushNotification.sendMessage(
-  "e6YF2B_sq6ow8Nr6dHoGZ6:APA91bETsWJc0YJHzg0YrH7dxVTOK_l8xi4vKc9PIIXgZWd9x-VSX_INojw-WH0QkZvGksuF80bAf0DxQOEdnuFbafUhT018SOktILQA9Iw1dlK_F8i0wLZdi-hTGBfCNKc74ZFXNJUS",
+  "fHmxjiYnT5aJN0va1jCJZC:APA91bEepoixm3_9Xr76hGvhN1Mrcvtt2JsiL7gTThR9VpZY2wppLulQJ8-yzblP8H8D5GyCgaIPrbZO-8WEQ94F2El0aooOZ53wARcPOgYSsnOtVo1g8Joij5Y-KR7Qg4VNXfwySJ2Q",
   {
     notification: {
       title: "Nueva entrada!",
@@ -30,7 +30,7 @@ pushNotification.sendMessage(
       subtitle: "Koyasan",
       excerpt:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolorum quae, reiciendis praesentium maiores ducimus...",
-      snap: "https://i.picsum.photos/id/243/900/600.jpg?hmac=jYs4-Mu2PLLZiCM0aEVapBX3hj-sZLiJ7HZFr70n5kY",
+      snap: "https://picsum.photos/200/300",
     },
   }
 );
