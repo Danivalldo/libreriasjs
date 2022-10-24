@@ -30,7 +30,7 @@ pushNotification.sendMessage(
       subtitle: "Koyasan",
       excerpt:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolorum quae, reiciendis praesentium maiores ducimus...",
-      snap: "https://picsum.photos/200/300",
+      snap: "https://picsum.photos/1000/350",
     },
   }
 );
