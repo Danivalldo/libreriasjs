@@ -12,7 +12,7 @@ import PushNotification from "../api/PushNotification.js";
 
 const pushNotification = new PushNotification();
 pushNotification.sendMessage(
-  "fHmxjiYnT5aJN0va1jCJZC:APA91bEepoixm3_9Xr76hGvhN1Mrcvtt2JsiL7gTThR9VpZY2wppLulQJ8-yzblP8H8D5GyCgaIPrbZO-8WEQ94F2El0aooOZ53wARcPOgYSsnOtVo1g8Joij5Y-KR7Qg4VNXfwySJ2Q",
+  "fbPgibbg3WkVGhMShclY0Q:APA91bGQisxfKUzZQd5jtxBcQt0ZjERugQ2m4Cm9Su_ca01dxT_iS_HOfBycwTuCeHLkRg9qiT8O6dG2Ppq0SOjyUeQwYQp6t6n0DYI8JmyUJZl3hN3vvoajttKWkN7p-nhYVLRB582r",
   {
     notification: {
       title: "Nueva entrada!",
