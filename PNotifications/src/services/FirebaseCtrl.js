@@ -6,7 +6,6 @@ import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
 class FirebaseCtrl {
   constructor() {
-    this.app = undefined;
     this.token = undefined;
     this.onRecieveNotificationCb = undefined;
   }
@@ -18,8 +17,8 @@ class FirebaseCtrl {
   }
 
   async enableWebNotifications() {
-    this.app = initializeApp(firebaseConfig);
-    const messaging = getMessaging(this.app);
+    const app = initializeApp(firebaseConfig);
+    const messaging = getMessaging(app);
 
     try {
       this.token = await getToken(messaging, {
