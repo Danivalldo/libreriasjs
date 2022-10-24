@@ -38,11 +38,9 @@ class FirebaseCtrl {
       return;
     }
 
-    // const messaging = getMessaging();
     onMessage(messaging, this.onRecieveNotification);
 
     navigator.serviceWorker.addEventListener("message", (event) => {
-      // console.log("event listener data", event.data);
       if (typeof this.onRecieveNotificationCb === "function") {
         this.onRecieveNotificationCb(event.data);
       }
