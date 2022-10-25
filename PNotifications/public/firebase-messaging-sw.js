@@ -43,13 +43,14 @@ const messaging = firebase.messaging();
 // https://firebase.google.com/docs/cloud-messaging/concept-options
 messaging.onBackgroundMessage((payload) => {
   console.log(
-    "_____[firebase-messaging-sw.js] Received background message cbonBackgroundMessage ",
+    "_____[firebase-messaging-sw.js] Received background message cbonBackgroundMessage v.1.0.6",
     payload
   );
 
   self.clients.matchAll({ includeUncontrolled: true }).then(function (clients) {
     //you can see your main window client in this list.
     clients.forEach(function (client) {
+      console.log("client", client);
       client.postMessage(payload);
     });
   });
