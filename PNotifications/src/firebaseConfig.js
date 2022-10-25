@@ -1,5 +1,5 @@
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_APIKEY,
+  apiKey: "AIzaSyB0de3v63rcTp6MB_q5r4IiGFhLkVYm6io",
   authDomain: "libreriasjs-pnotifications.firebaseapp.com",
   projectId: "libreriasjs-pnotifications",
   storageBucket: "libreriasjs-pnotifications.appspot.com",

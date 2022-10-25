@@ -22,7 +22,8 @@ class FirebaseCtrl {
 
     try {
       this.token = await getToken(messaging, {
-        vapidKey: import.meta.env.VITE_PUSH_CERTIFICATES_KEY_PAIR,
+        vapidKey:
+          "BCXvt8U7Y4HBlhyFVA9WemdDEhatVQFJagusaEon-0ypK2FeJTXf2TVpOO5fbIUSB-fN2YeQEudUvPQ-fe16lI8",
       });
     } catch (err) {
       console.log("An error occurred while retrieving token. ", err);
