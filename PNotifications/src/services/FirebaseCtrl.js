@@ -2,7 +2,7 @@ import firebaseConfig from "../firebaseConfig";
 import { Capacitor } from "@capacitor/core";
 import { PushNotifications } from "@capacitor/push-notifications";
 import { initializeApp } from "firebase/app";
-import { getMessaging, getToken, onMessage } from "firebase/messaging";
+import { getMessaging, getToken } from "firebase/messaging";
 
 class FirebaseCtrl {
   constructor() {
@@ -38,7 +38,7 @@ class FirebaseCtrl {
       return;
     }
 
-    onMessage(messaging, this.onRecieveNotification);
+    // onMessage(messaging, this.onRecieveNotification);
 
     navigator.serviceWorker.addEventListener("message", (event) => {
       if (typeof this.onRecieveNotificationCb === "function") {
