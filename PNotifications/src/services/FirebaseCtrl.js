@@ -2,7 +2,7 @@ import firebaseConfig from "../firebaseConfig";
 import { Capacitor } from "@capacitor/core";
 import { PushNotifications } from "@capacitor/push-notifications";
 import { initializeApp } from "firebase/app";
-import { getMessaging, getToken } from "firebase/messaging";
+import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
 class FirebaseCtrl {
   constructor() {
@@ -29,19 +29,24 @@ class FirebaseCtrl {
       console.log("An error occurred while retrieving token. ", err);
     }
 
-    console.log(this.token);
-
     if (!this.token) {
-      // Send the token to your server and update the UI if necessary
       console.log(
         "No registration token available. Request permission to generate one."
       );
       return;
     }
 
-    // onMessage(messaging, this.onRecieveNotification);
+    console.log(this.token);
+
+    // onMessage(messaging, (notification) => {
+    //   console.log("FROM ON MESSAGE", notification);
+    //   if (typeof this.onRecieveNotificationCb === "function") {
+    //     this.onRecieveNotificationCb(notification);
+    //   }
+    // });
 
     navigator.serviceWorker.addEventListener("message", (event) => {
+      console.log("FROM ON SERVICEWORKER MESSAGE", event);
       if (typeof this.onRecieveNotificationCb === "function") {
         this.onRecieveNotificationCb(event.data);
       }
