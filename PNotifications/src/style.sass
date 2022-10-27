@@ -7,6 +7,24 @@ body
   background-image: url('./assets/topography.webp')
   font-family: 'Raleway', sans-serif
 
+.loader
+  width: 30px
+  height: 30px
+  border: 5px solid #e4e4e4
+  border-bottom-color: #0077ff
+  border-radius: 50%
+  display: inline-block
+  box-sizing: border-box
+  animation: rotation 1s linear infinite
+  &.hidden
+    display: none
+  @keyframes rotation
+    0%
+      transform: rotate(0deg)
+
+    100%
+      transform: rotate(360deg)
+
 .main-container
   max-width: 1000px
   margin: 10px auto
@@ -23,22 +41,37 @@ body
     margin: 0 0 20px 0
     h1
       margin: 0
-  #token-container
-    margin-bottom: 20px
-    padding: 10px
-    border-radius: 5px
-    background-color: #bababa
-    text-align: center
-    button
+  .request-permission-container
+    text-align: right
+    margin: 0 0 20px 0
+    display: flex
+    justify-content: flex-end
+    &.hidden
+      display: none
+    button.request-permission-btn
+      cursor: pointer
       padding: 10px 30px
       background-color: #0c62a9
       font-weight: 700
       font-family: 'Raleway', sans-serif
       border: none
       border-radius: 3px
-      box-shadow: 0 3px 4px rgba(0,0,0,.1)
+      box-shadow: 0 3px 4px rgba(0,0,0,.2)
       color: #fff
+      display: flex
+      justify-content: center
+      align-items: center
       font-size: 1.2rem
+      .label-btn
+        &.hidden
+          display: none
+  #token-container
+    margin-bottom: 20px
+    padding: 10px
+    border-radius: 5px
+    background-color: #bababa
+    text-align: center
+    display: none
     &.active
       display: block
     &.ready
