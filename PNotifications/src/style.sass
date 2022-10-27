@@ -4,26 +4,50 @@ body
   margin: 0
   padding: 0
   background-color: #111111
+  background-image: url('./assets/topography.webp')
   font-family: 'Raleway', sans-serif
 
 .main-container
   max-width: 1000px
   margin: 10px auto
-  background-color: #fefefe
   border-radius: 5px
   display: flex
   flex-direction: column
   padding: 40px 5% 40px 5%
-  background-image: url('./assets/topography.webp')
   .header
     color: #ffffff
     border-radius: 5px
     padding: 40px
     background-color: #232323
     background-image: url('./assets/double-bubble-dark.webp')
-    margin: 0 0 30px 0
+    margin: 0 0 20px 0
     h1
       margin: 0
+  #token-container
+    margin-bottom: 20px
+    padding: 10px
+    border-radius: 5px
+    background-color: #bababa
+    text-align: center
+    button
+      padding: 10px 30px
+      background-color: #0c62a9
+      font-weight: 700
+      font-family: 'Raleway', sans-serif
+      border: none
+      border-radius: 3px
+      box-shadow: 0 3px 4px rgba(0,0,0,.1)
+      color: #fff
+      font-size: 1.2rem
+    &.active
+      display: block
+    &.ready
+      color: #087e00
+      background-color: #a5ff81
+      word-break: break-all
+    &.error
+      color: #7e0000
+      background-color: #ff8181
   .blog-post
     display: block
     background-color: #fff
