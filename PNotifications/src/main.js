@@ -30,8 +30,15 @@ fireBaseCtrl.onRecieveNotification((notificationData) => {
   }, 500);
 });
 
-tokenContainer.addEventListener("click", (event) => {
-  if (event.target.tagName.toLowerCase() === "button") {
-    fireBaseCtrl.enableWebNotifications();
+tokenContainer.addEventListener("click", async (event) => {
+  if (event.target.tagName.toLowerCase() !== "button") {
+    return;
   }
+  const permission = await Notification.requestPermission();
+  console.log(permission);
+  if (permission !== "granted") {
+    console.log("No se ha aceptado el registro de notificaciones");
+    return;
+  }
+  fireBaseCtrl.enableWebNotifications();
 });
