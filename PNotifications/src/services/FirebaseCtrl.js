@@ -2,21 +2,42 @@ import firebaseConfig from "../firebaseConfig";
 import { Capacitor } from "@capacitor/core";
 import { PushNotifications } from "@capacitor/push-notifications";
 import { initializeApp } from "firebase/app";
-import { getMessaging, getToken, onMessage } from "firebase/messaging";
+import {
+  getMessaging,
+  getToken,
+  onMessage,
+  isSupported,
+} from "firebase/messaging";
 
 class FirebaseCtrl {
   constructor() {
     this.token = undefined;
     this.onRecieveNotificationCb = undefined;
+    this.onErrorCb = undefined;
+    this.onGetTokenCb = undefined;
   }
   async initApp() {
     if (Capacitor.isNativePlatform()) {
       return this.enableMobileNotifications();
     }
-    this.enableWebNotifications();
+    const savedToken = window.localStorage.getItem(
+      "libreriasjs-notification-token"
+    );
+    if (savedToken) {
+      this.enableWebNotifications();
+    }
   }
 
   async enableWebNotifications() {
+    const supported = await isSupported();
+
+    if (!supported && typeof this.onErrorCb === "function") {
+      this.onErrorCb(
+        "This browser does not support the API's required to use the Firebase SDK"
+      );
+      return;
+    }
+
     const app = initializeApp(firebaseConfig);
     const messaging = getMessaging(app);
 
@@ -27,16 +48,27 @@ class FirebaseCtrl {
       });
     } catch (err) {
       console.log("An error occurred while retrieving token. ", err);
+      if (typeof this.onErrorCb === "function") {
+        this.onErrorCb(err.message);
+      }
+      return;
     }
 
     if (!this.token) {
-      console.log(
-        "No registration token available. Request permission to generate one."
-      );
+      const error =
+        "No registration token available. Request permission to generate one.";
+      console.log(error);
+      if (typeof this.onErrorCb === "function") {
+        this.onErrorCb(error);
+      }
       return;
     }
 
     console.log(this.token);
+    if (typeof this.onGetTokenCb === "function") {
+      window.localStorage.setItem("libreriasjs-notification-token", this.token);
+      this.onGetTokenCb(this.token);
+    }
 
     // onMessage(messaging, (notification) => {
     //   console.log("FROM ON MESSAGE", notification);
@@ -94,9 +126,24 @@ class FirebaseCtrl {
     );
   }
 
+  onGetToken(cb) {
+    if (typeof cb === "function") {
+      this.onGetTokenCb = cb;
+    }
+  }
+
   onRecieveNotification(cb) {
     if (typeof cb === "function") {
       this.onRecieveNotificationCb = cb;
+    }
+  }
+
+  onError(cb) {
+    if (typeof cb === "function") {
+      this.onErrorCb = (err) => {
+        window.localStorage.removeItem("libreriasjs-notification-token");
+        cb(err);
+      };
     }
   }
 }
