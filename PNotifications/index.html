@@ -18,12 +18,16 @@
   </head>
   <body>
     <div class="main-container">
+      <div class="request-permission-container">
+        <button class="request-permission-btn">
+          <span class="loader hidden"></span>
+          <span class="label-btn">🔔Activar notificaciones</span>
+        </button>
+      </div>
+      <div id="token-container"></div>
       <div class="header">
         <h1>Trotamundos</h1>
         <span>🗺️ blog de viaje 🗺️</span>
-      </div>
-      <div id="token-container">
-        <button>🔔Activar notificaciones</button>
       </div>
       <div class="content">
         <a href="#" class="blog-post">
@@ -84,7 +88,7 @@
         </a>
       </div>
       <div class="footer">
-        El Trotamundos - blog - 2022 - libreriasjs.com - v.2.0.0
+        El Trotamundos - blog - 2022 - libreriasjs.com - v.2.0.1
       </div>
     </div>
     <script type="module" src="./src/main.js"></script>
