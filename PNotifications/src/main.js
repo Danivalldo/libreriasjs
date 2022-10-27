@@ -26,7 +26,6 @@ fireBaseCtrl.onGetToken((token) => {
 });
 
 fireBaseCtrl.onRecieveNotification((notificationData) => {
-  console.log(notificationData);
   // document.title = notificationData.notification.title;
   const element = createCard(notificationData.data);
   cardsContainer.prepend(element);
