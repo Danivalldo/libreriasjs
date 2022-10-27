@@ -41,17 +41,17 @@ const messaging = firebase.messaging();
 // and you should use data messages for custom notifications.
 // For more info see:
 // https://firebase.google.com/docs/cloud-messaging/concept-options
-messaging.onBackgroundMessage((payload) => {
-  console.log(
-    "_____[firebase-messaging-sw.js] Received background message cbonBackgroundMessage v.1.0.6",
-    payload
-  );
+// messaging.onBackgroundMessage((payload) => {
+//   console.log(
+//     "_____[firebase-messaging-sw.js] Received background message cbonBackgroundMessage v.1.0.6",
+//     payload
+//   );
 
-  self.clients.matchAll({ includeUncontrolled: true }).then(function (clients) {
-    //you can see your main window client in this list.
-    clients.forEach(function (client) {
-      console.log("client", client);
-      client.postMessage(payload);
-    });
-  });
-});
+//   self.clients.matchAll({ includeUncontrolled: true }).then(function (clients) {
+//     //you can see your main window client in this list.
+//     clients.forEach(function (client) {
+//       console.log("client", client);
+//       client.postMessage(payload);
+//     });
+//   });
+// });
