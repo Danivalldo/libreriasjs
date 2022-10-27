@@ -5,16 +5,21 @@ import createCard from "./services/createCard";
 const fireBaseCtrl = new FirebaseCtrl();
 const cardsContainer = document.querySelector(".content");
 const tokenContainer = document.querySelector("#token-container");
+const requestPermissionContainer = document.querySelector(
+  ".request-permission-container"
+);
 
 fireBaseCtrl.initApp();
 
 fireBaseCtrl.onError((errorMessage) => {
+  requestPermissionContainer.classList.remove("hidden");
   tokenContainer.classList.remove("ready");
   tokenContainer.classList.add("active", "error");
   tokenContainer.innerHTML = errorMessage;
 });
 
 fireBaseCtrl.onGetToken((token) => {
+  requestPermissionContainer.classList.add("hidden");
   tokenContainer.classList.remove("error");
   tokenContainer.classList.add("active", "ready");
   tokenContainer.innerHTML = token;
@@ -30,15 +35,24 @@ fireBaseCtrl.onRecieveNotification((notificationData) => {
   }, 500);
 });
 
-tokenContainer.addEventListener("click", async (event) => {
-  if (event.target.tagName.toLowerCase() !== "button") {
-    return;
-  }
-  const permission = await Notification.requestPermission();
-  console.log(permission);
-  if (permission !== "granted") {
-    console.log("No se ha aceptado el registro de notificaciones");
-    return;
-  }
-  fireBaseCtrl.enableWebNotifications();
-});
+requestPermissionContainer
+  .querySelector(".request-permission-btn")
+  .addEventListener("click", async (event) => {
+    const loader = requestPermissionContainer.querySelector(".loader");
+    const label = requestPermissionContainer.querySelector(".label-btn");
+    label.classList.add("hidden");
+    loader.classList.remove("hidden");
+    try {
+      const permission = await Notification.requestPermission();
+      if (permission !== "granted") {
+        console.log("No se ha aceptado el registro de notificaciones");
+        return;
+      }
+      await fireBaseCtrl.enableWebNotifications();
+    } catch (err) {
+      console.log("Hubo un error");
+    } finally {
+      label.classList.remove("hidden");
+      loader.classList.add("hidden");
+    }
+  });
