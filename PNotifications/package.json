@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "vercel --prod",
+    "dev-android":"NODE_ENV=dev npm run build-android",
     "build-android": "npm run build && npx cap sync && npx cap open android"
   },
   "devDependencies": {
