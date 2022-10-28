@@ -1,5 +1,6 @@
 import "./style.sass";
 import FirebaseCtrl from "./services/FirebaseCtrl";
+import { Capacitor } from "@capacitor/core";
 import createCard from "./services/createCard";
 
 const fireBaseCtrl = new FirebaseCtrl();
@@ -41,6 +42,12 @@ requestPermissionContainer
     const label = requestPermissionContainer.querySelector(".label-btn");
     label.classList.add("hidden");
     loader.classList.remove("hidden");
+
+    if (Capacitor.isNativePlatform()) {
+      await fireBaseCtrl.enableMobileNotifications();
+      return;
+    }
+
     try {
       const permission = await Notification.requestPermission();
       if (permission !== "granted") {
@@ -49,7 +56,7 @@ requestPermissionContainer
       }
       await fireBaseCtrl.enableWebNotifications();
     } catch (err) {
-      console.log("Hubo un error");
+      console.log("Hubo un error", err);
     } finally {
       label.classList.remove("hidden");
       loader.classList.add("hidden");
