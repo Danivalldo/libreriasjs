@@ -17,13 +17,13 @@ class FirebaseCtrl {
     this.onGetTokenCb = undefined;
   }
   async initApp() {
-    if (Capacitor.isNativePlatform()) {
-      return this.enableMobileNotifications();
-    }
     const savedToken = window.localStorage.getItem(
       "libreriasjs-notification-token"
     );
     if (savedToken) {
+      if (Capacitor.isNativePlatform()) {
+        return this.enableMobileNotifications();
+      }
       this.enableWebNotifications();
     }
   }
@@ -96,14 +96,27 @@ class FirebaseCtrl {
     } else {
       // Show some error
       console.log("an error ocurred");
+      if (typeof this.onErrorCb === "function") {
+        this.onErrorCb("an error ocurred");
+      }
     }
 
     PushNotifications.addListener("registration", (token) => {
-      console.log("Push registration success, token: " + token.value);
+      // console.log("Push registration success, token: " + token.value);
+      window.localStorage.setItem(
+        "libreriasjs-notification-token",
+        token.value
+      );
+      if (typeof this.onGetTokenCb === "function") {
+        this.onGetTokenCb(token.value);
+      }
     });
 
     PushNotifications.addListener("registrationError", (error) => {
-      console.log("Error on registration: ", error);
+      // console.log("Error on registration: ", error);
+      if (typeof this.onErrorCb === "function") {
+        this.onErrorCb(JSON.stringify(error));
+      }
     });
 
     PushNotifications.addListener(
@@ -118,9 +131,10 @@ class FirebaseCtrl {
 
     PushNotifications.addListener(
       "pushNotificationActionPerformed",
-      (notification) => {
+      (notificationAction) => {
+        console.log("pushNotificationActionPerformed: ", notificationAction);
         if (typeof this.onRecieveNotificationCb === "function") {
-          this.onRecieveNotificationCb(notification);
+          this.onRecieveNotificationCb(notificationAction.notification);
         }
       }
     );
