@@ -1,7 +1,6 @@
 import "./style.sass";
 import FirebaseCtrl from "./services/FirebaseCtrl";
 import { Capacitor } from "@capacitor/core";
-import createCard from "./services/createCard";
 
 const fireBaseCtrl = new FirebaseCtrl();
 const cardsContainer = document.querySelector(".content");
@@ -25,6 +24,24 @@ fireBaseCtrl.onGetToken((token) => {
   tokenContainer.classList.add("active", "ready");
   tokenContainer.innerHTML = token;
 });
+
+const createCard = (dataCard) => {
+  const a = document.createElement("a");
+  a.classList.add("blog-post", "appear");
+  a.setAttribute("href", "#");
+  a.innerHTML = `
+  <img src="${dataCard.snap}" alt="" />
+  <div class="post-content">
+    <div class="title-wrapper">
+      <h2>${dataCard.title}</h2>
+      <h3>${dataCard.subtitle}</h3>
+    </div>
+    <p class="content-excerpt">
+      ${dataCard.excerpt}
+    </p>
+  </div>`;
+  return a;
+};
 
 fireBaseCtrl.onRecieveNotification((notificationData) => {
   // document.title = notificationData.notification.title;
