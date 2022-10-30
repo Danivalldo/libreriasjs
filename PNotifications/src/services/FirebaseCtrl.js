@@ -2,12 +2,7 @@ import firebaseConfig from "../firebaseConfig";
 import { Capacitor } from "@capacitor/core";
 import { PushNotifications } from "@capacitor/push-notifications";
 import { initializeApp } from "firebase/app";
-import {
-  getMessaging,
-  getToken,
-  onMessage,
-  isSupported,
-} from "firebase/messaging";
+import { getMessaging, getToken, isSupported } from "firebase/messaging";
 
 class FirebaseCtrl {
   constructor() {
