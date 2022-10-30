@@ -12,7 +12,7 @@ import PushNotification from "../api/PushNotification.js";
 
 const pushNotification = new PushNotification();
 pushNotification.sendMessage(
-  "e6YF2B_sq6ow8Nr6dHoGZ6:APA91bETsWJc0YJHzg0YrH7dxVTOK_l8xi4vKc9PIIXgZWd9x-VSX_INojw-WH0QkZvGksuF80bAf0DxQOEdnuFbafUhT018SOktILQA9Iw1dlK_F8i0wLZdi-hTGBfCNKc74ZFXNJUS",
+  "e3upxpy21uP0JmpZTCQ5D-:APA91bEnUxkvet2IwKK5NcKIygVdNacgD2REra8X4Jl3hTclPUvtbyXaUTCzrWVw7sMTe4ZMLGochdFPI5hj31hZSLUcE_5VGk3WCNLqCrH1T4kakCw870rkD3NBqVQnKdfj-3e4DDKF",
   {
     notification: {
       title: "Nueva entrada!",
@@ -22,7 +22,8 @@ pushNotification.sendMessage(
       notification: {
         title: "Nueva entrada!",
         body: "Una nueva entrada del blog acaba de ser publicada",
-        click_action: "https://pn-otifications.vercel.app", //https://127.0.0.1:5173/
+        // click_action: "https://pn-otifications.vercel.app", //https://127.0.0.1:5173/
+        click_action: "http://localhost:5173/",
       },
     },
     data: {
