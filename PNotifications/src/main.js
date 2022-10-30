@@ -25,14 +25,14 @@ fireBaseCtrl.onGetToken((token) => {
   tokenContainer.innerHTML = token;
 });
 
-const createCard = (
-  dataCard = {
+const createCard = (notificationData) => {
+  const dataCard = {
     title: "Título",
     snap: "https://picsum.photos/1000/350",
     subtitle: "Subtítulo",
     excerpt: "Lorem ipsum dolor sit amet",
-  }
-) => {
+    ...notificationData,
+  };
   const a = document.createElement("a");
   a.classList.add("blog-post", "appear");
   a.setAttribute("href", "#");
