@@ -35,7 +35,7 @@ buildQR("https://libreriasjs.com");
 cameraBtn.addEventListener("click", async () => {
   if (isCamOpen) {
     video.pause();
-    stream.getTracks().forEach(function (track) {
+    stream.getTracks().forEach((track) => {
       track.stop();
     });
     isCamOpen = false;
