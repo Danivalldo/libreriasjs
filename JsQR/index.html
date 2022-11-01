@@ -7,27 +7,47 @@
     <title>Vite App</title>
   </head>
   <body>
-    <canvas id="qr-canvas"></canvas>
-    <div class="field">
-      <label class="label">Generador de QRs</label>
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          placeholder="Text input"
-          value="https://libreriasjs.com"
-        />
+    <h1
+      class="is-size-4 has-background-primary has-text-light p-4 has-text-centered has-text-weight-bold"
+    >
+      Generador y lector de QR
+    </h1>
+    <div class="p-3 container is-max-desktop">
+      <h2 class="is-size-5 has-text-weight-bold has-text-centered">
+        Crear código QR
+      </h2>
+      <canvas id="qr-canvas" class="is-block mx-auto"></canvas>
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="Text input"
+            value="https://libreriasjs.com"
+          />
+        </div>
+        <p class="help">
+          Escribe cualquier texto o URL, y verás como se va formando el QR
+        </p>
       </div>
-      <p class="help">
-        Escribe cualquier texto o URL, y verás como se va formando el QR
-      </p>
     </div>
     <hr />
-    <div>
-      <h2>Leer código QR</h2>
-      <div id="qr-data"></div>
-      <button class="button is-success" id="btn-cam">Iniciar camera</button>
-      <canvas id="cam-canvas"></canvas>
+    <div class="p-3 pb-5 container is-max-desktop">
+      <h2 class="is-size-5 has-text-weight-bold has-text-centered">
+        Leer código QR
+      </h2>
+      <div>
+        <canvas id="cam-canvas"></canvas>
+        <div id="qr-data" class="box has-text-centered"></div>
+        <div class="has-text-centered p-1">
+          <button class="button is-success" id="btn-cam">Iniciar camera</button>
+        </div>
+        <p class="help">
+          Haz click en el botón para iniciar la cámara, seguidamente escanea un
+          código QR y comprueba como al detectarlo aparece su contenido. Además
+          tratará de reproducirlo en la parte superior.
+        </p>
+      </div>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
