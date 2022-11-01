@@ -10,9 +10,12 @@ const camCanvasCtx = camCanvas.getContext("2d", { willReadFrequently: true });
 camCanvasCtx.willReadFrequently = true;
 const video = document.createElement("video");
 video.classList.add("video-cam");
+document.body.appendChild(video);
 const qrDataContainer = document.querySelector("#qr-data");
 
+let isCamReady = false;
 let isCamOpen = false;
+let stream = null;
 
 input.addEventListener("input", (e) => {
   const text = e.target.value;
@@ -31,11 +34,22 @@ buildQR("https://libreriasjs.com");
 
 cameraBtn.addEventListener("click", async () => {
   if (isCamOpen) {
+    video.pause();
+    stream.getTracks().forEach(function (track) {
+      track.stop();
+    });
     isCamOpen = false;
+    camCanvasCtx.clearRect(0, 0, camCanvas.width, camCanvas.height);
+    camCanvas.classList.add("d-none");
+    qrDataContainer.innerHTML = "";
+    qrDataContainer.classList.remove("has-background-success");
+    cameraBtn.innerHTML = "Iniciar cámara";
     return;
   }
   isCamOpen = true;
-  const stream = await navigator.mediaDevices.getUserMedia({
+  cameraBtn.innerHTML = "Parar cámara";
+  camCanvas.classList.remove("d-none");
+  stream = await navigator.mediaDevices.getUserMedia({
     video: { facingMode: "environment" },
   });
   console.log(stream);
@@ -59,7 +73,14 @@ const tick = () => {
     return;
   }
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
-    console.log(video.getBoundingClientRect());
+    if (!isCamReady) {
+      const camSize = video.getBoundingClientRect();
+      if (camSize.width && camSize.height) {
+        camCanvas.width = camSize.width;
+        camCanvas.height = camSize.height;
+        isCamReady = true;
+      }
+    }
     camCanvasCtx.drawImage(video, 0, 0, camCanvas.width, camCanvas.height);
     var imageData = camCanvasCtx.getImageData(
       0,
@@ -92,6 +113,7 @@ const tick = () => {
         "#FF3B58"
       );
       qrDataContainer.innerHTML = code.data;
+      qrDataContainer.classList.add("has-background-success");
     } else {
     }
   }
