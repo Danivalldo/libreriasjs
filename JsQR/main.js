@@ -9,6 +9,7 @@ const camCanvas = document.querySelector("#cam-canvas");
 const camCanvasCtx = camCanvas.getContext("2d", { willReadFrequently: true });
 camCanvasCtx.willReadFrequently = true;
 const video = document.createElement("video");
+video.classList.add("video-cam");
 const qrDataContainer = document.querySelector("#qr-data");
 
 let isCamOpen = false;
@@ -37,6 +38,7 @@ cameraBtn.addEventListener("click", async () => {
   const stream = await navigator.mediaDevices.getUserMedia({
     video: { facingMode: "environment" },
   });
+  console.log(stream);
   video.srcObject = stream;
   video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
   video.play();
@@ -57,6 +59,7 @@ const tick = () => {
     return;
   }
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
+    console.log(video.getBoundingClientRect());
     camCanvasCtx.drawImage(video, 0, 0, camCanvas.width, camCanvas.height);
     var imageData = camCanvasCtx.getImageData(
       0,
