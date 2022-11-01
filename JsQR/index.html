@@ -33,19 +33,22 @@
     </div>
     <hr />
     <div class="p-3 pb-5 container is-max-desktop">
-      <h2 class="is-size-5 has-text-weight-bold has-text-centered">
+      <h2 class="is-size-5 has-text-weight-bold has-text-centered mb-5">
         Leer código QR
       </h2>
       <div>
-        <canvas id="cam-canvas"></canvas>
-        <div id="qr-data" class="box has-text-centered"></div>
-        <div class="has-text-centered p-1">
-          <button class="button is-success" id="btn-cam">Iniciar camera</button>
+        <canvas id="cam-canvas" class="d-none"></canvas>
+        <div
+          id="qr-data"
+          class="box has-text-centered is-size-5 has-text-white"
+        ></div>
+        <div class="has-text-centered p-1 mb-4">
+          <button class="button is-primary" id="btn-cam">Iniciar camera</button>
         </div>
         <p class="help">
           Haz click en el botón para iniciar la cámara, seguidamente escanea un
-          código QR y comprueba como al detectarlo aparece su contenido. Además
-          tratará de reproducirlo en la parte superior.
+          código QR y comprueba como al detectarlo aparece su contenido en la
+          caja superior del botón.
         </p>
       </div>
     </div>
