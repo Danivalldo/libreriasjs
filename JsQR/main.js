@@ -6,7 +6,6 @@ const input = document.querySelector("input");
 const cameraBtn = document.querySelector("#btn-cam");
 const qrCanvas = document.querySelector("#qr-canvas");
 const camCanvas = document.querySelector("#cam-canvas");
-
 const qrDataContainer = document.querySelector("#qr-data");
 
 const qrGenerator = new QRGenerator(qrCanvas);
