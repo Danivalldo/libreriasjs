@@ -22,12 +22,12 @@ input.addEventListener("input", (e) => {
   buildQR(text);
 });
 
-const buildQR = (text) => {
-  qrcode.toCanvas(qrCanvas, text, (err) => {
-    if (err) {
-      return console.log(err);
-    }
-  });
+const buildQR = async (text) => {
+  try {
+    await qrcode.toCanvas(qrCanvas, text);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 buildQR("https://libreriasjs.com");
