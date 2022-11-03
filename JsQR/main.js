@@ -16,7 +16,7 @@ input.addEventListener("input", (e) => {
   qrGenerator.buildQR(text);
 });
 
-qrGenerator.buildQR("https://libreriasjs.com");
+qrGenerator.buildQR(input.getAttribute("value"));
 
 cameraBtn.addEventListener("click", async () => {
   qrReader.toggleCamera();
