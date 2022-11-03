@@ -9,11 +9,11 @@ class QRReader {
     this.rafID = null;
 
     this.camCanvas = canvasVideoElement;
+    this.qrDataContainer = qrDataContainerElement;
+
     this.camCanvasCtx = this.camCanvas.getContext("2d", {
       willReadFrequently: true,
     });
-
-    this.qrDataContainer = qrDataContainerElement;
 
     this.video = document.createElement("video");
     this.video.classList.add("video-cam");
