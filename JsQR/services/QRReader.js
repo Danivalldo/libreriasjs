@@ -87,13 +87,13 @@ class QRReader {
         this.camCanvas.width,
         this.camCanvas.height
       );
-      var imageData = this.camCanvasCtx.getImageData(
+      const imageData = this.camCanvasCtx.getImageData(
         0,
         0,
         this.camCanvas.width,
         this.camCanvas.height
       );
-      var code = jsQR(imageData.data, imageData.width, imageData.height, {
+      const code = jsQR(imageData.data, imageData.width, imageData.height, {
         inversionAttempts: "dontInvert",
       });
       if (code) {
