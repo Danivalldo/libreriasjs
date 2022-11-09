@@ -18,7 +18,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev-android":"NODE_ENV=dev npm run build && npx cap sync && npx cap open android",
+    "dev-ios":"NODE_ENV=dev npm run build && npx cap sync && npx cap open ios"
   },
   "eslintConfig": {
     "extends": [
