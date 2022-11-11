@@ -23,9 +23,13 @@ export const setupLogin = (formElement) => {
         }),
       });
       const data = await response.json();
+      if (data.error) {
+        throw new Error(data.error);
+      }
       console.log("ok", data);
+      token = data.token;
     } catch (err) {
-      console.log("ko", err);
+      console.log("ko", err.message);
     }
   });
 };
