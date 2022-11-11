@@ -28,6 +28,13 @@ app.use((req, res) => {
   res.status(404).send("<h1>Page not found on the server</h1>");
 });
 
+app.use((error, req, res, next) => {
+  if (res.headersSent) {
+    return next(error);
+  }
+  res.status(500).json({ error: error.message });
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`Server running on: http://localhost:${process.env.PORT}/`);
 });
