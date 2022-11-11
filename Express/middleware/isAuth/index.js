@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
 
+const sessions = [];
+
 export const isAuthMiddleware = async (req, res, next) => {
   const authHeader = req.get("Authorization");
   req.isAuth = false;
@@ -20,4 +22,27 @@ export const isAuthMiddleware = async (req, res, next) => {
     return next();
   }
   req.isAuth = true;
+};
+
+export const login = async (req, res, next) => {
+  const { username, pass } = req.body;
+  if (!username || !pass) {
+    return res.sendStatus(400);
+  }
+  if (username !== "user" || pass !== "1234") {
+    return res.sendStatus(400);
+  }
+
+  const token = jwt.sign({ username }, process.env.SECRET_TOKEN);
+
+  sessions.push({
+    username,
+    token,
+  });
+
+  debugger;
+
+  res.json({
+    token,
+  });
 };
