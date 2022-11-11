@@ -1,5 +1,3 @@
-import * as dotenv from "dotenv";
-dotenv.config();
 import express from "express";
 import helmet from "helmet";
 import bodyParser from "body-parser";

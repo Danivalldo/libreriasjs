@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "DEBUG=express:* nodemon --inspect index.js",
+    "dev": "nodemon -r dotenv/config --inspect index.js",
     "dev-all": "concurrently --kill-others \"cd ./client && npm run dev\" \"npm run dev\" ",
-    "start": "node index.js",
+    "start": "node -r dotenv/config index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
