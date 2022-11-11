@@ -21,9 +21,6 @@ export const isAuthMiddleware = async (req, res, next) => {
 
 export const login = async (req, res, next) => {
   const { username, pass } = req.body;
-  if (!username || !pass) {
-    return res.sendStatus(400);
-  }
   if (username !== "user" || pass !== "1234") {
     return res.sendStatus(400);
   }
