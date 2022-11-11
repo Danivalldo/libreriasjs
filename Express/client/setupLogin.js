@@ -2,8 +2,12 @@ let token = null;
 export const setupLogin = (formElement) => {
   formElement.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const username = e.target.querySelector('input[name="username"]').value;
-    const pass = e.target.querySelector('input[name="password"]').value;
+    const usernameInput = e.target.querySelector('input[name="username"]');
+    const passInput = e.target.querySelector('input[name="password"]');
+    const username = usernameInput.value;
+    const pass = passInput.value;
+    usernameInput.value = "";
+    passInput.value = "";
     if (!username || !pass) {
       return;
     }
