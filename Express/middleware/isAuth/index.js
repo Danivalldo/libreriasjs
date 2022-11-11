@@ -16,6 +16,7 @@ export const isAuthMiddleware = async (req, res, next) => {
     return next();
   }
   req.isAuth = true;
+  next();
 };
 
 export const login = async (req, res, next) => {
