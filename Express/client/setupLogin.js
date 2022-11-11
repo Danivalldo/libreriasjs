@@ -1,3 +1,4 @@
+let token = null;
 export const setupLogin = (formElement) => {
   formElement.addEventListener("submit", async (e) => {
     e.preventDefault();
