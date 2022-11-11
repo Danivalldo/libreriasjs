@@ -25,11 +25,7 @@ export const login = async (req, res, next) => {
     return next(new Error("Invalid user"));
   }
 
-  const token = jwt.sign({ username }, process.env.SECRET_TOKEN);
-
-  sessions.push({
-    username,
-    token,
+  const token = jwt.sign({ username }, process.env.SECRET_TOKEN, {
   });
 
   debugger;
