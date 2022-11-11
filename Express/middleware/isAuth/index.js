@@ -1,7 +1,5 @@
 import jwt from "jsonwebtoken";
 
-const sessions = [];
-
 export const isAuthMiddleware = async (req, res, next) => {
   const authHeader = req.get("Authorization");
   req.isAuth = false;
