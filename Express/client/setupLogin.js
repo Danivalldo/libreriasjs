@@ -29,3 +29,7 @@ export const setupLogin = (formElement) => {
     }
   });
 };
+
+export const getToken = () => {
+  return token;
+};
