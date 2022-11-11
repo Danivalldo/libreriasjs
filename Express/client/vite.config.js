@@ -7,14 +7,9 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/api": {
+      "^(/api|/login)": {
         target: "http://localhost:8000",
         changeOrigin: true,
-      },
-      "/login": {
-        target: "http://localhost:8000",
-        changeOrigin: true,
-        secure: false,
       },
     },
   },
