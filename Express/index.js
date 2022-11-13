@@ -6,7 +6,7 @@ import { isAuthMiddleware, login } from "./middleware/isAuth/index.js";
 import path from "path";
 
 const app = express();
-const publicFolder = path.join(".", "dist");
+const publicFolder = path.join(".", "client", "dist");
 
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
