@@ -1,13 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Firebase</title>
+	</head>
+	<body class="logging">
+		<div class="top-bar">
+			<div>
+				<img src="./images/logo_project_low.png" alt="" />
+			</div>
+			<div>
+				<button class="log-out-btn">🚪🐒</button>
+			</div>
+		</div>
+		<div class="novel-view">
+			<div class="description">
+				<h1>¡Hola escrimono! Te estaba esperando</h1>
+				<p>
+					Delante de tí se encuentra la mejor novela jamás escrita. Solo hay un
+					inconveniente, está inacabada... Tu deber, así como el del resto de
+					escrimonos que lleguen aquí, será el de completarla.
+				</p>
+				<p>
+					Solamente el tiempo dirá si esta novela colaborativa será la siguiente
+					gran obra maestra.
+				</p>
+				<p>O la mayor 💩 jamás escrita...</p>
+				<p>
+					Deja volar la imaginación y escribe algunos párrafos que sigan con el
+					relato planteado.
+				</p>
+			</div>
+			<div class="novel-container"></div>
+			<div class="form-container">
+				<form class="new-novel-part-form">
+					<textarea
+						name=""
+						id=""
+						cols="30"
+						rows="5"
+						placeholder="Escribe aquí el siguiente párrafo de la novela"
+						autofocus
+					></textarea>
+					<button type="submit">Publicar✍🏽</button>
+				</form>
+			</div>
+		</div>
+		<script type="module" src="/main.js"></script>
+	</body>
 </html>
