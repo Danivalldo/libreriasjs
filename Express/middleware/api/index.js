@@ -14,4 +14,8 @@ apiRouter.get("/", (req, res) => {
     status: "ok",
     isAuth: req.isAuth,
   });
+
+apiRouter.delete("/:movieId", (req, res) => {
+  deleteMovie(Number(req.params.movieId));
+  res.sendStatus(200);
 });
