@@ -22,7 +22,7 @@ export const isAuthMiddleware = async (req, res, next) => {
 export const login = async (req, res, next) => {
   const { username, pass } = req.body;
   if (username !== "user" || pass !== "1234") {
-    return next(new Error("Invalid user"));
+    return res.sendStatus(400);
   }
 
   const token = jwt.sign({ username }, process.env.SECRET_TOKEN, {
