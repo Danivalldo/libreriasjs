@@ -10,9 +10,7 @@ apiRouter.use((req, res, next) => {
 });
 
 apiRouter.get("/", (req, res) => {
-  res.json({
-    status: "ok",
-    isAuth: req.isAuth,
+  res.json(getAllMovies());
   });
 
 apiRouter.delete("/:movieId", (req, res) => {
