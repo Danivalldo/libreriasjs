@@ -40,6 +40,7 @@ h1 {
 #app {
   max-width: 1280px;
   margin: 0 auto;
+  width: 100%;
   padding: 2rem;
   text-align: center;
 }
@@ -86,6 +87,9 @@ form input {
   padding: 10px;
   color: #242424;
   margin-bottom: 10px;
+  border-radius: 5px;
+  width: 25%;
+  box-sizing: border-box;
 }
 
 .movie-card ul {
@@ -105,6 +109,11 @@ form input {
 
 .movie-card ul li:hover {
   color: #646cff;
+}
+
+#moviesContainer {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 @media (prefers-color-scheme: light) {
