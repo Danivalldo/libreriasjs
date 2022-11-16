@@ -3,7 +3,8 @@ import loginManager from "./services/LoginManager";
 import moviesManager from "./services/MoviesManager";
 import { setupMoviesUI } from "./setupMoviesUI";
 
-const formElement = document.querySelector("form.login-form");
+const formLogin = document.querySelector("form.login-form");
+const formCreateMovie = document.querySelector("form.movie-form");
 const getMoviesBtn = document.querySelector("#fetchBtn");
 const moviesContainer = document.querySelector("#moviesContainer");
 
@@ -30,7 +31,7 @@ moviesContainer.addEventListener("click", async (e) => {
   }
 });
 
-formElement.addEventListener("submit", async (e) => {
+formLogin.addEventListener("submit", async (e) => {
   e.preventDefault();
   const usernameInput = e.target.querySelector('input[name="username"]');
   const passInput = e.target.querySelector('input[name="password"]');
@@ -43,4 +44,21 @@ formElement.addEventListener("submit", async (e) => {
   }
   const token = await loginManager.login(username, pass);
   console.log(token);
+});
+
+formCreateMovie.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const movieNameInput = e.target.querySelector('input[name="name"]');
+  const movieScoreInput = e.target.querySelector('input[name="score"]');
+  const newMovie = {
+    name: movieNameInput.value,
+    score: Number(movieScoreInput.value),
+  };
+  movieNameInput.value = "";
+  movieScoreInput.value = "";
+  try {
+    moviesManager.addMovie(newMovie);
+  } catch (err) {
+    console.log(err);
+  }
 });
