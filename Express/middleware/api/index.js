@@ -1,5 +1,9 @@
 import express from "express";
-import { getAllMovies, deleteMovie } from "../../services/database.js";
+import {
+  getAllMovies,
+  addMovie,
+  deleteMovie,
+} from "../../services/database.js";
 
 export const apiRouter = express.Router();
 
@@ -14,7 +18,15 @@ apiRouter.get("/", (req, res) => {
   res.json(getAllMovies());
 });
 
+apiRouter.post("/", (req, res) => {
+  const newMovie = req.body;
+  addMovie(newMovie);
+  res.sendStatus(200);
+});
+
 apiRouter.delete("/:movieId", (req, res) => {
   deleteMovie(Number(req.params.movieId));
   res.sendStatus(200);
 });
+
+apiRouter.put("/:movieId", (req, res) => {});
