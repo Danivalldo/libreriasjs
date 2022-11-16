@@ -1,23 +1,10 @@
-import { getToken } from "./setupLogin";
+import moviesManager from "./services/MoviesManager";
 
 export const setupPerformRequest = (element, onGetMoviesCb) => {
   element.addEventListener("click", async () => {
     try {
-      const response = await fetch("./api", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: getToken(),
-        },
-      });
-      if (response.status !== 200) {
-        throw new Error(response.statusText);
-      }
-      const data = await response.json();
-      console.log(data);
-      if (typeof onGetMoviesCb === "function") {
-        onGetMoviesCb(data);
-      }
+      const movies = await moviesManager.getMovies();
+      onGetMoviesCb(movies);
     } catch (err) {
       console.log(err);
     }
@@ -31,19 +18,7 @@ export const setupPerformDelete = (element, onDeleteMovieCb) => {
     }
     const id = e.target.closest(".movie-card").id;
     try {
-      const response = await fetch(`./api/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: getToken(),
-        },
-      });
-      if (response.status !== 200) {
-        throw new Error(response.statusText);
-      }
-      if (typeof onDeleteMovieCb === "function") {
-        onDeleteMovieCb();
-      }
+      await moviesManager.deleteMovie(id);
     } catch (err) {
       console.log(err);
     }
