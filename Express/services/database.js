@@ -33,3 +33,15 @@ export const addMovie = (movie) => {
 export const deleteMovie = (id) => {
   movies = movies.filter((movie) => movie.id !== id);
 };
+
+export const updateMovie = (id, newContent) => {
+  movies = movies.map((movie) => {
+    if (movie.id !== id) {
+      return movie;
+    }
+    return {
+      ...movie,
+      ...newContent,
+    };
+  });
+};

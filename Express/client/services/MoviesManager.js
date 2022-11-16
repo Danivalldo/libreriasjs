@@ -38,6 +38,14 @@ class MoviesManager {
       JSON.stringify(movie)
     );
   }
+
+  async updateMovie(id, movie) {
+    const response = await this.performRequest(
+      "PUT",
+      `/${id}`,
+      JSON.stringify(movie)
+    );
+  }
 }
 
 const moviesManager = new MoviesManager();

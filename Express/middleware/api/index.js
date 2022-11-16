@@ -3,6 +3,7 @@ import {
   getAllMovies,
   addMovie,
   deleteMovie,
+  updateMovie,
 } from "../../services/database.js";
 
 export const apiRouter = express.Router();
@@ -29,4 +30,7 @@ apiRouter.delete("/:movieId", (req, res) => {
   res.sendStatus(200);
 });
 
-apiRouter.put("/:movieId", (req, res) => {});
+apiRouter.put("/:movieId", (req, res) => {
+  updateMovie(Number(req.params.movieId), req.body);
+  res.sendStatus(200);
+});
