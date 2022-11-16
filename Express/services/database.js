@@ -25,7 +25,7 @@ export const addMovie = (movie) => {
   const newMovie = {
     id: Date.now(),
     name: typeof movie.name === "string" ? movie.name : "",
-    score: typeof movie.score === "number" ? movie.score : 0,
+    score: typeof movie.score === "number" ? movie.score : 1,
   };
   movies.push(newMovie);
 };
