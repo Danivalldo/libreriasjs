@@ -4,11 +4,21 @@ const buildMovieCard = ({ id, name, score }) => {
       <h2>${name}</h2>
       <p>
         <ul>
-          <li class="${score >= 1 ? "active" : ""}">★</li>
-          <li class="${score >= 2 ? "active" : ""}">★</li>
-          <li class="${score >= 3 ? "active" : ""}">★</li>
-          <li class="${score >= 4 ? "active" : ""}">★</li>
-          <li class="${score >= 5 ? "active" : ""}">★</li>
+          <li class="${
+            score >= 1 ? "active" : ""
+          } star-btn" data-score="1">★</li>
+          <li class="${
+            score >= 2 ? "active" : ""
+          } star-btn" data-score="2">★</li>
+          <li class="${
+            score >= 3 ? "active" : ""
+          } star-btn" data-score="3">★</li>
+          <li class="${
+            score >= 4 ? "active" : ""
+          } star-btn" data-score="4">★</li>
+          <li class="${
+            score >= 5 ? "active" : ""
+          } star-btn" data-score="5">★</li>
         </ul>
       </p>
       <div>
