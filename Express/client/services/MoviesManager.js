@@ -32,8 +32,11 @@ class MoviesManager {
   }
 
   async addMovie(movie) {
-    const response = await this.performRequest("POST", null, movie);
-    debugger;
+    const response = await this.performRequest(
+      "POST",
+      undefined,
+      JSON.stringify(movie)
+    );
   }
 }
 
