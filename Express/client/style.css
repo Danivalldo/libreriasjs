@@ -44,18 +44,6 @@ h1 {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
 .card {
   padding: 2em;
 }
@@ -91,6 +79,32 @@ form input {
   border-radius: 3px;
   border: none;
   padding: 10px;
+}
+
+.movie-card {
+  background-color: #f9f9f9;
+  padding: 10px;
+  color: #242424;
+  margin-bottom: 10px;
+}
+
+.movie-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.movie-card ul li {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.movie-card ul li.active {
+  color: #646cff;
+}
+
+.movie-card ul li:hover {
+  color: #646cff;
 }
 
 @media (prefers-color-scheme: light) {
