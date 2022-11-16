@@ -1,5 +1,5 @@
 let token = null;
-export const setupLogin = (formElement) => {
+export const setupLogin = (formElement, onLogInCb, onLogOutCb) => {
   formElement.addEventListener("submit", async (e) => {
     e.preventDefault();
     const usernameInput = e.target.querySelector('input[name="username"]');
