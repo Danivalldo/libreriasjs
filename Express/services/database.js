@@ -20,6 +20,16 @@ export const getAllMovies = () => {
   return movies;
 };
 
+export const addMovie = (movie) => {
+  //input validation
+  const newMovie = {
+    id: Date.now(),
+    name: typeof movie.name === "string" ? movie.name : "",
+    score: typeof movie.score === "number" ? movie.score : 0,
+  };
+  movies.push(newMovie);
+};
+
 export const deleteMovie = (id) => {
   movies = movies.filter((movie) => movie.id !== id);
 };
