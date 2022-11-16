@@ -10,16 +10,23 @@
     <div id="app">
       <div>
         <h1>My movies!</h1>
+        <div id="moviesContainer"></div>
         <div class="card">
           <button id="fetchBtn" type="button">Get movies</button>
-          <button id="deleteMovieBtn" type="button">Delete movie</button>
         </div>
       </div>
-      <div>
-        <form>
+      <div class="login-view">
+        <form class="login-form">
           <input type="text" name="username" />
           <input type="password" name="password" />
           <button type="submit">Login</button>
+        </form>
+      </div>
+      <div>
+        <form class="movie-form">
+          <input type="text" name="name" />
+          <input type="range" min="1" max="5" name="score" />
+          <button type="submit">Add movie</button>
         </form>
       </div>
     </div>
