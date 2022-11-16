@@ -20,14 +20,26 @@ getMoviesBtn.addEventListener("click", async () => {
 });
 
 moviesContainer.addEventListener("click", async (e) => {
-  if (!e.target.classList.contains("delete-movie-btn")) {
-    return;
+  if (e.target.classList.contains("delete-movie-btn")) {
+    const id = e.target.closest(".movie-card").id;
+    try {
+      await moviesManager.deleteMovie(id);
+      const movies = await moviesManager.getMovies();
+      updateMovies(movies);
+    } catch (err) {
+      console.log(err);
+    }
   }
-  const id = e.target.closest(".movie-card").id;
-  try {
-    await moviesManager.deleteMovie(id);
-  } catch (err) {
-    console.log(err);
+  if (e.target.classList.contains("star-btn")) {
+    const id = e.target.closest(".movie-card").id;
+    const score = Number(e.target.dataset.score);
+    try {
+      await moviesManager.updateMovie(id, { score });
+      const movies = await moviesManager.getMovies();
+      updateMovies(movies);
+    } catch (err) {
+      console.log(err);
+    }
   }
 });
 
@@ -44,6 +56,8 @@ formLogin.addEventListener("submit", async (e) => {
   }
   const token = await loginManager.login(username, pass);
   console.log(token);
+  const movies = await moviesManager.getMovies();
+  updateMovies(movies);
 });
 
 formCreateMovie.addEventListener("submit", async (e) => {
@@ -58,6 +72,8 @@ formCreateMovie.addEventListener("submit", async (e) => {
   movieScoreInput.value = "";
   try {
     moviesManager.addMovie(newMovie);
+    const movies = await moviesManager.getMovies();
+    updateMovies(movies);
   } catch (err) {
     console.log(err);
   }
