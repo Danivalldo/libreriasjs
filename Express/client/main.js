@@ -1,7 +1,7 @@
 import "./style.sass";
 import loginManager from "./services/LoginManager";
 import moviesManager from "./services/MoviesManager";
-import { setupMoviesUI } from "./setupMoviesUI";
+import { setupMoviesUI } from "./services/setupMoviesUI";
 
 const formLogin = document.querySelector("form.login-form");
 const formCreateMovie = document.querySelector("form.movie-form");
