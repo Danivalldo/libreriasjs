@@ -2,7 +2,7 @@ import JSONdb from "simple-json-db";
 import path from "path";
 import crypto from "crypto";
 
-const db = new JSONdb(path.join(".", "db", "database.json"));
+const db = new JSONdb(path.join(".", "db", "databaseMovies.json"));
 
 export const getAllMovies = () => {
   return db.get("movies");
