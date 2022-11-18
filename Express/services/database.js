@@ -1,47 +1,45 @@
-let movies = [
-  {
-    id: 1,
-    name: "Star Wars",
-    score: 10,
-  },
-  {
-    id: 2,
-    name: "Little Miss Sunshine",
-    score: 10,
-  },
-  {
-    id: 3,
-    name: "Parasite",
-    score: 10,
-  },
-];
+import JSONdb from "simple-json-db";
+import path from "path";
+import crypto from "crypto";
+
+const db = new JSONdb(path.join(".", "db", "database.json"));
 
 export const getAllMovies = () => {
-  return movies;
+  return db.get("movies");
 };
 
 export const addMovie = (movie) => {
   //input validation
   const newMovie = {
-    id: Date.now(),
+    id: crypto.randomUUID(),
     name: typeof movie.name === "string" ? movie.name : "",
     score: typeof movie.score === "number" ? movie.score : 1,
   };
+  const movies = db.get("movies");
   movies.push(newMovie);
+  db.set("movies", movies);
 };
 
 export const deleteMovie = (id) => {
-  movies = movies.filter((movie) => movie.id !== id);
+  const movies = db.get("movies");
+  db.set(
+    "movies",
+    movies.filter((movie) => movie.id !== id)
+  );
 };
 
 export const updateMovie = (id, newContent) => {
-  movies = movies.map((movie) => {
-    if (movie.id !== id) {
-      return movie;
-    }
-    return {
-      ...movie,
-      ...newContent,
-    };
-  });
+  const movies = db.get("movies");
+  db.set(
+    "movies",
+    movies.map((movie) => {
+      if (movie.id !== id) {
+        return movie;
+      }
+      return {
+        ...movie,
+        ...newContent,
+      };
+    })
+  );
 };
