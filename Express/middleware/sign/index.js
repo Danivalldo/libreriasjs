@@ -1,50 +1,100 @@
+import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { getUserByUsername, registerUser } from "../../services/users.js";
 
-export const login = async (req, res, next) => {
-	const { username, pass } = req.body;
+export const signRouter = express.Router();
 
-	const user = getUserByUsername(username);
+signRouter.post("/login", async (req, res) => {
+  const { username, pass } = req.body;
 
-	if (!user) {
-		return res.sendStatus(400);
-	}
+  const user = getUserByUsername(username);
 
-	bcrypt.compare(pass, user.pass, (err, result) => {
-		console.log(result, err);
-		if (err || !result) {
-			return res.sendStatus(400);
-		}
+  if (!user) {
+    return res.sendStatus(400);
+  }
 
-		const token = jwt.sign({ username }, process.env.SECRET_TOKEN, {
-			expiresIn: "30min",
-		});
+  bcrypt.compare(pass, user.pass, (err, result) => {
+    console.log(result, err);
+    if (err || !result) {
+      return res.sendStatus(400);
+    }
 
-		res.json({
-			token,
-		});
-	});
-};
+    const token = jwt.sign({ username }, process.env.SECRET_TOKEN, {
+      expiresIn: "30min",
+    });
 
-export const register = async (req, res, next) => {
-	const { username, pass } = req.body;
-	const user = getUserByUsername(username);
+    res.json({
+      token,
+    });
+  });
+});
 
-	if (user) {
-		return res.sendStatus(400);
-	}
+signRouter.post("/register", async (req, res) => {
+  const { username, pass } = req.body;
+  const user = getUserByUsername(username);
 
-	bcrypt.genSalt(10, (err, salt) => {
-		bcrypt.hash(pass, salt, (err, hash) => {
-			if (err || !hash) {
-				return res.sendStatus(400);
-			}
-			registerUser({
-				username,
-				pass: hash,
-			});
-			return res.sendStatus(200);
-		});
-	});
-};
+  if (user) {
+    return res.sendStatus(400);
+  }
+
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(pass, salt, (err, hash) => {
+      if (err || !hash) {
+        return res.sendStatus(400);
+      }
+      registerUser({
+        username,
+        pass: hash,
+      });
+      return res.sendStatus(200);
+    });
+  });
+});
+
+// export const login = async (req, res, next) => {
+// 	const { username, pass } = req.body;
+
+// 	const user = getUserByUsername(username);
+
+// 	if (!user) {
+// 		return res.sendStatus(400);
+// 	}
+
+// 	bcrypt.compare(pass, user.pass, (err, result) => {
+// 		console.log(result, err);
+// 		if (err || !result) {
+// 			return res.sendStatus(400);
+// 		}
+
+// 		const token = jwt.sign({ username }, process.env.SECRET_TOKEN, {
+// 			expiresIn: "30min",
+// 		});
+
+// 		res.json({
+// 			token,
+// 		});
+// 	});
+// };
+
+// export const register = async (req, res, next) => {
+// 	const { username, pass } = req.body;
+// 	const user = getUserByUsername(username);
+
+// 	if (user) {
+// 		return res.sendStatus(400);
+// 	}
+
+// 	bcrypt.genSalt(10, (err, salt) => {
+// 		bcrypt.hash(pass, salt, (err, hash) => {
+// 			if (err || !hash) {
+// 				return res.sendStatus(400);
+// 			}
+// 			registerUser({
+// 				username,
+// 				pass: hash,
+// 			});
+// 			return res.sendStatus(200);
+// 		});
+// 	});
+// };

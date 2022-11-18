@@ -3,7 +3,7 @@ import helmet from "helmet";
 import bodyParser from "body-parser";
 import { apiRouter } from "./middleware/api/index.js";
 import { isAuthMiddleware } from "./middleware/isAuth/index.js";
-import { register, login } from "./middleware/sign/index.js";
+import { signRouter } from "./middleware/sign/index.js";
 import path from "path";
 
 const app = express();
@@ -12,31 +12,28 @@ const publicFolder = path.join(".", "client", "dist");
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-app.post("/login", login);
-app.post("/register", register);
 app.use(isAuthMiddleware);
-
+app.use(signRouter);
 app.use(express.static(publicFolder));
 
 app.get("/test", (req, res, next) => {
-	debugger;
-	res.json({ status: "ok" });
+  debugger;
+  res.json({ status: "ok" });
 });
 
 app.use("/api", apiRouter);
 
 app.use((req, res) => {
-	res.status(404).send("<h1>Page not found on the server</h1>");
+  res.status(404).send("<h1>Page not found on the server</h1>");
 });
 
 app.use((error, req, res, next) => {
-	if (res.headersSent) {
-		return next(error);
-	}
-	res.status(500).json({ error: error.message });
+  if (res.headersSent) {
+    return next(error);
+  }
+  res.status(500).json({ error: error.message });
 });
 
 app.listen(process.env.PORT, () => {
-	console.log(`Server running on: http://localhost:${process.env.PORT}/`);
+  console.log(`Server running on: http://localhost:${process.env.PORT}/`);
 });
