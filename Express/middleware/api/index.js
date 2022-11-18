@@ -19,9 +19,12 @@ apiRouter.get("/", (req, res) => {
   res.json(getAllMovies());
 });
 
-apiRouter.post("/", async (req, res) => {
+apiRouter.post("/", async (req, res, next) => {
   const newMovie = req.body;
-  await addMovie(newMovie);
+  const error = await addMovie(newMovie);
+  if (error) {
+    return next(error);
+  }
   res.sendStatus(200);
 });
 
