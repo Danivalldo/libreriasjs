@@ -7,3 +7,9 @@ export const getUserByUsername = (username) => {
 	const users = db.get("users");
 	return users.find((user) => user.username === username);
 };
+
+export const registerUser = (user) => {
+	const users = db.get("users");
+	users.push(user);
+	db.set("users", users);
+};
