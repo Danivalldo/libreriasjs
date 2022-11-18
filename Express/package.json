@@ -21,6 +21,8 @@
     "helmet": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.20",
-    "simple-json-db": "^2.0.0"
+    "sanitize-html": "^2.7.3",
+    "simple-json-db": "^2.0.0",
+    "yup": "^0.32.11"
   }
 }
