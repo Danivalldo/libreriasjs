@@ -1,4 +1,4 @@
-import "./style.css";
+import "./style.sass";
 import loginManager from "./services/LoginManager";
 import moviesManager from "./services/MoviesManager";
 import { setupMoviesUI } from "./setupMoviesUI";
