@@ -9,23 +9,30 @@ const schema = object({
   id: string().uuid().required(),
   name: string().required(),
   score: number().min(1).max(5).required(),
-});
+})
+  .noUnknown(true)
+  .required()
+  .strict();
 
 export const getAllMovies = () => {
   return db.get("movies");
 };
 
 export const addMovie = async (movie) => {
-  //input validation
   const newMovie = {
     ...movie,
     id: crypto.randomUUID(),
     name: sanitizeHtml(movie.name, { allowedTags: [] }),
   };
-  await schema.validate(newMovie);
+  try {
+    await schema.validate(newMovie);
+  } catch (err) {
+    return err;
+  }
   const movies = db.get("movies");
   movies.push(newMovie);
   db.set("movies", movies);
+  return;
 };
 
 export const deleteMovie = (id) => {
