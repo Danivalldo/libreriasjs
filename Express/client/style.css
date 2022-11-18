@@ -90,6 +90,7 @@ form input {
   border-radius: 5px;
   width: 25%;
   box-sizing: border-box;
+  border: solid 1px rgb(27, 27, 27);
 }
 
 .movie-card ul {
