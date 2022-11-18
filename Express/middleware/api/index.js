@@ -26,11 +26,11 @@ apiRouter.post("/", (req, res) => {
 });
 
 apiRouter.delete("/:movieId", (req, res) => {
-  deleteMovie(Number(req.params.movieId));
+  deleteMovie(req.params.movieId);
   res.sendStatus(200);
 });
 
 apiRouter.put("/:movieId", (req, res) => {
-  updateMovie(Number(req.params.movieId), req.body);
+  updateMovie(req.params.movieId, req.body);
   res.sendStatus(200);
 });
