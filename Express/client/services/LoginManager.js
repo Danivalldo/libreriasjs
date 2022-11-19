@@ -4,26 +4,22 @@ class LoginManager {
     this.token = null;
   }
   async login(username, pass) {
-    try {
-      const response = await fetch(this.endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          pass,
-        }),
-      });
-      const data = await response.json();
-      if (data.error) {
-        throw new Error(data.error);
-      }
-      this.token = data.token;
-      return this.token;
-    } catch (err) {
-      console.log(err);
+    const response = await fetch(this.endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        pass,
+      }),
+    });
+    const data = await response.json();
+    if (data.error) {
+      throw new Error(data.error);
     }
+    this.token = data.token;
+    return this.token;
   }
   getToken() {
     return this.token;
