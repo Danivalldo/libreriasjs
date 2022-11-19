@@ -1,4 +1,6 @@
 import JSONdb from "simple-json-db";
+import bcrypt from "bcrypt";
+import { string, object } from "yup";
 import path from "path";
 
 const db = new JSONdb(path.join(".", "db", "databaseUsers.json"));
