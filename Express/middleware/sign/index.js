@@ -1,23 +1,15 @@
 import express from "express";
-import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { getUserByUsername, registerUser } from "../../services/users.js";
+import { registerUser, validateLogin } from "../../services/users.js";
 
 export const signRouter = express.Router();
 
 signRouter.post("/login", async (req, res) => {
   const { username, pass } = req.body;
 
-  const user = getUserByUsername(username);
-
-  if (!user) {
-    return res.sendStatus(400);
-  }
-
-  bcrypt.compare(pass, user.pass, (err, result) => {
-    console.log(result, err);
-    if (err || !result) {
-      return res.sendStatus(400);
+  const error = await validateLogin({ username, pass });
+  if (error) {
+    return res.status(400).json({ error: error.message });
     }
 
     const token = jwt.sign({ username }, process.env.SECRET_TOKEN, {
@@ -30,24 +22,11 @@ signRouter.post("/login", async (req, res) => {
   });
 });
 
-signRouter.post("/register", async (req, res) => {
+signRouter.post("/register", async (req, res, next) => {
   const { username, pass } = req.body;
-  const user = getUserByUsername(username);
-
-  if (user) {
-    return res.sendStatus(400);
+  const error = await registerUser({ username, pass });
+  if (error) {
+    return res.status(400).json({ error: error.message });
   }
-
-  bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(pass, salt, (err, hash) => {
-      if (err || !hash) {
-        return res.sendStatus(400);
-      }
-      registerUser({
-        username,
-        pass: hash,
-      });
       return res.sendStatus(200);
-    });
-  });
 });
