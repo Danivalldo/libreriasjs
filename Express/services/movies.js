@@ -53,18 +53,24 @@ export const deleteMovie = (id) => {
   db.set("movies", movies);
 };
 
-export const updateMovie = (id, newContent) => {
+export const updateMovie = async (id, newContent) => {
   const movies = db.get("movies");
-  db.set(
-    "movies",
-    movies.map((movie) => {
-      if (movie.id !== id) {
-        return movie;
-      }
-      return {
-        ...movie,
-        ...newContent,
-      };
-    })
-  );
+  const indexMovie = movies.findIndex((movie) => movie.id === id);
+  if (indexMovie < 0) {
+    return new Error("This movie does not exists");
+  }
+  const updatedMovie = {
+    ...movies[indexMovie],
+    ...newContent,
+    name: newContent.name
+      ? sanitizeHtml(newContent.name, { allowedTags: [] })
+      : movies[indexMovie].name,
+  };
+  const err = await validateMovie(updatedMovie);
+  if (err) {
+    return err;
+  }
+  movies[indexMovie] = updatedMovie;
+  db.set("movies", movies);
+  return;
 };
