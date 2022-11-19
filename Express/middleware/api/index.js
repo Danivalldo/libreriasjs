@@ -20,26 +20,29 @@ apiRouter.get("/", (req, res) => {
 });
 
 apiRouter.post("/", async (req, res, next) => {
-  const newMovie = req.body;
-  const error = await addMovie(newMovie);
-  if (error) {
+  try {
+    const newMovie = req.body;
+    const error = await addMovie(newMovie);
+    res.sendStatus(200);
+  } catch (error) {
     return next(error);
   }
-  res.sendStatus(200);
 });
 
 apiRouter.delete("/:movieId", (req, res, next) => {
-  const error = deleteMovie(req.params.movieId);
-  if (error) {
+  try {
+    deleteMovie(req.params.movieId);
+    res.sendStatus(200);
+  } catch (error) {
     return next(error);
   }
-  res.sendStatus(200);
 });
 
 apiRouter.put("/:movieId", async (req, res, next) => {
-  const error = await updateMovie(req.params.movieId, req.body);
-  if (error) {
+  try {
+    await updateMovie(req.params.movieId, req.body);
+    res.sendStatus(200);
+  } catch (error) {
     return next(error);
   }
-  res.sendStatus(200);
 });
