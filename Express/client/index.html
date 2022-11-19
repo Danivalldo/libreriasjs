@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Client Express App</title>
-	</head>
-	<body>
-		<div id="app">
-			<h1>Mis películas</h1>
-			<div class="login-view">
-				<form class="login-form">
-					<input type="text" name="username" />
-					<input type="password" name="password" />
-					<button type="submit">Login</button>
-				</form>
-			</div>
-			<div>
-				<div id="moviesContainer"></div>
-				<div class="card">
-					<button id="fetchBtn" type="button">Get movies</button>
-				</div>
-			</div>
-			<div class="movie-card">
-				<form class="movie-form">
-					<input type="text" name="name" />
-					<input type="range" min="1" max="5" name="score" />
-					<button type="submit">Add movie</button>
-				</form>
-			</div>
-		</div>
-		<script type="module" src="/main.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Express App</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Mis películas</h1>
+      <div class="login-view">
+        <form class="login-form">
+          <input type="text" name="username" />
+          <input type="password" name="password" />
+          <button type="submit">Login</button>
+        </form>
+        <div>si ya tienes cuenta</div>
+        <form class="register-form">
+          <input type="text" name="username" />
+          <input type="password" name="password" />
+          <input type="password" name="repeated-password" />
+          <button type="submit">Register</button>
+        </form>
+      </div>
+      <div id="moviesContainer"></div>
+      <div class="movie-card">
+        <form class="movie-form">
+          <input type="text" name="name" />
+          <input type="range" min="1" max="5" name="score" />
+          <button type="submit">Add movie</button>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>
