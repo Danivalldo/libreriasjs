@@ -64,5 +64,4 @@ export const registerUser = async ({ username, pass }) => {
     pass: hash,
   });
   db.set("users", users);
-  return;
 };
