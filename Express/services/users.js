@@ -23,7 +23,29 @@ const getUserByUsername = (username) => {
 	return users.find((user) => user.username === username);
 };
 
-export const registerUser = (user) => {
+export const validateLogin = async ({ username, pass }) => {
+  const user = getUserByUsername(username);
+  if (!user) {
+    return new Error("This user does not exist");
+  }
+  // try {
+  //   await schemaUser.validate({ username, pass });
+  // } catch (err) {
+  //   return err;
+  // }
+  try {
+    await new Promise((resolve, reject) => {
+      bcrypt.compare(pass, user.pass, (err, result) => {
+        if (err || !result) {
+          return reject(new Error("Bad credentials"));
+        }
+        resolve();
+      });
+    });
+  } catch (err) {
+    return err;
+  }
+};
 	const users = db.get("users");
 	users.push(user);
 	db.set("users", users);
