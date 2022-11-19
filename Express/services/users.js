@@ -19,8 +19,8 @@ const schemaUser = object({
   .strict();
 
 const getUserByUsername = (username) => {
-	const users = db.get("users");
-	return users.find((user) => user.username === username);
+  const users = db.get("users");
+  return users.find((user) => user.username === username);
 };
 
 export const validateLogin = async ({ username, pass }) => {
@@ -46,7 +46,39 @@ export const validateLogin = async ({ username, pass }) => {
     return err;
   }
 };
-	const users = db.get("users");
-	users.push(user);
-	db.set("users", users);
+
+export const registerUser = async ({ username, pass }) => {
+  const user = getUserByUsername(username);
+  if (user) {
+    return new Error("This username is taken");
+  }
+  try {
+    await schemaUser.validate({ username, pass });
+  } catch (err) {
+    return err;
+  }
+  try {
+    const hash = await new Promise((resolve, reject) => {
+      bcrypt.genSalt(10, (err, salt) => {
+        if (err) {
+          return reject(new Error("There was an error registering"));
+        }
+        bcrypt.hash(pass, salt, (err, hash) => {
+          if (err || !hash) {
+            return reject(new Error("There was an error registering"));
+          }
+          resolve(hash);
+        });
+      });
+    });
+    const users = db.get("users");
+    users.push({
+      username,
+      pass: hash,
+    });
+    db.set("users", users);
+    return;
+  } catch (err) {
+    return err;
+  }
 };
