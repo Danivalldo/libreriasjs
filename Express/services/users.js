@@ -31,7 +31,6 @@ export const validateLogin = async ({ username, pass }) => {
   await new Promise((resolve, reject) => {
     bcrypt.compare(pass, user.pass, (err, result) => {
       if (err || !result) {
-        debugger;
         return reject(new Error("Bad credentials"));
       }
       resolve();
