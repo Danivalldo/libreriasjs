@@ -10,7 +10,7 @@ export const apiRouter = express.Router();
 
 apiRouter.use((req, res, next) => {
   if (!req.isAuth) {
-    return res.sendStatus(401);
+    return res.status(401).json({ error: "Unauthorized" });
   }
   next();
 });
