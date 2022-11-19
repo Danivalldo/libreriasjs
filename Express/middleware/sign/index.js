@@ -10,15 +10,14 @@ signRouter.post("/login", async (req, res) => {
   const error = await validateLogin({ username, pass });
   if (error) {
     return res.status(400).json({ error: error.message });
-    }
+  }
 
-    const token = jwt.sign({ username }, process.env.SECRET_TOKEN, {
-      expiresIn: "30min",
-    });
+  const token = jwt.sign({ username }, process.env.SECRET_TOKEN, {
+    expiresIn: "30min",
+  });
 
-    res.json({
-      token,
-    });
+  res.status(200).json({
+    token,
   });
 });
 
@@ -28,5 +27,5 @@ signRouter.post("/register", async (req, res, next) => {
   if (error) {
     return res.status(400).json({ error: error.message });
   }
-      return res.sendStatus(200);
+  return res.sendStatus(200);
 });
