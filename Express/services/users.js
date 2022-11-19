@@ -28,11 +28,6 @@ export const validateLogin = async ({ username, pass }) => {
   if (!user) {
     return new Error("This user does not exist");
   }
-  // try {
-  //   await schemaUser.validate({ username, pass });
-  // } catch (err) {
-  //   return err;
-  // }
   try {
     await new Promise((resolve, reject) => {
       bcrypt.compare(pass, user.pass, (err, result) => {
