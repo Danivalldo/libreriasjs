@@ -19,9 +19,12 @@ class RegisterManager {
         pass,
       }),
     });
-    const data = await response.json();
-    if (data.error) {
-      throw new Error(data.error);
+    if (response.status !== 200) {
+      const data = await response.json();
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      throw new Error(response.statusText);
     }
   }
 }
