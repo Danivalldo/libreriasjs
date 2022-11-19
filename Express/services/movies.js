@@ -45,10 +45,12 @@ export const addMovie = async (movie) => {
 
 export const deleteMovie = (id) => {
   const movies = db.get("movies");
-  db.set(
-    "movies",
-    movies.filter((movie) => movie.id !== id)
-  );
+  const indexMovie = movies.findIndex((movie) => movie.id === id);
+  if (indexMovie < 0) {
+    return new Error("This movie does not exists");
+  }
+  movies.splice(indexMovie, 1);
+  db.set("movies", movies);
 };
 
 export const updateMovie = (id, newContent) => {
