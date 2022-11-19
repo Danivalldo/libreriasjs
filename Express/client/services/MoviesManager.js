@@ -21,30 +21,21 @@ class MoviesManager {
   }
 
   async getMovies() {
-    const response = await this.performRequest("GET");
+    const response = await this.performRequest("GET", "/");
     const data = await response.json();
     return data;
   }
 
   async deleteMovie(id) {
     await this.performRequest("DELETE", `/${id}`);
-    return;
   }
 
   async addMovie(movie) {
-    const response = await this.performRequest(
-      "POST",
-      undefined,
-      JSON.stringify(movie)
-    );
+    await this.performRequest("POST", "/", JSON.stringify(movie));
   }
 
   async updateMovie(id, movie) {
-    const response = await this.performRequest(
-      "PUT",
-      `/${id}`,
-      JSON.stringify(movie)
-    );
+    await this.performRequest("PUT", `/${id}`, JSON.stringify(movie));
   }
 }
 
