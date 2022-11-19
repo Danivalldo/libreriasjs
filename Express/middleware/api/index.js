@@ -16,7 +16,7 @@ apiRouter.use((req, res, next) => {
 });
 
 apiRouter.get("/", (req, res) => {
-  res.json(getAllMovies());
+  res.status(200).json(getAllMovies());
 });
 
 apiRouter.post("/", async (req, res, next) => {
