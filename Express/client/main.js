@@ -1,23 +1,16 @@
 import "./style.sass";
 import loginManager from "./services/LoginManager";
+import registerManager from "./services/RegisterManager";
 import moviesManager from "./services/MoviesManager";
+import toastNotifications from "./services/ToastNotifications";
 import { setupMoviesUI } from "./services/setupMoviesUI";
 
 const formLogin = document.querySelector("form.login-form");
+const formRegister = document.querySelector("form.register-form");
 const formCreateMovie = document.querySelector("form.movie-form");
-const getMoviesBtn = document.querySelector("#fetchBtn");
 const moviesContainer = document.querySelector("#moviesContainer");
 
 const updateMovies = setupMoviesUI(moviesContainer);
-
-getMoviesBtn.addEventListener("click", async () => {
-  try {
-    const movies = await moviesManager.getMovies();
-    updateMovies(movies);
-  } catch (err) {
-    console.log(err);
-  }
-});
 
 moviesContainer.addEventListener("click", async (e) => {
   if (e.target.classList.contains("delete-movie-btn")) {
@@ -52,12 +45,40 @@ formLogin.addEventListener("submit", async (e) => {
   usernameInput.value = "";
   passInput.value = "";
   if (!username || !pass) {
-    return;
+    return toastNotifications.launchNotification(
+      "Necesitas introducir usuario y contraseña"
+    );
   }
-  const token = await loginManager.login(username, pass);
-  console.log(token);
-  const movies = await moviesManager.getMovies();
-  updateMovies(movies);
+  try {
+    const token = await loginManager.login(username, pass);
+    console.log(token);
+    const movies = await moviesManager.getMovies();
+    updateMovies(movies);
+  } catch (err) {
+    return toastNotifications.launchNotification(err.message, "error");
+  }
+});
+
+formRegister.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const usernameInput = e.target.querySelector('input[name="username"]');
+  const passInput = e.target.querySelector('input[name="password"]');
+  const repeatedPassInput = e.target.querySelector(
+    'input[name="repeated-password"]'
+  );
+  if (passInput.value !== repeatedPassInput.value) {
+    return toastNotifications.launchNotification("La contraseña no coincide");
+  }
+  const username = usernameInput.value;
+  const pass = passInput.value;
+  usernameInput.value = "";
+  passInput.value = "";
+  repeatedPassInput.value = "";
+  try {
+    await registerManager.register(username, pass);
+  } catch (err) {
+    return toastNotifications.launchNotification(err.message, "error");
+  }
 });
 
 formCreateMovie.addEventListener("submit", async (e) => {
@@ -75,6 +96,6 @@ formCreateMovie.addEventListener("submit", async (e) => {
     const movies = await moviesManager.getMovies();
     updateMovies(movies);
   } catch (err) {
-    console.log(err);
+    return toastNotifications.launchNotification(err.message, "error");
   }
 });
