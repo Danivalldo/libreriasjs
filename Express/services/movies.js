@@ -5,7 +5,7 @@ import { string, number, object } from "yup";
 import sanitizeHtml from "sanitize-html";
 
 const db = new JSONdb(path.join(".", "db", "databaseMovies.json"));
-const schema = object({
+const schemaNewMovie = object({
   id: string().uuid().required(),
   name: string().required(),
   score: number().min(1).max(5).required(),
@@ -13,6 +13,15 @@ const schema = object({
   .noUnknown(true)
   .required()
   .strict();
+
+const validateMovie = async (movie) => {
+  try {
+    await schemaNewMovie.validate(movie);
+    return;
+  } catch (err) {
+    return err;
+  }
+};
 
 export const getAllMovies = () => {
   return db.get("movies");
@@ -24,9 +33,8 @@ export const addMovie = async (movie) => {
     id: crypto.randomUUID(),
     name: sanitizeHtml(movie.name, { allowedTags: [] }),
   };
-  try {
-    await schema.validate(newMovie);
-  } catch (err) {
+  const err = await validateMovie(newMovie);
+  if (err) {
     return err;
   }
   const movies = db.get("movies");
