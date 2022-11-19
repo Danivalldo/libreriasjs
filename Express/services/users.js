@@ -18,7 +18,7 @@ const schemaUser = object({
   .required()
   .strict();
 
-export const getUserByUsername = (username) => {
+const getUserByUsername = (username) => {
 	const users = db.get("users");
 	return users.find((user) => user.username === username);
 };
