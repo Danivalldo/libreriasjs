@@ -14,15 +14,6 @@ const schemaNewMovie = object({
   .required()
   .strict();
 
-const validateMovie = async (movie) => {
-  try {
-    await schemaNewMovie.validate(movie);
-    return;
-  } catch (err) {
-    return err;
-  }
-};
-
 export const getAllMovies = () => {
   return db.get("movies");
 };
@@ -33,10 +24,7 @@ export const addMovie = async (movie) => {
     id: crypto.randomUUID(),
     name: sanitizeHtml(movie.name, { allowedTags: [] }),
   };
-  const err = await validateMovie(newMovie);
-  if (err) {
-    return err;
-  }
+  await schemaNewMovie.validate(newMovie);
   const movies = db.get("movies");
   movies.push(newMovie);
   db.set("movies", movies);
@@ -47,7 +35,7 @@ export const deleteMovie = (id) => {
   const movies = db.get("movies");
   const indexMovie = movies.findIndex((movie) => movie.id === id);
   if (indexMovie < 0) {
-    return new Error("This movie does not exists");
+    throw new Error("This movie does not exists");
   }
   movies.splice(indexMovie, 1);
   db.set("movies", movies);
@@ -57,7 +45,7 @@ export const updateMovie = async (id, newContent) => {
   const movies = db.get("movies");
   const indexMovie = movies.findIndex((movie) => movie.id === id);
   if (indexMovie < 0) {
-    return new Error("This movie does not exists");
+    throw new Error("This movie does not exists");
   }
   const updatedMovie = {
     ...movies[indexMovie],
@@ -66,10 +54,7 @@ export const updateMovie = async (id, newContent) => {
       ? sanitizeHtml(newContent.name, { allowedTags: [] })
       : movies[indexMovie].name,
   };
-  const err = await validateMovie(updatedMovie);
-  if (err) {
-    return err;
-  }
+  await schemaNewMovie.validate(updatedMovie);
   movies[indexMovie] = updatedMovie;
   db.set("movies", movies);
   return;

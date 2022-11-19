@@ -26,54 +26,43 @@ const getUserByUsername = (username) => {
 export const validateLogin = async ({ username, pass }) => {
   const user = getUserByUsername(username);
   if (!user) {
-    return new Error("This user does not exist");
+    throw new Error("This user does not exist");
   }
-  try {
-    await new Promise((resolve, reject) => {
-      bcrypt.compare(pass, user.pass, (err, result) => {
-        if (err || !result) {
-          return reject(new Error("Bad credentials"));
-        }
-        resolve();
-      });
+  await new Promise((resolve, reject) => {
+    bcrypt.compare(pass, user.pass, (err, result) => {
+      if (err || !result) {
+        debugger;
+        return reject(new Error("Bad credentials"));
+      }
+      resolve();
     });
-  } catch (err) {
-    return err;
-  }
+  });
 };
 
 export const registerUser = async ({ username, pass }) => {
   const user = getUserByUsername(username);
   if (user) {
-    return new Error("This username is taken");
+    throw new Error("This username is taken");
   }
-  try {
-    await schemaUser.validate({ username, pass });
-  } catch (err) {
-    return err;
-  }
-  try {
-    const hash = await new Promise((resolve, reject) => {
-      bcrypt.genSalt(10, (err, salt) => {
-        if (err) {
+  await schemaUser.validate({ username, pass });
+  const hash = await new Promise((resolve, reject) => {
+    bcrypt.genSalt(10, (err, salt) => {
+      if (err) {
+        return reject(new Error("There was an error registering"));
+      }
+      bcrypt.hash(pass, salt, (err, hash) => {
+        if (err || !hash) {
           return reject(new Error("There was an error registering"));
         }
-        bcrypt.hash(pass, salt, (err, hash) => {
-          if (err || !hash) {
-            return reject(new Error("There was an error registering"));
-          }
-          resolve(hash);
-        });
+        resolve(hash);
       });
     });
-    const users = db.get("users");
-    users.push({
-      username,
-      pass: hash,
-    });
-    db.set("users", users);
-    return;
-  } catch (err) {
-    return err;
-  }
+  });
+  const users = db.get("users");
+  users.push({
+    username,
+    pass: hash,
+  });
+  db.set("users", users);
+  return;
 };
