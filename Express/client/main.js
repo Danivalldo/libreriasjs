@@ -40,22 +40,19 @@ formLogin.addEventListener("submit", async (e) => {
   e.preventDefault();
   const usernameInput = e.target.querySelector('input[name="username"]');
   const passInput = e.target.querySelector('input[name="password"]');
-  const username = usernameInput.value;
-  const pass = passInput.value;
-  usernameInput.value = "";
-  passInput.value = "";
-  if (!username || !pass) {
-    return toastNotifications.launchNotification(
-      "Necesitas introducir usuario y contraseña"
-    );
-  }
   try {
-    const token = await loginManager.login(username, pass);
+    const token = await loginManager.login(
+      usernameInput.value,
+      passInput.value
+    );
     console.log(token);
     const movies = await moviesManager.getMovies();
     updateMovies(movies);
   } catch (err) {
     return toastNotifications.launchNotification(err.message, "error");
+  } finally {
+    usernameInput.value = "";
+    passInput.value = "";
   }
 });
 
@@ -66,18 +63,18 @@ formRegister.addEventListener("submit", async (e) => {
   const repeatedPassInput = e.target.querySelector(
     'input[name="repeated-password"]'
   );
-  if (passInput.value !== repeatedPassInput.value) {
-    return toastNotifications.launchNotification("La contraseña no coincide");
-  }
-  const username = usernameInput.value;
-  const pass = passInput.value;
-  usernameInput.value = "";
-  passInput.value = "";
-  repeatedPassInput.value = "";
   try {
-    await registerManager.register(username, pass);
+    await registerManager.register(
+      usernameInput.value,
+      passInput.value,
+      repeatedPassInput.value
+    );
   } catch (err) {
     return toastNotifications.launchNotification(err.message, "error");
+  } finally {
+    usernameInput.value = "";
+    passInput.value = "";
+    repeatedPassInput.value = "";
   }
 });
 
@@ -85,17 +82,17 @@ formCreateMovie.addEventListener("submit", async (e) => {
   e.preventDefault();
   const movieNameInput = e.target.querySelector('input[name="name"]');
   const movieScoreInput = e.target.querySelector('input[name="score"]');
-  const newMovie = {
-    name: movieNameInput.value,
-    score: Number(movieScoreInput.value),
-  };
-  movieNameInput.value = "";
-  movieScoreInput.value = "";
   try {
-    moviesManager.addMovie(newMovie);
+    await moviesManager.addMovie({
+      name: movieNameInput.value,
+      score: Number(movieScoreInput.value),
+    });
     const movies = await moviesManager.getMovies();
     updateMovies(movies);
   } catch (err) {
     return toastNotifications.launchNotification(err.message, "error");
+  } finally {
+    movieNameInput.value = "";
+    movieScoreInput.value = 1;
   }
 });

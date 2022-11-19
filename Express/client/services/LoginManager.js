@@ -4,6 +4,9 @@ class LoginManager {
     this.token = null;
   }
   async login(username, pass) {
+    if (!username || !pass) {
+      throw new Error("Necesitas introducir usuario y contraseña");
+    }
     const response = await fetch(this.endpoint, {
       method: "POST",
       headers: {

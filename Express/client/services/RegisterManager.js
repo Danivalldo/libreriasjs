@@ -2,7 +2,13 @@ class RegisterManager {
   constructor() {
     this.endpoint = "./register";
   }
-  async register(username, pass) {
+  async register(username, pass, repeatedPass) {
+    if (!username || !pass || !repeatedPass) {
+      throw new Error("Todos los campos son obligatorios");
+    }
+    if (pass !== repeatedPass) {
+      throw new Error("La contraseña no coincide");
+    }
     const response = await fetch(this.endpoint, {
       method: "POST",
       headers: {
