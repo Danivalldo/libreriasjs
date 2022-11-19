@@ -28,8 +28,11 @@ apiRouter.post("/", async (req, res, next) => {
   res.sendStatus(200);
 });
 
-apiRouter.delete("/:movieId", (req, res) => {
-  deleteMovie(req.params.movieId);
+apiRouter.delete("/:movieId", (req, res, next) => {
+  const error = deleteMovie(req.params.movieId);
+  if (error) {
+    return next(error);
+  }
   res.sendStatus(200);
 });
 
