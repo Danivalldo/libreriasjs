@@ -36,7 +36,10 @@ apiRouter.delete("/:movieId", (req, res, next) => {
   res.sendStatus(200);
 });
 
-apiRouter.put("/:movieId", (req, res) => {
-  updateMovie(req.params.movieId, req.body);
+apiRouter.put("/:movieId", async (req, res, next) => {
+  const error = await updateMovie(req.params.movieId, req.body);
+  if (error) {
+    return next(error);
+  }
   res.sendStatus(200);
 });
