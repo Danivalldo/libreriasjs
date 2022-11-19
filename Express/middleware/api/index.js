@@ -22,7 +22,7 @@ apiRouter.get("/", (req, res) => {
 apiRouter.post("/", async (req, res, next) => {
   try {
     const newMovie = req.body;
-    const error = await addMovie(newMovie);
+    await addMovie(newMovie);
     res.sendStatus(200);
   } catch (error) {
     return next(error);
