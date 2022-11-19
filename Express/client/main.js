@@ -9,6 +9,7 @@ const formLogin = document.querySelector("form.login-form");
 const formRegister = document.querySelector("form.register-form");
 const formCreateMovie = document.querySelector("form.movie-form");
 const moviesContainer = document.querySelector("#moviesContainer");
+const moviesView = document.querySelector(".movies-view");
 
 const updateMovies = setupMoviesUI(moviesContainer);
 
@@ -46,6 +47,7 @@ formLogin.addEventListener("submit", async (e) => {
       passInput.value
     );
     console.log(token);
+    toastNotifications.launchNotification(`Bienvenido ${usernameInput.value}`);
     const movies = await moviesManager.getMovies();
     updateMovies(movies);
   } catch (err) {
@@ -69,6 +71,7 @@ formRegister.addEventListener("submit", async (e) => {
       passInput.value,
       repeatedPassInput.value
     );
+    toastNotifications.launchNotification("Usuario registrado correctamente!");
   } catch (err) {
     return toastNotifications.launchNotification(err.message, "error");
   } finally {
