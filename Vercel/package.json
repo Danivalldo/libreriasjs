@@ -14,6 +14,6 @@
   },
   "dependencies": {
     "sass": "^1.54.9",
-    "vercel": "^28.4.0"
+    "vercel": "^28.5.5"
   }
 }
