@@ -9,23 +9,23 @@ const schemaNewMovie = object({
   id: string().uuid().required(),
   name: string().required(),
   score: number().min(1).max(5).required(),
-  createdBy: string().email().required(),
+  createdBy: string().uuid().required(),
 })
   .noUnknown(true)
   .required()
   .strict();
 
-export const getAllMovies = (username) => {
+export const getAllMovies = (userId) => {
   const movies = db.get("movies");
-  return movies.filter((movie) => movie.createdBy === username);
+  return movies.filter((movie) => movie.createdBy === userId);
 };
 
-export const addMovie = async (movie, username) => {
+export const addMovie = async (movie, userId) => {
   const newMovie = {
     ...movie,
     id: crypto.randomUUID(),
     name: sanitizeHtml(movie.name, { allowedTags: [] }),
-    createdBy: username,
+    createdBy: userId,
   };
   await schemaNewMovie.validate(newMovie);
   const movies = db.get("movies");
@@ -34,26 +34,26 @@ export const addMovie = async (movie, username) => {
   return;
 };
 
-export const deleteMovie = (id, username) => {
+export const deleteMovie = (id, userId) => {
   const movies = db.get("movies");
   const indexMovie = movies.findIndex((movie) => movie.id === id);
   if (indexMovie < 0) {
     throw new Error("This movie does not exists");
   }
-  if (movies[indexMovie].createdBy !== username) {
+  if (movies[indexMovie].createdBy !== userId) {
     throw new Error("You are not the creator");
   }
   movies.splice(indexMovie, 1);
   db.set("movies", movies);
 };
 
-export const updateMovie = async (id, newContent, username) => {
+export const updateMovie = async (id, newContent, userId) => {
   const movies = db.get("movies");
   const indexMovie = movies.findIndex((movie) => movie.id === id);
   if (indexMovie < 0) {
     throw new Error("This movie does not exists");
   }
-  if (movies[indexMovie].createdBy !== username) {
+  if (movies[indexMovie].createdBy !== userId) {
     throw new Error("You are not the creator");
   }
   const updatedMovie = {
