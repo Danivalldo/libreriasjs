@@ -1,1 +1,4 @@
-db
+!db
+db/*
+!db/databaseMovies-example.json
+!db/databaseUsers-example.json
