@@ -16,13 +16,13 @@ apiRouter.use((req, res, next) => {
 });
 
 apiRouter.get("/", (req, res) => {
-  res.status(200).json(getAllMovies(req.username));
+  res.status(200).json(getAllMovies(req.userId));
 });
 
 apiRouter.post("/", async (req, res, next) => {
   try {
     const newMovie = req.body;
-    await addMovie(newMovie, req.username);
+    await addMovie(newMovie, req.userId);
     res.status(200).json({ status: "ok" });
   } catch (error) {
     return next(error);
@@ -31,7 +31,7 @@ apiRouter.post("/", async (req, res, next) => {
 
 apiRouter.delete("/:movieId", (req, res, next) => {
   try {
-    deleteMovie(req.params.movieId, req.username);
+    deleteMovie(req.params.movieId, req.userId);
     res.status(200).json({ status: "ok" });
   } catch (error) {
     return next(error);
@@ -40,7 +40,7 @@ apiRouter.delete("/:movieId", (req, res, next) => {
 
 apiRouter.put("/:movieId", async (req, res, next) => {
   try {
-    await updateMovie(req.params.movieId, req.body, req.username);
+    await updateMovie(req.params.movieId, req.body, req.userId);
     res.status(200).json({ status: "ok" });
   } catch (error) {
     return next(error);
