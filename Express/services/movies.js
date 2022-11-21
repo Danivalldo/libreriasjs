@@ -7,7 +7,7 @@ import sanitizeHtml from "sanitize-html";
 const db = new JSONdb(path.join(".", "db", "databaseMovies.json"));
 const schemaNewMovie = object({
   id: string().uuid().required(),
-  name: string().required(),
+  name: string().max(50).required(),
   score: number().min(1).max(5).required(),
   createdBy: string().uuid().required(),
 })
