@@ -7,6 +7,7 @@ export const isAuthMiddleware = async (req, res, next) => {
     const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
     if (decodedToken) {
       req.isAuth = true;
+      req.username = decodedToken.username;
     }
   } catch (err) {
   } finally {
