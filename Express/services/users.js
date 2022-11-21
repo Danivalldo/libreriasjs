@@ -6,6 +6,7 @@ import path from "path";
 
 const db = new JSONdb(path.join(".", "db", "databaseUsers.json"));
 const schemaUser = object({
+  id: string().uuid().required(),
   username: string().email().required(),
   pass: string()
     .min(8, "Password must be 8 characters long")
