@@ -25,7 +25,7 @@ const getUserByUsername = (username) => {
   return users.find((user) => user.username === username);
 };
 
-export const validateLogin = async ({ username, pass }) => {
+export const validateLogin = async (username, pass) => {
   const user = getUserByUsername(username);
   if (!user) {
     throw new Error("This user does not exist");
