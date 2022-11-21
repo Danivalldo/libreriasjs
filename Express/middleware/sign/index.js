@@ -8,7 +8,7 @@ signRouter.post("/login", async (req, res) => {
   const { username, pass } = req.body;
   try {
     const user = await validateLogin(username, pass);
-    const token = jwt.sign({ username }, process.env.SECRET_TOKEN, {
+    const token = jwt.sign({ userId: user.id }, process.env.SECRET_TOKEN, {
       expiresIn: "30min",
     });
     res.status(200).json({
