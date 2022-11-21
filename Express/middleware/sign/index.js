@@ -7,7 +7,7 @@ export const signRouter = express.Router();
 signRouter.post("/login", async (req, res) => {
   const { username, pass } = req.body;
   try {
-    await validateLogin({ username, pass });
+    const user = await validateLogin(username, pass);
     const token = jwt.sign({ username }, process.env.SECRET_TOKEN, {
       expiresIn: "30min",
     });
