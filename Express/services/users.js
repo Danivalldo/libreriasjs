@@ -62,6 +62,7 @@ export const registerUser = async ({ username, pass }) => {
   });
   const users = db.get("users");
   users.push({
+    id: userId,
     username,
     pass: hash,
   });
