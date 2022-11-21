@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Client Express App</title>
-	</head>
-	<body>
-		<div id="app">
-			<h1>Mis películas</h1>
-			<div class="login-view">
-				<form class="login-form">
-					<input type="text" name="username" placeholder="Email" />
-					<input type="password" name="password" placeholder="Password" />
-					<button type="submit">Login</button>
-					<p>
-						Si no tienes cuenta, registrate
-						<a href="#" class="toggle-sign-btn">aquí</a>
-					</p>
-				</form>
-				<form class="register-form hidden">
-					<input type="text" name="username" placeholder="Email" />
-					<input type="password" name="password" placeholder="Password" />
-					<input
-						type="password"
-						name="repeated-password"
-						placeholder="Repetir password"
-					/>
-					<button type="submit">Register</button>
-					<p>
-						Accede a tu cuenta
-						<a href="#" class="toggle-sign-btn">aquí</a>
-					</p>
-				</form>
-			</div>
-			<div id="movies-view" class="hidden">
-				<div id="moviesContainer"></div>
-				<div class="movie-card">
-					<form class="movie-form">
-						<input type="text" name="name" />
-						<input type="range" min="1" max="5" name="score" />
-						<button type="submit">Add movie</button>
-					</form>
-				</div>
-			</div>
-		</div>
-		<script type="module" src="/main.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Express App</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Mis películas</h1>
+      <div class="login-view">
+        <form class="login-form">
+          <input type="text" name="username" placeholder="Email" />
+          <input type="password" name="password" placeholder="Password" />
+          <button type="submit">Login</button>
+          <p>
+            Si no tienes cuenta, registrate
+            <a href="#" class="toggle-sign-btn">aquí</a>
+          </p>
+        </form>
+        <form class="register-form hidden">
+          <input type="text" name="username" placeholder="Email" />
+          <input type="password" name="password" placeholder="Password" />
+          <input
+            type="password"
+            name="repeated-password"
+            placeholder="Repetir password"
+          />
+          <button type="submit">Register</button>
+          <p>
+            Accede a tu cuenta
+            <a href="#" class="toggle-sign-btn">aquí</a>
+          </p>
+        </form>
+      </div>
+      <div id="movies-view" class="hidden">
+        <div id="moviesContainer"></div>
+        <div class="movie-card mx-auto">
+          <form class="movie-form">
+            <input type="text" name="name" />
+            <ul>
+              <li class="active star-btn" data-score="1">★</li>
+              <li class="star-btn" data-score="2">★</li>
+              <li class="star-btn" data-score="3">★</li>
+              <li class="star-btn" data-score="4">★</li>
+              <li class="star-btn" data-score="5">★</li>
+            </ul>
+            <input type="range" min="1" max="5" name="score" value="1" />
+            <button type="submit">Add movie</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>
