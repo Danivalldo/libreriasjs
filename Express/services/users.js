@@ -45,7 +45,8 @@ export const registerUser = async ({ username, pass }) => {
   if (user) {
     throw new Error("This username is taken");
   }
-  await schemaUser.validate({ username, pass });
+  const userId = crypto.randomUUID();
+  await schemaUser.validate({ username, pass, id: userId });
   const hash = await new Promise((resolve, reject) => {
     bcrypt.genSalt(10, (err, salt) => {
       if (err) {
