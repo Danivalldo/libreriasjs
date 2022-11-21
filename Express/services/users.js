@@ -1,5 +1,6 @@
 import JSONdb from "simple-json-db";
 import bcrypt from "bcrypt";
+import crypto from "crypto";
 import { string, object } from "yup";
 import path from "path";
 
