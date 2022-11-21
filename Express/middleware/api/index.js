@@ -9,7 +9,7 @@ import {
 export const apiRouter = express.Router();
 
 apiRouter.use((req, res, next) => {
-  if (!req.isAuth) {
+  if (!req.userId) {
     return res.status(401).json({ error: "Unauthorized" });
   }
   next();
