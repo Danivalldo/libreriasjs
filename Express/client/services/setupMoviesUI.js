@@ -1,5 +1,5 @@
 export const buildScoreSelector = (score = 0) => {
-	return `
+  return `
   <ul>
     <li class="${score >= 1 ? "active" : ""} star-btn" data-score="1">★</li>
     <li class="${score >= 2 ? "active" : ""} star-btn" data-score="2">★</li>
@@ -11,12 +11,10 @@ export const buildScoreSelector = (score = 0) => {
 };
 
 const buildMovieCard = ({ id, name, score }) => {
-	return `
+  return `
     <div id="${id}" class="movie-card">
       <h2>${name}</h2>
-      <p>
-        ${buildScoreSelector(score)}
-      </p>
+      ${buildScoreSelector(score)}
       <div>
         <button class="delete-movie-btn" type="button">Delete</button>
       </div>
@@ -25,10 +23,10 @@ const buildMovieCard = ({ id, name, score }) => {
 };
 
 export const setupMoviesUI = (element) => {
-	return (movies) => {
-		element.innerHTML = "";
-		for (let i = 0, j = movies.length; i < j; i++) {
-			element.innerHTML = element.innerHTML + buildMovieCard(movies[i]);
-		}
-	};
+  return (movies) => {
+    element.innerHTML = "";
+    for (let i = 0, j = movies.length; i < j; i++) {
+      element.innerHTML = element.innerHTML + buildMovieCard(movies[i]);
+    }
+  };
 };
