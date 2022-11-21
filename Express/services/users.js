@@ -38,6 +38,7 @@ export const validateLogin = async (username, pass) => {
       resolve();
     });
   });
+  return user;
 };
 
 export const registerUser = async ({ username, pass }) => {
