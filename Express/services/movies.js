@@ -15,7 +15,7 @@ const schemaNewMovie = object({
   .required()
   .strict();
 
-export const getAllMovies = (userId) => {
+export const getMovies = (userId) => {
   const movies = db.get("movies");
   return movies.filter((movie) => movie.createdBy === userId);
 };

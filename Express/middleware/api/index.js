@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  getAllMovies,
+  getMovies,
   addMovie,
   deleteMovie,
   updateMovie,
@@ -16,7 +16,7 @@ apiRouter.use((req, res, next) => {
 });
 
 apiRouter.get("/", (req, res) => {
-  res.status(200).json(getAllMovies(req.userId));
+  res.status(200).json(getMovies(req.userId));
 });
 
 apiRouter.post("/", async (req, res, next) => {
