@@ -5,8 +5,11 @@ import { registerUser, validateLogin } from "../../services/users.js";
 export const signRouter = express.Router();
 
 signRouter.post("/login", async (req, res) => {
-  const { username, pass } = req.body;
   try {
+    if (typeof req.body !== "object") {
+      throw new Error("Wrong credentials");
+    }
+    const { username, pass } = req.body;
     const user = await validateLogin(username, pass);
     const token = jwt.sign({ userId: user.id }, process.env.SECRET_TOKEN, {
       expiresIn: "30min",
@@ -20,8 +23,11 @@ signRouter.post("/login", async (req, res) => {
 });
 
 signRouter.post("/register", async (req, res, next) => {
-  const { username, pass } = req.body;
   try {
+    if (typeof req.body !== "object") {
+      throw new Error("Wrong credentials");
+    }
+    const { username, pass } = req.body;
     await registerUser({ username, pass });
     return res.sendStatus(200);
   } catch (error) {
