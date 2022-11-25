@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon -r dotenv/config --inspect index.js",
-    "dev-all": "concurrently --kill-others \"cd ./client && npm run dev\" \"npm run dev\" ",
+    "dev-with-vanilla-js": "CLIENT=vanilla-js concurrently --kill-others \"cd ./clients/vanilla-js && npm run dev\" \"npm run dev\" ",
+    "dev-with-react": "CLIENT=reactjs concurrently --kill-others \"cd ./clients/reactjs && npm start\" \"npm run dev\" ",
     "start": "node -r dotenv/config index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
