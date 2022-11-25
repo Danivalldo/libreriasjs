@@ -1,5 +1,4 @@
-import JSONdb from "simple-json-db";
-import path from "path";
+import mongoDbClient from "./mongoDbClient.js";
 import crypto from "crypto";
 import { string, number, object } from "yup";
 import sanitizeHtml from "sanitize-html";
