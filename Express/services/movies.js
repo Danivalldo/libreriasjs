@@ -43,17 +43,14 @@ export const addMovie = async (movie, userId) => {
   return createdMovie;
 };
 
-export const deleteMovie = (id, userId) => {
-  const movies = db.get("movies");
-  const indexMovie = movies.findIndex((movie) => movie.id === id);
-  if (indexMovie < 0) {
-    throw new Error("This movie does not exists");
-  }
-  if (movies[indexMovie].createdBy !== userId) {
-    throw new Error("You are not the creator");
-  }
-  movies.splice(indexMovie, 1);
-  db.set("movies", movies);
+export const deleteMovie = async (id, userId) => {
+  await mongoDbClient.connect();
+  const result = await mongoDbClient
+    .db("my_movies")
+    .collection("movies")
+    .deleteOne({ id, createdBy: userId });
+  mongoDbClient.close();
+  return result;
 };
 
 export const updateMovie = async (id, newContent, userId) => {
