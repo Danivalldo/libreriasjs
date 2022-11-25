@@ -63,14 +63,24 @@ export const updateMovie = async (id, newContent, userId) => {
     throw new Error("This movie does not exists");
   }
   const updatedMovie = {
-    ...movies[indexMovie],
+    id: foundMovie.id,
+    name: foundMovie.name,
+    score: foundMovie.score,
+    createdBy: foundMovie.createdBy,
     ...newContent,
     name: newContent.name
       ? sanitizeHtml(newContent.name, { allowedTags: [] })
-      : movies[indexMovie].name,
+      : foundMovie.name,
   };
   await schemaNewMovie.validate(updatedMovie);
-  movies[indexMovie] = updatedMovie;
-  db.set("movies", movies);
-  return;
+  const result = await mongoDbClient
+    .db("my_movies")
+    .collection("movies")
+    .updateOne(
+      { id, createdBy: userId },
+      { $set: updatedMovie },
+      { upsert: true }
+    );
+  mongoDbClient.close();
+  return result;
 };
