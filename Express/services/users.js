@@ -1,10 +1,8 @@
-import JSONdb from "simple-json-db";
+import mongoDbClient from "./mongoDbClient.js";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import { string, object } from "yup";
-import path from "path";
 
-const db = new JSONdb(path.join(".", "db", "databaseUsers.json"));
 const schemaUser = object({
   id: string().uuid().required(),
   username: string().email().required(),
