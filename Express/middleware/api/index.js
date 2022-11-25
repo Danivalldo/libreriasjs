@@ -15,8 +15,13 @@ apiRouter.use((req, res, next) => {
   next();
 });
 
-apiRouter.get("/", (req, res) => {
-  res.status(200).json(getMovies(req.userId));
+apiRouter.get("/", async (req, res) => {
+  try {
+    const movies = await getMovies(req.userId);
+    res.status(200).json(movies);
+  } catch (error) {
+    return next(error);
+  }
 });
 
 apiRouter.post("/", async (req, res, next) => {
