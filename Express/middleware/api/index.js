@@ -45,8 +45,12 @@ apiRouter.delete("/:movieId", async (req, res, next) => {
 
 apiRouter.put("/:movieId", async (req, res, next) => {
   try {
-    await updateMovie(req.params.movieId, req.body, req.userId);
-    res.status(200).json({ status: "ok" });
+    const updatedMovie = await updateMovie(
+      req.params.movieId,
+      req.body,
+      req.userId
+    );
+    res.status(200).json({ status: "ok", response: updatedMovie });
   } catch (error) {
     return next(error);
   }
