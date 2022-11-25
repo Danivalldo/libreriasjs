@@ -2,8 +2,6 @@ import mongoDbClient from "./mongoDbClient.js";
 import crypto from "crypto";
 import { string, number, object } from "yup";
 import sanitizeHtml from "sanitize-html";
-
-const db = new JSONdb(path.join(".", "db", "databaseMovies.json"));
 const schemaNewMovie = object({
   id: string().uuid().required(),
   name: string().max(50).required(),
