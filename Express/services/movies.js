@@ -12,9 +12,15 @@ const schemaNewMovie = object({
   .required()
   .strict();
 
-export const getMovies = (userId) => {
-  const movies = db.get("movies");
-  return movies.filter((movie) => movie.createdBy === userId);
+export const getMovies = async (userId) => {
+  await mongoDbClient.connect();
+  const moviesPointer = await mongoDbClient
+    .db("my_movies")
+    .collection("movies")
+    .find({ createdBy: userId });
+  const movies = await moviesPointer.toArray();
+  mongoDbClient.close();
+  return movies;
 };
 
 export const addMovie = async (movie, userId) => {
