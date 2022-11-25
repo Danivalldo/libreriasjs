@@ -34,10 +34,13 @@ export const addMovie = async (movie, userId) => {
     createdBy: userId,
   };
   await schemaNewMovie.validate(newMovie);
-  const movies = db.get("movies");
-  movies.push(newMovie);
-  db.set("movies", movies);
-  return;
+  await mongoDbClient.connect();
+  const createdMovie = await mongoDbClient
+    .db("my_movies")
+    .collection("movies")
+    .insertOne(newMovie);
+  mongoDbClient.close();
+  return createdMovie;
 };
 
 export const deleteMovie = (id, userId) => {
