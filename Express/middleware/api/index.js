@@ -34,10 +34,10 @@ apiRouter.post("/", async (req, res, next) => {
   }
 });
 
-apiRouter.delete("/:movieId", (req, res, next) => {
+apiRouter.delete("/:movieId", async (req, res, next) => {
   try {
-    deleteMovie(req.params.movieId, req.userId);
-    res.status(200).json({ status: "ok" });
+    const deletedMovie = await deleteMovie(req.params.movieId, req.userId);
+    res.status(200).json({ status: "ok", response: deletedMovie });
   } catch (error) {
     return next(error);
   }
