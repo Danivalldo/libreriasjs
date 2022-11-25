@@ -7,7 +7,12 @@ import { signRouter } from "./middleware/sign/index.js";
 import path from "path";
 
 const app = express();
-const publicFolder = path.join(".", "client", "dist");
+const publicFolder = path.join(
+  ".",
+  "clients",
+  process.env.CLIENT ? process.env.CLIENT : "vanilla-js",
+  "dist"
+);
 
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
