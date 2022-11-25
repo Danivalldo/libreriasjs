@@ -18,9 +18,14 @@ const schemaUser = object({
   .required()
   .strict();
 
-const getUserByUsername = (username) => {
-  const users = db.get("users");
-  return users.find((user) => user.username === username);
+const getUserByUsername = async (username) => {
+  await mongoDbClient.connect();
+  const user = await mongoDbClient
+    .db("my_movies")
+    .collection("users")
+    .findOne({ username });
+  mongoDbClient.close();
+  return user;
 };
 
 export const validateLogin = async (username, pass) => {
