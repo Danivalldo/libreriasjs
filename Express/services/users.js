@@ -29,7 +29,7 @@ const getUserByUsername = async (username) => {
 };
 
 export const validateLogin = async (username, pass) => {
-  const user = getUserByUsername(username);
+  const user = await getUserByUsername(username);
   if (!user) {
     throw new Error("This user does not exist");
   }
@@ -45,7 +45,7 @@ export const validateLogin = async (username, pass) => {
 };
 
 export const registerUser = async ({ username, pass }) => {
-  const user = getUserByUsername(username);
+  const user = await getUserByUsername(username);
   if (user) {
     throw new Error("This username is taken");
   }
