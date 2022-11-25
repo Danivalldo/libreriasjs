@@ -24,6 +24,9 @@ export const getMovies = async (userId) => {
 };
 
 export const addMovie = async (movie, userId) => {
+  if (!movie) {
+    throw new Error("Movie not provided");
+  }
   const newMovie = {
     ...movie,
     id: crypto.randomUUID(),
