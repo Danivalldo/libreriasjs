@@ -64,11 +64,13 @@ export const registerUser = async ({ username, pass }) => {
       });
     });
   });
-  const users = db.get("users");
-  users.push({
+  const newUser = {
     id: userId,
     username,
     pass: hash,
-  });
-  db.set("users", users);
+  };
+  await mongoDbClient.connect();
+  await mongoDbClient.db("my_movies").collection("users").insertOne(newUser);
+  mongoDbClient.close();
+  return newUser;
 };
