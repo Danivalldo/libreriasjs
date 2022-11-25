@@ -27,8 +27,8 @@ apiRouter.get("/", async (req, res) => {
 apiRouter.post("/", async (req, res, next) => {
   try {
     const newMovie = req.body;
-    await addMovie(newMovie, req.userId);
-    res.status(200).json({ status: "ok" });
+    const createdMovie = await addMovie(newMovie, req.userId);
+    res.status(200).json({ status: "ok", response: createdMovie });
   } catch (error) {
     return next(error);
   }
