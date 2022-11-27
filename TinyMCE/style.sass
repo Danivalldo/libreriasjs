@@ -1,24 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap")
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap')
+
+:root
+  --main-color: #2e8de6
+  --darker-main-color: #2b7ac3
 
 *
   box-sizing: border-box
 
 body
-  font-family: "Space Mono", monospace
+  font-family: 'Montserrat', sans-serif
   margin: 0
   padding: 0
-  color: rgb(42, 42, 42)
-  background-image: url("./public/images/bananas.jpg")
+  color: rgb(21, 21, 21)
   box-sizing: border-box
+  background-color: #ededed
 
   .top-bar
     display: flex
     justify-content: center
     align-items: center
-    background-color: #e3dbb6
-    padding: 12px 5px 0px 5px
+    background-color: var(--main-color)
+    padding: 12px 5px 12px 5px
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2)
-    border-bottom: solid 3px #a9a078
+    border-bottom: solid 3px var(--darker-main-color)
     & > :nth-child(1)
       width: 200px
       height: 95px
@@ -26,33 +30,11 @@ body
       img
         width: 100%
         height: 100%
-        object-fit: cover
-        object-position: center bottom
+        object-fit: contain
+        object-position: center center
         display: block
 
-    & > :nth-child(2)
-      display: flex
-      justify-content: center
-      align-items: center
-      img
-        border-radius: 50%
-        overflow: hidden
-        background-color: #fff
-        width: 80px
-        border: solid 3px #fffbe9
-        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2)
-        margin-right: 10px
-
-      button
-        font-size: 3rem
-        background-color: #fffcef
-        letter-spacing: -17px
-        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2)
-        border-radius: 4px
-        overflow: hidden
-        border: none
-
-  .novel-view
+  .forum-view
     max-width: 1000px
     margin: 0 auto 0 auto
     padding: 30px 30px
@@ -62,28 +44,14 @@ body
       h1
         margin: 0px
 
-    .novel-container
-      .novel-part-container
+    .thread-container
+      .post-container
         position: relative
         padding: 20px 30px
-        border-bottom: solid 1px #cdcdcd
+        background-color: #fff
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2)
-        background-image: url("../../static/imgs/lined_paper.png")
         font-size: 1.3rem
-        .delete-btn
-          position: absolute
-          top: 5px
-          right: 25px
-          font-size: 1.5rem
-          cursor: pointer
-          background-color: transparent
-          border: none
-          .delete-label
-            font-size: 0.8rem
-
-        .meta
-          text-align: right
-          font-size: 0.8rem
+        margin: 0 0 20px 0
 
     .form-container
       textarea
@@ -100,7 +68,7 @@ body
       button[type="submit"]
         display: block
         width: 100%
-        background-color: #fffcef
+        background-color: var(--main-color)
         border: none
         border-radius: 5px
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3)
@@ -108,6 +76,15 @@ body
         font-family: "Space Mono", monospace
         cursor: pointer
         padding: 15px 0
+
+footer
+  background-color: var(--darker-main-color)
+  color: #fff
+  font-size: .8rem
+  text-align: center
+  padding: 20px
+  a
+    color: #fff
 
 @media screen and (max-width: 600px)
   body
