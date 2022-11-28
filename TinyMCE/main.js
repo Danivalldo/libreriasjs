@@ -11,6 +11,9 @@ const init = async () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const inputPost = e.target.querySelector("#main-input");
+    if (!inputPost.value) {
+      return;
+    }
     const post = postTemplate(inputPost.value);
     threadContainer.appendChild(post);
     mainInput.resetContent();
