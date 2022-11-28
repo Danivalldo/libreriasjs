@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap')
 
 :root
   --main-color: #2e8de6
@@ -6,6 +6,9 @@
 
 *
   box-sizing: border-box
+
+strong
+  font-weight: 700
 
 body
   font-family: 'Montserrat', sans-serif
@@ -39,32 +42,46 @@ body
     margin: 0 auto 0 auto
     padding: 30px 30px
     .description
-      background-color: white
-      padding: 40px
+      background-color: #b6dcff
+      padding: 25px 0
+      margin: 0 0 20px 0
+      color: #001e39
+      text-align: center
       h1
+        margin: 0 0 10px 0
+      p
         margin: 0px
 
     .thread-container
       .post-container
         position: relative
-        padding: 20px 30px
         background-color: #fff
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2)
         font-size: 1.3rem
         margin: 0 0 20px 0
-
+        border-radius: 10px
+        overflow: hidden
+        .post-header
+          background-color: var(--darker-main-color)
+          padding: 10px
+          display: flex
+          align-items: center
+          color: #fff
+          font-size: .9rem
+          .snap-container
+            display: block
+            overflow: hidden
+            border-radius: 100px
+            width: 70px
+            img
+              display: block
+              width: 100%
+          .username
+            display: block
+            margin: 0 0 0 20px
+        .post-body
+          padding: 20px
     .form-container
-      textarea
-        display: block
-        box-sizing: border-box
-        border: none
-        width: 100%
-        padding: 20px
-        font-family: "Space Mono", monospace
-        margin-bottom: 10px
-        font-size: 1rem
-        resize: none
-
       button[type="submit"]
         display: block
         width: 100%
@@ -73,7 +90,7 @@ body
         border-radius: 5px
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3)
         font-size: 1.5rem
-        font-family: "Space Mono", monospace
+        color: #FFF
         cursor: pointer
         padding: 15px 0
 
