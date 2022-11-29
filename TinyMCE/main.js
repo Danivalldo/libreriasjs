@@ -10,11 +10,11 @@ const init = async () => {
   console.log(richTextEditor);
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const inputPost = e.target.querySelector("#main-input");
-    if (!inputPost.value) {
+    const postBody = richTextEditor.getContent();
+    if (!postBody) {
       return;
     }
-    const post = postTemplate(inputPost.value);
+    const post = postTemplate(postBody);
     threadContainer.appendChild(post);
     richTextEditor.resetContent();
   });
