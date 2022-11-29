@@ -45,7 +45,11 @@ const launchMainInput = async (selector) => {
         "help",
         // "wordcount",
       ],
-      // toolbar: `undo redo | blocks | link`,
+      // images_upload_url: "postAcceptor.php",
+      images_upload_handler: (blobInfo, progress) =>
+        new Promise((resolve, reject) => {
+          resolve(`data:image/png;base64, ${blobInfo.base64()}`);
+        }),
       toolbar: `
         undo redo | blocks | 
         bold italic backcolor | alignleft aligncenter 
