@@ -19,9 +19,9 @@ import "tinymce/plugins/table";
 import "tinymce/plugins/image";
 import "tinymce/plugins/preview";
 
-const launchMainInput = async (selector) => {
+const launchTinyMCE = async (selector) => {
   try {
-    const mainInput = await tinymce.init({
+    await tinymce.init({
       selector,
       auto_focus: "main-input",
       promotion: false,
@@ -56,10 +56,10 @@ const launchMainInput = async (selector) => {
         fullscreen help
       `,
     });
-    return mainInput[0];
+    return tinymce.get(0);
   } catch (error) {
     console.log(error);
   }
 };
 
-export default launchMainInput;
+export default launchTinyMCE;
