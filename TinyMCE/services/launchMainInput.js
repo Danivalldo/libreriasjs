@@ -32,20 +32,13 @@ const launchMainInput = async (selector) => {
         "lists",
         "link",
         "image",
-        // "charmap",
         "preview",
-        // "anchor",
-        // "searchreplace",
-        // "visualblocks",
         "code",
         "fullscreen",
-        // "insertdatetime",
         "media",
         "table",
         "help",
-        // "wordcount",
       ],
-      // images_upload_url: "postAcceptor.php",
       images_upload_handler: (blobInfo, progress) =>
         new Promise((resolve, reject) => {
           resolve(`data:image/png;base64, ${blobInfo.base64()}`);
