@@ -6,27 +6,18 @@ import "tinymce/icons/default";
 import "tinymce/themes/silver";
 import "tinymce/models/dom";
 
-/* Import a skin (can be a custom skin instead of the default) */
-import "tinymce/skins/ui/oxide/skin.css";
-
 /* Import plugins */
 import "tinymce/plugins/fullscreen";
 import "tinymce/plugins/media";
 import "tinymce/plugins/help";
-// import "tinymce/plugins/advlist";
 import "tinymce/plugins/code";
-// import "tinymce/plugins/emoticons";
-// import "tinymce/plugins/emoticons/js/emojis";
+import "tinymce/plugins/emoticons";
+import "tinymce/plugins/emoticons/js/emojis";
 import "tinymce/plugins/link";
 import "tinymce/plugins/lists";
 import "tinymce/plugins/table";
 import "tinymce/plugins/image";
-
-/* content UI CSS is required */
-// import contentUiSkinCss from "tinymce/skins/ui/oxide/content.css";
-
-/* The default content CSS can be changed or replaced with appropriate CSS for the editor content. */
-// import contentCss from "tinymce/skins/content/default/content.css";
+import "tinymce/plugins/preview";
 
 const launchMainInput = async (selector) => {
   try {
@@ -34,20 +25,19 @@ const launchMainInput = async (selector) => {
       selector,
       promotion: false,
       branding: false,
+      skin: "CUSTOM",
+      content_css: "CUSTOM",
       plugins: [
-        // "advlist",
-        // "autolink",
-        // "emoticons",
-        // "emojis",
+        "emoticons",
         "lists",
         "link",
         "image",
         // "charmap",
-        // "preview",
+        "preview",
         // "anchor",
         // "searchreplace",
         // "visualblocks",
-        // "code",
+        "code",
         "fullscreen",
         // "insertdatetime",
         "media",
