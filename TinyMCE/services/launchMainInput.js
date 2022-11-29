@@ -23,10 +23,12 @@ const launchMainInput = async (selector) => {
   try {
     const mainInput = await tinymce.init({
       selector,
+      auto_focus: "main-input",
       promotion: false,
       branding: false,
       skin: "CUSTOM",
       content_css: "CUSTOM",
+      language: "es",
       plugins: [
         "emoticons",
         "lists",
