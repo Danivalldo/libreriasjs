@@ -46,10 +46,14 @@ const launchMainInput = async (selector) => {
           resolve(`data:image/png;base64, ${blobInfo.base64()}`);
         }),
       toolbar: `
-        undo redo | blocks | 
-        bold italic backcolor | alignleft aligncenter 
-        alignright alignjustify | bullist numlist outdent indent | 
-        removeformat | fullscreen help
+        undo redo | 
+        blocks |
+        image |
+        bold italic backcolor | 
+        alignleft aligncenter alignright alignjustify |
+        bullist numlist outdent indent | 
+        removeformat |
+        fullscreen help
       `,
     });
     return mainInput[0];
