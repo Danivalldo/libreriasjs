@@ -52,11 +52,6 @@ const launchMainInput = async (selector) => {
         alignright alignjustify | bullist numlist outdent indent | 
         removeformat | fullscreen help
       `,
-      // toolbar:
-      //   "undo redo | blocks | " +
-      //   "bold italic backcolor | alignleft aligncenter " +
-      //   "alignright alignjustify | bullist numlist outdent indent | " +
-      //   "removeformat | help",
     });
     return mainInput[0];
   } catch (error) {
