@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "currency.js": "^2.0.4",
+    "flag-icons": "^6.6.6",
     "sass": "^1.56.1"
   }
 }
