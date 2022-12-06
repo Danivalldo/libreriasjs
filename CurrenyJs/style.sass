@@ -28,7 +28,7 @@ h2
 
 .main-container
   position: relative
-  padding-top: 100px
+  padding: 100px 10px 30px 10px
   .input-container
     position: absolute
     transform: translateX(-50%)
@@ -68,7 +68,7 @@ h2
     &.selected
       .fi
         border: solid 5px #25e080
-        box-shadow: none
+        box-shadow: 0 0 10px rgb(31,230,97)
     .fi
       box-shadow: 0 2px 3px rgba(0,0,0,.2)
       display: block
@@ -76,6 +76,7 @@ h2
       height: 100px
       overflow: hidden
       border-radius: 20px
+      pointer-events: none
 #amount-formatted
   text-align: center
   font-size: clamp(30px, 10vw, 70px)
