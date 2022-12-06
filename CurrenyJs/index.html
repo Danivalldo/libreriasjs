@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vite App</title>
+		<title>CurrencyJs</title>
 	</head>
 	<body>
 		<div class="header">
@@ -13,19 +13,65 @@
 		<div class="main-container">
 			<div class="input-container">
 				<label for="amount-input">Importe (sin formato)</label>
-				<input id="amount-input" type="number" placeholder="1300.75" />
+				<input
+					id="amount-input"
+					type="number"
+					placeholder="por ejemplo 1300.75"
+					min="0"
+					step="0.01"
+					value="1300.75"
+				/>
 			</div>
 			<h2>Selecciona un país</h2>
 			<div class="flags-container">
-				<a href="#" class="flag-btn selected"
+				<a href="#" class="flag-btn selected" data-region="eu"
 					><span class="fi fi-eu fis"></span
 				></a>
-				<a href="#" class="flag-btn"><span class="fi fi-jp fis"></span></a>
-				<a href="#" class="flag-btn"><span class="fi fi-us fis"></span></a>
-				<a href="#" class="flag-btn"><span class="fi fi-cn fis"></span></a>
+				<a href="#" class="flag-btn" data-region="us"
+					><span class="fi fi-us fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="jp"
+					><span class="fi fi-jp fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="kr"
+					><span class="fi fi-kr fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="il"
+					><span class="fi fi-il fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="cn"
+					><span class="fi fi-cn fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="ma"
+					><span class="fi fi-ma fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="ph"
+					><span class="fi fi-ph fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="pl"
+					><span class="fi fi-pl fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="sa"
+					><span class="fi fi-sa fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="ch"
+					><span class="fi fi-ch fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="tw"
+					><span class="fi fi-tw fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="th"
+					><span class="fi fi-th fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="tr"
+					><span class="fi fi-tr fis"></span
+				></a>
+				<a href="#" class="flag-btn" data-region="gb"
+					><span class="fi fi-gb fis"></span
+				></a>
 			</div>
 			<h2>Resultado:</h2>
-			<div id="amount-formatted">1.300,75€</div>
+			<div id="amount-formatted">1.300,75 €</div>
 		</div>
 		<script type="module" src="/main.js"></script>
 	</body>
