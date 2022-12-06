@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div class="flags-container">
-      <a href="#" class="flag-btn"><span class="fi fi-eu fis"></span></a>
-      <a href="#" class="flag-btn"><span class="fi fi-jp fis"></span></a>
-      <a href="#" class="flag-btn"><span class="fi fi-us fis"></span></a>
-      <a href="#" class="flag-btn"><span class="fi fi-cn fis"></span></a>
-    </div>
-    <script type="module" src="/main.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite App</title>
+	</head>
+	<body>
+		<div class="header">
+			<h1>Divisa<span class="font-light">Format</span></h1>
+		</div>
+		<div class="main-container">
+			<div class="input-container">
+				<label for="amount-input">Importe (sin formato)</label>
+				<input id="amount-input" type="number" placeholder="1300.75" />
+			</div>
+			<h2>Selecciona el país</h2>
+			<div class="flags-container">
+				<a href="#" class="flag-btn selected"
+					><span class="fi fi-eu fis"></span
+				></a>
+				<a href="#" class="flag-btn"><span class="fi fi-jp fis"></span></a>
+				<a href="#" class="flag-btn"><span class="fi fi-us fis"></span></a>
+				<a href="#" class="flag-btn"><span class="fi fi-cn fis"></span></a>
+			</div>
+			<h2>Resultado:</h2>
+			<div id="amount-formatted">1.300,75€</div>
+		</div>
+		<script type="module" src="/main.js"></script>
+	</body>
 </html>
