@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": ".ts,.js",
+  "ignore": ["clients/*"],
+  "exec": "node --inspect -r ts-node/register -r dotenv/config ./src/index.ts dotenv_config_path=.env.local dotenv_config_debug=true"
+}
