@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start:dev": "concurrently --kill-others \"npm run start:dev-client\" \"npm run start:dev-server\" ",
     "start:dev-server": "npx nodemon",
