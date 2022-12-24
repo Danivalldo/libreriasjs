@@ -2,9 +2,9 @@ import express from "express";
 import helmet from "helmet";
 import bodyParser from "body-parser";
 import type { Request, Response, NextFunction } from "express";
-import { apiRouter } from "./middleware/api/index";
-import { isAuthMiddleware } from "./middleware/isAuth/index";
-import { signRouter } from "./middleware/sign/index";
+import { apiRouter } from "./middleware/api/index.js";
+import { isAuthMiddleware } from "./middleware/isAuth/index.js";
+import { signRouter } from "./middleware/sign/index.js";
 import path from "path";
 
 const app = express();

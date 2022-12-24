@@ -1,6 +1,6 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import { registerUser, validateLogin } from "../../services/users";
+import { registerUser, validateLogin } from "../../services/users.js";
 
 export const signRouter = express.Router();
 

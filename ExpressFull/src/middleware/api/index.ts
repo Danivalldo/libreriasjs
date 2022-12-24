@@ -4,7 +4,7 @@ import {
   addMovie,
   deleteMovie,
   updateMovie,
-} from "../../services/movies";
+} from "../../services/movies.js";
 
 export const apiRouter = express.Router();
 

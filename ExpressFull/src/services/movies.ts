@@ -1,8 +1,8 @@
-import mongoDbClient from "./mongoDbClient";
+import mongoDbClient from "./mongoDbClient.js";
 import crypto from "crypto";
 import { string, number, object } from "yup";
 import sanitizeHtml from "sanitize-html";
-import type { Movie, UpdateMovie } from "../types/custom";
+import type { Movie, UpdateMovie } from "../types/custom.js";
 
 const schemaNewMovie = object({
   id: string().uuid().required(),

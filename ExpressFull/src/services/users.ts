@@ -1,8 +1,8 @@
-import mongoDbClient from "./mongoDbClient";
+import mongoDbClient from "./mongoDbClient.js";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import { string, object } from "yup";
-import type { User } from "../types/custom";
+import type { User } from "../types/custom.js";
 
 const schemaUser = object({
   id: string().uuid().required(),
