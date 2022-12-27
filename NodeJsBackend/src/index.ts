@@ -1,5 +1,4 @@
-import { helloWorld, helloMochi } from "./helloWorldFunction.js";
-const mochiSalute: string = helloMochi();
-console.log("FOO", process.env.FOO);
+import { helloFoo } from "./helloWorldFunction.js";
+const fooSalute = helloFoo();
 debugger;
-helloWorld();
+console.log(fooSalute);
