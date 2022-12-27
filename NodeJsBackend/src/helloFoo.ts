@@ -1,3 +1,3 @@
 export const helloFoo: () => string = () => {
-  return `hello ${process.env.FOO}`;
+  return `Hello ${process.env.FOO}`;
 };
