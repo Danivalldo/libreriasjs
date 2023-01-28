@@ -4,7 +4,7 @@ The exercises of each post published in libreriasjs
 
 You can see each one of those exercises in action at https://libreriasjs.com
 
-To make most of them work it is necesary have [NodeJs]https://nodejs.org/en/) installed.
+To make most of them work it is necesary have [NodeJs](https://nodejs.org/en/) installed.
 Then use your favourite CLI terminal to go to the project folder you want to execute and install the dependencies with the following command:
 
 npm install
