@@ -14,6 +14,7 @@
   "dependencies": {
     "@google/model-viewer": "^2.1.1",
     "lottie-web": "^5.10.2",
+    "particlesjs": "^2.2.3",
     "reveal.js": "^4.4.0",
     "sass": "^1.57.1"
   }
