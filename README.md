@@ -4,6 +4,17 @@ The exercises of each post published in libreriasjs
 
 You can see each one of those exercises in action at https://libreriasjs.com
 
+To make most of them work it is necesary have [NodeJs]https://nodejs.org/en/) installed.
+Then use your favourite CLI terminal to go to the project folder you want to execute and install the dependencies with the following command:
+
+npm install
+
+This is required only once. After that, you should be able to launch the project using the command specified inside the package.json. Usually it is one of the followings:
+
+npm run dev or npm start
+
+If none of them works, and there is no README with more information inside the folder, feel free to DM me via [Instagram](https://www.instagram.com/libreriasjs/). I will be happy to help you.
+
 This is the list of the results achieved in each post:
 
 - AnimeJS [Article](https://libreriasjs.com/libreria-javascript-animaciones-animejs/) [Exercise](https://libreriasjs.com/exercises/anime-js/)
