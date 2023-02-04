@@ -2,13 +2,11 @@ import "./style.sass";
 import Reveal from "reveal.js";
 import "@lottiefiles/lottie-player";
 import Particles from "particlesjs";
-import Notes from "reveal.js/plugin/notes/notes.esm";
 import "@google/model-viewer";
 
 let particles = undefined;
 
 const deck = new Reveal({
-  plugins: [Notes],
   hash: true,
   respondToHashChanges: true,
   history: true,
