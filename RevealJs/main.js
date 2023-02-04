@@ -4,13 +4,13 @@ import "@lottiefiles/lottie-player";
 import Particles from "particlesjs";
 import "@google/model-viewer";
 
-let particles = undefined;
-
 const deck = new Reveal({
   hash: true,
   respondToHashChanges: true,
   history: true,
 });
+
+let particles = undefined;
 
 deck.on("slidechanged", (event) => {
   if (event.indexh === 4 && event.indexv === 1) {
