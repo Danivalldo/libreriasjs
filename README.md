@@ -40,6 +40,7 @@ This is the list of the results achieved in each post:
 - P5js [Article](https://libreriasjs.com/libreria-javascript-arte-p5js/) [Exercise](https://libreriasjs.com/exercises/p5js/)
 - PNotifications (Notificiaciones Push con Cloud Messaging) [Article](https://libreriasjs.com/notificaciones-push-javascript-cloud-messaging/) [Exercise](https://github.com/Danivalldo/libreriasjs/tree/master/PNotifications)
 - PhaserJs [Article](https://libreriasjs.com/libreria-javascript-crear-videojuegos-phaser/) [Exercise](https://libreriasjs.com/exercises/phaser/)
+- RevealJs [Article](https://libreriasjs.com/libreria-javascript-presentaciones-revealjs/) [Exercise](https://libreriasjs.com/exercises/revealjs/#/)
 - RoughViz [Article](https://libreriasjs.com/libreria-javascript-crear-graficos-roughviz/) [Exercise](https://libreriasjs.com/exercises/roughviz/)
 - SheperdJs [Article](https://libreriasjs.com/libreria-javascript-guia-usuarios-shepherdjs/) [Exercise](https://libreriasjs.com/exercises/shepherdjs/)
 - SuperExpressive [Article](https://libreriasjs.com/libreria-javascript-regex-superexpressive/) [Exercise](https://libreriasjs.com/exercises/super-expressive/)
