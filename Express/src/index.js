@@ -1,12 +1,42 @@
 import express from "express";
+import helmet from "helmet";
+import bodyParser from "body-parser";
+import { apiRouter } from "./middleware/api/index.js";
 
 const app = express();
-const PORT = 6006;
+app.use(helmet());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get("/", (req, res, next) => {
   res.status(200).send("<h1>Hello world!</h1>");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on: http://localhost:${PORT}/`);
+app.post("/user", (req, res, next) => {
+  const { name, username, age } = req.body;
+
+  if (!name || !username || !age) {
+    return next();
+  }
+
+  res.status(200).send(`
+    <div>
+      <h1>Datos de usuario recibidos:</h1>
+      <ul>
+        <li>Nombre: ${name}</li>
+        <li>Usuario: ${username}</li>
+        <li>Edad: ${age}</li>
+      </ul>
+    </div>
+  `);
+});
+
+app.use("/api", apiRouter);
+
+app.use((req, res) => {
+  res.status(404).send("<h1>404 - Page not found</h1>");
+});
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on: http://localhost:${process.env.PORT}/`);
 });
