@@ -15,6 +15,10 @@ npm run dev or npm start
 
 If none of them works, and there is no README with more information inside the folder, feel free to DM me via [Instagram](https://www.instagram.com/libreriasjs/). I will be happy to help you.
 
+If you need to download only ONE folder of this repo, feel free to use the following online tool:
+
+[Download one folder from Github Repo](https://download-directory.github.io/) 
+
 This is the list of the results achieved in each post:
 
 - AnimeJS [Article](https://libreriasjs.com/libreria-javascript-animaciones-animejs/) [Exercise](https://libreriasjs.com/exercises/anime-js/)
