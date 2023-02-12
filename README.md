@@ -1,6 +1,6 @@
 # libreriasjs
 
-The exercises of each post published in libreriasjs
+The exercises of each post published in libreriasjs.com
 
 You can see each one of those exercises in action at https://libreriasjs.com
 
@@ -33,7 +33,7 @@ This is the list of the results achieved in each post:
 - DayJs [Article](https://libreriasjs.com/libreria-javascript-fechas-dayjs/) [Exercise](https://codepen.io/Danivalldo/pen/NWajGoo)
 - Draggable [Article](https://libreriasjs.com/libreria-javascript-drag-and-drop-draggable/) [Exercise](https://codepen.io/Danivalldo/pen/NWajvWJ)
 - FileSaverJs [Article](https://libreriasjs.com/libreria-javascript-descargar-archivos-filesaver/) [Exercise](https://libreriasjs.com/exercises/file-saver/)
-- FileSaverJs [Article](https://libreriasjs.com/crear-aplicaciones-fullstack-javascript-firebase/) [Exercise](https://libreriasjs.com/exercises/firebase/)
+- Firebase [Article](https://libreriasjs.com/crear-aplicaciones-fullstack-javascript-firebase/) [Exercise](https://libreriasjs.com/exercises/firebase/)
 - HTML2Canvas [Article](https://libreriasjs.com/libreria-javascript-captura-pantalla-html-2-canvas/) [Exercise](https://libreriasjs.com/exercises/html2canvas/)
 - HammerJs [Article](https://libreriasjs.com/libreria-javascript-interacciones-hammerjs/) [Exercise](https://codepen.io/Danivalldo/pen/abLWyOp)
 - JsPDF [Article](https://libreriasjs.com/libreria-javascript-crear-pdf-jspdf/) [Exercise](https://libreriasjs.com/exercises/js-pdf/)
