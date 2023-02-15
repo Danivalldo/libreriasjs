@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body class="bg-dotted-spacing-8 bg-dotted-slate-800 bg-slate-900">
+    <div
+      id="app"
+      class="text-slate-800 m-auto max-w-xl min-h-screen flex flex-col justify-center"
+    >
+      <div
+        class="bg-slate-50 p-5 rounded shadow-sm text-center mb-2 get-container"
+      >
+        <h1 class="text-xl font-bold font-sans mb-5">
+          Ejemplo petición
+          <span class="underline decoration-indigo-500 underline-offset-4"
+            >GET</span
+          >
+        </h1>
+        <pre
+          class="text-left bg-slate-900 text-white overflow-y-scroll min-h-[100px] block mb-5 rounded p-5"
+        >
+La respuesta se mostrará aquí
+        </pre>
+        <div>
+          <button
+            id="get-data-btn"
+            class="bg-indigo-500 text-white rounded-md px-5 py-2 hover:bg-indigo-400"
+          >
+            Pedir datos
+          </button>
+        </div>
+      </div>
+      <div class="bg-slate-50 p-5 rounded shadow-sm text-center post-container">
+        <h1 class="text-xl font-bold font-sans mb-5">
+          Ejemplo petición
+          <span class="underline decoration-indigo-500 underline-offset-4"
+            >POST</span
+          >
+        </h1>
+        <pre
+          class="text-left bg-slate-900 text-white overflow-y-scroll min-h-[100px] block mb-5 rounded p-5"
+          contenteditable="true"
+          autofocus
+        >
+{ 
+  "name": "LibreriasJs",
+  "username": "@libreriasjs",
+  "website": "libreriasjs.com"
+}</pre
+        >
+        <hr />
+        <pre
+          class="text-left bg-slate-900 text-white overflow-y-scroll min-h-[100px] block mb-5 rounded p-5"
+        >
+Edita el JSON y envíalo al backend. La respuesta se mostrará aquí</pre
+        >
+        <div>
+          <button
+            class="bg-indigo-500 text-white rounded-md px-5 py-2 hover:bg-indigo-400"
+            id="send-data-btn"
+          >
+            Enviar datos
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

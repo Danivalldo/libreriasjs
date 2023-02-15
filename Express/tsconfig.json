@@ -1,5 +1,5 @@
 {
-  "exclude": ["./build", "jest.config.ts", "./test"],
+  "exclude": ["./build", "jest.config.ts", "./test", "./frontend"],
   "ts-node": { "files": true },
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
