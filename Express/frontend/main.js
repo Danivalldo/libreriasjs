@@ -18,11 +18,12 @@ getDataBtn.addEventListener("click", async (e) => {
 
 sendDataBtn.addEventListener("click", async (e) => {
   let body;
-  const preContainers = e.target
+  const preContainer = e.target.closest(".post-container").querySelector("pre");
+  const inputContainer = e.target
     .closest(".post-container")
-    .querySelectorAll("pre");
+    .querySelector("textarea");
   try {
-    body = JSON.parse(preContainers[0].innerHTML);
+    body = JSON.parse(inputContainer.value.trim());
   } catch (err) {
     console.log(err.message);
     return alert("It is not a valid JSON");
@@ -36,9 +37,9 @@ sendDataBtn.addEventListener("click", async (e) => {
       body: JSON.stringify(body),
     });
     const data = await response.json();
-    preContainers[1].innerHTML = JSON.stringify(data);
+    preContainer.innerHTML = JSON.stringify(data);
   } catch (err) {
     alert("There was an error");
-    preContainers[1].innerHTML = err.message;
+    preContainer.innerHTML = err.message;
   }
 });
