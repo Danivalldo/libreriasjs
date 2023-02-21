@@ -2,15 +2,16 @@ import express from "express";
 import helmet from "helmet";
 import bodyParser from "body-parser";
 import { apiRouter } from "./middleware/api/index.js";
+import path from "path";
 
 const app = express();
+const publicFolder = path.join(".", "frontend", "dist");
+
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res, next) => {
-  res.status(200).send("<h1>Hello world!</h1>");
-});
+app.use(express.static(publicFolder));
 
 app.post("/user", (req, res, next) => {
   const { name, username, age } = req.body;
