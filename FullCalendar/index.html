@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header">
+        <img src="./imgs/calendar.svg" class="logo" alt="" />
+        <h1>Mi calendario</h1>
+      </div>
+      <div class="calendar-container"></div>
+      <footer class="footer">
+        <a href="https://libreriasjs.com">www.libreriasjs.com</a>
+      </footer>
+    </div>
+    <dile-modal id="event-modal">
+      <form>
+        <input type="text" placeholder="Nombre del evento" name="name" />
+        <textarea name="description" id="" cols="30" rows="10"></textarea>
+        <button type="submit">Guardar</button>
+      </form>
+    </dile-modal>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
