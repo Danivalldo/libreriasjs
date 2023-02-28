@@ -17,10 +17,16 @@
         <a href="https://libreriasjs.com">www.libreriasjs.com</a>
       </footer>
     </div>
-    <dile-modal id="event-modal">
+    <dile-modal id="event-modal" class="modal-container">
       <form>
-        <input type="text" placeholder="Nombre del evento" name="name" />
-        <textarea name="description" id="" cols="30" rows="10"></textarea>
+        <input type="text" placeholder="Nombre del evento" name="eventName" />
+        <textarea
+          name="eventDescription"
+          id=""
+          cols="30"
+          rows="8"
+          placeholder="Descripción del evento"
+        ></textarea>
         <button type="submit">Guardar</button>
       </form>
     </dile-modal>

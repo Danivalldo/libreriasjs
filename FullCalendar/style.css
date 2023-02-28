@@ -3,6 +3,10 @@
 :root {
   --mainColor: #5b48d9;
   --mainColorDarker: #3f3197;
+  --dile-modal-border-radius: 5px;
+  --dile-modal-content-shadow-displacement: 0px;
+  --dile-modal-content-shadow-blur: 30px;
+  --dile-modal-content-shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -58,4 +62,21 @@ body {
 .main-container .footer a {
   color: #fff;
   text-decoration: none;
+}
+
+.modal-container input,
+.modal-container textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-container button {
+  display: block;
+  padding: 10px 40px;
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--mainColor);
+  border: none;
+  width: 100%;
 }
