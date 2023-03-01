@@ -3,10 +3,15 @@
 :root {
   --mainColor: #5b48d9;
   --mainColorDarker: #3f3197;
+  --mainColorLighter: #7e6deb;
+  --dangerColor: #d53b3b;
   --dile-modal-border-radius: 5px;
   --dile-modal-content-shadow-displacement: 0px;
   --dile-modal-content-shadow-blur: 30px;
   --dile-modal-content-shadow-color: rgba(0, 0, 0, 0.2);
+  --dile-modal-width: 500px;
+  --fc-event-bg-color: var(--mainColor);
+  --fc-event-border-color: var(--mainColorLighter);
 }
 
 body {
@@ -71,12 +76,24 @@ body {
   box-sizing: border-box;
 }
 
+.modal-container .btns-container {
+  display: flex;
+}
+
 .modal-container button {
   display: block;
-  padding: 10px 40px;
+  padding: 10px 25px;
   cursor: pointer;
   color: #fff;
+  flex: 1;
   background-color: var(--mainColor);
   border: none;
-  width: 100%;
+}
+
+.modal-container button.delete-event-btn {
+  background-color: var(--dangerColor);
+}
+
+.d-none {
+  display: none !important;
 }
