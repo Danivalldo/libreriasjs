@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>FullCalendar</title>
   </head>
   <body>
     <div class="main-container">
@@ -19,15 +19,20 @@
     </div>
     <dile-modal id="event-modal" class="modal-container">
       <form>
-        <input type="text" placeholder="Nombre del evento" name="eventName" />
+        <input type="text" placeholder="Nombre del evento" name="title" />
         <textarea
-          name="eventDescription"
+          name="description"
           id=""
           cols="30"
           rows="8"
           placeholder="Descripción del evento"
         ></textarea>
-        <button type="submit">Guardar</button>
+        <div class="btns-container">
+          <button type="submit">Guardar</button>
+          <button type="button" class="delete-event-btn d-none">
+            Eliminar
+          </button>
+        </div>
       </form>
     </dile-modal>
     <script type="module" src="/main.js"></script>
