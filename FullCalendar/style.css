@@ -10,6 +10,7 @@
   --dile-modal-content-shadow-blur: 30px;
   --dile-modal-content-shadow-color: rgba(0, 0, 0, 0.2);
   --dile-modal-width: 500px;
+  --dile-modal-content-padding: 20px;
   --fc-event-bg-color: var(--mainColor);
   --fc-event-border-color: var(--mainColorLighter);
 }
@@ -69,11 +70,21 @@ body {
   text-decoration: none;
 }
 
+.modal-container h2 {
+  color: var(--mainColor);
+  text-align: center;
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+}
+
 .modal-container input,
 .modal-container textarea {
   display: block;
   width: 100%;
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .modal-container .btns-container {
@@ -82,12 +93,15 @@ body {
 
 .modal-container button {
   display: block;
-  padding: 10px 25px;
+  padding: 15px 25px;
   cursor: pointer;
+  font-size: 1rem;
   color: #fff;
   flex: 1;
   background-color: var(--mainColor);
   border: none;
+  border-radius: 4px;
+  margin: 5px;
 }
 
 .modal-container button.delete-event-btn {
