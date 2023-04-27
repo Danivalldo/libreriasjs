@@ -1,0 +1,7 @@
+body {
+  background-color: rgb(252, 255, 255);
+}
+
+.gantt .grid .weekend-highlight {
+  fill: #a4a3ff52;
+}
