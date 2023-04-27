@@ -9,8 +9,25 @@
   <body>
     <div class="toolbar">
       <div>
-        <input type="range" min="5" max="100" id="colWidthInput" />
-        <input type="range" min="5" max="100" id="rowHeightInput" />
+        <dile-menu-overlay>
+          <span slot="trigger">Opciones</span>
+          <div slot="content">
+            <ul>
+              <li>
+                <input type="range" min="5" max="100" id="colWidthInput" />
+              </li>
+              <li>
+                <input type="range" min="5" max="100" id="rowHeightInput" />
+              </li>
+              <li>
+                <input type="checkbox" id="hideLabelsInput" />
+              </li>
+              <li>
+                <input type="checkbox" id="hideArrowsInput" />
+              </li>
+            </ul>
+          </div>
+        </dile-menu-overlay>
       </div>
     </div>
     <div id="planner-container"></div>

@@ -189,6 +189,14 @@ class GanttService {
     }
   };
 
+  toggleLabels() {
+    this.gantt.$svg.classList.toggle("hide-labels");
+  }
+
+  toogleArrows() {
+    this.gantt.$svg.classList.toggle("hide-arrows");
+  }
+
   destroy() {
     this.currentAction = null;
     this.eventTriggers = {};
