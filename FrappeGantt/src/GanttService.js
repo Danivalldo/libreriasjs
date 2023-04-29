@@ -99,7 +99,7 @@ class GanttService {
     this.currentAction = null;
   }
 
-  onPointerLeave(e) {}
+  onPointerLeave(e) { }
 
   onClick(e) {
     if (this.currentAction || !e.target) return;
@@ -128,32 +128,27 @@ class GanttService {
 
   changeView(viewMode) {
     this.gantt.change_view_mode(viewMode);
-    this.gantt.render();
-    this.makeGridWeekendHighlights();
+    this.updateGantt();
   }
 
   updateHeight(barHeight) {
     this.gantt.options.bar_height = barHeight;
-    this.gantt.render();
-    this.makeGridWeekendHighlights();
+    this.updateGantt();
   }
 
   updateColumnWidth(columnWidth) {
     this.gantt.options.column_width = columnWidth;
-    this.gantt.render();
-    this.makeGridWeekendHighlights();
+    this.updateGantt();
   }
 
   updateHeaderHeight(headerHeight) {
     this.gantt.options.header_height = headerHeight;
-    this.gantt.render();
-    this.makeGridWeekendHighlights();
+    this.updateGantt();
   }
 
   updateLanguage(lang) {
     this.gantt.options.language = lang;
-    this.gantt.render();
-    this.makeGridWeekendHighlights();
+    this.updateGantt();
   }
 
   updateCustomPopup(customPopup) {
@@ -161,12 +156,17 @@ class GanttService {
     this.gantt.popup = undefined;
   }
 
+  updateGantt() {
+    this.gantt.render();
+    this.makeGridWeekendHighlights();
+  }
+
   makeGridWeekendHighlights = () => {
     if (this.gantt.view_is("Day")) {
       const width = this.gantt.options.column_width;
       const height =
         (this.gantt.options.bar_height + this.gantt.options.padding) *
-          this.gantt.tasks.length +
+        this.gantt.tasks.length +
         this.gantt.options.header_height +
         this.gantt.options.padding / 2;
 

@@ -1,4 +1,14 @@
-import "@dile/dile-menu-overlay/dile-menu-overlay";
+import '@shoelace-style/shoelace/dist/themes/light.css';
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/split-panel/split-panel.js';
+import '@shoelace-style/shoelace/dist/components/range/range.js';
+import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
+import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
+// import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
+
+// Set the base path to the folder you copied Shoelace's assets to
+// setBasePath('/path/to/shoelace/dist');
+
 import GanttService from "./src/GanttService";
 import "./style.css";
 
@@ -7,7 +17,7 @@ const rowHeightInput = document.querySelector("#rowHeightInput");
 const hideLabelsInput = document.querySelector("#hideLabelsInput");
 const hideArrowsInput = document.querySelector("#hideArrowsInput");
 
-const ganttSrv = new GanttService("#planner-container", [
+const ganttSrv = new GanttService("#gantt-container", [
   {
     id: "Task 1",
     name: "Task 1",
@@ -30,6 +40,10 @@ const ganttSrv = new GanttService("#planner-container", [
   },
 ]);
 
+window.addEventListener('load', () => {
+  ganttSrv.updateGantt();
+})
+
 colWidthInput.addEventListener("input", (e) => {
   ganttSrv.updateColumnWidth(Number(e.currentTarget.value));
 });
@@ -38,10 +52,10 @@ rowHeightInput.addEventListener("input", (e) => {
   ganttSrv.updateHeight(Number(e.currentTarget.value));
 });
 
-hideLabelsInput.addEventListener("change", (e) => {
+hideLabelsInput.addEventListener("sl-change", (e) => {
   ganttSrv.toggleLabels();
 });
 
-hideArrowsInput.addEventListener("change", (e) => {
+hideArrowsInput.addEventListener("sl-change", (e) => {
   ganttSrv.toogleArrows();
 });

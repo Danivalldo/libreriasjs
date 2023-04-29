@@ -9,28 +9,45 @@
   <body>
     <div class="toolbar">
       <div>
-        <dile-menu-overlay>
+        <sl-dropdown>
           <span slot="trigger">Opciones</span>
-          <div slot="content">
+          <div>
             <ul>
               <li>
-                <input type="range" min="5" max="100" id="colWidthInput" />
+                <sl-range
+                  id="colWidthInput"
+                  label="Ancho columna"
+                  min="5"
+                  max="100"
+                ></sl-range>
               </li>
               <li>
-                <input type="range" min="5" max="100" id="rowHeightInput" />
+                <sl-range
+                  id="rowHeightInput"
+                  label="Alto filas"
+                  min="5"
+                  max="100"
+                ></sl-range>
               </li>
               <li>
-                <input type="checkbox" id="hideLabelsInput" />
+                <!-- <input type="checkbox" id="hideLabelsInput" /> -->
+                <sl-checkbox id="hideLabelsInput">Hide Labels</sl-checkbox>
               </li>
               <li>
-                <input type="checkbox" id="hideArrowsInput" />
+                <!-- <input type="checkbox" id="hideArrowsInput" /> -->
+                <sl-checkbox id="hideArrowsInput">Hide Arrows</sl-checkbox>
               </li>
             </ul>
           </div>
-        </dile-menu-overlay>
+        </sl-dropdown>
       </div>
     </div>
-    <div id="planner-container"></div>
+    <div id="planner-container">
+      <sl-split-panel>
+        <div slot="start" id="table-container"></div>
+        <div slot="end" id="gantt-container"></div>
+      </sl-split-panel>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

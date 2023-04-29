@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@dile/dile-menu-overlay": "^3.0.7",
+    "@shoelace-style/shoelace": "^2.4.0",
     "frappe-gantt": "^0.6.1",
     "sass": "^1.62.1",
     "vite": "^4.3.2"

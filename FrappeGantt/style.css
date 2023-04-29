@@ -2,6 +2,15 @@ body {
   background-color: rgb(252, 255, 255);
 }
 
+#planner-container {
+  width: 100%;
+}
+
+#gantt-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .gantt .grid .weekend-highlight {
   fill: #a4a3ff52;
 }
