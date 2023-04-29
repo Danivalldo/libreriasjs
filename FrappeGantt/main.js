@@ -24,7 +24,6 @@ const dialog = document.querySelector('#dialog');
 const keyFilterInput = document.querySelector('#keyFilterInput');
 const viewModeSelect = document.querySelector('#select-view-mode');
 
-
 const tasks = [
   {
     id: "Task 1",
@@ -48,11 +47,23 @@ const tasks = [
   },
 ];
 
+const filters = {
+  filterKey: '',
+  dateStartFilter: undefined,
+  dateEndFilter: undefined,
+}
+
 const ganttSrv = new GanttService("#gantt-container", tasks);
 
 ganttSrv.on('clicktask', () => {
   dialog.show();
-})
+});
+
+ganttSrv.on('changeprogress', (taskId, progress) => {
+
+});
+
+ganttSrv.on('changedate', () => { debugger })
 
 const picker = new Litepicker({
   plugins: ['mobilefriendly'],
@@ -61,19 +72,34 @@ const picker = new Litepicker({
   singleMode: false,
 });
 
-picker.on('selected', (date1, date2) => {
-  const dStartFilter = dayjs(date1.dateInstance);
-  const dEndFilter = dayjs(date2.dateInstance);
-  const filteredTasks = tasks.filter((task) => {
+const applyFilters = () => {
+  const dStartFilter = dayjs(filters.dateStartFilter);
+  const dEndFilter = dayjs(filters.dateEndFilter);
+  return tasks.filter(task => task.name.includes(filters.filterKey)).filter((task) => {
+    if (!filters.dateStartFilter || !filters.dateStartFilter) return true;
     const dStartTask = dayjs(task.start);
     const dEndTask = dayjs(task.end);
     return dStartFilter.isBefore(dEndTask) && dEndFilter.isAfter(dStartTask);
-  });
-  ganttSrv.updateTasks(filteredTasks);
+  })
+};
+
+picker.on('selected', (date1, date2) => {
+  filters.dateStartFilter = date1.dateInstance;
+  filters.dateEndFilter = date2.dateInstance;
+  ganttSrv.updateTasks(applyFilters());
 });
 
+
+
 picker.on('clear:selection', () => {
-  ganttSrv.updateTasks([...tasks]);
+  filters.dateStartFilter = undefined;
+  filters.dateEndFilter = undefined;
+  ganttSrv.updateTasks(applyFilters());
+});
+
+keyFilterInput.addEventListener('sl-input', (e) => {
+  filters.filterKey = e.target.value;
+  ganttSrv.updateTasks(applyFilters());
 });
 
 window.addEventListener('load', () => {
@@ -100,12 +126,7 @@ createTaskBtn.addEventListener('click', () => {
   dialog.show();
 });
 
-keyFilterInput.addEventListener('sl-input', (e) => {
-  const filterKey = e.target.value;
-  ganttSrv.updateTasks(tasks.filter(task => task.name.includes(filterKey)))
-});
-
 viewModeSelect.addEventListener('sl-change', (e) => {
   const viewMode = e.target.value;
   ganttSrv.changeView(viewMode);
-})
+});

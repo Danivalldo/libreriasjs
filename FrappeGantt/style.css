@@ -15,6 +15,10 @@ body {
   display: flex;
 }
 
+.toolbar > div {
+  padding: 10px;
+}
+
 .gantt .grid .weekend-highlight {
   fill: #a4a3ff52;
 }
