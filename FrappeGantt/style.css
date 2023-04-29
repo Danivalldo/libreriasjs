@@ -11,6 +11,10 @@ body {
   overflow-x: hidden;
 }
 
+.toolbar {
+  display: flex;
+}
+
 .gantt .grid .weekend-highlight {
   fill: #a4a3ff52;
 }

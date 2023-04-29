@@ -9,8 +9,11 @@
   <body>
     <div class="toolbar">
       <div>
+        <sl-button variant="primary">Create Task</sl-button>
+      </div>
+      <div>
         <sl-dropdown>
-          <span slot="trigger">Opciones</span>
+          <sl-button slot="trigger">Opciones</sl-button>
           <div>
             <ul>
               <li>
@@ -30,16 +33,17 @@
                 ></sl-range>
               </li>
               <li>
-                <!-- <input type="checkbox" id="hideLabelsInput" /> -->
                 <sl-checkbox id="hideLabelsInput">Hide Labels</sl-checkbox>
               </li>
               <li>
-                <!-- <input type="checkbox" id="hideArrowsInput" /> -->
                 <sl-checkbox id="hideArrowsInput">Hide Arrows</sl-checkbox>
               </li>
             </ul>
           </div>
         </sl-dropdown>
+      </div>
+      <div>
+        <sl-input placeholder="Filter by name" clearable></sl-input>
       </div>
     </div>
     <div id="planner-container">
