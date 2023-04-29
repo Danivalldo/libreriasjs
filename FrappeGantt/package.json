@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@shoelace-style/shoelace": "^2.4.0",
+    "dayjs": "^1.11.7",
     "frappe-gantt": "^0.6.1",
+    "litepicker": "^2.0.12",
     "sass": "^1.62.1",
     "vite": "^4.3.2"
   }

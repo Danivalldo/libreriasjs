@@ -9,7 +9,9 @@
   <body>
     <div class="toolbar">
       <div>
-        <sl-button variant="primary">Create Task</sl-button>
+        <sl-button id="create-task-btn" variant="primary"
+          >Create Task</sl-button
+        >
       </div>
       <div>
         <sl-dropdown>
@@ -43,7 +45,26 @@
         </sl-dropdown>
       </div>
       <div>
-        <sl-input placeholder="Filter by name" clearable></sl-input>
+        <sl-select id="select-view-mode" placeholder="View Mode">
+          <sl-option value="Day">Day</sl-option>
+          <sl-option value="Week">Week</sl-option>
+          <sl-option value="Month">Month</sl-option>
+          <sl-option value="Year">Year</sl-option>
+        </sl-select>
+      </div>
+      <div>
+        <sl-input
+          id="keyFilterInput"
+          placeholder="Filter by name"
+          clearable
+        ></sl-input>
+      </div>
+      <div>
+        <input
+          type="text"
+          id="date-filters-input"
+          placeholder="Filter by dates"
+        />
       </div>
     </div>
     <div id="planner-container">
@@ -52,6 +73,10 @@
         <div slot="end" id="gantt-container"></div>
       </sl-split-panel>
     </div>
+    <sl-dialog id="dialog" label="Dialog" class="dialog-overview">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      <sl-button slot="footer" variant="primary">Close</sl-button>
+    </sl-dialog>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

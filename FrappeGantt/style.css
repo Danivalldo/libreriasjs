@@ -36,3 +36,28 @@ ul {
 ul li {
   display: block;
 }
+
+#date-filters-input {
+  flex: 1 1 auto;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  min-width: 0px;
+  height: 100%;
+  color: var(--sl-input-color);
+  background: none;
+  box-shadow: none;
+  padding: 0px;
+  margin: 0px;
+  cursor: inherit;
+  appearance: none;
+  height: calc(
+    var(--sl-input-height-medium) - var(--sl-input-border-width) * 2
+  );
+  padding: 0 var(--sl-input-spacing-medium);
+  font-family: var(--sl-input-font-family);
+  font-weight: var(--sl-input-font-weight);
+  letter-spacing: var(--sl-input-letter-spacing);
+  border: solid 1px #d4d4d8;
+  border-radius: 5px;
+}
