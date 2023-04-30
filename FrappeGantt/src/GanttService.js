@@ -69,11 +69,7 @@ class GanttService {
   }
 
   onPointerUp(e) {
-    // console.log(e.target);
     if (!this.currentAction) return;
-    // const task = this.gantt.tasks.find(
-    //   (task: Task) => task.id === this.currentAction?.taskId
-    // );
     const taskEl = this.gantt.$svg.querySelector(
       `[data-id="${this.currentAction.taskId}"]`
     );
@@ -93,7 +89,6 @@ class GanttService {
             progress: percentage,
           });
         }
-        // console.log("dragEnd", task);
         break;
     }
     this.currentAction = null;

@@ -68,15 +68,21 @@
         />
       </div>
     </div>
-    <div id="planner-container">
-      <sl-split-panel>
-        <div slot="start" id="table-container"></div>
-        <div slot="end" id="gantt-container"></div>
-      </sl-split-panel>
-    </div>
+    <div slot="end" id="gantt-container"></div>
     <sl-dialog id="dialog" label="Dialog" class="dialog-overview">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      <sl-button slot="footer" variant="primary">Close</sl-button>
+      <sl-input label="Name" name="name"></sl-input>
+      <sl-button id="createBtn" slot="footer" variant="primary"
+        >Close</sl-button
+      >
+      <sl-button id="deleteBtn" slot="footer" variant="secondary"
+        >Delete</sl-button
+      >
+      <sl-select
+        label="Select dependencies"
+        name="dependencies"
+        multiple
+        clearable
+      ></sl-select>
     </sl-dialog>
     <script type="module" src="/main.js"></script>
   </body>

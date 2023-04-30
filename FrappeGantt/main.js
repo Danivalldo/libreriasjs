@@ -15,6 +15,7 @@ import GanttService from "./src/GanttService";
 
 import "./style.css";
 
+
 const colWidthInput = document.querySelector("#colWidthInput");
 const rowHeightInput = document.querySelector("#rowHeightInput");
 const hideLabelsInput = document.querySelector("#hideLabelsInput");
@@ -26,7 +27,7 @@ const viewModeSelect = document.querySelector('#select-view-mode');
 
 const tasks = [
   {
-    id: "Task 1",
+    id: "task-1",
     name: "Task 1",
     start: "2023-04-19",
     end: "2023-04-21",
@@ -36,12 +37,12 @@ const tasks = [
     type: "workOrder",
   },
   {
-    id: "Task 2",
+    id: "task-2",
     name: "Task 2",
     start: "2023-04-30",
     end: "2023-05-05",
     progress: 50,
-    dependencies: "Task 1",
+    dependencies: "task-1",
     custom_class: "hidden",
     type: "workOrder",
   },
@@ -55,7 +56,13 @@ const filters = {
 
 const ganttSrv = new GanttService("#gantt-container", tasks);
 
-ganttSrv.on('clicktask', () => {
+
+ganttSrv.on('clicktask', (taskId) => {
+  const task = tasks.find(task => task.id === taskId);
+  dialog.setAttribute('label', `Edit ${task.name}`);
+  const dependencySelect = dialog.querySelector('sl-select[name="dependencies"]');
+  dependencySelect.value = task.dependencies.concat(' ');
+  dialog.querySelector('sl-input[name="name"]').value = task.name;
   dialog.show();
 });
 
@@ -83,13 +90,23 @@ const applyFilters = () => {
   })
 };
 
+const updateSelectDependencies = () => {
+  const dependencySelect = dialog.querySelector('sl-select[name="dependencies"]');
+  dependencySelect.innerHTML = '';
+  for (let i = 0, j = tasks.length; i < j; i++) {
+    const task = tasks[i];
+    const option = document.createElement('sl-option');
+    option.setAttribute('value', task.id);
+    option.innerHTML = task.name;
+    dependencySelect.appendChild(option);
+  }
+}
+
 picker.on('selected', (date1, date2) => {
   filters.dateStartFilter = date1.dateInstance;
   filters.dateEndFilter = date2.dateInstance;
   ganttSrv.updateTasks(applyFilters());
 });
-
-
 
 picker.on('clear:selection', () => {
   filters.dateStartFilter = undefined;
@@ -123,6 +140,10 @@ hideArrowsInput.addEventListener("sl-change", (e) => {
 });
 
 createTaskBtn.addEventListener('click', () => {
+  dialog.setAttribute('label', 'Create new task');
+  const dependencySelect = dialog.querySelector('sl-select[name="dependencies"]');
+  dependencySelect.value = '';
+  dialog.querySelector('sl-input[name="name"]').value = '';
   dialog.show();
 });
 
@@ -130,3 +151,5 @@ viewModeSelect.addEventListener('sl-change', (e) => {
   const viewMode = e.target.value;
   ganttSrv.changeView(viewMode);
 });
+
+updateSelectDependencies();
