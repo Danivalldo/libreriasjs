@@ -12,6 +12,7 @@ import Litepicker from "litepicker";
 import "litepicker/dist/plugins/mobilefriendly";
 import dayjs from "dayjs";
 import GanttService from "./src/GanttService";
+import { v4 as uuid } from "uuid";
 
 import "./style.css";
 
@@ -24,7 +25,7 @@ const dialog = document.querySelector("#dialog");
 const keyFilterInput = document.querySelector("#keyFilterInput");
 const viewModeSelect = document.querySelector("#select-view-mode");
 
-const tasks = [
+let tasks = [
   {
     id: "task-1",
     name: "Task 1",
@@ -32,7 +33,6 @@ const tasks = [
     end: "2023-04-21",
     progress: 50,
     dependencies: "",
-    custom_class: "hidden",
     type: "workOrder",
   },
   {
@@ -42,7 +42,6 @@ const tasks = [
     end: "2023-05-05",
     progress: 50,
     dependencies: "task-1",
-    custom_class: "hidden",
     type: "workOrder",
   },
 ];
@@ -63,6 +62,10 @@ ganttSrv.on("clicktask", (taskId) => {
   );
   dependencySelect.value = task.dependencies.concat(" ");
   dialog.querySelector('sl-input[name="name"]').value = task.name;
+  dialog.querySelector("#createBtn").classList.add("d-none");
+  dialog.querySelector("#updateBtn").classList.remove("d-none");
+  dialog.querySelector("#deleteBtn").classList.remove("d-none");
+  dialog.querySelector("form").setAttribute("data-task-id", taskId);
   dialog.show();
 });
 
@@ -144,7 +147,57 @@ hideArrowsInput.addEventListener("sl-change", (e) => {
 });
 
 dialog.addEventListener("sl-hide", () => {
-  debugger;
+  dialog.querySelector("#createBtn").classList.remove("d-none");
+  dialog.querySelector("#updateBtn").classList.add("d-none");
+  dialog.querySelector("#deleteBtn").classList.add("d-none");
+  dialog.querySelector("form").removeAttribute("data-task-id");
+  updateSelectDependencies();
+});
+
+dialog.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const taskId = e.target.dataset.taskId;
+  const taskName = e.target.querySelector('[name="name"]').value;
+  const taskDependencies = e.target.querySelector(
+    '[name="dependencies"]'
+  ).value;
+  if (taskId) {
+    tasks = tasks.map((task) => ({
+      ...task,
+      name: taskName,
+      dependencies: taskDependencies.join(","),
+    }));
+  } else {
+    tasks = [
+      ...tasks,
+      {
+        id: uuid(),
+        name: taskName,
+        start: "2023-04-19",
+        end: "2023-04-21",
+        progress: 0,
+        dependencies: taskDependencies.join(","),
+        type: "workOrder",
+      },
+    ];
+  }
+  ganttSrv.updateTasks(applyFilters());
+  return dialog.hide();
+});
+
+dialog.querySelector("#deleteBtn").addEventListener("click", (e) => {
+  const taskId = e.target.closest("[data-task-id]").dataset.taskId;
+  tasks = tasks
+    .filter((task) => task.id !== taskId)
+    .map((task) => ({
+      ...task,
+      dependencies: task.dependencies
+        .map((dep) => dep.trim())
+        .filter((dep) => dep !== taskId)
+        .join(","),
+    }));
+  ganttSrv.updateTasks(applyFilters());
+  dialog.hide();
 });
 
 createTaskBtn.addEventListener("click", () => {

@@ -70,19 +70,34 @@
     </div>
     <div slot="end" id="gantt-container"></div>
     <sl-dialog id="dialog" label="Dialog" class="dialog-overview">
-      <sl-input label="Name" name="name"></sl-input>
-      <sl-button id="createBtn" slot="footer" variant="primary"
-        >Close</sl-button
-      >
-      <sl-button id="deleteBtn" slot="footer" variant="secondary"
-        >Delete</sl-button
-      >
-      <sl-select
-        label="Select dependencies"
-        name="dependencies"
-        multiple
-        clearable
-      ></sl-select>
+      <form>
+        <sl-input label="Name" name="name"></sl-input>
+        <sl-select
+          label="Select dependencies"
+          name="dependencies"
+          multiple
+          clearable
+        ></sl-select>
+        <div class="footer-dialog">
+          <sl-button id="createBtn" variant="success" type="submit"
+            >Create</sl-button
+          >
+          <sl-button
+            id="updateBtn"
+            variant="success"
+            class="d-none"
+            type="submit"
+            >Update</sl-button
+          >
+          <sl-button
+            id="deleteBtn"
+            variant="danger"
+            class="d-none"
+            type="button"
+            >Delete</sl-button
+          >
+        </div>
+      </form>
     </sl-dialog>
     <script type="module" src="/main.js"></script>
   </body>
