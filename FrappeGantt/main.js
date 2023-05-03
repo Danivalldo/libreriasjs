@@ -146,7 +146,8 @@ hideArrowsInput.addEventListener("sl-change", (e) => {
   ganttSrv.toogleArrows();
 });
 
-dialog.addEventListener("sl-hide", () => {
+dialog.addEventListener("sl-hide", (e) => {
+  if (!e.target.classList.contains("dialog-overview")) return;
   dialog.querySelector("#createBtn").classList.remove("d-none");
   dialog.querySelector("#updateBtn").classList.add("d-none");
   dialog.querySelector("#deleteBtn").classList.add("d-none");
