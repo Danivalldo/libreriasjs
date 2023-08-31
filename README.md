@@ -39,6 +39,7 @@ This is the list of the results achieved in each post:
 - JsPDF [Article](https://libreriasjs.com/libreria-javascript-crear-pdf-jspdf/) [Exercise](https://libreriasjs.com/exercises/js-pdf/)
 - JsQR [Article](https://libreriasjs.com/libreria-javascript-crear-y-leer-qrs-qrcode-y-jsqr/) [Exercise](https://libreriasjs.com/exercises/jsqr/)
 - Lil-GUI [Article](https://libreriasjs.com/libreria-javascript-interfaces-lil-gui/) [Exercise](https://codepen.io/Danivalldo/pen/oNGWXKX)
+- MailJet [Article](https://libreriasjs.com/enviar-correos-electronicos-con-nodejs-y-mailjet/)
 - MiniMasonry [Article](https://libreriasjs.com/libreria-javascript-crear-layouts-mini-masonry/) [Exercise](https://libreriasjs.com/exercises/mini-masonry/)
 - OpenLayers [Article](https://libreriasjs.com/libreria-javascript-mapas-openlayers/) [Exercise](https://libreriasjs.com/exercises/open-layers/)
 - P5js [Article](https://libreriasjs.com/libreria-javascript-arte-p5js/) [Exercise](https://libreriasjs.com/exercises/p5js/)
