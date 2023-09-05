@@ -34,6 +34,7 @@ This is the list of the results achieved in each post:
 - Draggable [Article](https://libreriasjs.com/libreria-javascript-drag-and-drop-draggable/) [Exercise](https://codepen.io/Danivalldo/pen/NWajvWJ)
 - FileSaverJs [Article](https://libreriasjs.com/libreria-javascript-descargar-archivos-filesaver/) [Exercise](https://libreriasjs.com/exercises/file-saver/)
 - Firebase [Article](https://libreriasjs.com/crear-aplicaciones-fullstack-javascript-firebase/) [Exercise](https://libreriasjs.com/exercises/firebase/)
+- FullCalendar [Article](https://libreriasjs.com/libreria-javascript-crear-calendarios-eventos-fullcalendar/) [Exercise](https://libreriasjs.com/exercises/fullcalendar/)
 - HTML2Canvas [Article](https://libreriasjs.com/libreria-javascript-captura-pantalla-html-2-canvas/) [Exercise](https://libreriasjs.com/exercises/html2canvas/)
 - HammerJs [Article](https://libreriasjs.com/libreria-javascript-interacciones-hammerjs/) [Exercise](https://codepen.io/Danivalldo/pen/abLWyOp)
 - JsPDF [Article](https://libreriasjs.com/libreria-javascript-crear-pdf-jspdf/) [Exercise](https://libreriasjs.com/exercises/js-pdf/)
