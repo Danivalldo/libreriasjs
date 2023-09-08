@@ -60,9 +60,6 @@ class GanttService {
           });
         }
       },
-      on_view_change: (mode) => {
-        console.log("on_view_change", mode);
-      },
     });
     this.makeGridWeekendHighlights();
     this.gantt.$svg.addEventListener("pointerdown", this._onPointerDown);

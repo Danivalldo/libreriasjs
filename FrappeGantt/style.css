@@ -65,10 +65,7 @@ body {
 
 .toolbar {
   display: flex;
-}
-
-.toolbar > div {
-  padding: 10px;
+  gap: 10px;
 }
 
 .gantt .grid .weekend-highlight {
@@ -160,4 +157,10 @@ sl-range {
 
 .footer a {
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    display: block;
+  }
 }
