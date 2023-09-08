@@ -63,6 +63,40 @@ const filters = {
 
 const ganttSrv = new GanttService("#gantt-container", tasks);
 
+const picker = new Litepicker({
+  plugins: ["mobilefriendly"],
+  element: document.getElementById("date-filters-input"),
+  resetButton: true,
+  singleMode: false,
+});
+
+const applyFilters = () => {
+  const dStartFilter = dayjs(filters.dateStartFilter);
+  const dEndFilter = dayjs(filters.dateEndFilter);
+  return tasks
+    .filter((task) => task.name.includes(filters.filterKey))
+    .filter((task) => {
+      if (!filters.dateStartFilter || !filters.dateStartFilter) return true;
+      const dStartTask = dayjs(task.start);
+      const dEndTask = dayjs(task.end);
+      return dStartFilter.isBefore(dEndTask) && dEndFilter.isAfter(dStartTask);
+    });
+};
+
+const updateSelectDependencies = () => {
+  const dependencySelect = dialog.querySelector(
+    'sl-select[name="dependencies"]'
+  );
+  dependencySelect.innerHTML = "";
+  for (let i = 0, j = tasks.length; i < j; i++) {
+    const task = tasks[i];
+    const option = document.createElement("sl-option");
+    option.setAttribute("value", task.id);
+    option.innerHTML = task.name;
+    dependencySelect.appendChild(option);
+  }
+};
+
 ganttSrv.on("clicktask", (taskId) => {
   const task = tasks.find((task) => task.id === taskId);
   dialog.setAttribute("label", `Editar ${task.name}`);
@@ -103,40 +137,6 @@ ganttSrv.on("taskmoved", ({ taskId, seconds }) => {
   ganttSrv.updateTasks(applyFilters());
 });
 
-const picker = new Litepicker({
-  plugins: ["mobilefriendly"],
-  element: document.getElementById("date-filters-input"),
-  resetButton: true,
-  singleMode: false,
-});
-
-const applyFilters = () => {
-  const dStartFilter = dayjs(filters.dateStartFilter);
-  const dEndFilter = dayjs(filters.dateEndFilter);
-  return tasks
-    .filter((task) => task.name.includes(filters.filterKey))
-    .filter((task) => {
-      if (!filters.dateStartFilter || !filters.dateStartFilter) return true;
-      const dStartTask = dayjs(task.start);
-      const dEndTask = dayjs(task.end);
-      return dStartFilter.isBefore(dEndTask) && dEndFilter.isAfter(dStartTask);
-    });
-};
-
-const updateSelectDependencies = () => {
-  const dependencySelect = dialog.querySelector(
-    'sl-select[name="dependencies"]'
-  );
-  dependencySelect.innerHTML = "";
-  for (let i = 0, j = tasks.length; i < j; i++) {
-    const task = tasks[i];
-    const option = document.createElement("sl-option");
-    option.setAttribute("value", task.id);
-    option.innerHTML = task.name;
-    dependencySelect.appendChild(option);
-  }
-};
-
 picker.on("selected", (date1, date2) => {
   filters.dateStartFilter = date1.dateInstance;
   filters.dateEndFilter = date2.dateInstance;
@@ -152,10 +152,6 @@ picker.on("clear:selection", () => {
 keyFilterInput.addEventListener("sl-input", (e) => {
   filters.filterKey = e.target.value;
   ganttSrv.updateTasks(applyFilters());
-});
-
-window.addEventListener("load", () => {
-  ganttSrv.updateGantt();
 });
 
 colWidthInput.addEventListener("sl-input", (e) => {
@@ -244,4 +240,7 @@ viewModeSelect.addEventListener("sl-change", (e) => {
   ganttSrv.changeView(viewMode);
 });
 
-updateSelectDependencies();
+window.addEventListener("load", () => {
+  updateSelectDependencies();
+  ganttSrv.updateGantt();
+});

@@ -34,6 +34,15 @@ body {
   padding: 20px 20px;
 }
 
+.alert-message {
+  display: inline-block;
+  background-color: rgb(255, 207, 207);
+  color: rgb(165, 0, 0);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
 .header h1 {
   margin: 0;
   font-size: 1.8rem;
