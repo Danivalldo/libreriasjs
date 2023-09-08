@@ -61,9 +61,7 @@ const filters = {
   dateEndFilter: undefined,
 };
 
-const ganttSrv = new GanttService("#gantt-container", tasks, {
-  language: "es",
-});
+const ganttSrv = new GanttService("#gantt-container", tasks);
 
 ganttSrv.on("clicktask", (taskId) => {
   const task = tasks.find((task) => task.id === taskId);

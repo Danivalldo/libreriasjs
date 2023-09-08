@@ -3,7 +3,7 @@ import { createSVG } from "frappe-gantt/src/svg_utils";
 import dayjs from "dayjs";
 
 const defaultOptions = {
-  language: "en",
+  language: "es",
   bar_height: 30,
   header_height: 50,
   column_width: 30,
