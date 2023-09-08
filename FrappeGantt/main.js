@@ -170,6 +170,11 @@ hideArrowsInput.addEventListener("sl-change", (e) => {
   ganttSrv.toogleArrows();
 });
 
+viewModeSelect.addEventListener("sl-change", (e) => {
+  const viewMode = e.target.value;
+  ganttSrv.changeView(viewMode);
+});
+
 dialog.addEventListener("sl-hide", (e) => {
   if (!e.target.classList.contains("dialog-overview")) return;
   dialog.querySelector("#createBtn").classList.remove("d-none");
@@ -233,11 +238,6 @@ createTaskBtn.addEventListener("click", () => {
   dependencySelect.value = "";
   dialog.querySelector('sl-input[name="name"]').value = "";
   dialog.show();
-});
-
-viewModeSelect.addEventListener("sl-change", (e) => {
-  const viewMode = e.target.value;
-  ganttSrv.changeView(viewMode);
 });
 
 window.addEventListener("load", () => {
