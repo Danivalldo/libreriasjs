@@ -28,20 +28,29 @@ const viewModeSelect = document.querySelector("#select-view-mode");
 let tasks = [
   {
     id: "task-1",
-    name: "Task 1",
-    start: "2023-04-19",
-    end: "2023-04-21",
+    name: "Wireframes",
+    start: dayjs().format("YYYY-MM-DDTHH:mmZ"),
+    end: dayjs().add(5, "days").format("YYYY-MM-DDTHH:mmZ"),
     progress: 50,
     dependencies: "",
     type: "workOrder",
   },
   {
     id: "task-2",
-    name: "Task 2",
-    start: "2023-04-30",
-    end: "2023-05-05",
+    name: "Diseño",
+    start: dayjs().add(1, "week").format("YYYY-MM-DDTHH:mmZ"),
+    end: dayjs().add(1, "week").add(5, "days").format("YYYY-MM-DDTHH:mmZ"),
     progress: 50,
     dependencies: "task-1",
+    type: "workOrder",
+  },
+  {
+    id: "task-3",
+    name: "Desarrollo",
+    start: dayjs().add(2, "week").format("YYYY-MM-DDTHH:mmZ"),
+    end: dayjs().add(2, "week").add(5, "days").format("YYYY-MM-DDTHH:mmZ"),
+    progress: 50,
+    dependencies: "task-2",
     type: "workOrder",
   },
 ];
@@ -52,16 +61,19 @@ const filters = {
   dateEndFilter: undefined,
 };
 
-const ganttSrv = new GanttService("#gantt-container", tasks);
+const ganttSrv = new GanttService("#gantt-container", tasks, {
+  language: "es",
+});
 
 ganttSrv.on("clicktask", (taskId) => {
   const task = tasks.find((task) => task.id === taskId);
-  dialog.setAttribute("label", `Edit ${task.name}`);
+  dialog.setAttribute("label", `Editar ${task.name}`);
   const dependencySelect = dialog.querySelector(
     'sl-select[name="dependencies"]'
   );
   dependencySelect.value = task.dependencies.concat(" ");
   dialog.querySelector('sl-input[name="name"]').value = task.name;
+  dialog.querySelector('sl-range[name="progress"]').value = task.progress;
   dialog.querySelector("#createBtn").classList.add("d-none");
   dialog.querySelector("#updateBtn").classList.remove("d-none");
   dialog.querySelector("#deleteBtn").classList.remove("d-none");
@@ -69,10 +81,28 @@ ganttSrv.on("clicktask", (taskId) => {
   dialog.show();
 });
 
-ganttSrv.on("changeprogress", (taskId, progress) => {});
+ganttSrv.on("changeprogress", ({ taskId, progress }) => {
+  console.log({ taskId, progress });
+});
 
-ganttSrv.on("changedate", () => {
-  debugger;
+ganttSrv.on("taskresized", ({ taskId, start, end }) => {
+  const ganttTask = tasks.find((ganttTask) => ganttTask.id === taskId);
+  if (!ganttTask) return;
+  ganttTask.start = start;
+  ganttTask.end = end;
+  ganttSrv.updateTasks(applyFilters());
+});
+
+ganttSrv.on("taskmoved", ({ taskId, seconds }) => {
+  const ganttTask = tasks.find((ganttTask) => ganttTask.id === taskId);
+  if (!ganttTask) return;
+  ganttTask.start = dayjs(ganttTask.start)
+    .add(seconds, "seconds")
+    .format("YYYY-MM-DDTHH:mm:ssZ");
+  ganttTask.end = dayjs(ganttTask.end)
+    .add(seconds, "seconds")
+    .format("YYYY-MM-DDTHH:mm:ssZ");
+  ganttSrv.updateTasks(applyFilters());
 });
 
 const picker = new Litepicker({
@@ -159,25 +189,25 @@ dialog.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
   const taskId = e.target.dataset.taskId;
   const taskName = e.target.querySelector('[name="name"]').value;
-  const taskDependencies = e.target.querySelector(
-    '[name="dependencies"]'
-  ).value;
+  const taskDependencies = e.target
+    .querySelector('[name="dependencies"]')
+    .value.join(",");
+  const taskProgress = e.target.querySelector('[name="progress"]').value;
   if (taskId) {
-    tasks = tasks.map((task) => ({
-      ...task,
-      name: taskName,
-      dependencies: taskDependencies.join(","),
-    }));
+    const ganttTask = tasks.find((ganttTask) => ganttTask.id === taskId);
+    ganttTask.name = taskName;
+    ganttTask.dependencies = taskDependencies;
+    ganttTask.progress = taskProgress;
   } else {
     tasks = [
       ...tasks,
       {
         id: uuid(),
         name: taskName,
-        start: "2023-04-19",
-        end: "2023-04-21",
-        progress: 0,
-        dependencies: taskDependencies.join(","),
+        start: dayjs().format("YYYY-MM-DDTHH:mmZ"),
+        end: dayjs().add(5, "days").format("YYYY-MM-DDTHH:mmZ"),
+        progress: taskProgress,
+        dependencies: taskDependencies,
         type: "workOrder",
       },
     ];

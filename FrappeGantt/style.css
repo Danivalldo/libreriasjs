@@ -2,11 +2,40 @@
 
 :root {
   --sl-font-sans: "Open Sans", sans-serif;
+  --primaryColor600: #8a8aff;
+  --primaryColor500: rgb(153, 153, 245);
+  --sl-color-primary-600: var(--primaryColor600);
+  --sl-color-primary-500: var(--primaryColor500);
 }
 
 body {
   background-color: rgb(252, 255, 255);
   font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+.header {
+  background-color: var(--primaryColor600);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.header img {
+  display: block;
+  width: 50px;
+}
+
+.header .powered-by {
+  align-self: flex-end;
+  padding-bottom: 25px;
+  font-size: 0.8rem;
+}
+
+.header .powered-by a {
+  color: #fff;
 }
 
 #planner-container {
@@ -27,7 +56,9 @@ body {
 }
 
 .gantt .grid .weekend-highlight {
-  fill: #a4a3ff52;
+  fill: var(--primaryColor600);
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .gantt.hide-labels .bar .bar-group text {
@@ -73,13 +104,20 @@ ul li {
   border-radius: 5px;
 }
 
+sl-input {
+  margin-bottom: 20px;
+}
+
+sl-range {
+  margin-bottom: 20px;
+}
+
 .d-none {
   display: none;
 }
 
 .footer-dialog {
   display: flex;
-  /* flex-direction: row-reverse; */
   justify-content: flex-end;
   gap: 10px;
   padding: 20px 0 0 0;
@@ -88,4 +126,11 @@ ul li {
 .bar-wrapper.hidden {
   opacity: 0;
   visibility: hidden;
+}
+
+.bg-dropdown {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }

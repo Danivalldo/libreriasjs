@@ -1,5 +1,6 @@
 import Gantt from "frappe-gantt";
 import { createSVG } from "frappe-gantt/src/svg_utils";
+import dayjs from "dayjs";
 
 const defaultOptions = {
   language: "en",
@@ -23,6 +24,7 @@ class GanttService {
   constructor(containerSelector, tasks, options) {
     this.currentAction = null;
     this.eventTriggers = {};
+    this.displacedTask = null;
     this._onPointerDown = this.onPointerDown.bind(this);
     this._onPointerUp = this.onPointerUp.bind(this);
     this._onPointerLeave = this.onPointerLeave.bind(this);
@@ -32,11 +34,29 @@ class GanttService {
       ...defaultOptions,
       ...options,
       on_date_change: (task, start, end) => {
-        if (typeof this.eventTriggers["changedate"] === "function") {
-          this.eventTriggers["changedate"]({
-            task,
-            start,
-            end,
+        if (!this.displacedTask) {
+          if (typeof this.eventTriggers["taskresized"] === "function") {
+            this.eventTriggers["taskresized"]({
+              taskId: task.id,
+              start,
+              end,
+            });
+          }
+          return;
+        }
+
+        if (this.displacedTask.taskId === task.id) {
+          const diffSecondsStart = dayjs(start).diff(task.start, "seconds");
+          this.displacedTask.seconds = diffSecondsStart;
+        }
+
+        if (
+          this.displacedTask.seconds !== 0 &&
+          typeof this.eventTriggers["taskmoved"] === "function"
+        ) {
+          this.eventTriggers["taskmoved"]({
+            taskId: task.id,
+            seconds: this.displacedTask.seconds,
           });
         }
       },
@@ -53,19 +73,22 @@ class GanttService {
 
   onPointerDown(e) {
     if (this.currentAction || !e.target) return;
+    this.displacedTask = null;
     const taskEl = e.target.closest("[data-id]");
     if (!taskEl) {
       e.preventDefault();
       return e.stopPropagation();
     }
     const taskId = taskEl.dataset.id;
-    if (
-      e.target.classList.contains("handle") &&
-      e.target.classList.contains("progress")
-    ) {
-      this.currentAction = { action: "isDragging", taskId };
+    if (e.target.classList.contains("handle")) {
+      if (e.target.classList.contains("progress")) {
+        this.currentAction = { action: "isDraggingProgress", taskId };
+        return;
+      }
+      this.currentAction = { action: "isDraggingTaskSize", taskId };
       return;
     }
+    this.currentAction = { action: "isMovingTask", taskId };
   }
 
   onPointerUp(e) {
@@ -74,7 +97,7 @@ class GanttService {
       `[data-id="${this.currentAction.taskId}"]`
     );
     switch (this.currentAction.action) {
-      case "isDragging":
+      case "isDraggingProgress":
         const barContainer = taskEl.querySelector(".bar-group");
         const widthBar = Number(
           barContainer.querySelector(".bar").getAttribute("width")
@@ -90,11 +113,23 @@ class GanttService {
           });
         }
         break;
+      case "isDraggingTaskSize":
+        break;
+      case "isMovingTask":
+        const actionTask = this.gantt.tasks.find(
+          (task) => task.id === this.currentAction.taskId
+        );
+        if (!actionTask) return;
+        this.displacedTask = {
+          taskId: this.currentAction.taskId,
+          seconds: 0,
+        };
+        break;
     }
     this.currentAction = null;
   }
 
-  onPointerLeave(e) { }
+  onPointerLeave(e) {}
 
   onClick(e) {
     if (this.currentAction || !e.target) return;
@@ -161,7 +196,7 @@ class GanttService {
       const width = this.gantt.options.column_width;
       const height =
         (this.gantt.options.bar_height + this.gantt.options.padding) *
-        this.gantt.tasks.length +
+          this.gantt.tasks.length +
         this.gantt.options.header_height +
         this.gantt.options.padding / 2;
 

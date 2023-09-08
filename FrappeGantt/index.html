@@ -7,19 +7,27 @@
     <title>Frappe Gantt</title>
   </head>
   <body>
+    <div class="header">
+      <img src="./gantt_logo.svg" alt="" />
+      <h1>Mi planificador</h1>
+      <span class="powered-by"
+        >by <a href="https://libreriasjs.com">libreriasjs.com</a></span
+      >
+    </div>
     <div class="toolbar">
       <div>
         <sl-button id="create-task-btn" variant="primary"
-          >Create Task</sl-button
+          >Crear tarea</sl-button
         >
       </div>
       <div>
-        <sl-dropdown>
-          <sl-button slot="trigger">Opciones</sl-button>
-          <div>
+        <sl-dropdown variant="primary">
+          <sl-button slot="trigger" variant="primary">Opciones</sl-button>
+          <div class="bg-dropdown">
             <ul>
               <li>
                 <sl-range
+                  variant="primary-50"
                   id="colWidthInput"
                   label="Ancho columna"
                   min="30"
@@ -36,27 +44,27 @@
                 ></sl-range>
               </li>
               <li>
-                <sl-checkbox id="hideLabelsInput">Hide Labels</sl-checkbox>
+                <sl-checkbox id="hideLabelsInput">Ocultar nombres</sl-checkbox>
               </li>
               <li>
-                <sl-checkbox id="hideArrowsInput">Hide Arrows</sl-checkbox>
+                <sl-checkbox id="hideArrowsInput">Ocultar flechas</sl-checkbox>
               </li>
             </ul>
           </div>
         </sl-dropdown>
       </div>
       <div>
-        <sl-select id="select-view-mode" placeholder="View Mode">
-          <sl-option value="Day">Day</sl-option>
-          <sl-option value="Week">Week</sl-option>
-          <sl-option value="Month">Month</sl-option>
-          <sl-option value="Year">Year</sl-option>
+        <sl-select id="select-view-mode" placeholder="Vista" variant="primary">
+          <sl-option value="Day">Dia</sl-option>
+          <sl-option value="Week">Semana</sl-option>
+          <sl-option value="Month">Mes</sl-option>
+          <sl-option value="Year">Año</sl-option>
         </sl-select>
       </div>
       <div>
         <sl-input
           id="keyFilterInput"
-          placeholder="Filter by name"
+          placeholder="Filtrar por nombre"
           clearable
         ></sl-input>
       </div>
@@ -64,27 +72,34 @@
         <input
           type="text"
           id="date-filters-input"
-          placeholder="Filter by dates"
+          placeholder="Filtrar por fechas"
         />
       </div>
     </div>
     <div slot="end" id="gantt-container"></div>
     <sl-dialog id="dialog" label="Dialog" class="dialog-overview">
       <form>
-        <sl-input label="Name" name="name"></sl-input>
+        <sl-input label="Nombre" name="name"></sl-input>
+        <sl-range
+          label="Progreso"
+          name="progress"
+          min="0"
+          max="100"
+          value="50"
+        ></sl-range>
         <sl-select
-          label="Select dependencies"
+          label="Seleccionar dependencias"
           name="dependencies"
           multiple
           clearable
         ></sl-select>
         <div class="footer-dialog">
-          <sl-button id="createBtn" variant="success" type="submit"
+          <sl-button id="createBtn" variant="primary" type="submit"
             >Create</sl-button
           >
           <sl-button
             id="updateBtn"
-            variant="success"
+            variant="primary"
             class="d-none"
             type="submit"
             >Update</sl-button
