@@ -2,8 +2,8 @@
 
 :root {
   --sl-font-sans: "Open Sans", sans-serif;
-  --primaryColor600: #8a8aff;
-  --primaryColor500: rgb(153, 153, 245);
+  --primaryColor600: #6060c6;
+  --primaryColor500: rgb(132, 132, 216);
   --sl-color-primary-600: var(--primaryColor600);
   --sl-color-primary-500: var(--primaryColor500);
 }
@@ -14,23 +14,39 @@ body {
   margin: 0;
 }
 
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 15px;
+}
+
 .header {
   background-color: var(--primaryColor600);
   color: #fff;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 10px;
-  padding: 10px 20px;
+  padding: 20px 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.8rem;
 }
 
 .header img {
   display: block;
-  width: 50px;
+  width: 35px;
 }
 
 .header .powered-by {
   align-self: flex-end;
-  padding-bottom: 25px;
+  padding-bottom: 2px;
   font-size: 0.8rem;
 }
 
@@ -57,7 +73,7 @@ body {
 
 .gantt .grid .weekend-highlight {
   fill: var(--primaryColor600);
-  opacity: 0.2;
+  opacity: 0.1;
   pointer-events: none;
 }
 
@@ -133,4 +149,15 @@ sl-range {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  background-color: var(--primaryColor600);
+  color: #fff;
+  padding: 10px;
+  font-size: 0.75rem;
+}
+
+.footer a {
+  color: #fff;
 }
