@@ -7,6 +7,27 @@
     <title>ToneJs</title>
   </head>
   <body>
+    <button id="play-note-btn">PLAY NOTE</button>
+    <button id="play-song-btn">PLAY SONG</button>
+    <button id="clap-btn">CLAP</button>
+    <button id="stop-song-btn">STOP SONG</button>
+    <div id="step-sequencer-container"></div>
+    <div>
+      <label for="synth"> Synth </label>
+      <select name="synth" id="synth">
+        <option value="poly">polySynth</option>
+        <option value="piano">piano</option>
+        <option value="custom">customSynth</option>
+      </select>
+    </div>
+    <div>
+      <label for="interval">Interval</label>
+      <input type="range" min="1" max="10" value="4" id="interval" />
+    </div>
+    <div>
+      <label for="tempo">Tempo</label>
+      <input type="range" min="10" max="500" value="120" id="tempo" />
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
