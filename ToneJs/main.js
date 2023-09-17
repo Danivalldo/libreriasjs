@@ -1,6 +1,5 @@
 import "./style.scss";
 import * as Tone from "tone";
-import { clapSynth } from "./src/synths";
 import StepSequencer from "./src/StepSequencer";
 import SynthConfigurator from "./src/SynthConfigurator";
 
@@ -8,13 +7,10 @@ const { Transport, start, Destination } = Tone;
 
 const playSongBtn = document.querySelector("#play-song-btn");
 const clearSongBtn = document.querySelector("#clear-song-btn");
-const oscillatorTypeSelect = document.querySelector("#oscillator-type");
 const tempoSlider = document.querySelector("#tempo");
 
 const stepSequencer = new StepSequencer("#step-sequencer-container");
 const synthConfigurator = new SynthConfigurator();
-
-window.synthConfigurator = synthConfigurator;
 
 let index = 0;
 let tempo = 120;
@@ -51,10 +47,7 @@ const onChangeSilderTempo = (e) => {
 playSongBtn.addEventListener("click", toggleSong);
 clearSongBtn.addEventListener("click", stepSequencer.clear.bind(stepSequencer));
 tempoSlider.addEventListener("change", onChangeSilderTempo);
-oscillatorTypeSelect.addEventListener("change", (e) => {
-  const type = e.target.value;
-  synthConfigurator.changeOscillatorType(type);
-});
+
 stepSequencer.onClickButton((note, active) => {
   if (Transport.state === "started" || active) return;
   Destination.volume.rampTo(-10, 0.001);

@@ -7,44 +7,16 @@ class StepSequencer {
     this.container.appendChild(this.mainContainer);
     this.tracks = 8;
     this.selectedNotes = Array.from({ length: this.tracks }, () => []);
-    // this.selectedNotes = [
-    //   ["C"],
-    //   ["D"],
-    //   ["E"],
-    //   ["C"],
-    //   ["F"],
-    //   ["E"],
-    //   ["D"],
-    //   ["G"],
-    // ];
     this.createGrid();
     this.addListeners();
   }
   createGrid() {
-    const notes = [
-      "C",
-      // "C#",
-      "D",
-      // "D#",
-      "E",
-      // "E#",
-      "F",
-      // "F#",
-      "G",
-      // "G#",
-      "A",
-      // "A#",
-      "B",
-      // "B#",
-    ];
-
-    // const notes = ["F4", "Eb4", "C4", "Bb3", "Ab3", "F3"];
+    const notes = ["C", "D", "E", "F", "G", "A", "B"];
 
     for (let i = 0, j = notes.length; i < j; i++) {
       const note = notes[i];
       const row = document.createElement("div");
       row.classList.add("notes-row");
-      // this.selectedNotes.push([]);
       for (let n = 0; n < this.tracks; n++) {
         const noteBtn = document.createElement("button");
         const octaveSlider = document.createElement("input");

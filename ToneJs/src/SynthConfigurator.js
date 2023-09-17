@@ -54,6 +54,12 @@ class SynthConfigurator {
           synth.envelope[envelopPropertyName] = envelopPropertyValue;
         });
       });
+    document
+      .querySelector("#oscillator-type")
+      .addEventListener("change", (e) => {
+        const type = e.target.value;
+        synthConfigurator.changeOscillatorType(type);
+      });
   }
 }
 
