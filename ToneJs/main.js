@@ -1,34 +1,28 @@
-import "./style.css";
+import "./style.scss";
 import * as Tone from "tone";
-import { customSynth, piano, polySynth, clapSynth } from "./src/synths";
+import { clapSynth } from "./src/synths";
 import StepSequencer from "./src/StepSequencer";
 import SynthConfigurator from "./src/SynthConfigurator";
 
 const { Transport, start, Destination } = Tone;
 
 const playSongBtn = document.querySelector("#play-song-btn");
+const clearSongBtn = document.querySelector("#clear-song-btn");
+const oscillatorTypeSelect = document.querySelector("#oscillator-type");
 const tempoSlider = document.querySelector("#tempo");
-const octaveSlider = document.querySelector("#octave");
-const synthSelector = document.querySelector("#synth");
 
 const stepSequencer = new StepSequencer("#step-sequencer-container");
 const synthConfigurator = new SynthConfigurator();
 
+window.synthConfigurator = synthConfigurator;
+
 let index = 0;
 let tempo = 120;
-let octave = 4;
-let synth = polySynth;
 
-const playNote = () => {
-  clapSynth.triggerAttackRelease();
+const playColumn = (time) => {
   const notes = stepSequencer.getNotesByStep(index);
-
-  for (let i = 0, j = notes.length; i < j; i++) {
-    const note = notes[i];
-    synth.triggerAttackRelease(`${note}${octave}`, "4n");
-    // synthConfigurator.playNote(`${note}${octave}`, "4n");
-  }
-
+  stepSequencer.updateButtonsStepState(index);
+  synthConfigurator.playNotes(notes, "8n");
   index = (index + 1) % stepSequencer.tracks;
 };
 
@@ -37,16 +31,16 @@ const toggleSong = async () => {
     Transport.cancel();
     Transport.stop();
     index = 0;
-    playSongBtn.innerHTML = "PLAY";
+    playSongBtn.classList.add("active-play");
+    stepSequencer.updateButtonsStepState(-1);
     return;
   }
   await Transport.start();
-  Transport.scheduleRepeat((time) => {
-    playNote();
-  }, "4n");
-  Transport.bpm.value = tempo; // Set the tempo
-  await start();
-  playSongBtn.innerHTML = "STOP";
+  Transport.scheduleRepeat(playColumn, "8n");
+  Transport.bpm.value = tempo;
+  start();
+  Destination.volume.rampTo(-10, 0.001);
+  playSongBtn.classList.remove("active-play");
 };
 
 const onChangeSilderTempo = (e) => {
@@ -54,34 +48,15 @@ const onChangeSilderTempo = (e) => {
   Transport.bpm.value = tempo;
 };
 
-const onChangeSliderOctave = (e) => {
-  octave = e.target.value;
-};
-
-const onSelectSynth = (e) => {
-  switch (e.target.value) {
-    case "poly":
-      synth = polySynth;
-      return;
-    case "piano":
-      synth = piano;
-      return;
-    case "custom":
-    default:
-      synth = customSynth;
-      return;
-  }
-};
-
 playSongBtn.addEventListener("click", toggleSong);
+clearSongBtn.addEventListener("click", stepSequencer.clear.bind(stepSequencer));
 tempoSlider.addEventListener("change", onChangeSilderTempo);
-octaveSlider.addEventListener("change", onChangeSliderOctave);
-synthSelector.addEventListener("change", onSelectSynth);
-stepSequencer.onClickButton((note) => {
-  if (Transport.state === "started") return;
-  synth.triggerAttackRelease(`${note}${octave}`, "4n");
+oscillatorTypeSelect.addEventListener("change", (e) => {
+  const type = e.target.value;
+  synthConfigurator.changeOscillatorType(type);
 });
-
-window.Transport = Transport;
-window.synth = synth;
-window.Destination = Destination;
+stepSequencer.onClickButton((note, active) => {
+  if (Transport.state === "started" || active) return;
+  Destination.volume.rampTo(-10, 0.001);
+  synthConfigurator.playNote(`${note}`, "4n");
+});

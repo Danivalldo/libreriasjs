@@ -7,28 +7,93 @@
     <title>ToneJs</title>
   </head>
   <body>
-    <button id="play-song-btn">PLAY</button>
+    <div class="header">
+      <img src="./imgs/graphic_eq_FILL0_wght300_GRAD0_opsz48.svg" alt="" />
+      <h1>Music creator <span>by librerias.js</span></h1>
+    </div>
+    <div class="play-btns-container">
+      <button id="play-song-btn" class="active-play">
+        <span class="icon icon-play"
+          ><img src="./imgs/play_circle_FILL0_wght300_GRAD0_opsz48.svg" alt=""
+        /></span>
+        <span class="icon icon-stop"
+          ><img src="./imgs/stop_circle_FILL0_wght300_GRAD0_opsz48.svg" alt=""
+        /></span>
+      </button>
+      <button id="clear-song-btn">
+        <span class="icon icon-clear">
+          <img src="./imgs/delete_FILL0_wght300_GRAD0_opsz48.svg" alt="" />
+        </span>
+      </button>
+    </div>
     <div class="board">
       <div>
         <div id="step-sequencer-container"></div>
+      </div>
+      <div class="tempo-and-synth-props">
+        <h2>Tempo:</h2>
+        <input
+          type="range"
+          min="50"
+          max="200"
+          value="120"
+          step="1"
+          id="tempo"
+        />
         <div>
-          <label for="synth"> Synth </label>
-          <select name="synth" id="synth">
-            <option value="poly">polySynth</option>
-            <option value="piano">piano</option>
-            <option value="custom">customSynth</option>
+          <h2>Oscilador:</h2>
+          <label for="oscillator-type">Tipo</label>
+          <select name="oscillator-type" id="oscillator-type">
+            <option value="triangle8">Triangular</option>
+            <option value="square8">Cuadrada</option>
+            <option value="sine8">Senoidal</option>
+            <option value="sawtooth8">Diente de sierra</option>
           </select>
-        </div>
-        <div>
-          <label for="tempo">Tempo</label>
-          <input type="range" min="10" max="500" value="120" id="tempo" />
-        </div>
-        <div>
-          <label for="octave">Octava</label>
-          <input type="range" min="1" max="8" value="4" step="1" id="octave" />
+          <div class="envelop-sliders">
+            <h3>Envolvente</h3>
+            <label for="envelop-attack">Ataque</label>
+            <input
+              id="envelop-attack"
+              name="attack"
+              type="range"
+              min="0"
+              value="0.1"
+              max="1"
+              step="0.1"
+            />
+            <label for="envelop-decay">Decadencia</label>
+            <input
+              id="envelop-decay"
+              name="decay"
+              type="range"
+              min="0"
+              value="0.1"
+              max="1"
+              step="0.1"
+            />
+            <label for="envelop-release">Liberación</label>
+            <input
+              id="envelop-release"
+              name="release"
+              type="range"
+              min="0"
+              value="0.1"
+              max="1"
+              step="0.1"
+            />
+            <label for="envelop-sustain">Sustentar</label>
+            <input
+              id="envelop-sustain"
+              name="sustain"
+              type="range"
+              min="0"
+              value="0.1"
+              max="1"
+              step="0.1"
+            />
+          </div>
         </div>
       </div>
-      <div>SINT</div>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
