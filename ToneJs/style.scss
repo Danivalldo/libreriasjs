@@ -143,12 +143,9 @@ input[type="range"]::-moz-slider-runnable-track {
 .board {
   display: flex;
   padding-top: 10px;
-  // max-width: 1500px;
   margin: auto;
   & > :nth-child(1) {
     flex: 1;
-    /* min-width: 1000px; */
-    /* overflow: hidden; */
     overflow-x: scroll;
   }
   .step-sequencer__main-container {
@@ -227,9 +224,7 @@ label {
     display: block;
   }
   .step-sequencer__main-container {
-    /* min-width: 600px; */
     .notes-row {
-      height: 10vh;
       min-height: 80px;
       max-height: 400px;
       button {
