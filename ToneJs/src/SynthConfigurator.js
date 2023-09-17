@@ -58,7 +58,7 @@ class SynthConfigurator {
       .querySelector("#oscillator-type")
       .addEventListener("change", (e) => {
         const type = e.target.value;
-        synthConfigurator.changeOscillatorType(type);
+        this.changeOscillatorType(type);
       });
   }
 }
