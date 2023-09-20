@@ -55,6 +55,7 @@ This is the list of the results achieved in each post:
 - Tauri [Article](https://libreriasjs.com/libreria-javascript-aplicaciones-escritorio-tauri/) [Exercise](https://libreriasjs.com/exercises/tauri/index.html)
 - TinyColor [Article](https://libreriasjs.com/libreria-javascript-controlar-colores-tiny-color/) [Exercise](https://codepen.io/Danivalldo/pen/ZEXKQYb)
 - TinyMCE [Article](https://libreriasjs.com/libreria-javascript-crear-editor-texto-enriquecido-tinymce/) [Exercise](https://libreriasjs.com/exercises/tinymce/)
+- ToneJs [Article](https://libreriasjs.com/libreria-javascript-crear-muscia-electronica-tonejs/) [Exercise](https://libreriasjs.com/exercises/tonejs/)
 - Vercel [Article](https://libreriasjs.com/publicar-proyectos-frontend-javascript-vercel/) [Exercise](https://libreriasjsverceldeploy.vercel.app/)
 - Yup [Article](https://libreriasjs.com/libreria-javascript-validar-formularios-yup/) [Exercise](https://libreriasjs.com/exercises/yup/)
 - ZDog [Article](https://libreriasjs.com/libreria-javascript-diseno-3d-zdog/) [Exercise](https://libreriasjs.com/exercises/zdog/)
