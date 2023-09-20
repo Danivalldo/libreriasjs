@@ -54,7 +54,9 @@ class StepSequencer {
     const noteIndex = this.selectedNotes[notePosition].findIndex(
       (note) => note.noteName === noteName
     );
-    this.onClickButtonCallback(`${noteName}${octave}`, noteIndex >= 0);
+    if (typeof this.onClickButtonCallback === "function") {
+      this.onClickButtonCallback(`${noteName}${octave}`, noteIndex >= 0);
+    }
     if (noteIndex >= 0) {
       button.classList.remove("active");
       return this.selectedNotes[notePosition].splice(noteIndex, 1);
