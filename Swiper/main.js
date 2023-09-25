@@ -1,8 +1,13 @@
+import "./style.scss";
+import "@shoelace-style/shoelace/dist/themes/light.css";
 import { register } from "swiper/element/bundle";
-import "./style.css";
+import "@shoelace-style/shoelace/dist/components/dialog/dialog.js";
 register();
 
 const productsSlider = document.querySelector("#productsSlider");
+const userProfileBtn = document.querySelector(".user-profile-wrapper");
+const dialog = document.querySelector(".history-dialog");
+const historiesSlider = document.querySelector(".history-dialog-swiper");
 
 const swiperParams = {
   breakpoints: {
@@ -50,5 +55,15 @@ const getProducts = async () => {
   }
   productsSlider.swiper.update();
 };
+
+userProfileBtn.addEventListener("click", () => {
+  dialog.show();
+});
+
+dialog.addEventListener("sl-show", () => {
+  window.setTimeout(() => {
+    historiesSlider.swiper.update();
+  }, 100);
+});
 
 window.addEventListener("load", getProducts);

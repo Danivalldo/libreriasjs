@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@shoelace-style/shoelace": "^2.8.0",
+    "sass": "^1.68.0",
     "swiper": "^10.2.0",
     "vite": "^4.3.2"
   }

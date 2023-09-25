@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Swiper Web componet</title>
+    <title>Swiper Web component</title>
   </head>
   <body>
     <div class="header">
@@ -12,11 +12,8 @@
         <img src="./imgs/storefront_FILL0_wght200_GRAD-25_opsz48.svg" alt="" />
         Mi tienda <span class="powered-by">by librerias.js</span>
       </span>
-      <span class="cart-icon-wrapper">
-        <img
-          src="./imgs/shopping_cart_FILL0_wght200_GRAD-25_opsz48.svg"
-          alt=""
-        />
+      <span class="user-profile-wrapper">
+        <img src="https://robohash.org/minimadoloreslaborum.png" alt="" />
       </span>
     </div>
     <div class="main-container">
@@ -30,7 +27,8 @@
         space-between="20"
         class="products-slider"
         grab-cursor="true"
-        breakpoints-640-slides-per-view="2"
+        autoplay="true"
+        autoplay-delay="2000"
       >
         <swiper-slide class="product-card">
           <img class="thumbnail" src="./imgs/furniture_1.png" />
@@ -89,6 +87,30 @@
       </swiper-container>
     </div>
     <div class="footer">LibreriasJs 2023</div>
+    <sl-dialog class="history-dialog">
+      <swiper-container
+        class="history-dialog-swiper"
+        effect="cube"
+        pagination="true"
+        autoplay="true"
+        loop="true"
+        autoplay-delay="1000"
+        grab-cursor="true"
+      >
+        <swiper-slide class="history-dialog-slide">
+          <img src="./imgs/furniture_1.png" alt="" />
+        </swiper-slide>
+        <swiper-slide class="history-dialog-slide">
+          <img src="./imgs/furniture_2.png" alt="" />
+        </swiper-slide>
+        <swiper-slide class="history-dialog-slide">
+          <img src="./imgs/furniture_3.png" alt="" />
+        </swiper-slide>
+        <swiper-slide class="history-dialog-slide">
+          <img src="./imgs/furniture_4.png" alt="" />
+        </swiper-slide>
+      </swiper-container>
+    </sl-dialog>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
