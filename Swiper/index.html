@@ -4,21 +4,91 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Swiper API</title>
+    <title>Swiper Web componet</title>
   </head>
   <body>
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-      </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-scrollbar"></div>
+    <div class="header">
+      <span class="brand">
+        <img src="./imgs/storefront_FILL0_wght200_GRAD-25_opsz48.svg" alt="" />
+        Mi tienda <span class="powered-by">by librerias.js</span>
+      </span>
+      <span class="cart-icon-wrapper">
+        <img
+          src="./imgs/shopping_cart_FILL0_wght200_GRAD-25_opsz48.svg"
+          alt=""
+        />
+      </span>
     </div>
-
+    <div class="main-container">
+      <h3>Productos destacados</h3>
+      <swiper-container
+        init="false"
+        id="productsSlider"
+        slides-per-view="1"
+        navigation="true"
+        pagination="true"
+        space-between="20"
+        class="products-slider"
+        grab-cursor="true"
+        breakpoints-640-slides-per-view="2"
+      >
+        <swiper-slide class="product-card">
+          <img class="thumbnail" src="./imgs/furniture_1.png" />
+          <div class="product-info">
+            <h2 class="title">Elegant White Sofa</h2>
+            <p class="description">
+              Elevate your living space with our elegant white sofa.
+            </p>
+            <p class="price">
+              <span>200€</span>
+              <button class="add-to-cart">+</button>
+            </p>
+          </div>
+        </swiper-slide>
+        <swiper-slide class="product-card">
+          <img class="thumbnail" src="./imgs/furniture_2.png" />
+          <div class="product-info">
+            <h2 class="title">Refreshing Green Sofa</h2>
+            <p class="description">
+              Add a burst of refreshing color to your living room with our green
+              sofa.
+            </p>
+            <p class="price">
+              <span>500€</span>
+              <button class="add-to-cart">+</button>
+            </p>
+          </div>
+        </swiper-slide>
+        <swiper-slide class="product-card">
+          <img class="thumbnail" src="./imgs/furniture_3.png" />
+          <div class="product-info">
+            <h2 class="title">Sunshine Yellow Sofa</h2>
+            <p class="description">
+              Illuminate your living space with our sunshine yellow sofa.
+            </p>
+            <p class="price">
+              <span>80€</span>
+              <button class="add-to-cart">+</button>
+            </p>
+          </div>
+        </swiper-slide>
+        <swiper-slide class="product-card">
+          <img class="thumbnail" src="./imgs/furniture_4.png" />
+          <div class="product-info">
+            <h2 class="title">Vibrant Orange Sofa</h2>
+            <p class="description">
+              Infuse your living space with energy and personality with our
+              vibrant orange sofa.
+            </p>
+            <p class="price">
+              <span>100€</span>
+              <button class="add-to-cart">+</button>
+            </p>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+    <div class="footer">LibreriasJs 2023</div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
