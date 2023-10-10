@@ -51,6 +51,7 @@ This is the list of the results achieved in each post:
 - RoughViz [Article](https://libreriasjs.com/libreria-javascript-crear-graficos-roughviz/) [Exercise](https://libreriasjs.com/exercises/roughviz/)
 - SheperdJs [Article](https://libreriasjs.com/libreria-javascript-guia-usuarios-shepherdjs/) [Exercise](https://libreriasjs.com/exercises/shepherdjs/)
 - SuperExpressive [Article](https://libreriasjs.com/libreria-javascript-regex-superexpressive/) [Exercise](https://libreriasjs.com/exercises/super-expressive/)
+- Swiper [Article](https://libreriasjs.com/libreria-javascript-crear-sliders-swiper/) [Exercise](https://libreriasjs.com/exercises/swiper)
 - Tagify [Article](https://libreriasjs.com/libreria-javascript-tags-tagify/) [Exercise](https://libreriasjs.com/exercises/tagify/)
 - Tauri [Article](https://libreriasjs.com/libreria-javascript-aplicaciones-escritorio-tauri/) [Exercise](https://libreriasjs.com/exercises/tauri/index.html)
 - TinyColor [Article](https://libreriasjs.com/libreria-javascript-controlar-colores-tiny-color/) [Exercise](https://codepen.io/Danivalldo/pen/ZEXKQYb)
