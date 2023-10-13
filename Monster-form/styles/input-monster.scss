@@ -1,0 +1,214 @@
+.input-monster {
+  transform: translateZ(0px) rotateY(0deg);
+  will-change: transform, opacity, box-shadow;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  opacity: 1;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-shadow: 10px 10px 15px rgba(245, 245, 220, 0);
+  .life-bar {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    padding: 1px;
+    border-radius: 20px;
+    overflow: hidden;
+    .inner-bar {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.2s ease;
+      background-color: #ac2b2a;
+      transform: scale(1);
+      transform-origin: 0% 50%;
+    }
+  }
+  .mouth-contianer,
+  .eye-contianer,
+  .right-arm-container,
+  .left-arm-container {
+    background-image: url("./assets/imgs/mouth.svg");
+    position: absolute;
+    left: 50%;
+    transform: translate3d(-50%, 0px, 1px);
+    bottom: -30px;
+    width: 50px;
+    height: 50px;
+    // border: solid 1px red;
+    opacity: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .mouth-contianer {
+    animation-name: floatmove;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    &[data-mouth="2"] {
+      background-image: url("./assets/imgs/mouth-2.svg");
+    }
+    &[data-mouth="3"] {
+      background-image: url("./assets/imgs/mouth-3.svg");
+    }
+    &.with-pain {
+      background-image: url("./assets/imgs/mouth-pain.svg");
+    }
+  }
+  .eye-contianer {
+    animation-name: floatmove;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+    background-image: url("./assets/imgs/eye.svg");
+    transform: translate3d(-50%, 0px, 1px);
+    top: -30px;
+    bottom: auto;
+    width: 50px;
+    height: 50px;
+    &[data-eye="2"] {
+      background-image: url("./assets/imgs/eye-2.svg");
+    }
+    &[data-eye="3"] {
+      background-image: url("./assets/imgs/eye-3.svg");
+    }
+    &[data-eye="pain"] {
+      background-image: url("./assets/imgs/eye-pain.svg");
+    }
+    &.with-pain {
+      background-image: url("./assets/imgs/eye-pain.svg");
+    }
+  }
+  .right-arm-container {
+    background-image: url("./assets/imgs/right-arm.svg");
+    left: auto;
+    right: -20px;
+    animation-name: rightarmmove;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 0%;
+    &[data-r-arm="2"] {
+      background-image: url("./assets/imgs/right-arm-2.svg");
+    }
+    &[data-r-arm="3"] {
+      background-image: url("./assets/imgs/right-arm-3.svg");
+    }
+    &.with-pain {
+      animation: none;
+      transform: rotateZ(-90deg);
+    }
+  }
+  .left-arm-container {
+    background-image: url("./assets/imgs/left-arm.svg");
+    left: -20px;
+    animation-name: leftarmmove;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 0%;
+    &[data-l-arm="2"] {
+      background-image: url("./assets/imgs/left-arm-2.svg");
+    }
+    &[data-l-arm="3"] {
+      background-image: url("./assets/imgs/left-arm-3.svg");
+    }
+    &.with-pain {
+      animation: none;
+      transform: rotateZ(90deg);
+    }
+  }
+  input,
+  textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    border: solid 1px var(--mainColorDarker);
+    padding: 10px 10px;
+    background-color: #fff;
+    resize: none;
+    font-family: "Lora", serif;
+    cursor: pointer;
+    &[type="color"] {
+      padding: 0px;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  &.dead {
+    .mouth-contianer,
+    .eye-contianer,
+    .right-arm-container,
+    .left-arm-container {
+      animation: none;
+    }
+    .right-arm-container {
+      transform: rotateZ(0deg);
+    }
+    .left-arm-container {
+      transform: rotateZ(0deg);
+    }
+    .life-bar {
+      display: none;
+    }
+  }
+  &.no-shadow {
+    box-shadow: none;
+  }
+  input[type="submit"] {
+    background-color: var(--secondaryColor);
+    color: #fff;
+    &[disabled="true"] {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}
+
+@keyframes floatmove {
+  0% {
+    transform: translateY(-3px) translateX(-50%);
+  }
+  50% {
+    transform: translateY(-8px) translateX(-50%);
+  }
+  100% {
+    transform: translateY(-3px) translateX(-50%);
+  }
+}
+
+@keyframes leftarmmove {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(45deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes rightarmmove {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(-45deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}

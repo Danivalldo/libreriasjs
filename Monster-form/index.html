@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monster Form</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="form-wrapper">
+        <h1>
+          Monster<img
+            src="./imgs/pumpkin-halloween-svgrepo-com.svg"
+            alt=""
+          /><span>Form</span>
+        </h1>
+        <p class="intro">
+          <b>¡Cuidado!</b> En este formulario se esconden terribles monstruos.
+        </p>
+        <p>
+          Derrótalos rellenando el formulario para liberar al mundo de estos
+          aterradores seres.
+        </p>
+        <p>
+          ¡Adelante, héroe del teclado, prepárate para una aventura de datos
+          aterradoramente divertida!
+        </p>
+        <label for="">Nombre *:</label>
+        <span data-monster class="input-monster">
+          <div class="life-bar">
+            <span class="inner-bar"></span>
+          </div>
+          <div class="eye-contianer"></div>
+          <div class="right-arm-container"></div>
+          <div class="left-arm-container"></div>
+          <div class="mouth-contianer"></div>
+          <input
+            type="text"
+            placeholder="Nombre"
+            name="name"
+            autocomplete="off"
+          />
+        </span>
+        <label for="">Email *:</label>
+        <span data-monster class="input-monster">
+          <div class="life-bar">
+            <span class="inner-bar"></span>
+          </div>
+          <div class="eye-contianer" data-eye="2"></div>
+          <div class="right-arm-container" data-r-arm="2"></div>
+          <div class="left-arm-container" data-l-arm="2"></div>
+          <div class="mouth-contianer" data-mouth="2"></div>
+          <input
+            type="email"
+            placeholder="Email"
+            name="user-email"
+            autocomplete="off"
+          />
+        </span>
+        <label for="">Descripción *:</label>
+        <span data-monster class="input-monster">
+          <div class="life-bar">
+            <span class="inner-bar"></span>
+          </div>
+          <div class="eye-contianer" data-eye="3"></div>
+          <div class="right-arm-container" data-r-arm="3"></div>
+          <div class="left-arm-container" data-l-arm="3"></div>
+          <div class="mouth-contianer" data-mouth="3"></div>
+          <textarea rows="5" placeholder="Descripción"></textarea>
+        </span>
+        <span data-monster class="input-monster no-shadow">
+          <span data-tooltip="Todos los campos son obligatorios"
+            ><input type="submit" value="Enviar" disabled="true"
+          /></span>
+        </span>
+        <p class="post-form-content">
+          ¿Te gustó? Puedes seguir mi blog para más contenido como este.
+          <a href="https://libreriasjs.com">libreriasjs.com</a>
+          <br />
+          Gracias a
+          <a href="https://www.kenney.nl/" target="_blank" rel="nofollow"
+            >Kenney</a
+          >
+          por esos increíbles recursos gratuitos..
+        </p>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
