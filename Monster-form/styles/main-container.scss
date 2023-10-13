@@ -23,11 +23,13 @@
       align-items: center;
       gap: 5px;
       font-size: 50px;
+      text-shadow: 0 4px 0px rgba(55, 42, 133, 0.6);
       span {
         color: var(--secondaryColor);
       }
       img {
         width: 40px;
+        filter: drop-shadow(0 4px 0px rgba(55, 42, 133, 0.6));
       }
     }
     label {
