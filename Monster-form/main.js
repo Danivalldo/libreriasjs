@@ -83,7 +83,7 @@ const painEffect = (e) => {
   const lifeBar = inputMonster.querySelector(".inner-bar");
 
   lifeBar.dataset.life = lifeBar.dataset.life || 1;
-  lifeBar.dataset.life = lifeBar.dataset.life - 0.05;
+  lifeBar.dataset.life = lifeBar.dataset.life - 0.2;
   lifeBar.dataset.life = lifeBar.dataset.life < 0 ? 0 : lifeBar.dataset.life;
   lifeBar.style.transform = `scaleX(${lifeBar.dataset.life})`;
 
