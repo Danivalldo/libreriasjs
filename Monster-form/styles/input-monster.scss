@@ -37,7 +37,7 @@
   .eye-contianer,
   .right-arm-container,
   .left-arm-container {
-    background-image: url("./assets/imgs/mouth.svg");
+    background-image: url("$cssAssets/imgs/mouth.svg");
     position: absolute;
     left: 50%;
     transform: translate3d(-50%, 0px, 1px);
@@ -57,13 +57,13 @@
     animation-duration: 2s;
     animation-iteration-count: infinite;
     &[data-mouth="2"] {
-      background-image: url("./assets/imgs/mouth-2.svg");
+      background-image: url("$cssAssets/imgs/mouth-2.svg");
     }
     &[data-mouth="3"] {
-      background-image: url("./assets/imgs/mouth-3.svg");
+      background-image: url("$cssAssets/imgs/mouth-3.svg");
     }
     &.with-pain {
-      background-image: url("./assets/imgs/mouth-pain.svg");
+      background-image: url("$cssAssets/imgs/mouth-pain.svg");
     }
   }
   .eye-contianer {
@@ -71,27 +71,27 @@
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-delay: 0.5s;
-    background-image: url("./assets/imgs/eye.svg");
+    background-image: url("$cssAssets/imgs/eye.svg");
     transform: translate3d(-50%, 0px, 1px);
     top: -30px;
     bottom: auto;
     width: 50px;
     height: 50px;
     &[data-eye="2"] {
-      background-image: url("./assets/imgs/eye-2.svg");
+      background-image: url("$cssAssets/imgs/eye-2.svg");
     }
     &[data-eye="3"] {
-      background-image: url("./assets/imgs/eye-3.svg");
+      background-image: url("$cssAssets/imgs/eye-3.svg");
     }
     &[data-eye="pain"] {
-      background-image: url("./assets/imgs/eye-pain.svg");
+      background-image: url("$cssAssets/imgs/eye-pain.svg");
     }
     &.with-pain {
-      background-image: url("./assets/imgs/eye-pain.svg");
+      background-image: url("$cssAssets/imgs/eye-pain.svg");
     }
   }
   .right-arm-container {
-    background-image: url("./assets/imgs/right-arm.svg");
+    background-image: url("$cssAssets/imgs/right-arm.svg");
     left: auto;
     right: -20px;
     animation-name: rightarmmove;
@@ -99,10 +99,10 @@
     animation-iteration-count: infinite;
     transform-origin: 50% 0%;
     &[data-r-arm="2"] {
-      background-image: url("./assets/imgs/right-arm-2.svg");
+      background-image: url("$cssAssets/imgs/right-arm-2.svg");
     }
     &[data-r-arm="3"] {
-      background-image: url("./assets/imgs/right-arm-3.svg");
+      background-image: url("$cssAssets/imgs/right-arm-3.svg");
     }
     &.with-pain {
       animation: none;
@@ -110,17 +110,17 @@
     }
   }
   .left-arm-container {
-    background-image: url("./assets/imgs/left-arm.svg");
+    background-image: url("$cssAssets/imgs/left-arm.svg");
     left: -20px;
     animation-name: leftarmmove;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     transform-origin: 50% 0%;
     &[data-l-arm="2"] {
-      background-image: url("./assets/imgs/left-arm-2.svg");
+      background-image: url("$cssAssets/imgs/left-arm-2.svg");
     }
     &[data-l-arm="3"] {
-      background-image: url("./assets/imgs/left-arm-3.svg");
+      background-image: url("$cssAssets/imgs/left-arm-3.svg");
     }
     &.with-pain {
       animation: none;
