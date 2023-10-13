@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  padding: 0 20px;
   transition: background-color 0.3s ease;
   .form-wrapper {
     transition: transform 0.3s ease;
@@ -63,6 +64,21 @@
           textarea {
             border: solid 1px #a32424;
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-container {
+    overflow: hidden;
+    .form-wrapper {
+      h1 {
+        font-size: 30px;
+        display: block;
+        img {
+          display: none;
         }
       }
     }

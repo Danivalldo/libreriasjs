@@ -212,3 +212,18 @@
     transform: rotateZ(0deg);
   }
 }
+
+@media screen and (max-width: 600px) {
+  .main-container {
+    &.battle-mode {
+      .form-wrapper {
+        .input-monster {
+          &.active {
+            max-width: 80%;
+            margin-left: 10%;
+          }
+        }
+      }
+    }
+  }
+}
