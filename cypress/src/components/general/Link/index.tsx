@@ -1,0 +1,20 @@
+import { FC, ReactNode } from "react";
+import { Link as RouterLink } from "react-router-dom";
+
+interface IPropsLink {
+  children: ReactNode;
+  path: string;
+}
+
+const Link: FC<IPropsLink> = ({ children, path }) => {
+  return (
+    <RouterLink
+      to={path}
+      className="bg-indigo-500 px-4 py-3 inline-block rounded text-white"
+    >
+      {children}
+    </RouterLink>
+  );
+};
+
+export default Link;
