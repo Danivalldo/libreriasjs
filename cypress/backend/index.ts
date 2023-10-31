@@ -40,4 +40,7 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
 
 app.listen(process.env.PORT, () => {
   console.log(`Server running on: http://localhost:${process.env.PORT}/`);
+  console.log(
+    `THIS BACKEND INSTANCE WILL HIT THE DB: ${process.env.COLLECTION}`
+  );
 });

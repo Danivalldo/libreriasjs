@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev-server": "npx nodemon",
+    "start:dev-server": "npx nodemon --config nodemon.json",
+    "start:test-server": "npx nodemon --config nodemon-test.json",
     "build:server": "rimraf ./build && tsc"
   },
   "author": "",

@@ -1,6 +1,5 @@
 {
   "watch": ["."],
   "ext": ".ts,.js",
-  "ignore": ["clients/*"],
   "exec": "node --trace-warnings --inspect --loader ts-node/esm -r dotenv/config ./index.ts dotenv_config_path=.env.local dotenv_config_debug=true"
 }

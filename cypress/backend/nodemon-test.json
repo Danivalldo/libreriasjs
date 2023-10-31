@@ -1,0 +1,5 @@
+{
+  "watch": ["."],
+  "ext": ".ts,.js",
+  "exec": "node --trace-warnings --inspect --loader ts-node/esm -r dotenv/config ./index.ts dotenv_config_path=.env.test dotenv_config_debug=false"
+}

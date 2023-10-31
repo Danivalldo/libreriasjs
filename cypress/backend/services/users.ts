@@ -22,7 +22,7 @@ const schemaUser = object({
 const getUserByUsername = async (username: string) => {
   await mongoDbClient.connect();
   const user = await mongoDbClient
-    .db("my_movies")
+    .db(process.env.COLLECTION)
     .collection("users")
     .findOne({ username });
   mongoDbClient.close();
@@ -77,7 +77,10 @@ export const registerUser = async ({
     pass: hash,
   };
   await mongoDbClient.connect();
-  await mongoDbClient.db("my_movies").collection("users").insertOne(newUser);
+  await mongoDbClient
+    .db(process.env.COLLECTION)
+    .collection("users")
+    .insertOne(newUser);
   mongoDbClient.close();
   return newUser;
 };

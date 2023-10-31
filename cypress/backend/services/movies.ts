@@ -17,7 +17,7 @@ const schemaNewMovie = object({
 export const getMovies = async (userId: string | boolean) => {
   await mongoDbClient.connect();
   const moviesPointer = await mongoDbClient
-    .db("my_movies")
+    .db(process.env.COLLECTION)
     .collection("movies")
     .find({ createdBy: userId });
   const movies = await moviesPointer.toArray();
@@ -38,7 +38,7 @@ export const addMovie = async (movie: Movie, userId: string | boolean) => {
   await schemaNewMovie.validate(newMovie);
   await mongoDbClient.connect();
   const createdMovie = await mongoDbClient
-    .db("my_movies")
+    .db(process.env.COLLECTION)
     .collection("movies")
     .insertOne(newMovie);
   mongoDbClient.close();
@@ -48,7 +48,7 @@ export const addMovie = async (movie: Movie, userId: string | boolean) => {
 export const deleteMovie = async (id: string, userId: string | boolean) => {
   await mongoDbClient.connect();
   const result = await mongoDbClient
-    .db("my_movies")
+    .db(process.env.COLLECTION)
     .collection("movies")
     .deleteOne({ id, createdBy: userId });
   mongoDbClient.close();
@@ -62,7 +62,7 @@ export const updateMovie = async (
 ) => {
   await mongoDbClient.connect();
   const foundMovie = await mongoDbClient
-    .db("my_movies")
+    .db(process.env.COLLECTION)
     .collection("movies")
     .findOne({ id, createdBy: userId });
   if (!foundMovie) {
@@ -79,7 +79,7 @@ export const updateMovie = async (
   };
   await schemaNewMovie.validate(updatedMovie);
   const result = await mongoDbClient
-    .db("my_movies")
+    .db(process.env.COLLECTION)
     .collection("movies")
     .updateOne(
       { id, createdBy: userId },
