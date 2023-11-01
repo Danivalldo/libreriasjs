@@ -1,32 +1,52 @@
 import mongoDbClient from "../services/mongoDbClient.js";
-import crypto from "crypto";
-import bcrypt from "bcrypt";
-import { User } from "../types/custom.js";
+import { addMovie } from "../services/movies.js";
+import { registerUser } from "../services/users.js";
 
 export const seed = async () => {
-  await mongoDbClient.connect();
-  await mongoDbClient.db(process.env.COLLECTION).collection("users").drop();
-  const userId = crypto.randomUUID();
-  const hash: string = await new Promise((resolve, reject) => {
-    bcrypt.genSalt(10, (err, salt) => {
-      if (err) {
-        return reject(new Error("There was an error registering"));
-      }
-      bcrypt.hash("1A@qwertyuiop", salt, (err, hash) => {
-        if (err || !hash) {
-          return reject(new Error("There was an error registering"));
-        }
-        resolve(hash);
-      });
+  try {
+    await mongoDbClient.connect();
+    const userCollectionExists = await mongoDbClient
+      .db(process.env.COLLECTION)
+      .listCollections({ name: "users" })
+      .next();
+    if (userCollectionExists) {
+      await mongoDbClient.db(process.env.COLLECTION).collection("users").drop();
+    }
+    const user = await registerUser({
+      username: "test@test.com",
+      pass: "1A@qwertyuiop",
     });
-  });
-  const newUser: User = {
-    id: userId,
-    username: "test@test.com",
-    pass: hash,
-  };
-  await mongoDbClient
-    .db(process.env.COLLECTION)
-    .collection("users")
-    .insertOne(newUser);
+    await mongoDbClient.connect();
+    const moviesCollectionExists = await mongoDbClient
+      .db(process.env.COLLECTION)
+      .listCollections({ name: "movies" })
+      .next();
+    if (moviesCollectionExists) {
+      await mongoDbClient.connect();
+      await mongoDbClient
+        .db(process.env.COLLECTION)
+        .collection("movies")
+        .drop();
+    }
+    await addMovie(
+      {
+        id: "1",
+        name: "Star Wars",
+        score: 5,
+        createdBy: "",
+      },
+      user.id
+    );
+    await addMovie(
+      {
+        id: "2",
+        name: "Jurassic Park",
+        score: 3,
+        createdBy: "",
+      },
+      user.id
+    );
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -1,0 +1,8 @@
+.scoreInput {
+  .star {
+    cursor: pointer;
+    &.filled {
+      color: red;
+    }
+  }
+}

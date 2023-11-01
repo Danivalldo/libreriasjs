@@ -8,6 +8,7 @@ import Home from "./components/views/Home/index.tsx";
 import View404 from "./components/views/View404/index.tsx";
 import SignUp from "./components/views/SignUp/index.tsx";
 import { TokenContextProvider } from "./context/TokenContext.tsx";
+import AddMovie from "./components/views/AddMovie/index.tsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+      },
+      {
+        path: "/add-movie",
+        element: <AddMovie />,
       },
     ],
   },

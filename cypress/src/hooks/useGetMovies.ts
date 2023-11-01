@@ -8,7 +8,9 @@ const useGetMovies = () => {
   const getMovies = async () => {
     const requestedMovies = await request("./api/");
     if (!requestedMovies) return;
-    setMovies(requestedMovies);
+    setMovies(
+      requestedMovies.map((movie: Movie) => ({ ...movie, _id: undefined }))
+    );
   };
   return { getMovies, movies, isLoading, error };
 };

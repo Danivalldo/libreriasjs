@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import useGetMovies from "../../../hooks/useGetMovies";
 import styles from "./Home.module.css";
+import MovieCard from "../../general/MovieCard";
 
 const Home = () => {
   const { getMovies, movies, isLoading, error } = useGetMovies();
@@ -9,11 +10,20 @@ const Home = () => {
     getMovies();
   }, []);
 
+  const handleOnUpdateMovie = async () => {
+    getMovies();
+  };
+
   return (
     <div>
       <h1 className="text-3xl font-bold underline">HOME</h1>
       {movies.map((movie) => (
-        <div key={movie.id}>{movie.name}</div>
+        <MovieCard
+          key={movie.id}
+          movie={movie}
+          cy="movie-card"
+          onUpdate={handleOnUpdateMovie}
+        />
       ))}
     </div>
   );

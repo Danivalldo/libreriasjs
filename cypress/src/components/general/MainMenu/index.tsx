@@ -12,7 +12,12 @@ const MainMenu = () => {
 
   return (
     <div>
-      <Button onClick={handleLogOut}>Log out</Button>
+      <Button onClick={handleLogOut} cy="signout-btn">
+        Log out
+      </Button>
+      <Link path="/add-movie" cy="add-movie-btn">
+        Add Movie
+      </Link>
     </div>
   );
 };
