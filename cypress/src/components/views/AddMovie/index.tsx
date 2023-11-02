@@ -50,7 +50,9 @@ const AddMovie = () => {
         <form onSubmit={handleOnSubmitAddMovie}>
           <Input type="text" placeholder="MovieName" name="movieName" />
           <ScoreInput score={score} onChange={handleOnChangeScore} />
-          <Button type="submit">Save</Button>
+          <Button type="submit" cy="create-movie-btn">
+            Save
+          </Button>
         </form>
       )}
     </div>

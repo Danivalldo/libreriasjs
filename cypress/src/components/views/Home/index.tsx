@@ -15,6 +15,10 @@ const Home = () => {
     getMovies();
   };
 
+  const handleOnDeleteMovie = async () => {
+    getMovies();
+  };
+
   return (
     <div>
       <h1 className="text-3xl font-bold underline">HOME</h1>
@@ -25,6 +29,7 @@ const Home = () => {
           movie={movie}
           cy="movie-card"
           onUpdate={handleOnUpdateMovie}
+          onDelete={handleOnDeleteMovie}
         />
       ))}
     </div>

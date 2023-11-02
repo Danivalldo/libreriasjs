@@ -9,7 +9,7 @@ const Spinner = () => {
       data-cy="spinner"
     >
       <g fill="none" fillRule="evenodd">
-        <g stroke-width="2">
+        <g strokeWidth="2">
           <circle strokeOpacity=".5" cx="18" cy="18" r="18" />
           <path d="M36 18c0-9.94-8.06-18-18-18">
             <animateTransform
