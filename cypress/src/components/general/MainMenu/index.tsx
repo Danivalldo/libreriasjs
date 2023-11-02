@@ -11,13 +11,20 @@ const MainMenu = () => {
   };
 
   return (
-    <div>
-      <Button onClick={handleLogOut} cy="signout-btn">
-        Log out
-      </Button>
-      <Link path="/add-movie" cy="add-movie-btn">
-        Add Movie
-      </Link>
+    <div className="flex justify-between">
+      <div>
+        <Link path="/" cy="add-go-home">
+          Home
+        </Link>
+        <Link path="/add-movie" cy="add-movie-btn">
+          Add Movie
+        </Link>
+      </div>
+      <div>
+        <Button onClick={handleLogOut} cy="signout-btn">
+          Log out
+        </Button>
+      </div>
     </div>
   );
 };

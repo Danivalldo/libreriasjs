@@ -25,4 +25,9 @@ describe("Movies", () => {
       .should("have.css", "color")
       .and("not.match", /rgb\(255, 0, 0\)/);
   });
+  it("should create a new movie", () => {
+    cy.signIn();
+    cy.get('[data-cy="add-movie-btn"]').click();
+    cy.location("pathname").should("eq", "/add-movie");
+  });
 });

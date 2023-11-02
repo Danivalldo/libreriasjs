@@ -1,6 +1,6 @@
 import { FC, useCallback } from "react";
 import { Movie } from "../../../types/Movie";
-import ScoreInput from "./ScoreInput";
+import ScoreInput from "../ScoreInput";
 import useRateMovie from "../../../hooks/useRateMovie";
 
 interface IPropsMovieCard {
