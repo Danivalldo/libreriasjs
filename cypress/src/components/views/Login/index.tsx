@@ -37,7 +37,10 @@ const Login = () => {
         <Input type="password" name="password" placeholder="Password" />
         <Button type="submit">Login</Button>
         <p>
-          Si no tienes cuenta, registrate <Link to="/sign-up">aquí</Link>
+          Si no tienes cuenta, registrate{" "}
+          <Link to="/sign-up" data-cy={"go-to-signup-btn"}>
+            aquí
+          </Link>
         </p>
         {error ?? <p>{error}</p>}
       </form>
