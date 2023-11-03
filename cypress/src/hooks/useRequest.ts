@@ -31,9 +31,7 @@ const useRequest = () => {
           gravity: "top",
           position: "right",
           stopOnFocus: true,
-          style: {
-            background: `rgb(255, 95, 109)`,
-          },
+          className: "toast-error",
         }).showToast();
         setToken(null);
       }

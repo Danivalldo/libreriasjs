@@ -33,6 +33,7 @@ const AddMovie = () => {
           gravity: "top",
           position: "right",
           stopOnFocus: true,
+          className: "toast-success",
         }).showToast();
       }
     },

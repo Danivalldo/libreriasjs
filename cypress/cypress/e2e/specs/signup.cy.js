@@ -1,6 +1,9 @@
 /// <reference types="Cypress" />
 
 describe("SignUp", () => {
+  beforeEach(() => {
+    cy.task("seedDatabase");
+  });
   it("should create a new user and login", () => {
     cy.intercept("POST", "/signup").as("requestSignUp");
     cy.visit("/");

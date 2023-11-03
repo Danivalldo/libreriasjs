@@ -4,6 +4,7 @@ import ScoreInput from "../ScoreInput";
 import useRateMovie from "../../../hooks/useRateMovie";
 import useDeleteMovie from "../../../hooks/useDeleteMovie";
 import Spinner from "../Spinner";
+import Toastify from "toastify-js";
 
 interface IPropsMovieCard {
   movie: Movie;
@@ -30,8 +31,19 @@ const MovieCard: FC<IPropsMovieCard> = ({ movie, cy, onUpdate, onDelete }) => {
 
   const handleOnDeleteMovie = useCallback(
     async (movieId: string) => {
-      await deleteMovie(movieId);
-      onDelete();
+      const deletedMovie = await deleteMovie(movieId);
+      if (deletedMovie) {
+        Toastify({
+          text: "Movie deleted",
+          duration: 3000,
+          close: true,
+          gravity: "top",
+          position: "right",
+          stopOnFocus: true,
+          className: "toast-success",
+        }).showToast();
+        onDelete();
+      }
     },
     [movie]
   );
