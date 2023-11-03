@@ -8,6 +8,7 @@ const schemaNewMovie = object({
   id: string().uuid().required(),
   name: string().max(50).required(),
   score: number().min(1).max(5).required(),
+  poster: string(),
   createdBy: string().uuid().required(),
 })
   .noUnknown(true)

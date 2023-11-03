@@ -56,6 +56,7 @@ const MovieCard: FC<IPropsMovieCard> = ({ movie, cy, onUpdate, onDelete }) => {
         <>
           <div className="flex gap-4">
             <h2>{movie.name}</h2>
+            {movie.poster && <img src={movie.poster} alt="" />}
             <button
               data-cy="delete-movie-btn"
               onClick={handleOnDeleteMovie.bind(this, movie.id)}

@@ -1,4 +1,10 @@
-import { FormEventHandler, useCallback, useState } from "react";
+import {
+  ChangeEvent,
+  FormEventHandler,
+  ReactEventHandler,
+  useCallback,
+  useState,
+} from "react";
 import ScoreInput from "../../general/ScoreInput";
 import useAddMovie from "../../../hooks/useAddMovie";
 import Button from "../../general/Button";
@@ -9,6 +15,8 @@ import Input from "../../general/Input";
 
 const AddMovie = () => {
   const [score, setScore] = useState(1);
+  const [poster, setPoster] = useState<string>("");
+  const [isValidPoster, setIsValidPoster] = useState<boolean>(false);
   const { addMovie, movie, isLoading } = useAddMovie();
 
   const handleOnChangeScore = (score: number) => {
@@ -23,6 +31,7 @@ const AddMovie = () => {
         name: (e.currentTarget.elements.namedItem("movieName") as RadioNodeList)
           .value,
         score: score,
+        poster,
         createdBy: "",
       });
       if (newMovie) {
@@ -37,12 +46,24 @@ const AddMovie = () => {
         }).showToast();
       }
     },
-    [score]
+    [score, poster]
   );
 
   if (movie) {
     return <Navigate to="/" />;
   }
+
+  const handleOnLoadImage: ReactEventHandler = () => {
+    setIsValidPoster(true);
+  };
+
+  const handleOnChangePoser = (e: ChangeEvent<HTMLInputElement>) => {
+    setPoster(e.target.value);
+  };
+
+  const handleErrorLoadImage: ReactEventHandler = () => {
+    setIsValidPoster(false);
+  };
 
   return (
     <div>
@@ -50,6 +71,23 @@ const AddMovie = () => {
       {!isLoading && (
         <form onSubmit={handleOnSubmitAddMovie}>
           <Input type="text" placeholder="MovieName" name="movieName" />
+          <Input
+            type="text"
+            placeholder="Poster"
+            name="poster"
+            value={poster}
+            onChange={handleOnChangePoser}
+          />
+          <div>
+            <img
+              src={poster}
+              alt=""
+              className={``}
+              onLoad={handleOnLoadImage}
+              onError={handleErrorLoadImage}
+              style={{ visibility: isValidPoster ? "visible" : "hidden" }}
+            />
+          </div>
           <ScoreInput score={score} onChange={handleOnChangeScore} />
           <Button type="submit" cy="create-movie-btn">
             Save

@@ -33,6 +33,8 @@ export const seed = async () => {
         id: "1",
         name: "Star Wars",
         score: 5,
+        poster:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/250px-Star_Wars_Logo.svg.png",
         createdBy: "",
       },
       user.id
@@ -42,6 +44,7 @@ export const seed = async () => {
         id: "2",
         name: "Jurassic Park",
         score: 3,
+        poster: "./jurassic_park.jpeg",
         createdBy: "",
       },
       user.id
