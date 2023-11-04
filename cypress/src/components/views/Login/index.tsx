@@ -31,11 +31,18 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.loginView}>
-      <form className="login-form" onSubmit={handleOnSubmitLogin}>
-        <Input type="text" name="username" placeholder="Email" />
-        <Input type="password" name="password" placeholder="Password" />
-        <Button type="submit">Login</Button>
+    <div className={`${styles.loginView} flex justify-center items-center`}>
+      <form
+        className="bg-gradient-to-r from-cyan-500 to-blue-500 p-5 rounded-lg text-center"
+        onSubmit={handleOnSubmitLogin}
+      >
+        <div className="mb-3">
+          <Input type="text" name="username" placeholder="Email" />
+          <Input type="password" name="password" placeholder="Password" />
+        </div>
+        <div className="mb-3">
+          <Button type="submit">Login</Button>
+        </div>
         <p>
           Si no tienes cuenta, registrate{" "}
           <Link to="/sign-up" data-cy={"go-to-signup-btn"}>
