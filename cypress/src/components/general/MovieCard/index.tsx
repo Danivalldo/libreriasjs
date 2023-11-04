@@ -3,6 +3,7 @@ import { Movie } from "../../../types/Movie";
 import ScoreInput from "../ScoreInput";
 import useRateMovie from "../../../hooks/useRateMovie";
 import useDeleteMovie from "../../../hooks/useDeleteMovie";
+import Trash from "../../icons/Trash";
 import Spinner from "../Spinner";
 import Toastify from "toastify-js";
 
@@ -54,21 +55,40 @@ const MovieCard: FC<IPropsMovieCard> = ({ movie, cy, onUpdate, onDelete }) => {
         <Spinner />
       ) : (
         <>
-          <div className="flex gap-4">
-            <h2>{movie.name}</h2>
-            {movie.poster && <img src={movie.poster} alt="" />}
-            <button
-              data-cy="delete-movie-btn"
-              onClick={handleOnDeleteMovie.bind(this, movie.id)}
-            >
-              Delete
-            </button>
+          <div className="bg-gray-900 text-white rounded-xl shadow-md overflow-hidden m-5">
+            <div className="md:flex md:flex-col">
+              {movie.poster && (
+                <div className="md:flex-shrink-0">
+                  <img
+                    className="h-48 w-full object-cover md:w-full"
+                    src={movie.poster}
+                    alt="Movie image"
+                  />
+                </div>
+              )}
+              <div className="p-8 flex justify-between">
+                <div>
+                  <h2 className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+                    {movie.name}
+                  </h2>
+                  {isLoading ? (
+                    <Spinner />
+                  ) : (
+                    <ScoreInput
+                      score={movie.score}
+                      onChange={handleOnChangeScore}
+                    />
+                  )}
+                </div>
+                <button
+                  data-cy="delete-movie-btn"
+                  onClick={handleOnDeleteMovie.bind(this, movie.id)}
+                >
+                  <Trash />
+                </button>
+              </div>
+            </div>
           </div>
-          {isLoading ? (
-            <Spinner />
-          ) : (
-            <ScoreInput score={movie.score} onChange={handleOnChangeScore} />
-          )}
         </>
       )}
     </div>

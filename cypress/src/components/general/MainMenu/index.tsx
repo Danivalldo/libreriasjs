@@ -2,6 +2,8 @@ import { useContext } from "react";
 import Button from "../Button";
 import Link from "../Link";
 import { TokenContext } from "../../../context/TokenContext";
+import Home from "../../icons/Home";
+import LogOut from "../../icons/LogOut";
 
 const MainMenu = () => {
   const { setToken } = useContext(TokenContext);
@@ -11,10 +13,10 @@ const MainMenu = () => {
   };
 
   return (
-    <div className="flex justify-between">
-      <div>
+    <div className="flex justify-between p-2 bg-slate-900 shadow-sm">
+      <div className="flex gap-2">
         <Link path="/" cy="add-go-home">
-          Home
+          <Home />
         </Link>
         <Link path="/add-movie" cy="add-movie-btn">
           Add Movie
@@ -22,7 +24,7 @@ const MainMenu = () => {
       </div>
       <div>
         <Button onClick={handleLogOut} cy="signout-btn">
-          Log out
+          <LogOut />
         </Button>
       </div>
     </div>

@@ -21,17 +21,18 @@ const Home = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">HOME</h1>
       {isLoading && <Spinner />}
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          movie={movie}
-          cy="movie-card"
-          onUpdate={handleOnUpdateMovie}
-          onDelete={handleOnDeleteMovie}
-        />
-      ))}
+      <div className={styles.moviesGrid}>
+        {movies.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            cy="movie-card"
+            onUpdate={handleOnUpdateMovie}
+            onDelete={handleOnDeleteMovie}
+          />
+        ))}
+      </div>
     </div>
   );
 };
