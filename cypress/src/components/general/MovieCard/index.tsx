@@ -6,6 +6,7 @@ import useDeleteMovie from "../../../hooks/useDeleteMovie";
 import Trash from "../../icons/Trash";
 import Spinner from "../Spinner";
 import Toastify from "toastify-js";
+import Button from "../Button";
 
 interface IPropsMovieCard {
   movie: Movie;
@@ -66,7 +67,7 @@ const MovieCard: FC<IPropsMovieCard> = ({ movie, cy, onUpdate, onDelete }) => {
                   />
                 </div>
               )}
-              <div className="p-8 flex justify-between">
+              <div className="p-8 flex gap-4 justify-between">
                 <div>
                   <h2 className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
                     {movie.name}
@@ -80,12 +81,14 @@ const MovieCard: FC<IPropsMovieCard> = ({ movie, cy, onUpdate, onDelete }) => {
                     />
                   )}
                 </div>
-                <button
-                  data-cy="delete-movie-btn"
-                  onClick={handleOnDeleteMovie.bind(this, movie.id)}
-                >
-                  <Trash />
-                </button>
+                <div>
+                  <Button
+                    cy="delete-movie-btn"
+                    onClick={handleOnDeleteMovie.bind(this, movie.id)}
+                  >
+                    <Trash />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

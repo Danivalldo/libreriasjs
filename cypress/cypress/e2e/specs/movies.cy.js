@@ -19,7 +19,7 @@ describe("Movies", () => {
     cy.get('[data-cy-movie-id="Star Wars"] [data-cy="star-btn-2"]').should(
       "have.css",
       "color",
-      "rgb(255, 0, 0)"
+      "rgb(255, 238, 0)"
     );
     cy.get('[data-cy-movie-id="Star Wars"] [data-cy="star-btn-3"]')
       .should("have.css", "color")

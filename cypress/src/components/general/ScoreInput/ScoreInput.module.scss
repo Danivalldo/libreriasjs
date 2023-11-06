@@ -1,8 +1,19 @@
 .scoreInput {
+  padding: 10px 0;
+  display: flex;
   .star {
+    opacity: 0.4;
     cursor: pointer;
+    font-size: 25px;
+    border-radius: 50px;
     &.filled {
-      color: red;
+      opacity: 1;
+      color: rgb(255, 238, 0);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+    &:hover {
+      opacity: 1;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
     }
   }
 }
