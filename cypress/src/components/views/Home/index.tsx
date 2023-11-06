@@ -21,7 +21,11 @@ const Home = () => {
 
   return (
     <div>
-      {isLoading && <Spinner />}
+      {isLoading && (
+        <div className="absolute bottom-10 right-5">
+          <Spinner />
+        </div>
+      )}
       <div className={styles.moviesGrid}>
         {movies.map((movie) => (
           <MovieCard

@@ -5,15 +5,17 @@ interface IPropsInput {
   name: string;
   value?: string;
   placeholder?: string;
+  className?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: FC<IPropsInput> = (props) => {
+const Input: FC<IPropsInput> = ({ className, ...props }) => {
   return (
     <input
       {...props}
-      // onChange={(e:ChangeEvent<HTMLInputElement>)=>{}}
-      className="block w-full rounded-md  py-1.5 px-1.5 mb-1.5"
+      className={`block w-full rounded-md  py-1.5 px-1.5 mb-1.5 ${
+        className || ""
+      }`}
     />
   );
 };

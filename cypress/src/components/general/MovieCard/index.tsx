@@ -51,7 +51,11 @@ const MovieCard: FC<IPropsMovieCard> = ({ movie, cy, onUpdate, onDelete }) => {
   );
 
   return (
-    <div data-cy={cy} data-cy-movie-id={movie.name} className="">
+    <div
+      data-cy={cy}
+      data-cy-movie-id={movie.name}
+      className="hover:scale-105 transition-transform"
+    >
       {isDeletingMovie ? (
         <Spinner />
       ) : (

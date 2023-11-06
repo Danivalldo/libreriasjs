@@ -19,7 +19,7 @@ const MainMenu = () => {
           <Home />
         </Link>
         <Link path="/add-movie" cy="add-movie-btn">
-          Add Movie
+          Añadir película
         </Link>
       </div>
       <div>

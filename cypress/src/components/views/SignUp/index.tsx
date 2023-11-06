@@ -99,26 +99,47 @@ const SignUp = () => {
   }
 
   return (
-    <form className={styles.signUpView} onSubmit={handleOnSubmit}>
-      <Input type="email" name="username" placeholder="Email" />
-      <Input type="password" name="password" placeholder="Password" />
-      <Input
-        type="password"
-        name="repeated-password"
-        placeholder="Repetir password"
-      />
-      <Button type="submit" cy="register-btn">
-        Regístrate
-      </Button>
-      <p>
-        *La contraseña debe contener al menos un carácter en mayúscula, algún
-        carácter especial, un número y debe tener una longitud superior a 8
-        carácteres.
-      </p>
-      <p>
-        Accede a tu cuenta <Link to="/login">aqui</Link>
-      </p>
-    </form>
+    <div className={`flex items-start justify-center h-screen text-white`}>
+      <form
+        className={`${styles.signUpView} my-auto bg-gradient-to-r from-cyan-500 to-blue-500 p-5 rounded-lg text-center `}
+        onSubmit={handleOnSubmit}
+      >
+        <div className="mb-5">
+          <Input
+            type="email"
+            name="username"
+            placeholder="Email"
+            className="text-white"
+          />
+          <Input
+            type="password"
+            name="password"
+            placeholder="Contraseña"
+            className="text-white"
+          />
+          <Input
+            type="password"
+            name="repeated-password"
+            placeholder="Repetir contraseña"
+            className="text-white"
+          />
+          <Button type="submit" cy="register-btn">
+            Regístrate
+          </Button>
+        </div>
+        <p className="mb-4">
+          *La contraseña debe contener al menos un carácter en mayúscula, algún
+          carácter especial, un número y debe tener una longitud superior a 8
+          carácteres.
+        </p>
+        <p className="">
+          Accede a tu cuenta{" "}
+          <Link to="/login" className="underline">
+            aquí
+          </Link>
+        </p>
+      </form>
+    </div>
   );
 };
 

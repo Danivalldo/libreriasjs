@@ -3,6 +3,7 @@ import {
   FormEventHandler,
   ReactEventHandler,
   useCallback,
+  useEffect,
   useState,
 } from "react";
 import ScoreInput from "../../general/ScoreInput";
@@ -17,7 +18,20 @@ const AddMovie = () => {
   const [score, setScore] = useState(1);
   const [poster, setPoster] = useState<string>("");
   const [isValidPoster, setIsValidPoster] = useState<boolean>(false);
-  const { addMovie, movie, isLoading } = useAddMovie();
+  const { addMovie, movie, isLoading, error } = useAddMovie();
+
+  useEffect(() => {
+    if (!error) return;
+    Toastify({
+      text: error,
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      stopOnFocus: true,
+      className: "toast-error",
+    }).showToast();
+  }, [error]);
 
   const handleOnChangeScore = (score: number) => {
     setScore(score);
@@ -66,11 +80,18 @@ const AddMovie = () => {
   };
 
   return (
-    <div>
+    <div className="h-full flex justify-center">
       {isLoading && <Spinner />}
       {!isLoading && (
-        <form onSubmit={handleOnSubmitAddMovie}>
-          <Input type="text" placeholder="MovieName" name="movieName" />
+        <form
+          onSubmit={handleOnSubmitAddMovie}
+          className="block max-w-md w-full mx-auto mt-10 text-center my-auto bg-slate-900 p-5 rounded-lg shadow-sm"
+        >
+          <Input
+            type="text"
+            placeholder="Nombre de la película"
+            name="movieName"
+          />
           <Input
             type="text"
             placeholder="Poster"

@@ -12,7 +12,7 @@ const Button: FC<IPropButton> = ({ children, cy, ...props }) => {
     <button
       {...props}
       data-cy={cy}
-      className="bg-indigo-500 px-4 py-3 inline-block rounded text-white"
+      className="bg-indigo-500 px-4 py-3 inline-block rounded text-white hover:bg-indigo-700"
     >
       {children}
     </button>

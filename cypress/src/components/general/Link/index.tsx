@@ -11,7 +11,7 @@ const Link: FC<IPropsLink> = ({ children, path, cy }) => {
   return (
     <RouterLink
       to={path}
-      className="bg-indigo-500 px-4 py-3 inline-block rounded text-white"
+      className="bg-indigo-500 px-4 py-3 inline-block rounded text-white hover:bg-indigo-700"
       data-cy={cy}
     >
       {children}
