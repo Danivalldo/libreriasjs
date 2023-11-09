@@ -28,4 +28,17 @@ describe("Auth", () => {
     cy.location("pathname").should("eq", "/login");
     cy.contains("Your session expired");
   });
+  it("should detect if user does not exists", () => {
+    cy.visit("/");
+    cy.get(["[]"]);
+    cy.location("pathname").should("eq", "/login");
+    cy.getAllLocalStorage().should("be.empty");
+    cy.get('input[name="username"]').click();
+    cy.get('input[name="username"]').type("no-user@test.com");
+    cy.get('input[name="password"]').click();
+    cy.get('input[name="password"]').type("no-user-pass");
+    cy.get('button[type="submit"]').click();
+    cy.contains("This user does not exists");
+    cy.location("pathname").should("eq", "/login");
+  });
 });

@@ -27,7 +27,7 @@ const getUserByUsername = async (username: string) => {
 export const validateLogin = async (username: string, pass: string) => {
   const user = await getUserByUsername(username);
   if (!user) {
-    throw new Error("This user does not exist");
+    throw new Error("This user does not exists");
   }
   await new Promise<void>((resolve, reject) => {
     bcrypt.compare(pass, user.pass, (err, result) => {
