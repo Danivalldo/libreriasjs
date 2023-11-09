@@ -1,8 +1,8 @@
-import mongoDbClient from "./mongoDbClient.js";
 import crypto from "crypto";
 import { string, number, object } from "yup";
 import sanitizeHtml from "sanitize-html";
-import type { Movie, UpdateMovie } from "../types/custom.js";
+import type { Movie as MovieType, UpdateMovie } from "../types/custom.js";
+import Movie from "../models/Movie.js";
 
 const schemaNewMovie = object({
   id: string().uuid().required(),
@@ -15,18 +15,12 @@ const schemaNewMovie = object({
   .required()
   .strict();
 
-export const getMovies = async (userId: string | boolean) => {
-  await mongoDbClient.connect();
-  const moviesPointer = await mongoDbClient
-    .db()
-    .collection("movies")
-    .find({ createdBy: userId });
-  const movies = await moviesPointer.toArray();
-  mongoDbClient.close();
+export const getMovies = async (userId: string) => {
+  const movies = await Movie.find({ createdBy: userId }).lean();
   return movies;
 };
 
-export const addMovie = async (movie: Movie, userId: string | boolean) => {
+export const addMovie = async (movie: MovieType, userId: string) => {
   if (!movie) {
     throw new Error("Movie not provided");
   }
@@ -37,56 +31,22 @@ export const addMovie = async (movie: Movie, userId: string | boolean) => {
     createdBy: userId,
   };
   await schemaNewMovie.validate(newMovie);
-  await mongoDbClient.connect();
-  const createdMovie = await mongoDbClient
-    .db()
-    .collection("movies")
-    .insertOne(newMovie);
-  mongoDbClient.close();
-  return createdMovie;
+  const createdMovie = new Movie(newMovie);
+  await createdMovie.save();
 };
 
-export const deleteMovie = async (id: string, userId: string | boolean) => {
-  await mongoDbClient.connect();
-  const result = await mongoDbClient
-    .db()
-    .collection("movies")
-    .deleteOne({ id, createdBy: userId });
-  mongoDbClient.close();
-  return result;
+export const deleteMovie = async (id: string, userId: string) => {
+  await Movie.deleteOne({ id, createdBy: userId });
 };
 
 export const updateMovie = async (
   id: string,
   newContent: UpdateMovie,
-  userId: string | boolean
+  userId: string
 ) => {
-  await mongoDbClient.connect();
-  const foundMovie = await mongoDbClient
-    .db()
-    .collection("movies")
-    .findOne({ id, createdBy: userId });
-  if (!foundMovie) {
-    throw new Error("This movie does not exists");
-  }
-  const updatedMovie = {
-    score: foundMovie.score,
-    createdBy: foundMovie.createdBy,
-    ...newContent,
-    id,
-    name: newContent.name
-      ? sanitizeHtml(newContent.name, { allowedTags: [] })
-      : foundMovie.name,
-  };
-  await schemaNewMovie.validate(updatedMovie);
-  const result = await mongoDbClient
-    .db()
-    .collection("movies")
-    .updateOne(
-      { id, createdBy: userId },
-      { $set: updatedMovie },
-      { upsert: true }
-    );
-  mongoDbClient.close();
-  return result;
+  const updatedMovie = await Movie.updateOne(
+    { id, createdBy: userId },
+    newContent
+  ).lean();
+  return updatedMovie;
 };

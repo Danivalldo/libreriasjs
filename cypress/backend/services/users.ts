@@ -1,8 +1,8 @@
-import mongoDbClient from "./mongoDbClient.js";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import { string, object } from "yup";
-import type { User } from "../types/custom.js";
+import type { User as UserType } from "../types/custom.js";
+import User from "../models/User.js";
 
 const schemaUser = object({
   id: string().uuid().required(),
@@ -20,12 +20,7 @@ const schemaUser = object({
   .strict();
 
 const getUserByUsername = async (username: string) => {
-  await mongoDbClient.connect();
-  const user = await mongoDbClient
-    .db()
-    .collection("users")
-    .findOne({ username });
-  mongoDbClient.close();
+  const user: UserType | null = await User.findOne({ username }).lean();
   return user;
 };
 
@@ -71,13 +66,12 @@ export const registerUser = async ({
       });
     });
   });
-  const newUser: User = {
+  const newUser: UserType = {
     id: userId,
     username,
     pass: hash,
   };
-  await mongoDbClient.connect();
-  await mongoDbClient.db().collection("users").insertOne(newUser);
-  mongoDbClient.close();
+  const createdUser = new User(newUser);
+  await createdUser.save();
   return newUser;
 };

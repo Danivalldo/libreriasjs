@@ -1,30 +1,20 @@
-import mongoDbClient from "../services/mongoDbClient.js";
 import { addMovie } from "../services/movies.js";
 import { registerUser } from "../services/users.js";
+import Movie from "../models/Movie.js";
+import { connect } from "mongoose";
+import User from "../models/User.js";
 
 export const seed = async () => {
   try {
-    await mongoDbClient.connect();
-    const userCollectionExists = await mongoDbClient
-      .db()
-      .listCollections({ name: "users" })
-      .next();
-    if (userCollectionExists) {
-      await mongoDbClient.db().collection("users").drop();
-    }
+    await connect(process.env.MONGODB_URI, {
+      dbName: process.env.DATABASE,
+    });
+    await Movie.collection.drop();
+    await User.collection.drop();
     const user = await registerUser({
       username: "test@test.com",
       pass: "1A@qwertyuiop",
     });
-    await mongoDbClient.connect();
-    const moviesCollectionExists = await mongoDbClient
-      .db()
-      .listCollections({ name: "movies" })
-      .next();
-    if (moviesCollectionExists) {
-      await mongoDbClient.connect();
-      await mongoDbClient.db().collection("movies").drop();
-    }
     await addMovie(
       {
         id: "1",
@@ -46,7 +36,7 @@ export const seed = async () => {
       },
       user.id
     );
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.log(err);
   }
 };
