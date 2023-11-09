@@ -1,5 +1,6 @@
 import express from "express";
 import helmet from "helmet";
+import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import type { Request, Response, NextFunction } from "express";
 import { apiRouter } from "./middleware/api/index.js";
@@ -38,9 +39,11 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ error: error.message });
 });
 
+// mongoose.connect(
+//   process.env.MONGODB_URI
+// )
+
 app.listen(process.env.PORT, () => {
   console.log(`Server running on: http://localhost:${process.env.PORT}/`);
-  console.log(
-    `THIS BACKEND INSTANCE WILL HIT THE DB: ${process.env.COLLECTION}`
-  );
+  console.log(`THIS BACKEND INSTANCE WILL HIT THE DB: ${process.env.DATABASE}`);
 });

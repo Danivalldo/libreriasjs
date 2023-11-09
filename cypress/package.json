@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "concurrently --kill-others \"npm run dev\" \"npm run test\" \"cd ./backend && npm run start:dev-server\" \"cd ./backend && npm run start:test-server\"",
+    "start": "concurrently --kill-others \"npm run dev\" \"cd ./backend && npm run start:dev-server\"",
     "dev": "dotenv -e .env.local vite",
-    "test": "concurrently \"dotenv -e .env.test vite\" \"dotenv -e .env.test npx cypress open\" ",
+    "test": "concurrently \"dotenv -e .env.test vite\" \"dotenv -e .env.test npx cypress open\" \"cd ./backend && npm run start:test-server\"",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -34,6 +34,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.31",
+    "postcss-nesting": "^12.0.1",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2",
     "vite": "^4.4.5"

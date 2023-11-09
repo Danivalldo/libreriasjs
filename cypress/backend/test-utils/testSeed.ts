@@ -6,11 +6,11 @@ export const seed = async () => {
   try {
     await mongoDbClient.connect();
     const userCollectionExists = await mongoDbClient
-      .db(process.env.COLLECTION)
+      .db()
       .listCollections({ name: "users" })
       .next();
     if (userCollectionExists) {
-      await mongoDbClient.db(process.env.COLLECTION).collection("users").drop();
+      await mongoDbClient.db().collection("users").drop();
     }
     const user = await registerUser({
       username: "test@test.com",
@@ -18,15 +18,12 @@ export const seed = async () => {
     });
     await mongoDbClient.connect();
     const moviesCollectionExists = await mongoDbClient
-      .db(process.env.COLLECTION)
+      .db()
       .listCollections({ name: "movies" })
       .next();
     if (moviesCollectionExists) {
       await mongoDbClient.connect();
-      await mongoDbClient
-        .db(process.env.COLLECTION)
-        .collection("movies")
-        .drop();
+      await mongoDbClient.db().collection("movies").drop();
     }
     await addMovie(
       {
