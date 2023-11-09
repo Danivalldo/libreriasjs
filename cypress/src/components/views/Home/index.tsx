@@ -3,6 +3,7 @@ import useGetMovies from "../../../hooks/useGetMovies";
 import styles from "./Home.module.css";
 import MovieCard from "../../general/MovieCard";
 import Spinner from "../../general/Spinner";
+import NoMovies from "../../icons/NoMovies";
 
 const Home = () => {
   const { getMovies, movies, isLoading, error } = useGetMovies();
@@ -27,15 +28,22 @@ const Home = () => {
         </div>
       )}
       <div className={styles.moviesGrid}>
-        {movies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            movie={movie}
-            cy="movie-card"
-            onUpdate={handleOnUpdateMovie}
-            onDelete={handleOnDeleteMovie}
-          />
-        ))}
+        {movies.length > 0 ? (
+          movies.map((movie) => (
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              cy="movie-card"
+              onUpdate={handleOnUpdateMovie}
+              onDelete={handleOnDeleteMovie}
+            />
+          ))
+        ) : (
+          <div className="text-center pt-4">
+            <NoMovies width={240} height={240} className={"mx-auto"} />
+            <p>Aún no has añadido ninguna película</p>
+          </div>
+        )}
       </div>
     </div>
   );
