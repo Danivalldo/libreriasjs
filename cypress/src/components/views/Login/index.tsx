@@ -1,11 +1,12 @@
 import { Link, Navigate } from "react-router-dom";
 import styles from "./Login.module.sass";
-import { FormEventHandler, useContext } from "react";
+import { FormEventHandler, useContext, useEffect } from "react";
 import { TokenContext } from "../../../context/TokenContext";
 import useRequest from "../../../hooks/useRequest";
 import Input from "../../general/Input";
 import Button from "../../general/Button";
 import Movie from "../../icons/Movie";
+import Toastify from "toastify-js";
 
 const Login = () => {
   const { token, setToken } = useContext(TokenContext);
@@ -30,6 +31,19 @@ const Login = () => {
       setToken(tokenResponse.token);
     }
   };
+
+  useEffect(() => {
+    if (!error) return;
+    Toastify({
+      text: error,
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      stopOnFocus: true,
+      className: "toast-error",
+    }).showToast();
+  }, [error]);
 
   return (
     <div className={`${styles.loginView} flex justify-center items-center`}>
@@ -57,7 +71,6 @@ const Login = () => {
             aquí
           </Link>
         </p>
-        {error ?? <p>{error}</p>}
       </form>
     </div>
   );

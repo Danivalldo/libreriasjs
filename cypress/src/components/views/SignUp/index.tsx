@@ -27,8 +27,6 @@ const SignUp = () => {
       e.currentTarget.elements.namedItem("repeated-password") as RadioNodeList
     ).value;
 
-    console.log(username, pass, repeatedPassword);
-
     if (!username || !pass || !repeatedPassword) {
       Toastify({
         text: "Todos los campos son obligatorios",
