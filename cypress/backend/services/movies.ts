@@ -28,7 +28,7 @@ export const addMovie = async (movie: MovieType, userId: string) => {
     ...movie,
     id: crypto.randomUUID(),
     name: sanitizeHtml(movie.name, { allowedTags: [] }),
-    poster: sanitizeHtml(movie.name, { allowedTags: [] }),
+    poster: sanitizeHtml(movie.poster || "", { allowedTags: [] }),
     createdBy: userId,
   };
   await schemaNewMovie.validate(newMovie);
