@@ -46,7 +46,7 @@ Cypress.Commands.add("signIn", () => {
   cy.get('input[name="password"]').click();
   cy.get('input[name="password"]').type("1A@qwertyuiop");
   cy.get('button[type="submit"]').click();
-  cy.wait("@requestSignIn");
+  cy.wait("@requestSignIn").its("response").its("statusCode").should("eq", 200);
   cy.location("pathname").should("eq", "/");
   cy.getAllLocalStorage()
     .its(`http://localhost:5174`)

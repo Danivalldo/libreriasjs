@@ -6,6 +6,7 @@ describe("SignUp", () => {
   });
   it("should create a new user and login", () => {
     cy.intercept("POST", "/signup").as("requestSignUp");
+    cy.intercept("POST", "/signin").as("requestSignIn");
     cy.visit("/");
     cy.location("pathname").should("eq", "/login");
     cy.get('[data-cy="go-to-signup-btn"]').click();
@@ -15,16 +16,21 @@ describe("SignUp", () => {
     cy.get('[name="password"]').type("A@1poiuytrewq");
     cy.get('[name="repeated-password"]').type("A@1poiuytrewq");
     cy.get('[data-cy="register-btn"]').click();
-    cy.wait("@requestSignUp");
+    cy.wait("@requestSignUp")
+      .its("response")
+      .its("statusCode")
+      .should("eq", 200);
     cy.location("pathname").should("eq", "/login");
-    cy.intercept("POST", "/signin").as("requestSignIn");
     cy.getAllLocalStorage().should("be.empty");
     cy.get('input[name="username"]').click();
     cy.get('input[name="username"]').type("test2@test.com");
     cy.get('input[name="password"]').click();
     cy.get('input[name="password"]').type("A@1poiuytrewq");
     cy.get('button[type="submit"]').click();
-    cy.wait("@requestSignIn");
+    cy.wait("@requestSignIn")
+      .its("response")
+      .its("statusCode")
+      .should("eq", 200);
     cy.location("pathname").should("eq", "/");
     cy.getAllLocalStorage()
       .its(`http://localhost:5174`)

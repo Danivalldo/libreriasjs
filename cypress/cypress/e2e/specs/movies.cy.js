@@ -12,10 +12,19 @@ describe("Movies", () => {
     cy.intercept("PUT", "/api/*").as("requestScoreMovie");
     cy.intercept("GET", "/api").as("requestAllMovies");
     cy.signIn();
-    cy.wait("@requestAllMovies");
+    cy.wait("@requestAllMovies")
+      .its("response")
+      .its("statusCode")
+      .should("eq", 200);
     cy.get('[data-cy-movie-id="Star Wars"] [data-cy="star-btn-2"]').click();
-    cy.wait("@requestScoreMovie");
-    cy.wait("@requestAllMovies");
+    cy.wait("@requestScoreMovie")
+      .its("response")
+      .its("statusCode")
+      .should("eq", 200);
+    cy.wait("@requestAllMovies")
+      .its("response")
+      .its("statusCode")
+      .should("eq", 200);
     cy.get('[data-cy-movie-id="Star Wars"] [data-cy="star-btn-2"]').should(
       "have.css",
       "color",
@@ -36,7 +45,10 @@ describe("Movies", () => {
     cy.get('input[name="poster"]').type("./matrix.jpeg");
     cy.get('[data-cy="star-btn-4"]').click();
     cy.get('[data-cy="create-movie-btn"]').click();
-    cy.wait("@requestAddNewMovie");
+    cy.wait("@requestAddNewMovie")
+      .its("response")
+      .its("statusCode")
+      .should("eq", 200);
     cy.location("pathname").should("eq", "/");
     cy.contains("Matrix");
     cy.get('[data-cy-movie-id="Matrix"]')
@@ -51,7 +63,10 @@ describe("Movies", () => {
     cy.get(
       '[data-cy-movie-id="Star Wars"] [data-cy="delete-movie-btn"]'
     ).click();
-    cy.wait("@requestDeleteMovie");
+    cy.wait("@requestDeleteMovie")
+      .its("response")
+      .its("statusCode")
+      .should("eq", 200);
     cy.get("[data-cy-movie-id='Star Wars']").should("not.exist");
     cy.get('[data-cy="movie-card"]').should("have.length", 1);
   });
