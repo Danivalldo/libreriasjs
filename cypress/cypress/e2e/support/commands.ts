@@ -49,7 +49,7 @@ Cypress.Commands.add("signIn", () => {
   cy.wait("@requestSignIn").its("response").its("statusCode").should("eq", 200);
   cy.location("pathname").should("eq", "/");
   cy.getAllLocalStorage()
-    .its(`http://localhost:5174`)
+    .its(`http://localhost:${Cypress.env("PORT")}`)
     .its("CY_MY_MOVIES_TOKEN")
     .should("not.be.undefined");
 });
