@@ -12,8 +12,8 @@ describe("SignUp", () => {
     cy.location("pathname").should("eq", "/login");
     cy.get('[data-cy="go-to-signup-btn"]').click();
     cy.location("pathname").should("eq", "/sign-up");
-    cy.get('[name="username"]').click();
     cy.get("@userCredentials").then((userCredentials) => {
+      cy.get('[name="username"]').click();
       cy.get('[name="username"]').type(userCredentials.email);
       cy.get('[name="password"]').type(userCredentials.password);
       cy.get('[name="repeated-password"]').type(userCredentials.password);
