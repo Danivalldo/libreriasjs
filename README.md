@@ -17,7 +17,7 @@ If none of them works, and there is no README with more information inside the f
 
 If you need to download only ONE folder of this repo, feel free to use the following online tool:
 
-[Download one folder from Github Repo](https://download-directory.github.io/) 
+[Download one folder from Github Repo](https://download-directory.github.io/)
 
 This is the list of the results achieved in each post:
 
@@ -30,6 +30,7 @@ This is the list of the results achieved in each post:
 - ClipboardJs [Article](https://libreriasjs.com/libreria-javascript-copiar-portapapeles-clipboardjs/) [Exercise](https://libreriasjs.com/exercises/clipboard/)
 - CountUp [Article](https://libreriasjs.com/libreria-javascript-efecto-contador-countup/) [Exercise](https://codepen.io/Danivalldo/pen/oNGWwVW)
 - CurrencyJs [Article](https://libreriasjs.com/libreria-javascript-formatear-divisas-currencyjs/) [Exercise](https://libreriasjs.com/exercises/currencyjs/)
+- Cypress [Article](https://libreriasjs.com/libreria-javascript-crear-tests-e2e-cypress/) [Exercise](https://github.com/Danivalldo/libreriasjs/tree/master/cypress/cypress/e2e)
 - DayJs [Article](https://libreriasjs.com/libreria-javascript-fechas-dayjs/) [Exercise](https://codepen.io/Danivalldo/pen/NWajGoo)
 - Draggable [Article](https://libreriasjs.com/libreria-javascript-drag-and-drop-draggable/) [Exercise](https://codepen.io/Danivalldo/pen/NWajvWJ)
 - FileSaverJs [Article](https://libreriasjs.com/libreria-javascript-descargar-archivos-filesaver/) [Exercise](https://libreriasjs.com/exercises/file-saver/)
