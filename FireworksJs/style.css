@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;800&display=swap");
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Nunito", sans-serif;
+}
+
+.fireworks-container {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  canvas {
+    display: block;
+  }
+}
+
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  background: rgb(113, 59, 95);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(113, 59, 95, 1) 0%,
+    rgba(95, 59, 113, 1) 12%,
+    rgba(15, 19, 41, 1) 95%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(113, 59, 95, 1) 0%,
+    rgba(95, 59, 113, 1) 12%,
+    rgba(15, 19, 41, 1) 95%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(113, 59, 95, 1) 0%,
+    rgba(95, 59, 113, 1) 12%,
+    rgba(15, 19, 41, 1) 95%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#713b5f",endColorstr="#0f1329",GradientType=1);
+}
+
+.intro {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+  line-height: 0px;
+  color: #ffffff;
+  text-shadow: 0 3px 10px rgba(15, 19, 41, 1);
+  h1 {
+    margin: 0 0 60px 0;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}
