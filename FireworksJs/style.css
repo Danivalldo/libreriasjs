@@ -80,3 +80,14 @@ body {
     font-size: 1.5rem;
   }
 }
+
+@media (max-width: 830px) {
+  .intro {
+    bottom: 0;
+    font-size: 20px;
+    line-height: 2rem;
+    h1 {
+      margin: 0 0 0px 0;
+    }
+  }
+}
