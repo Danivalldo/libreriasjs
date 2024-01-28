@@ -4,9 +4,7 @@
   line-height: 24px;
   font-weight: 400;
 
-  color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #f7f7f7;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,7 +12,55 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+.main-container {
+  max-width: 1000px;
+  margin: 0 auto;
 
-.my-grid-container {
-  height: 500px;
+  .header {
+    background-color: #1c67a4;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    font-size: 10px;
+    color: #fff;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+
+  .download-btn {
+    background-color: #1c67a4;
+    border: 1px solid #175587;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 15px;
+    &:hover {
+      background-color: #2a6798;
+    }
+  }
+
+  pre {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 400px;
+    overflow-y: scroll;
+    background-color: #313131;
+    display: none;
+    &.visible {
+      display: block;
+    }
+  }
+
+  .my-grid-container {
+    height: 500px;
+  }
 }

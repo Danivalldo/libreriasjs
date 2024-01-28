@@ -3,51 +3,63 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import "./style.css";
 
+const csvContainer = document.querySelector("#csv-container");
+
 const gridOptions = {
-  // Row Data: The data to be displayed.
   suppressMovableColumns: false,
   rowSelection: "multiple",
-  rowDragManaged: true,
   pagination: true,
-  rowData: [
-    { make: "Tesla", model: "Model Y", price: 64950, electric: true },
-    { make: "Ford", model: "F-Series", price: 33850, electric: false },
-    { make: "Toyota", model: "Corolla", price: 29600, electric: false },
-  ],
-  // Column Definitions: Defines & controls grid columns.
-  columnDefs: [
-    {
-      field: "make",
-      editable: true,
-      filter: "agTextColumnFilter",
-      headerCheckboxSelection: true,
-      checkboxSelection: true,
-      showDisabledCheckboxes: true,
-      rowDrag: true,
-    },
-    { field: "model" },
-    { field: "price", pinned: "right" },
-    { field: "electric" },
-  ],
+  rowData: [],
+  columnDefs: [],
 };
 
 const myGridElement = document.querySelector("#myGrid");
 const gridApi = createGrid(myGridElement, gridOptions);
 
-document.querySelector(".get-data-btn").addEventListener("click", () => {
-  fetch("https://www.ag-grid.com/example-assets/space-mission-data.json")
-    .then((response) => response.json())
-    .then((data) => {
-      gridApi.setGridOption("columnDefs", [
-        { field: "mission" },
-        { field: "company" },
-        { field: "location" },
-        { field: "date" },
-        { field: "time" },
-        { field: "rocket" },
-        { field: "price" },
-        { field: "successful" },
-      ]);
-      gridApi.setGridOption("rowData", data);
-    });
+document.querySelector(".download-btn").addEventListener("click", () => {
+  const csvData = gridApi.getDataAsCsv();
+  csvContainer.classList.add("visible");
+  csvContainer.innerHTML = csvData;
+});
+
+window.addEventListener("load", async () => {
+  const res = await fetch("./movies.json");
+  const rowDataMovies = await res.json();
+  gridApi.setGridOption("columnDefs", [
+    {
+      headerName: "Título",
+      filter: "agTextColumnFilter",
+      pinned: "left",
+      field: "title",
+      headerCheckboxSelection: true,
+      checkboxSelection: true,
+      editable: true,
+    },
+    {
+      headerName: "Año",
+      filter: "agNumberColumnFilter",
+      field: "year",
+      editable: true,
+    },
+    {
+      headerName: "Género",
+      field: "genre",
+      editable: true,
+    },
+    {
+      headerName: "Director",
+      field: "director",
+      editable: true,
+    },
+    {
+      headerName: "Premios",
+      field: "awards",
+    },
+    {
+      headerName: "Actor principal",
+      field: "lead_actor",
+      editable: true,
+    },
+  ]);
+  gridApi.setGridOption("rowData", rowDataMovies);
 });

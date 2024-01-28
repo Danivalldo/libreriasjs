@@ -1,0 +1,384 @@
+[
+  {
+    "title": "Gladiator",
+    "year": 2000,
+    "director": "Ridley Scott",
+    "genre": "Historical Drama, Action",
+    "awards": ["Best Picture", "Best Actor"],
+    "lead_actor": "Russell Crowe"
+  },
+  {
+    "title": "Crouching Tiger, Hidden Dragon",
+    "year": 2000,
+    "director": "Ang Lee",
+    "genre": "Martial Arts",
+    "awards": ["Multiple Academy Awards"]
+  },
+  {
+    "title": "X-Men",
+    "year": 2000,
+    "director": "Bryan Singer",
+    "genre": "Superhero"
+  },
+  {
+    "title": "Memento",
+    "year": 2000,
+    "director": "Christopher Nolan",
+    "genre": "Thriller"
+  },
+  {
+    "title": "Cast Away",
+    "year": 2000,
+    "director": "Robert Zemeckis",
+    "genre": "Survival Drama",
+    "lead_actor": "Tom Hanks"
+  },
+  {
+    "title": "Traffic",
+    "year": 2000,
+    "director": "Steven Soderbergh",
+    "genre": "Crime Drama",
+    "awards": ["Multiple Academy Awards"]
+  },
+  {
+    "title": "Almost Famous",
+    "year": 2000,
+    "director": "Cameron Crowe",
+    "genre": "Coming-of-Age"
+  },
+  {
+    "title": "O Brother, Where Art Thou?",
+    "year": 2000,
+    "directors": ["Joel Coen", "Ethan Coen"],
+    "genre": "Comedy-Drama"
+  },
+  {
+    "title": "Snatch",
+    "year": 2000,
+    "director": "Guy Ritchie",
+    "genre": "Crime Comedy"
+  },
+  {
+    "title": "Requiem for a Dream",
+    "year": 2000,
+    "director": "Darren Aronofsky",
+    "genre": "Psychological Drama"
+  },
+  {
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "year": 2001,
+    "director": "Peter Jackson",
+    "genre": "Fantasy",
+    "awards": ["Multiple Academy Awards"]
+  },
+  {
+    "title": "A Beautiful Mind",
+    "year": 2001,
+    "director": "Ron Howard",
+    "genre": "Biography, Drama",
+    "awards": ["Best Picture", "Best Director", "Best Actor"]
+  },
+  {
+    "title": "Shrek",
+    "year": 2001,
+    "directors": ["Andrew Adamson", "Vicky Jenson"],
+    "genre": "Animation, Comedy"
+  },
+  {
+    "title": "Mulholland Drive",
+    "year": 2001,
+    "director": "David Lynch",
+    "genre": "Mystery, Thriller"
+  },
+  {
+    "title": "Ocean's Eleven",
+    "year": 2001,
+    "director": "Steven Soderbergh",
+    "genre": "Crime, Comedy"
+  },
+  {
+    "title": "Monsters, Inc.",
+    "year": 2001,
+    "directors": ["Pete Docter", "David Silverman", "Lee Unkrich"],
+    "genre": "Animation, Comedy"
+  },
+  {
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "year": 2001,
+    "director": "Chris Columbus",
+    "genre": "Fantasy"
+  },
+  {
+    "title": "Black Hawk Down",
+    "year": 2001,
+    "director": "Ridley Scott",
+    "genre": "Action, Drama"
+  },
+  {
+    "title": "Donnie Darko",
+    "year": 2001,
+    "director": "Richard Kelly",
+    "genre": "Drama, Sci-Fi"
+  },
+  {
+    "title": "Moulin Rouge!",
+    "year": 2001,
+    "director": "Baz Luhrmann",
+    "genre": "Drama, Musical, Romance"
+  },
+  {
+    "title": "The Lord of the Rings: The Two Towers",
+    "year": 2002,
+    "director": "Peter Jackson",
+    "genre": "Fantasy",
+    "awards": ["Multiple Academy Awards"]
+  },
+  {
+    "title": "Spider-Man",
+    "year": 2002,
+    "director": "Sam Raimi",
+    "genre": "Action, Adventure"
+  },
+  {
+    "title": "The Pianist",
+    "year": 2002,
+    "director": "Roman Polanski",
+    "genre": "Biography, Drama",
+    "awards": ["Multiple Academy Awards"]
+  },
+  {
+    "title": "Catch Me If You Can",
+    "year": 2002,
+    "director": "Steven Spielberg",
+    "genre": "Biography, Crime, Drama"
+  },
+  {
+    "title": "Spirited Away",
+    "year": 2002,
+    "director": "Hayao Miyazaki",
+    "genre": "Animation, Adventure, Family",
+    "awards": ["Academy Award for Best Animated Feature"]
+  },
+  {
+    "title": "Chicago",
+    "year": 2002,
+    "director": "Rob Marshall",
+    "genre": "Comedy, Crime, Musical",
+    "awards": ["Best Picture", "Multiple Academy Awards"]
+  },
+  {
+    "title": "Gangs of New York",
+    "year": 2002,
+    "director": "Martin Scorsese",
+    "genre": "Crime, Drama"
+  },
+  {
+    "title": "Road to Perdition",
+    "year": 2002,
+    "director": "Sam Mendes",
+    "genre": "Crime, Drama, Thriller"
+  },
+  {
+    "title": "The Hours",
+    "year": 2002,
+    "director": "Stephen Daldry",
+    "genre": "Drama",
+    "awards": ["Multiple Academy Awards"]
+  },
+  {
+    "title": "Adaptation",
+    "year": 2002,
+    "director": "Spike Jonze",
+    "genre": "Comedy, Drama"
+  },
+  {
+    "title": "The Lord of the Rings: The Return of the King",
+    "year": 2003,
+    "director": "Peter Jackson",
+    "genre": "Fantasy",
+    "awards": ["Best Picture", "Multiple Academy Awards"]
+  },
+  {
+    "title": "Finding Nemo",
+    "year": 2003,
+    "directors": ["Andrew Stanton", "Lee Unkrich"],
+    "genre": "Animation, Adventure, Comedy"
+  },
+  {
+    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "year": 2003,
+    "director": "Gore Verbinski",
+    "genre": "Action, Adventure, Fantasy"
+  },
+  {
+    "title": "The Matrix Reloaded",
+    "year": 2003,
+    "directors": ["Lana Wachowski", "Lilly Wachowski"],
+    "genre": "Action, Sci-Fi"
+  },
+  {
+    "title": "Lost in Translation",
+    "year": 2003,
+    "director": "Sofia Coppola",
+    "genre": "Comedy, Drama"
+  },
+  {
+    "title": "Mystic River",
+    "year": 2003,
+    "director": "Clint Eastwood",
+    "genre": "Crime, Drama, Mystery",
+    "awards": ["Multiple Academy Awards"]
+  },
+  {
+    "title": "Kill Bill: Vol. 1",
+    "year": 2003,
+    "director": "Quentin Tarantino",
+    "genre": "Action, Crime"
+  },
+  {
+    "title": "Master and Commander: The Far Side of the World",
+    "year": 2003,
+    "director": "Peter Weir",
+    "genre": "Action, Adventure, Drama"
+  },
+  {
+    "title": "The Last Samurai",
+    "year": 2003,
+    "director": "Edward Zwick",
+    "genre": "Action, Drama, History"
+  },
+  {
+    "title": "Monster",
+    "year": 2003,
+    "director": "Patty Jenkins",
+    "genre": "Biography, Crime, Drama",
+    "awards": ["Academy Award for Best Actress"]
+  },
+  {
+    "title": "The Incredibles",
+    "year": 2004,
+    "directors": ["Brad Bird"],
+    "genre": "Animation, Action, Adventure"
+  },
+  {
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "year": 2004,
+    "director": "Michel Gondry",
+    "genre": "Drama, Romance, Sci-Fi"
+  },
+  {
+    "title": "The Aviator",
+    "year": 2004,
+    "director": "Martin Scorsese",
+    "genre": "Biography, Drama",
+    "awards": ["Multiple Academy Awards"]
+  },
+  {
+    "title": "Million Dollar Baby",
+    "year": 2004,
+    "director": "Clint Eastwood",
+    "genre": "Drama, Sport",
+    "awards": ["Best Picture", "Multiple Academy Awards"]
+  },
+  {
+    "title": "Sideways",
+    "year": 2004,
+    "director": "Alexander Payne",
+    "genre": "Comedy, Drama"
+  },
+  {
+    "title": "Shaun of the Dead",
+    "year": 2004,
+    "directors": ["Edgar Wright"],
+    "genre": "Comedy, Horror"
+  },
+  {
+    "title": "Spider-Man 2",
+    "year": 2004,
+    "director": "Sam Raimi",
+    "genre": "Action, Adventure, Sci-Fi"
+  },
+  {
+    "title": "Before Sunset",
+    "year": 2004,
+    "director": "Richard Linklater",
+    "genre": "Drama, Romance"
+  },
+  {
+    "title": "The Motorcycle Diaries",
+    "year": 2004,
+    "director": "Walter Salles",
+    "genre": "Adventure, Biography, Drama"
+  },
+  {
+    "title": "Ray",
+    "year": 2004,
+    "director": "Taylor Hackford",
+    "genre": "Biography, Drama, Music",
+    "awards": ["Academy Award for Best Actor"]
+  },
+  {
+    "title": "Brokeback Mountain",
+    "year": 2005,
+    "director": "Ang Lee",
+    "genre": "Drama, Romance",
+    "awards": ["Best Director", "Multiple Academy Awards"]
+  },
+  {
+    "title": "Crash",
+    "year": 2005,
+    "director": "Paul Haggis",
+    "genre": "Crime, Drama",
+    "awards": ["Best Picture", "Multiple Academy Awards"]
+  },
+  {
+    "title": "Batman Begins",
+    "year": 2005,
+    "director": "Christopher Nolan",
+    "genre": "Action, Adventure"
+  },
+  {
+    "title": "Sin City",
+    "year": 2005,
+    "directors": ["Frank Miller", "Robert Rodriguez"],
+    "genre": "Action, Crime, Thriller"
+  },
+  {
+    "title": "Capote",
+    "year": 2005,
+    "director": "Bennett Miller",
+    "genre": "Biography, Crime, Drama",
+    "awards": ["Academy Award for Best Actor"]
+  },
+  {
+    "title": "Memoirs of a Geisha",
+    "year": 2005,
+    "director": "Rob Marshall",
+    "genre": "Drama, Romance",
+    "awards": ["Multiple Academy Awards"]
+  },
+  {
+    "title": "The Constant Gardener",
+    "year": 2005,
+    "director": "Fernando Meirelles",
+    "genre": "Drama, Mystery, Romance"
+  },
+  {
+    "title": "Good Night, and Good Luck",
+    "year": 2005,
+    "director": "George Clooney",
+    "genre": "Biography, Drama, History"
+  },
+  {
+    "title": "V for Vendetta",
+    "year": 2005,
+    "director": "James McTeigue",
+    "genre": "Action, Drama, Sci-Fi"
+  },
+  {
+    "title": "The Descent",
+    "year": 2005,
+    "director": "Neil Marshall",
+    "genre": "Adventure, Horror, Thriller"
+  }
+]
