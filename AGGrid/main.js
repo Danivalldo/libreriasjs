@@ -5,6 +5,10 @@ import "./style.css";
 
 const gridOptions = {
   // Row Data: The data to be displayed.
+  suppressMovableColumns: false,
+  rowSelection: "multiple",
+  rowDragManaged: true,
+  pagination: true,
   rowData: [
     { make: "Tesla", model: "Model Y", price: 64950, electric: true },
     { make: "Ford", model: "F-Series", price: 33850, electric: false },
@@ -14,16 +18,17 @@ const gridOptions = {
   columnDefs: [
     {
       field: "make",
+      editable: true,
       filter: "agTextColumnFilter",
       headerCheckboxSelection: true,
       checkboxSelection: true,
       showDisabledCheckboxes: true,
+      rowDrag: true,
     },
     { field: "model" },
-    { field: "price" },
+    { field: "price", pinned: "right" },
     { field: "electric" },
   ],
-  rowSelection: "multiple",
 };
 
 const myGridElement = document.querySelector("#myGrid");
