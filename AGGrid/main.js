@@ -4,6 +4,7 @@ import "ag-grid-community/styles/ag-theme-quartz.css";
 import "./style.css";
 
 const csvContainer = document.querySelector("#csv-container");
+const myGridElement = document.querySelector("#myGrid");
 
 const gridOptions = {
   suppressMovableColumns: false,
@@ -13,7 +14,6 @@ const gridOptions = {
   columnDefs: [],
 };
 
-const myGridElement = document.querySelector("#myGrid");
 const gridApi = createGrid(myGridElement, gridOptions);
 
 document.querySelector(".download-btn").addEventListener("click", () => {
