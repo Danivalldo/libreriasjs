@@ -21,6 +21,7 @@ If you need to download only ONE folder of this repo, feel free to use the follo
 
 This is the list of the results achieved in each post:
 
+- AAGrid [Article](https://libreriasjs.com/libreria-javascript-crear-tablas-dinamicas-aggrid/) [Exercise](https://libreriasjs.com/exercises/aggrid/)
 - AnimeJS [Article](https://libreriasjs.com/libreria-javascript-animaciones-animejs/) [Exercise](https://libreriasjs.com/exercises/anime-js/)
 - Atropos [Article](https://libreriasjs.com/libreria-javascript-parallax-atropos/) [Exercise](https://codepen.io/Danivalldo/pen/yLzbeQg)
 - CanvasConfetti [Article](https://libreriasjs.com/libreria-javascript-efecto-confeti-canvas-confetti/) [Exercise](https://libreriasjs.com/exercises/canvas-confetti/)
