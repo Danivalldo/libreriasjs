@@ -7,11 +7,32 @@
     <title>NSFWJs</title>
   </head>
   <body>
-    <div id="app">
-      <div>
-        <img id="img" src="" alt="" />
+    <div class="container">
+      <div class="header">
+        <h1>NSFWJs</h1>
       </div>
-      <div id="output"></div>
+      <div class="main">
+        <p>
+          NSFWJs es una libreria que permite verificar si una imagen es
+          pornografica, con desnudos, hentai, sexy, etc.
+        </p>
+        <div class="wrapper-dropzone-image">
+          <div>
+            <form action="/" id="my-form" class="dropzone">
+              <span class="description">
+                Haz click <b>aqui</b> o <b>arrastra una imagen</b> para
+                verificar si es <b>NSFW</b><br />
+                <i>(pornografía, desnudos, hentai, sexy, etc.)</i>
+              </span>
+            </form>
+          </div>
+          <div>
+            <img alt="" class="preview-image" src="./imgs/placeholder.jpg" />
+          </div>
+        </div>
+        <div id="output" class="hidden"></div>
+      </div>
+      <div class="footer">LibreriasJs.com</div>
     </div>
     <script type="module" src="/main.js"></script>
   </body>

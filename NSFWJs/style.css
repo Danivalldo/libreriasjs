@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+body {
+  margin: 0;
+  background-color: rgb(254, 225, 230);
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .header {
+    background-color: rgb(238, 156, 169);
+    padding: 20px;
+    h1 {
+      text-align: center;
+      transition: all 0.5s;
+      font-weight: 300;
+      margin: 0;
+      padding: 0;
+      &:hover {
+        font-weight: 700;
+      }
+    }
+  }
+  .main {
+    flex: 1;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    & > p {
+      margin: 40px 0 20px 0;
+    }
+  }
+  .footer {
+    background-color: rgb(195, 113, 126);
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+  }
+}
+
+.wrapper-dropzone-image {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  & > div:first-child {
+    flex: 1;
+  }
+  & > div:nth-child(2) {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  form {
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: dashed 2px rgb(238, 156, 169);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(238, 156, 169, 0.2);
+    }
+    .dz-default.dz-message {
+      display: none;
+    }
+  }
+}
+
+#output {
+  background-color: #fff;
+  padding: 20px;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  &.hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper-dropzone-image {
+    flex-direction: column;
+    & > div:first-child {
+      margin-bottom: 20px;
+    }
+    & > div:nth-child(2) {
+      width: 100%;
+      height: 200px;
+    }
+    form {
+      height: 200px;
+    }
+  }
+}

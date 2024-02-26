@@ -1,16 +1,47 @@
-import "./style.css";
 import * as nsfwjs from "nsfwjs";
+import Dropzone from "dropzone";
+// import "dropzone/dist/basic.css";
+// import "dropzone/dist/dropzone.css";
+import "./style.css";
 
 const init = async () => {
   const model = await nsfwjs.load();
-  const img = document.getElementById("img");
-  img.crossOrigin = "anonymous";
-  img.src = "https://source.unsplash.com/random";
-  img.onload = async () => {
-    const predictions = await model.classify(img);
+  const output = document.getElementById("output");
+  const previewImage = document.querySelector(".preview-image");
+
+  const myDropzone = new Dropzone("#my-form", {
+    autoProcessQueue: false,
+    autoQueue: false,
+    acceptedFiles: "image/*",
+    maxFiles: 1,
+    disablePreviews: true,
+    init: function () {
+      this.on("maxfilesexceeded", function (file) {
+        this.removeAllFiles();
+        this.addFile(file);
+      });
+    },
+  });
+  myDropzone.on("addedfile", (file) => {
+    previewImage.src = URL.createObjectURL(file);
+  });
+
+  previewImage.addEventListener("load", async () => {
+    const predictions = await model.classify(previewImage);
     console.log(predictions);
-    document.getElementById("output").innerText = predictions[0].className;
-  };
+    output.classList.remove("hidden");
+    output.innerHTML = `
+      <ul>
+        ${predictions
+          .map((prediction) => {
+            return `<li><b>${
+              prediction.className
+            }</b>: ${prediction.probability.toFixed(5)}</li>`;
+          })
+          .join("")}
+      <ul>
+    `;
+  });
 };
 
 init();
