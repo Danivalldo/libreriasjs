@@ -47,6 +47,7 @@ This is the list of the results achieved in each post:
 - MailJet [Article](https://libreriasjs.com/enviar-correos-electronicos-con-nodejs-y-mailjet/)
 - MiniMasonry [Article](https://libreriasjs.com/libreria-javascript-crear-layouts-mini-masonry/) [Exercise](https://libreriasjs.com/exercises/mini-masonry/)
 - MonsterForm [Article](https://libreriasjs.com/crear-formularios-de-miedo-para-halloween-con-css-y-javascript/) [Exercise](https://libreriasjs.com/exercises/monster-form/)
+- NSFWjs [Article](https://libreriasjs.com/libreria-javascript-detectar-y-filtrar-imagenes-desnudos-nsfwjs/) [Exercise](https://libreriasjs.com/exercises/nsfwjs/)
 - OpenLayers [Article](https://libreriasjs.com/libreria-javascript-mapas-openlayers/) [Exercise](https://libreriasjs.com/exercises/open-layers/)
 - P5js [Article](https://libreriasjs.com/libreria-javascript-arte-p5js/) [Exercise](https://libreriasjs.com/exercises/p5js/)
 - PNotifications (Notificiaciones Push con Cloud Messaging) [Article](https://libreriasjs.com/notificaciones-push-javascript-cloud-messaging/) [Exercise](https://github.com/Danivalldo/libreriasjs/tree/master/PNotifications)
