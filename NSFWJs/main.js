@@ -5,11 +5,13 @@ import "./style.css";
 const init = async () => {
   const loading = document.querySelector(".loading");
   const mainContainer = document.querySelector(".main");
-  const model = await nsfwjs.load("./model/quant_mid/", { type: "graph" });
-  loading.classList.add("hidden");
-  mainContainer.classList.remove("hidden");
   const output = document.getElementById("output");
   const previewImage = document.querySelector(".preview-image");
+
+  const model = await nsfwjs.load("./model/quant_mid/", { type: "graph" });
+
+  loading.classList.add("hidden");
+  mainContainer.classList.remove("hidden");
 
   const myDropzone = new Dropzone("#my-form", {
     autoProcessQueue: false,
