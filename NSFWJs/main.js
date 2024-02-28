@@ -1,11 +1,13 @@
 import * as nsfwjs from "nsfwjs";
 import Dropzone from "dropzone";
-// import "dropzone/dist/basic.css";
-// import "dropzone/dist/dropzone.css";
 import "./style.css";
 
 const init = async () => {
-  const model = await nsfwjs.load();
+  const loading = document.querySelector(".loading");
+  const mainContainer = document.querySelector(".main");
+  const model = await nsfwjs.load("./model/model.json", { size: 299 });
+  loading.classList.add("hidden");
+  mainContainer.classList.remove("hidden");
   const output = document.getElementById("output");
   const previewImage = document.querySelector(".preview-image");
 
