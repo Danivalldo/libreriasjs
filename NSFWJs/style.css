@@ -142,7 +142,11 @@ body {
       margin-bottom: 20px;
     }
     & > div:nth-child(2) {
-      display: none;
+      height: auto;
+      width: auto;
+      img[src="./imgs/placeholder_nsfwjs.png"] {
+        display: none;
+      }
     }
     form {
       height: 200px;
