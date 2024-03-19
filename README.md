@@ -34,6 +34,7 @@ This is the list of the results achieved in each post:
 - Cypress [Article](https://libreriasjs.com/libreria-javascript-crear-tests-e2e-cypress/) [Exercise](https://github.com/Danivalldo/libreriasjs/tree/master/cypress/cypress/e2e)
 - DayJs [Article](https://libreriasjs.com/libreria-javascript-fechas-dayjs/) [Exercise](https://codepen.io/Danivalldo/pen/NWajGoo)
 - Draggable [Article](https://libreriasjs.com/libreria-javascript-drag-and-drop-draggable/) [Exercise](https://codepen.io/Danivalldo/pen/NWajvWJ)
+- Echarts [Article](https://libreriasjs.com/libreria-javascript-crear-graficos-y-visualizacion-datos-echarts/) [Exercise](https://libreriasjs.com/exercises/echarts/)
 - FileSaverJs [Article](https://libreriasjs.com/libreria-javascript-descargar-archivos-filesaver/) [Exercise](https://libreriasjs.com/exercises/file-saver/)
 - Firebase [Article](https://libreriasjs.com/crear-aplicaciones-fullstack-javascript-firebase/) [Exercise](https://libreriasjs.com/exercises/firebase/)
 - FireworksJs [Article](https://libreriasjs.com/libreria-javascript-efecto-fuegos-artificiales-fireworksjs/) [Exercise](https://libreriasjs.com/exercises/fireworksjs/)
