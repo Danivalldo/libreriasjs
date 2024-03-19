@@ -58,7 +58,7 @@
         ["2024-01-31", 0]
       ],
       "tournaments": [
-        { "value": 1048, "name": "Luchador Masks" },
+        { "value": 100, "name": "Luchador Masks" },
         { "value": 735, "name": "Lucha Libre Tournaments" },
         { "value": 580, "name": "Masked Wrestlers" },
         { "value": 484, "name": "Lucha Libre Legends" },
@@ -131,7 +131,7 @@
     {
       "name": "El Toro",
       "age": 32,
-      "description": "El Toro es un luchador de peso pesado que ha ganado varios torneos de lucha libre.",
+      "description": "El Toro es un luchador de peso pesado temido por su descomunal fuerza.",
       "snap": "./imgs/m6V2y3SjDLwPvF89ONFi--3--sivyp.webp",
       "weight": "Heavyweight",
       "record": "40-15-3",
@@ -187,7 +187,7 @@
         { "value": 900, "name": "Luchador Masks" },
         { "value": 705, "name": "Lucha Libre Tournaments" },
         { "value": 550, "name": "Masked Wrestlers" },
-        { "value": 410, "name": "Lucha Libre Legends" },
+        { "value": 100, "name": "Lucha Libre Legends" },
         { "value": 230, "name": "Lucha Libre Promotions" }
       ]
     }

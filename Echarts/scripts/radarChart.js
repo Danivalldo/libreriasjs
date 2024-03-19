@@ -3,13 +3,7 @@ import echarts from "./initEcharts";
 const radarChart = echarts.init(document.querySelector(".radar-chart"));
 
 radarChart.setOption({
-  title: {
-    text: "Basic Radar Chart",
-  },
   tooltip: {},
-  // legend: {
-  //   data: ["Allocated Budget", "Actual Spending"],
-  // },
   radar: {
     shape: "circle",
     indicator: [

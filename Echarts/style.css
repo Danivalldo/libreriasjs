@@ -1,9 +1,190 @@
-.main-contianer {
-  display: flex;
-  & > div {
-    flex: 1;
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+
+body {
+  margin: 0;
+  background-color: #2eb675;
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #fcc950;
+  text-shadow: 0 2px #063920;
+  background-image: url("./imgs/regal.png");
+  background-blend-mode: multiply;
+}
+
+.header {
+  text-align: center;
+  font-size: 1.3em;
+  padding: 40px 0;
+  background-color: #063920;
+  background-image: url("./imgs/circles-and-roundabouts.webp");
+  background-blend-mode: multiply;
+  p {
+    color: #fff;
   }
 }
-.chart {
-  height: 400px;
+
+.main-contianer {
+  padding: 20px;
+  max-width: 1500px;
+  margin: 0 auto;
+  .characters {
+    display: flex;
+    gap: 10px;
+    padding-top: 60px;
+    justify-content: center;
+    align-items: center;
+    .character {
+      background-image: url("./imgs/circles-and-roundabouts.webp");
+      background-blend-mode: multiply;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #26533d;
+      /* opacity: 0.5; */
+      flex: 1;
+      cursor: pointer;
+      transform: scale(0.9);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 3px 2px 0 rgba(46, 46, 46, 0);
+      p {
+        color: #fff;
+      }
+      &.selected {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 3px 2px 0 rgba(46, 46, 46, 0.158);
+        img {
+          opacity: 1;
+          border: solid 4px #fcc950;
+        }
+      }
+      text-align: center;
+      img {
+        opacity: 0.5;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 50%;
+      }
+    }
+  }
+  .charts {
+    display: flex;
+    text-shadow: none;
+    justify-content: center;
+    align-items: center;
+    /* padding: 40px 0; */
+    padding-top: 80px;
+    padding-bottom: 80px;
+    flex-wrap: wrap;
+    gap: 20px;
+    & > div {
+      width: calc(50% - 20px);
+      box-sizing: border-box;
+      h3 {
+        margin: 0;
+        padding: 10px 20px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        background-color: #063920;
+      }
+    }
+    .chart {
+      background-color: #fff;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      padding: 10px;
+      height: 400px;
+      justify-content: center;
+    }
+  }
+}
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #063920;
+  background-image: url("./imgs/circles-and-roundabouts.webp");
+  background-blend-mode: multiply;
+  a {
+    color: #fff;
+    font-size: 0.8rem;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      color: #fcc950;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .header {
+    font-size: 1em;
+  }
+  .main-contianer {
+    .characters {
+      /* flex-direction: column; */
+      .character {
+        margin-bottom: 20px;
+        width: 33.33333%;
+        img {
+          width: 100px;
+          height: 100px;
+        }
+        h2 {
+          font-size: 15px;
+        }
+        p {
+          display: none;
+        }
+      }
+    }
+    .charts {
+      flex-direction: column;
+      gap: 20px;
+      display: block;
+      & > div {
+        width: auto;
+      }
+      .chart {
+        height: 300px;
+        display: block;
+        margin-bottom: 14px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .main-contianer {
+    .characters {
+      /* flex-direction: column; */
+      padding-top: 0px;
+      padding-bottom: 0px;
+      display: block;
+      width: auto;
+      .character {
+        margin-bottom: 20px;
+        width: auto;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-around;
+        img {
+          width: 80px;
+          height: 80px;
+        }
+        h2 {
+          font-size: 15px;
+        }
+        p {
+          display: none;
+        }
+      }
+    }
+    .charts {
+      padding: 0;
+    }
+  }
 }

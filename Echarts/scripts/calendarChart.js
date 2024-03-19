@@ -8,7 +8,7 @@ calendarChart.setOption({
     min: 0,
     max: 1,
     inRange: {
-      color: ["#0f0", "#f00"],
+      color: ["#2eb675", "#fcc950"],
     },
   },
   calendar: {

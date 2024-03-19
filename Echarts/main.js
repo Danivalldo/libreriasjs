@@ -14,6 +14,7 @@ const createCharactersUI = (wrestlers) => {
     const character = document.createElement("div");
     character.dataset.index = i;
     character.classList.add("character");
+    if (i === 0) character.classList.add("selected");
     character.innerHTML = `
       <h2>${wrestler.name}</h2>
       <img src="${wrestler.snap}" alt="${wrestler.name}" />
@@ -21,8 +22,12 @@ const createCharactersUI = (wrestlers) => {
     `;
     charactersContainer.appendChild(character);
     character.addEventListener("click", (event) => {
+      document
+        .querySelectorAll(".character")
+        .forEach((character) => character.classList.remove("selected"));
       const selectedCharacter = event.currentTarget.dataset.index;
       updateCharts(selectedCharacter);
+      event.currentTarget.classList.add("selected");
     });
   }
 };
@@ -33,6 +38,15 @@ const updateCharts = (selectedCharacter) => {
       {
         name: charactersData[selectedCharacter].name,
         type: "radar",
+        areaStyle: {
+          color: "#fcc950",
+        },
+        lineStyle: {
+          color: "#063920",
+        },
+        itemStyle: {
+          color: "#063920",
+        },
         data: [
           {
             value: Object.values(charactersData[selectedCharacter].radar_chart),

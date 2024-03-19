@@ -4,17 +4,36 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Echarts ejercicio libreriasjs.com</title>
   </head>
   <body>
+    <div class="header">
+      <h1>Elige a un luchador/a</h1>
+      <p>Haz clic en el luchador/a que quieras para ver sus estadísticas</p>
+    </div>
     <div class="main-contianer">
       <div class="characters"></div>
-      <div>
-        <div class="chart pie-chart"></div>
-        <div class="chart radar-chart"></div>
-        <div class="chart sankey-chart"></div>
-        <div class="chart calendar-chart"></div>
+      <div class="charts">
+        <div>
+          <h3>Puntuación en torneos</h3>
+          <div class="chart pie-chart"></div>
+        </div>
+        <div>
+          <h3>Habilidades</h3>
+          <div class="chart radar-chart"></div>
+        </div>
+        <div class="">
+          <h3>Calendario de victorias</h3>
+          <div class="chart calendar-chart"></div>
+        </div>
+        <div>
+          <h3>Estrategia de combate</h3>
+          <div class="chart sankey-chart"></div>
+        </div>
       </div>
+    </div>
+    <div class="footer">
+      <a href="https://libreriasjs.com">libreriasjs.com</a>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
