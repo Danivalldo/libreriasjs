@@ -1,3 +1,9 @@
+.main-contianer {
+  display: flex;
+  & > div {
+    flex: 1;
+  }
+}
 .chart {
   height: 400px;
 }

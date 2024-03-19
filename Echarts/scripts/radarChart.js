@@ -6,9 +6,10 @@ radarChart.setOption({
   title: {
     text: "Basic Radar Chart",
   },
-  legend: {
-    data: ["Allocated Budget", "Actual Spending"],
-  },
+  tooltip: {},
+  // legend: {
+  //   data: ["Allocated Budget", "Actual Spending"],
+  // },
   radar: {
     shape: "circle",
     indicator: [
@@ -19,7 +20,6 @@ radarChart.setOption({
       { name: "Carisma", max: 100 },
     ],
   },
-  tooltip: {},
   series: [],
 });
 

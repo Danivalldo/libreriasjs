@@ -3,6 +3,7 @@ import {
   BarChart,
   RadarChart,
   SankeyChart,
+  PieChart,
   HeatmapChart,
 } from "echarts/charts";
 import {
@@ -21,6 +22,7 @@ echarts.use([
   RadarChart,
   SankeyChart,
   HeatmapChart,
+  PieChart,
   TitleComponent,
   TooltipComponent,
   LegendComponent,

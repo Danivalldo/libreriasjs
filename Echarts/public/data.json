@@ -3,11 +3,13 @@
     {
       "name": "El Fuego",
       "age": 28,
+      "description": "El Fuego es un luchador de alto vuelo que lleva más de una década luchando.",
+      "snap": "./imgs/vvwpAW3bgI0D6gJBBBrY--3--cx7w3.webp",
       "weight": "Middleweight",
       "record": "35-10-2",
       "height": "5'9\"",
       "mask_design": "Flames of Fire",
-      "style": "High-Flying",
+      "style": "Vuelo alto",
       "signature_moves": ["Lariat", "Springboard Moonsault", "Tornado DDT"],
       "radar_chart": {
         "agility": 85,
@@ -16,28 +18,63 @@
         "technique": 80,
         "charisma": 90
       },
-      "match_calendar": {
-        "2024-01-15": "Win",
-        "2024-03-20": "Loss",
-        "2024-05-10": "Win",
-        "2024-07-05": "Win",
-        "2024-09-30": "Loss"
-      },
       "sankey_data": [
-        { "source": "High-Flying", "target": "Victory", "value": 3 },
-        { "source": "High-Flying", "target": "Loss", "value": 2 },
-        { "source": "Technical", "target": "Victory", "value": 2 },
-        { "source": "Technical", "target": "Loss", "value": 1 }
+        { "source": "Vuelo alto", "target": "Victoria", "value": 3 },
+        { "source": "Vuelo alto", "target": "Derrota", "value": 2 },
+        { "source": "Técnica", "target": "Victoria", "value": 2 },
+        { "source": "Técnica", "target": "Derrota", "value": 1 }
+      ],
+      "victories": [
+        ["2024-01-01", 0],
+        ["2024-01-02", 0],
+        ["2024-01-03", 1],
+        ["2024-01-04", 0],
+        ["2024-01-05", 0],
+        ["2024-01-06", 0],
+        ["2024-01-07", 1],
+        ["2024-01-08", 1],
+        ["2024-01-09", 1],
+        ["2024-01-10", 1],
+        ["2024-01-11", 1],
+        ["2024-01-12", 1],
+        ["2024-01-13", 0],
+        ["2024-01-14", 1],
+        ["2024-01-15", 0],
+        ["2024-01-16", 1],
+        ["2024-01-17", 1],
+        ["2024-01-18", 0],
+        ["2024-01-19", 1],
+        ["2024-01-20", 1],
+        ["2024-01-21", 0],
+        ["2024-01-22", 1],
+        ["2024-01-23", 1],
+        ["2024-01-24", 1],
+        ["2024-01-25", 0],
+        ["2024-01-26", 1],
+        ["2024-01-27", 0],
+        ["2024-01-28", 1],
+        ["2024-01-29", 0],
+        ["2024-01-30", 0],
+        ["2024-01-31", 0]
+      ],
+      "tournaments": [
+        { "value": 1048, "name": "Luchador Masks" },
+        { "value": 735, "name": "Lucha Libre Tournaments" },
+        { "value": 580, "name": "Masked Wrestlers" },
+        { "value": 484, "name": "Lucha Libre Legends" },
+        { "value": 300, "name": "Lucha Libre Promotions" }
       ]
     },
     {
       "name": "La Serpiente",
       "age": 26,
+      "description": "La Serpiente es una luchadora técnica que ha ganado varios torneos de lucha libre.",
+      "snap": "./imgs/k8maRsidwbmJcNHbksEl--2--bkfeg.jpeg",
       "weight": "Cruiserweight",
       "record": "25-5-1",
       "height": "5'7\"",
       "mask_design": "Royal Serpent",
-      "style": "Technical",
+      "style": "Técnica",
       "signature_moves": ["Armbar", "Dragon Suplex", "Poison Mist"],
       "radar_chart": {
         "agility": 80,
@@ -46,26 +83,61 @@
         "technique": 90,
         "charisma": 70
       },
-      "match_calendar": {
-        "2024-02-10": "Win",
-        "2024-04-15": "Win",
-        "2024-06-25": "Loss",
-        "2024-08-20": "Win",
-        "2024-10-15": "Win"
-      },
       "sankey_data": [
-        { "source": "Technical", "target": "Victory", "value": 4 },
-        { "source": "Technical", "target": "Loss", "value": 1 }
+        { "source": "Técnica", "target": "Victoria", "value": 4 },
+        { "source": "Técnica", "target": "Derrota", "value": 1 }
+      ],
+      "victories": [
+        ["2024-01-01", 0],
+        ["2024-01-02", 0],
+        ["2024-01-03", 0],
+        ["2024-01-04", 0],
+        ["2024-01-05", 0],
+        ["2024-01-06", 0],
+        ["2024-01-07", 1],
+        ["2024-01-08", 0],
+        ["2024-01-09", 0],
+        ["2024-01-10", 1],
+        ["2024-01-11", 0],
+        ["2024-01-12", 0],
+        ["2024-01-13", 0],
+        ["2024-01-14", 1],
+        ["2024-01-15", 1],
+        ["2024-01-16", 1],
+        ["2024-01-17", 1],
+        ["2024-01-18", 0],
+        ["2024-01-19", 1],
+        ["2024-01-20", 0],
+        ["2024-01-21", 1],
+        ["2024-01-22", 1],
+        ["2024-01-23", 1],
+        ["2024-01-24", 1],
+        ["2024-01-25", 1],
+        ["2024-01-26", 0],
+        ["2024-01-27", 1],
+        ["2024-01-28", 0],
+        ["2024-01-29", 0],
+        ["2024-01-30", 1],
+        ["2024-01-31", 1]
+      ],
+      "tournaments": [
+        { "value": 800, "name": "Luchador Masks" },
+        { "value": 600, "name": "Lucha Libre Tournaments" },
+        { "value": 450, "name": "Masked Wrestlers" },
+        { "value": 350, "name": "Lucha Libre Legends" },
+        { "value": 200, "name": "Lucha Libre Promotions" }
       ]
     },
     {
       "name": "El Toro",
       "age": 32,
+      "description": "El Toro es un luchador de peso pesado que ha ganado varios torneos de lucha libre.",
+      "snap": "./imgs/m6V2y3SjDLwPvF89ONFi--3--sivyp.webp",
       "weight": "Heavyweight",
       "record": "40-15-3",
       "height": "6'2\"",
       "mask_design": "Wild Horn",
-      "style": "Powerhouse",
+      "style": "Potencia",
       "signature_moves": ["Powerbomb", "Clothesline", "Suplex"],
       "radar_chart": {
         "agility": 70,
@@ -74,16 +146,49 @@
         "technique": 75,
         "charisma": 80
       },
-      "match_calendar": {
-        "2024-01-25": "Win",
-        "2024-03-10": "Loss",
-        "2024-05-05": "Win",
-        "2024-07-15": "Win",
-        "2024-09-20": "Loss"
-      },
       "sankey_data": [
-        { "source": "Powerhouse", "target": "Victory", "value": 3 },
-        { "source": "Powerhouse", "target": "Loss", "value": 2 }
+        { "source": "Potencia", "target": "Victoria", "value": 3 },
+        { "source": "Potencia", "target": "Derrota", "value": 2 }
+      ],
+      "victories": [
+        ["2024-01-01", 0],
+        ["2024-01-02", 1],
+        ["2024-01-03", 1],
+        ["2024-01-04", 0],
+        ["2024-01-05", 1],
+        ["2024-01-06", 0],
+        ["2024-01-07", 0],
+        ["2024-01-08", 0],
+        ["2024-01-09", 0],
+        ["2024-01-10", 0],
+        ["2024-01-11", 1],
+        ["2024-01-12", 0],
+        ["2024-01-13", 1],
+        ["2024-01-14", 0],
+        ["2024-01-15", 0],
+        ["2024-01-16", 0],
+        ["2024-01-17", 0],
+        ["2024-01-18", 1],
+        ["2024-01-19", 0],
+        ["2024-01-20", 1],
+        ["2024-01-21", 0],
+        ["2024-01-22", 0],
+        ["2024-01-23", 1],
+        ["2024-01-24", 1],
+        ["2024-01-25", 0],
+        ["2024-01-26", 0],
+        ["2024-01-27", 0],
+        ["2024-01-28", 1],
+        ["2024-01-29", 0],
+        ["2024-01-30", 0],
+        ["2024-01-31", 0]
+      ],
+      "tournaments": [
+        { "value": 900, "name": "Luchador Masks" },
+        { "value": 705, "name": "Lucha Libre Tournaments" },
+        { "value": 550, "name": "Masked Wrestlers" },
+        { "value": 410, "name": "Lucha Libre Legends" },
+        { "value": 230, "name": "Lucha Libre Promotions" }
       ]
     }
   ]
