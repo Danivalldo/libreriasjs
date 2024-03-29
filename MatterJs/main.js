@@ -4,6 +4,7 @@ import {
   Render,
   Runner,
   Composite,
+  Composites,
   Mouse,
   MouseConstraint,
 } from "matter-js";
@@ -11,6 +12,9 @@ import createRagDoll from "./scripts/ragdoll";
 import { createBall } from "./scripts/ball";
 import { createLimits } from "./scripts/limits";
 import { createBox } from "./scripts/box";
+
+const btnCreateBall = document.querySelector(".btn-create-ball");
+const btnCreateBox = document.querySelector(".btn-create-box");
 
 const width = 1000;
 const height = 1000;
@@ -51,3 +55,13 @@ Composite.add(engine.world, [mouseConstraint, limits, ball, ragdoll, box]);
 Render.run(render);
 const runner = Runner.create();
 Runner.run(runner, engine);
+
+btnCreateBall.addEventListener("click", () => {
+  const newBall = createBall(width / 2, 100, Math.random() + 1);
+  Composite.add(engine.world, newBall);
+});
+
+btnCreateBox.addEventListener("click", () => {
+  const newBox = createBox(width / 2, 100, Math.random() + 1);
+  Composite.add(engine.world, newBox);
+});

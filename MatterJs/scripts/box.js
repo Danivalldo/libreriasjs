@@ -1,6 +1,23 @@
-import { Bodies } from "matter-js";
+import { Bodies, Common } from "matter-js";
 
 export const createBox = (x, y, scale = 1) => {
-  const box = Bodies.rectangle(x, y, 50 * scale, 50 * scale, {});
+  const sprite = Common.choose([
+    "elementGlass012.png",
+    "elementMetal011.png",
+    "elementMetal027.png",
+    "elementStone011.png",
+    "elementWood010.png",
+    "elementWood026.png",
+  ]);
+
+  const box = Bodies.rectangle(x, y, scale * 65, scale * 65, {
+    render: {
+      sprite: {
+        texture: `./sprites/box/${sprite}`,
+        xScale: scale,
+        yScale: scale,
+      },
+    },
+  });
   return box;
 };
