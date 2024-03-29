@@ -28,8 +28,8 @@ const createRagDoll = (x, y, scale = 1) => {
         // fillStyle: "#ffBC42",
         sprite: {
           texture: "./sprites/ball.png",
-          xScale: 0.3,
-          yScale: 0.3,
+          xScale: scale * 0.3,
+          yScale: scale * 0.3,
         },
       },
     },

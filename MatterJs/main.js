@@ -3,14 +3,17 @@ import {
   Engine,
   Render,
   Runner,
-  Bodies,
   Composite,
   Mouse,
   MouseConstraint,
-  Body,
 } from "matter-js";
 import createRagDoll from "./scripts/ragdoll";
-import { limits, updateLimits } from "./scripts/limits";
+import { createBall } from "./scripts/ball";
+import { createLimits } from "./scripts/limits";
+import { createBox } from "./scripts/box";
+
+const width = 1000;
+const height = 1000;
 
 const container = document.querySelector("#app");
 const engine = Engine.create();
@@ -18,17 +21,13 @@ const render = Render.create({
   element: container,
   engine: engine,
   options: {
-    width: container.clientWidth,
-    height: container.clientHeight,
+    width,
+    height,
     wireframes: false,
-    showVelocity: true,
-    showAngleIndicator: true,
-    pixelRatio: window.devicePixelRatio,
+    showVelocity: false,
+    showAngleIndicator: false,
   },
 });
-
-render.bounds.max.x = container.clientWidth;
-render.bounds.max.y = container.clientHeight;
 
 const mouse = Mouse.create(render.canvas);
 const mouseConstraint = MouseConstraint.create(engine, {
@@ -42,39 +41,13 @@ const mouseConstraint = MouseConstraint.create(engine, {
   },
 });
 
-const circle = Bodies.circle(container.clientWidth / 2, 100, 88, {
-  render: {
-    sprite: {
-      texture: "./sprites/ball.png",
-    },
-  },
-});
+const limits = createLimits(width, height);
+const ball = createBall(width / 2, 100, 1);
+const ragdoll = createRagDoll(width / 2, 200, 1);
+const box = createBox(width / 2, 100, 1);
 
-let ragdoll = createRagDoll(container.clientWidth / 2, 200, 1);
-
-Composite.add(engine.world, mouseConstraint);
-Composite.add(engine.world, [circle, limits, ragdoll]);
-updateLimits(container);
+Composite.add(engine.world, [mouseConstraint, limits, ball, ragdoll, box]);
 
 Render.run(render);
 const runner = Runner.create();
 Runner.run(runner, engine);
-
-window.addEventListener("resize", () => {
-  updateLimits(container);
-
-  Composite.remove(ragdoll, ragdoll.bodies);
-  ragdoll = createRagDoll(container.clientWidth / 2, 100, 1);
-
-  Composite.add(engine.world, ragdoll);
-
-  Body.setPosition(circle, { x: container.clientWidth / 2, y: 50 });
-
-  render.bounds.max.x = container.clientWidth;
-  render.bounds.max.y = container.clientHeight;
-  render.options.width = container.clientWidth;
-  render.options.height = container.clientHeight;
-  render.canvas.width = container.clientWidth;
-  render.canvas.height = container.clientHeight;
-  Render.setPixelRatio(render, window.devicePixelRatio); // added this
-});
