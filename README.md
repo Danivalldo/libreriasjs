@@ -27,7 +27,7 @@ This is the list of the results achieved in each post:
 - CanvasConfetti [Article](https://libreriasjs.com/libreria-javascript-efecto-confeti-canvas-confetti/) [Exercise](https://libreriasjs.com/exercises/canvas-confetti/)
 - Capacitor [Article](https://libreriasjs.com/libreria-javascript-apps-multiplataforma-capacitor/) [Exercise](https://libreriasjs.com/exercises/spent-tracker/index.html)
 - CheckPasswordStrength [Article](https://libreriasjs.com/libreria-javascript-contrasenacheck-password-strength/) [Exercise](https://libreriasjs.com/exercises/check-password-strength/)
-- ChessJs [Article](https://libreriasjs.com/libreria-javascript-ajedrez-chessjs/) [Exercise](https://libreriasjs.com/exercises/chessjs/)
+- ChessJs [Article](https://libreriasjs.com/libreria-javascript-ajedrez-chessjs/) [Exercise](https://libreriasjs.com/exercises/chessjs/) [Vídeo resumen](https://youtu.be/PMuzqWowKhM)
 - ClipboardJs [Article](https://libreriasjs.com/libreria-javascript-copiar-portapapeles-clipboardjs/) [Exercise](https://libreriasjs.com/exercises/clipboard/)
 - CountUp [Article](https://libreriasjs.com/libreria-javascript-efecto-contador-countup/) [Exercise](https://codepen.io/Danivalldo/pen/oNGWwVW)
 - CurrencyJs [Article](https://libreriasjs.com/libreria-javascript-formatear-divisas-currencyjs/) [Exercise](https://libreriasjs.com/exercises/currencyjs/)
