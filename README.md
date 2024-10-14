@@ -65,4 +65,4 @@ This is the list of the results achieved in each post:
 - ToneJs [Article](https://libreriasjs.com/libreria-javascript-crear-muscia-electronica-tonejs/) [Exercise](https://libreriasjs.com/exercises/tonejs/)
 - Vercel [Article](https://libreriasjs.com/publicar-proyectos-frontend-javascript-vercel/) [Exercise](https://libreriasjsverceldeploy.vercel.app/)
 - Yup [Article](https://libreriasjs.com/libreria-javascript-validar-formularios-yup/) [Exercise](https://libreriasjs.com/exercises/yup/)
-- ZDog [Article](https://libreriasjs.com/libreria-javascript-diseno-3d-zdog/) [Exercise](https://libreriasjs.com/exercises/zdog/)
+- ZDog [Article](https://libreriasjs.com/libreria-javascript-diseno-3d-zdog/) [Exercise](https://libreriasjs.com/exercises/zdog/) [Vídeo](https://youtu.be/zV8gCrSxbJg)
