@@ -422,7 +422,7 @@ function stopper(x, y, side, position) {
   return Matter.Bodies.circle(x, y, 40, {
     isStatic: true,
     render: {
-      visible: true,
+      visible: false,
     },
     collisionFilter: {
       group: stopperGroup
