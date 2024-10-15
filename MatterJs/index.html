@@ -7,11 +7,24 @@
     <title>MatterJs</title>
   </head>
   <body>
-    <div class="menu">
-      <button class="btn btn-create-ball">Create Ball</button>
-      <button class="btn btn-create-box">Create Box</button>
+    <div class="container">
+      <div class="score current-score">score<br /><span></span></div>
+      <div class="score high-score">high score<br /><span></span></div>
+      <button class="trigger left-trigger">tap!</button>
+      <button class="trigger right-trigger">tap!</button>
     </div>
-    <div id="app"></div>
+    <div class="atribution">
+      <p>Ejercicio basado en<br>el <b>Codepen</b> de <b>Will Boyd</strong></p>
+      <p>
+        <a
+          href="https://codepen.io/lonekorean/pen/KXLrVX"
+          target="_blank"
+          rel="nofollow"
+        >
+          Pinball Physics
+        </a>
+      </p>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
