@@ -88,7 +88,7 @@ This is the list of the results achieved in each post:
 - PhaserJs: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-videojuegos-phaser/) 🚀[Exercise](https://libreriasjs.com/exercises/phaser/)
 - RevealJs: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-presentaciones-revealjs/) 🚀[Exercise](https://libreriasjs.com/exercises/revealjs/#/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-presentaciones-revealjs/) 🚀[Exercise](https://libreriasjs.com/exercises/revealjs/#/) 🎥[Video](https://youtu.be/YxE1EsWzPZM)
 - RoughViz: \
   📃 [Article](https://libreriasjs.com/libreria-javascript-crear-graficos-roughviz/) 🚀[Exercise](https://libreriasjs.com/exercises/roughviz/)
 - SheperdJs: \
@@ -98,7 +98,7 @@ This is the list of the results achieved in each post:
 - Swiper: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-sliders-swiper/) 🚀[Exercise](https://libreriasjs.com/exercises/swiper)
 - Tagify: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-tags-tagify/) 🚀[Exercise](https://libreriasjs.com/exercises/tagify/) 🎥[Vídeo](https://youtu.be/1LWeuH1t4wY)
+  📃[Article](https://libreriasjs.com/libreria-javascript-tags-tagify/) 🚀[Exercise](https://libreriasjs.com/exercises/tagify/) 🎥[Video](https://youtu.be/1LWeuH1t4wY)
 - Tauri: \
   📃[Article](https://libreriasjs.com/libreria-javascript-aplicaciones-escritorio-tauri/) 🚀[Exercise](https://libreriasjs.com/exercises/tauri/index.html)
 - TinyColor: \
@@ -112,4 +112,4 @@ This is the list of the results achieved in each post:
 - Yup: \
   📃[Article](https://libreriasjs.com/libreria-javascript-validar-formularios-yup/) 🚀[Exercise](https://libreriasjs.com/exercises/yup/)
 - ZDog: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-diseno-3d-zdog/) 🚀[Exercise](https://libreriasjs.com/exercises/zdog/) 🎥[Vídeo](https://youtu.be/zV8gCrSxbJg)
+  📃[Article](https://libreriasjs.com/libreria-javascript-diseno-3d-zdog/) 🚀[Exercise](https://libreriasjs.com/exercises/zdog/) 🎥[Video](https://youtu.be/zV8gCrSxbJg)
