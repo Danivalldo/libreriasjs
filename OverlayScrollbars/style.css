@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap");
+
+:root {
+  --primary-color: #52390f;
+  --secondary-color: #7c5c26;
+}
+
+body {
+  margin: 0;
+  font-family: "Trade Winds", system-ui;
+  color: var(--primary-color);
+
+  background-color: var(--secondary-color);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+}
+
+h1 {
+  /* font-family: "Trade Winds", system-ui; */
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  line-height: clamp(0px, 3vw, 62px);
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: clamp(10px, 5vw, 80px);
+}
+
+hr {
+  margin: 20px 0;
+  height: 50px;
+  background-image: url("imgs/separator.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 0;
+  border-style: none;
+}
+
+.main-container {
+  flex: 1;
+  display: flex;
+  height: 100vh;
+  .pan {
+    box-sizing: border-box;
+    .intro-island-icon {
+      display: block;
+      margin: 0 auto 40px auto;
+      width: 100px;
+      height: 100px;
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+    &.left-pan {
+      /* padding: 30px; */
+      /* padding: 20px; */
+      overflow: hidden;
+      flex: 1;
+      min-width: 300px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 9px 2px 20px rgb(0 0 0 / 39%);
+      height: 100%;
+      overflow-y: scroll;
+      background-color: #d5ad6d;
+      background-image: url("imgs/bg_pan-left.svg");
+      /* padding-top: 120px; */
+      .navigator-container {
+        position: sticky;
+        z-index: 2;
+        box-shadow: 0 3px 5px rgb(0 0 0 / 39%);
+        /* width: 100%; */
+        background-image: url("imgs/bg_pan-left.svg");
+        top: 0;
+        left: 0;
+        background-color: var(--primary-color);
+        padding: 20px;
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: space-between;
+          text-align: center;
+          align-items: center;
+          a {
+            display: block;
+            opacity: 0.8;
+            color: #fff;
+            text-decoration: none;
+            /* transform: scale(0.8); */
+            &.active {
+              opacity: 1;
+              text-decoration: underline;
+              /* transform: scale(1); */
+            }
+          }
+        }
+      }
+
+      .island-description {
+        padding: 40px;
+        padding-bottom: 0;
+        .gallery {
+          display: flex;
+          overflow-x: scroll;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 100%;
+            background: linear-gradient(to right, #d5ad6d 0%, transparent 100%);
+            z-index: 1;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 30px;
+            height: 100%;
+            background: linear-gradient(to left, #d5ad6d 0%, transparent 100%);
+            z-index: 1;
+          }
+          .gallery-wrapper {
+            display: flex;
+            img {
+              display: block;
+              width: calc(100% - 50px);
+            }
+          }
+        }
+      }
+    }
+    &.right-pan {
+      overflow: scroll;
+      flex: 2;
+      line-height: 0px;
+      .pan-container {
+        position: relative;
+        display: inline-block;
+        padding: 100px;
+        background-image: url("imgs/bg_wood_2.webp");
+        background-size: cover;
+        img.bg-map {
+          display: block;
+          box-shadow: 0 0 20px rgb(0 0 0 / 39%);
+        }
+        .mark {
+          position: absolute;
+          z-index: 1;
+          cursor: pointer;
+          width: 80px;
+          height: 80px;
+          opacity: 0.8;
+          transform: scale(0.5);
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          &.active {
+            opacity: 1;
+            transform: scale(1);
+          }
+          &[data-island="red-skull"] {
+            left: 25%;
+            top: 75%;
+          }
+          &[data-island="whisper"] {
+            left: 50%;
+            top: 50%;
+          }
+          &[data-island="eternal-storm"] {
+            right: 15%;
+            top: 20%;
+          }
+          img {
+            display: block;
+            filter: drop-shadow(0 5px 3px #000);
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.os-scrollbar {
+  --os-size: 20px;
+  --os-padding-perpendicular: 0;
+  --os-padding-axis: 0;
+  --os-track-bg: none;
+  /*--os-track-border-radius: 0;
+  --os-track-bg-hover: none;
+  --os-track-bg-active: none;
+  --os-track-border: none;
+  --os-track-border-hover: none;
+  --os-track-border-active: none;
+   */
+
+  --os-handle-border-radius: 50px;
+  --os-handle-bg: var(--primary-color);
+  --os-handle-bg-hover: var(--secondary-color);
+  --os-handle-bg-active: var(--secondary-color);
+  /*--os-handle-border: none;
+  --os-handle-border-hover: none;
+  --os-handle-border-active: none;
+  --os-handle-min-size: 33px;
+  --os-handle-max-size: none;
+  --os-handle-perpendicular-size: 100%;
+  --os-handle-perpendicular-size-hover: 100%;
+  --os-handle-perpendicular-size-active: 100%;
+  --os-handle-interactive-area-offset: 0; */
+}
