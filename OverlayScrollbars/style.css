@@ -192,3 +192,37 @@ hr {
   --os-handle-bg-hover: var(--secondary-color);
   --os-handle-bg-active: var(--secondary-color);
 }
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  .main-container {
+    flex-direction: column;
+    .pan {
+      &.left-pan {
+        flex: 1;
+        min-width: 0;
+        .navigator-container {
+          position: relative;
+          ul {
+            a {
+              font-size: 15px;
+            }
+          }
+        }
+        .island-description {
+          padding: 20px;
+        }
+      }
+      &.right-pan {
+        flex: 1;
+        .pan-container {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}
