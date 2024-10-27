@@ -29,7 +29,7 @@ h1 {
 hr {
   margin: 20px 0;
   height: 50px;
-  background-image: url("imgs/separator.svg");
+  background-image: url("./resources/separator.svg");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -63,12 +63,12 @@ hr {
       height: 100%;
       overflow-y: scroll;
       background-color: #d5ad6d;
-      background-image: url("imgs/bg_pan-left.svg");
+      background-image: url("./resources/bg_pan-left.svg");
       .navigator-container {
         position: sticky;
         z-index: 2;
         box-shadow: 0 3px 5px rgb(0 0 0 / 39%);
-        background-image: url("imgs/bg_pan-left.svg");
+        background-image: url("./resources/bg_pan-left.svg");
         top: 0;
         left: 0;
         background-color: var(--primary-color);
@@ -139,7 +139,7 @@ hr {
         position: relative;
         display: inline-block;
         padding: 100px;
-        background-image: url("imgs/bg_wood_2.webp");
+        background-image: url("./resources/bg_wood_2.webp");
         background-size: cover;
         img.bg-map {
           display: block;
