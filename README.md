@@ -68,7 +68,7 @@ This is the list of the results achieved in each post:
 - JsQR: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-y-leer-qrs-qrcode-y-jsqr/) 🚀[Exercise](https://libreriasjs.com/exercises/jsqr/)
 - Lil-GUI: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-interfaces-lil-gui/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/oNGWXKX)
+  📃[Article](https://libreriasjs.com/libreria-javascript-interfaces-lil-gui/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/oNGWXKX) 🎥[Video](https://youtu.be/Wp8UOe_FSsE)
 - MailJet: \
   📃[Article](https://libreriasjs.com/enviar-correos-electronicos-con-nodejs-y-mailjet/)
 - MatterJs: \
