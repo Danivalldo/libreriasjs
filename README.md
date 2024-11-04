@@ -94,7 +94,7 @@ This is the list of the results achieved in each post:
 - RoughViz: \
   📃 [Article](https://libreriasjs.com/libreria-javascript-crear-graficos-roughviz/) 🚀[Exercise](https://libreriasjs.com/exercises/roughviz/)
 - SheperdJs: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-guia-usuarios-shepherdjs/) 🚀[Exercise](https://libreriasjs.com/exercises/shepherdjs/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-guia-usuarios-shepherdjs/) 🚀[Exercise](https://libreriasjs.com/exercises/shepherdjs/) 🎥[Video](https://youtu.be/V_-OS3ttiHg)
 - SuperExpressive: \
   📃[Article](https://libreriasjs.com/libreria-javascript-regex-superexpressive/) 🚀[Exercise](https://libreriasjs.com/exercises/super-expressive/)
 - Swiper: \
