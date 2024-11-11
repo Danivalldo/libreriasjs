@@ -84,7 +84,7 @@ This is the list of the results achieved in each post:
 - OverlayScrollbars: \
   📃[Article](https://libreriasjs.com/libreria-javascript-personalizar-barras-scroll-overlay-scrollbars/) 🚀[Exercise](https://libreriasjs.com/exercises/overlay-scrollbars/)
 - P5js: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-arte-p5js/) 🚀[Exercise](https://libreriasjs.com/exercises/p5js/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-arte-p5js/) 🚀[Exercise](https://libreriasjs.com/exercises/p5js/) 🎥[Video](https://youtu.be/DkWdOktIx7c)
 - PNotifications (Notificiaciones Push con Cloud Messaging): \
   📃 [Article](https://libreriasjs.com/notificaciones-push-javascript-cloud-messaging/) 🚀[Exercise](https://github.com/Danivalldo/libreriasjs/tree/master/PNotifications)
 - PhaserJs: \
