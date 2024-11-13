@@ -3,4 +3,5 @@ node_modules/
 misc/
 dist/
 .env
+.env.local
 PNotifications/android/app/google-services.json
