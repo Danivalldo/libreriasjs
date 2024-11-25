@@ -72,7 +72,7 @@ This is the list of the results achieved in each post:
 - MailJet: \
   📃[Article](https://libreriasjs.com/enviar-correos-electronicos-con-nodejs-y-mailjet/)
 - MatterJs: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-simular-fisicas-2d-matterjs/) 🚀[Exercise](https://libreriasjs.com/exercises/matterjs/)  
+  📃[Article](https://libreriasjs.com/libreria-javascript-simular-fisicas-2d-matterjs/) 🚀[Exercise](https://libreriasjs.com/exercises/matterjs/)  🎥[Video](https://youtu.be/AQfkpGqZyWQ)
 - MiniMasonry: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-layouts-mini-masonry/) 🚀[Exercise](https://libreriasjs.com/exercises/mini-masonry/)
 - MonsterForm: \
