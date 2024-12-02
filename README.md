@@ -26,7 +26,7 @@ This is the list of the results achieved in each post:
 - AnimeJS: \
   📃[Article](https://libreriasjs.com/libreria-javascript-animaciones-animejs/) 🚀[Exercise](https://libreriasjs.com/exercises/anime-js/)
 - Atropos: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-parallax-atropos/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/yLzbeQg)
+  📃[Article](https://libreriasjs.com/libreria-javascript-parallax-atropos/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/yLzbeQg) 🎥[Vídeo](https://youtu.be/5YfKtBKbkic)
 - CanvasConfetti: \
   📃[Article](https://libreriasjs.com/libreria-javascript-efecto-confeti-canvas-confetti/) 🚀[Exercise](https://libreriasjs.com/exercises/canvas-confetti/)
 - Capacitor: \
