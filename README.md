@@ -38,7 +38,7 @@ This is the list of the results achieved in each post:
 - ClipboardJs: \
   📃[Article](https://libreriasjs.com/libreria-javascript-copiar-portapapeles-clipboardjs/) 🚀[Exercise](https://libreriasjs.com/exercises/clipboard/)
 - CountUp: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-efecto-contador-countup/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/oNGWwVW)
+  📃[Article](https://libreriasjs.com/libreria-javascript-efecto-contador-countup/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/oNGWwVW) 🎥[Vídeo](https://youtu.be/IJJR7cx82tg)
 - CurrencyJs: \
   📃[Article](https://libreriasjs.com/libreria-javascript-formatear-divisas-currencyjs/) 🚀[Exercise](https://libreriasjs.com/exercises/currencyjs/)
 - Cypress: \
