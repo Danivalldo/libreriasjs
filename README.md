@@ -58,7 +58,7 @@ This is the list of the results achieved in each post:
 - FullCalendar: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-calendarios-eventos-fullcalendar/) 🚀[Exercise](https://libreriasjs.com/exercises/fullcalendar/)
 - FrappeGantt: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-crear-diagramas-gantt-frappe-gantt/) 🚀[Exercise](https://libreriasjs.com/exercises/frappe-gantt/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-diagramas-gantt-frappe-gantt/) 🚀[Exercise](https://libreriasjs.com/exercises/frappe-gantt/) 🎥[Vídeo](https://youtu.be/A-utD1dtEqM)
 - HTML2Canvas: \
   📃[Article](https://libreriasjs.com/libreria-javascript-captura-pantalla-html-2-canvas/) 🚀[Exercise](https://libreriasjs.com/exercises/html2canvas/)
 - HammerJs: \
