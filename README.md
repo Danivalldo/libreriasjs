@@ -104,7 +104,7 @@ This is the list of the results achieved in each post:
 - Tauri: \
   📃[Article](https://libreriasjs.com/libreria-javascript-aplicaciones-escritorio-tauri/) 🚀[Exercise](https://libreriasjs.com/exercises/tauri/index.html)
 - TinyColor: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-controlar-colores-tiny-color/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/ZEXKQYb)
+  📃[Article](https://libreriasjs.com/libreria-javascript-controlar-colores-tiny-color/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/ZEXKQYb) 🎥[Vídeo](https://youtu.be/tJ9oxeDrFDI)
 - TinyMCE: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-editor-texto-enriquecido-tinymce/) 🚀[Exercise](https://libreriasjs.com/exercises/tinymce/)
 - ToneJs: \
