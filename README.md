@@ -28,7 +28,7 @@ This is the list of the results achieved in each post:
 - Atropos: \
   📃[Article](https://libreriasjs.com/libreria-javascript-parallax-atropos/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/yLzbeQg) 🎥[Vídeo](https://youtu.be/5YfKtBKbkic)
 - CanvasConfetti: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-efecto-confeti-canvas-confetti/) 🚀[Exercise](https://libreriasjs.com/exercises/canvas-confetti/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-efecto-confeti-canvas-confetti/) 🚀[Exercise](https://libreriasjs.com/exercises/canvas-confetti/) 🎥[Vídeo](https://www.youtube.com/watch?v=3pzYfEipUK4)
 - Capacitor: \
   📃[Article](https://libreriasjs.com/libreria-javascript-apps-multiplataforma-capacitor/) 🚀[Exercise](https://libreriasjs.com/exercises/spent-tracker/index.html)
 - CheckPasswordStrength: \
