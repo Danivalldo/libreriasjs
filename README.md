@@ -30,7 +30,7 @@ This is the list of the results achieved in each post:
 - CanvasConfetti: \
   📃[Article](https://libreriasjs.com/libreria-javascript-efecto-confeti-canvas-confetti/) 🚀[Exercise](https://libreriasjs.com/exercises/canvas-confetti/) 🎥[Vídeo](https://www.youtube.com/watch?v=3pzYfEipUK4)
 - Capacitor: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-apps-multiplataforma-capacitor/) 🚀[Exercise](https://libreriasjs.com/exercises/spent-tracker/index.html)
+  📃[Article](https://libreriasjs.com/libreria-javascript-apps-multiplataforma-capacitor/) 🚀[Exercise](https://libreriasjs.com/exercises/spent-tracker/index.html) 🎥[Vídeo](https://youtu.be/UHJL9_QLHco)
 - CheckPasswordStrength: \
   📃[Article](https://libreriasjs.com/libreria-javascript-contrasenacheck-password-strength/) 🚀[Exercise](https://libreriasjs.com/exercises/check-password-strength/)
 - ChessJs: \
