@@ -22,7 +22,7 @@ If you need to download only ONE folder of this repo, feel free to use the follo
 This is the list of the results achieved in each post:
 
 - AGGrid: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-crear-tablas-dinamicas-aggrid/) 🚀[Exercise](https://libreriasjs.com/exercises/aggrid/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-tablas-dinamicas-aggrid/) 🚀[Exercise](https://libreriasjs.com/exercises/aggrid/) 🎥[Vídeo](https://youtu.be/UqiipgelymI)
 - AnimeJS: \
   📃[Article](https://libreriasjs.com/libreria-javascript-animaciones-animejs/) 🚀[Exercise](https://libreriasjs.com/exercises/anime-js/)
 - Atropos: \
