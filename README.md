@@ -24,7 +24,7 @@ This is the list of the results achieved in each post:
 - AGGrid: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-tablas-dinamicas-aggrid/) 🚀[Exercise](https://libreriasjs.com/exercises/aggrid/) 🎥[Vídeo](https://youtu.be/UqiipgelymI)
 - AnimeJS: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-animaciones-animejs/) 🚀[Exercise](https://libreriasjs.com/exercises/anime-js/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-animaciones-animejs/) 🚀[Exercise](https://libreriasjs.com/exercises/anime-js/) 🎥[Vídeo](https://youtu.be/8Jq1vOCDAbo)
 - Atropos: \
   📃[Article](https://libreriasjs.com/libreria-javascript-parallax-atropos/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/yLzbeQg) 🎥[Vídeo](https://youtu.be/5YfKtBKbkic)
 - CanvasConfetti: \
