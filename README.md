@@ -98,7 +98,7 @@ This is the list of the results achieved in each post:
 - SuperExpressive: \
   📃[Article](https://libreriasjs.com/libreria-javascript-regex-superexpressive/) 🚀[Exercise](https://libreriasjs.com/exercises/super-expressive/)
 - Swiper: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-crear-sliders-swiper/) 🚀[Exercise](https://libreriasjs.com/exercises/swiper)
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-sliders-swiper/) 🚀[Exercise](https://libreriasjs.com/exercises/swiper) 🎥[Video](https://www.youtube.com/watch?v=VG6o3CaZQfs)
 - Tagify: \
   📃[Article](https://libreriasjs.com/libreria-javascript-tags-tagify/) 🚀[Exercise](https://libreriasjs.com/exercises/tagify/) 🎥[Video](https://youtu.be/1LWeuH1t4wY)
 - Tauri: \
