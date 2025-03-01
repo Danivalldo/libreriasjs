@@ -80,7 +80,7 @@ This is the list of the results achieved in each post:
 - NSFWjs: \
   📃[Article](https://libreriasjs.com/libreria-javascript-detectar-y-filtrar-imagenes-desnudos-nsfwjs/) 🚀[Exercise](https://libreriasjs.com/exercises/nsfwjs/) 🎥[Video](https://www.youtube.com/watch?v=HAGcTxtcPM4)
 - OpenLayers: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-mapas-openlayers/) 🚀[Exercise](https://libreriasjs.com/exercises/open-layers/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-mapas-openlayers/) 🚀[Exercise](https://libreriasjs.com/exercises/open-layers/) 🎥[Vídeo](https://youtu.be/ZtzyIFaFkFM)
 - OverlayScrollbars: \
   📃[Article](https://libreriasjs.com/libreria-javascript-personalizar-barras-scroll-overlay-scrollbars/) 🚀[Exercise](https://libreriasjs.com/exercises/overlay-scrollbars/) 🎥[Video](https://youtu.be/X2SoxyRLQ9M)
 - P5js: \
