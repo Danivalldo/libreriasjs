@@ -106,7 +106,7 @@ This is the list of the results achieved in each post:
 - TinyColor: \
   📃[Article](https://libreriasjs.com/libreria-javascript-controlar-colores-tiny-color/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/ZEXKQYb) 🎥[Vídeo](https://youtu.be/tJ9oxeDrFDI)
 - TinyMCE: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-crear-editor-texto-enriquecido-tinymce/) 🚀[Exercise](https://libreriasjs.com/exercises/tinymce/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-editor-texto-enriquecido-tinymce/) 🚀[Exercise](https://libreriasjs.com/exercises/tinymce/) 🎥[Vídeo](https://youtu.be/rfCTqxeqkyQ)
 - ToneJs: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-muscia-electronica-tonejs/) 🚀[Exercise](https://libreriasjs.com/exercises/tonejs/)
 - Vercel: \
