@@ -48,7 +48,7 @@ This is the list of the results achieved in each post:
 - Draggable: \
   📃[Article](https://libreriasjs.com/libreria-javascript-drag-and-drop-draggable/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/NWajvWJ)
 - Echarts: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-crear-graficos-y-visualizacion-datos-echarts/) 🚀[Exercise](https://libreriasjs.com/exercises/echarts/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-graficos-y-visualizacion-datos-echarts/) 🚀[Exercise](https://libreriasjs.com/exercises/echarts/) 🎥[Video](https://youtu.be/OG9JfJNqrlc)
 - FileSaverJs: \
   📃[Article](https://libreriasjs.com/libreria-javascript-descargar-archivos-filesaver/) 🚀[Exercise](https://libreriasjs.com/exercises/file-saver/)
 - Firebase: \
