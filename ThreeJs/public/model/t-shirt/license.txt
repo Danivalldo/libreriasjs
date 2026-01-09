@@ -1,0 +1,11 @@
+Model Information:
+* title:	T-Shirt
+* source:	https://sketchfab.com/3d-models/t-shirt-fbd56879e5c54b53b3d75d987342c8f8
+* author:	DaaGHrii (https://sketchfab.com/DaaGHrii)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "T-Shirt" (https://sketchfab.com/3d-models/t-shirt-fbd56879e5c54b53b3d75d987342c8f8) by DaaGHrii (https://sketchfab.com/DaaGHrii) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

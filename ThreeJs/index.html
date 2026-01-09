@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ljs-threejs</title>
+  </head>
+  <body>
+    <div class="attribution">
+      "T-Shirt" (<a href="https://skfb.ly/pCCAC" rel="nofollow" target="_blank"
+        >https://skfb.ly/pCCAC</a
+      >) by DaaGHrii is licensed under Creative Commons Attribution (<a
+        href="http://creativecommons.org/licenses/by/4.0/"
+        rel="nofollow"
+        target="_blank"
+        >http://creativecommons.org/licenses/by/4.0/</a
+      >).
+    </div>
+    <div class="finishings">
+      <div class="content-wrapper">
+        <button class="toggle-finishings-btn">
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#000000"
+              width="20px"
+              height="20px"
+              viewBox="0 0 256 256"
+              id="Flat"
+            >
+              <path
+                d="M96,212a4,4,0,0,1-2.82861-6.82837L170.34326,128,93.17139,50.82837a4.00009,4.00009,0,0,1,5.65722-5.65674l80,80a4,4,0,0,1,0,5.65674l-80,80A3.98805,3.98805,0,0,1,96,212Z"
+              />
+            </svg>
+          </span>
+        </button>
+        <label for="color-picker">Selecciona un color base</label>
+        <input
+          type="color"
+          id="color-picker"
+          value="#5B48D9"
+          class="color-picker-input"
+        />
+        <input type="file" id="files" class="image-logo-input" />
+        <label for="files" class="label-input-logo"
+          >Elige una imagen como logo</label
+        >
+        <span style="font-size: 0.8rem"
+          >* Las imágenes con un formato cuadrado funcionan mejor</span
+        >
+        <hr />
+        <button class="toggle-texture-result-btn">
+          Muestra la textura combinada
+        </button>
+        <canvas
+          id="texture-combinator"
+          width="4096"
+          height="4096"
+          class="texture-combinator-canvas hidden"
+        ></canvas>
+        <div class="project-info">
+          Este proyecto es parte del conjunto de ejercicios para descubrir
+          librerías JS de
+          <a href="https://libreriasjs.com" target="_blank">
+            https://libreriasjs.com
+          </a>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
