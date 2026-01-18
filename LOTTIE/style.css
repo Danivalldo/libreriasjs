@@ -1,0 +1,219 @@
+body{
+  background-color: #722ecc;
+  display: flex;
+  height: 100dvh;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#animation-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-height: 60vh;
+}
+
+canvas, svg {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.controls-container {
+  display: flex;
+  gap: 30px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.segment-buttons, .control-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.segment-buttons h3, .control-buttons h3 {
+  color: #efe2ff;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.segment-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  grid-template-rows: auto auto auto;
+}
+
+.segment-buttons h3 {
+  grid-column: 1 / -1;
+}
+
+button{
+  padding: 12px 20px;
+  font-size: 14px;
+  background-color: #efe2ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #2d0661;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+button:hover {
+  background-color: #f5f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.segment-btn.active {
+  background-color: #a855f7;
+  color: white;
+}
+
+.segment-btn.active:hover {
+  background-color: #9333ea;
+}
+
+.status-display {
+  background-color: rgba(239, 226, 255, 0.1);
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: #efe2ff;
+  text-align: center;
+  border: 1px solid rgba(239, 226, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.status-display p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.status-display span {
+  font-weight: bold;
+  color: #f5f0ff;
+}
+
+.help-text {
+  font-size: 12px;
+  color: #d8b4fe;
+  font-style: italic;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(239, 226, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .controls-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .segment-buttons {
+    grid-template-columns: 1fr;
+  }
+  
+  button {
+    font-size: 12px;
+    padding: 10px 16px;
+    min-width: 80px;
+  }
+}
+
+/* Form styles */
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background-color: rgba(239, 226, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(239, 226, 255, 0.3);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  max-width: 300px;
+  margin-top: 20px;
+}
+
+#login-form input {
+  padding: 12px 40px 12px 15px;
+  border: 2px solid rgba(239, 226, 255, 0.3);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  color: #2d0661;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+#login-form input:focus {
+  border-color: #a855f7;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+
+#login-form input::placeholder {
+  color: #9ca3af;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#password-toggle {
+  position: absolute !important;
+  right: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: white !important;
+  border: 1px solid #e5e7eb !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+  z-index: 10 !important;
+  padding: 6px 8px !important;
+  min-width: auto !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  color: #6b7280 !important;
+  outline: none !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+#password-toggle:hover {
+  background: #f9fafb !important;
+  transform: translateY(-50%) scale(1.05) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  border-color: #d1d5db !important;
+  color: #4b5563 !important;
+}
+
+#password-toggle:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#login-form button[type="submit"] {
+  margin-top: 10px;
+}
