@@ -28,22 +28,20 @@ const DocBuilder = () => {
       sections: docStructure.sections.map(sectionData => (
         {
           properties: {},
-          children: sectionData.children.flatMap(paragraphData => {
-            return paragraphData.children.map(textData => new docx.Paragraph({
-              alignment: paragraphData.alignment === 'left' ? docx.AlignmentType.LEFT :
-                paragraphData.alignment === 'center' ? docx.AlignmentType.CENTER :
-                  paragraphData.alignment === 'right' ? docx.AlignmentType.RIGHT :
-                    docx.AlignmentType.JUSTIFIED,
-              children: [new docx.TextRun({
-                text: textData.text,
-                bold: textData.bold,
-                italics: textData.italics,
-                underline: textData.underline ? {} : undefined,
-                size: textData.size,
-                color: textData.color,
-              })],
-            }));
-          })
+          children: sectionData.children.map(paragraphData => new docx.Paragraph({
+            alignment: paragraphData.alignment === 'left' ? docx.AlignmentType.LEFT :
+              paragraphData.alignment === 'center' ? docx.AlignmentType.CENTER :
+                paragraphData.alignment === 'right' ? docx.AlignmentType.RIGHT :
+                  docx.AlignmentType.JUSTIFIED,
+            children: paragraphData.children.map(textData => new docx.TextRun({
+              text: textData.text,
+              bold: textData.bold,
+              italics: textData.italics,
+              underline: textData.underline ? {} : undefined,
+              size: textData.size,
+              color: textData.color,
+            })),
+          }))
         }
       ))
     });
