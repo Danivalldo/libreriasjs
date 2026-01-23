@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import * as docx from 'docx';
-import type { DocStructure, SelectedText } from '../../types';
+import type { DocStructure } from '../../types';
 import Section from '../Section';
 
 
@@ -21,7 +21,7 @@ const DocBuilder = () => {
     ]
   });
 
-  const [selectedText, setSelectedText] = useState<SelectedText | null>(null);
+
 
   const handleOnClickBuildDoc = useCallback(() => {
     const doc = new docx.Document({
@@ -90,7 +90,7 @@ const DocBuilder = () => {
       <div className="sections-container">
         {
           docStructure.sections.map((sectionData, sectionIndex) => (
-            <Section key={sectionIndex} sectionIndex={sectionIndex} docStructure={docStructure} sectionData={sectionData} selectedText={selectedText} setDocStructure={setDocStructure} removeSection={removeSection} setSelectedText={setSelectedText} />
+            <Section key={sectionIndex} sectionIndex={sectionIndex} docStructure={docStructure} sectionData={sectionData} setDocStructure={setDocStructure} removeSection={removeSection} />
           ))
         }
       </div>

@@ -1,30 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DocStructure, SectionData, SelectedText, TextRunData } from '../../types';
 
 type SectionPropsType = {
   sectionIndex: number;
   docStructure: DocStructure;
   sectionData: SectionData;
-  selectedText: SelectedText | null;
   setDocStructure: React.Dispatch<React.SetStateAction<DocStructure>>;
   removeSection: (sectionIndex: number) => void;
-  setSelectedText: (selected: SelectedText | null) => void;
 }
 
 
-const Section: React.FC<SectionPropsType> = ({ sectionIndex, docStructure, sectionData, selectedText, setDocStructure, removeSection, setSelectedText }) => {
+const Section: React.FC<SectionPropsType> = ({ sectionIndex, docStructure, sectionData, setDocStructure, removeSection }) => {
 
-  const handleTextChange = (paragraphIndex: number, textIndex: number, value: string) => {
-    const newStructure = { ...docStructure };
-    newStructure.sections[sectionIndex].children[paragraphIndex].children[textIndex].text = value;
-    setDocStructure(newStructure);
-  };
+  const [selectedText, setSelectedText] = useState<SelectedText | null>(null);
 
   const handleTextAreaInput = (e: React.ChangeEvent<HTMLTextAreaElement>, paragraphIndex: number, textIndex: number) => {
     const target = e.target;
     target.style.height = 'auto';
     target.style.height = target.scrollHeight + 'px';
-    handleTextChange(paragraphIndex, textIndex, target.value);
+    const newStructure = { ...docStructure };
+    newStructure.sections[sectionIndex].children[paragraphIndex].children[textIndex].text = target.value;
+    setDocStructure(newStructure);
   };
 
   const addTextRun = (paragraphIndex: number) => {
