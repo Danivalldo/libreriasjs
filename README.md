@@ -90,7 +90,7 @@ This is the list of the results achieved in each post:
 - PNotifications (Notificiaciones Push con Cloud Messaging): \
   📃 [Article](https://libreriasjs.com/notificaciones-push-javascript-cloud-messaging/) 🚀[Exercise](https://github.com/Danivalldo/libreriasjs/tree/master/PNotifications)
 - PhaserJs: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-crear-videojuegos-phaser/) 🚀[Exercise](https://libreriasjs.com/exercises/phaser/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-videojuegos-phaser/) 🚀[Exercise](https://libreriasjs.com/exercises/phaser/) 🎥[Video](https://www.youtube.com/watch?v=EAaEqwfzHNM)
 - RevealJs: \
   📃[Article](https://libreriasjs.com/libreria-javascript-presentaciones-revealjs/) 🚀[Exercise](https://libreriasjs.com/exercises/revealjs/#/) 🎥[Video](https://youtu.be/YxE1EsWzPZM)
 - RoughViz: \
