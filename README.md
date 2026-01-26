@@ -45,6 +45,8 @@ This is the list of the results achieved in each post:
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-tests-e2e-cypress/) 🚀[Exercise](https://github.com/Danivalldo/libreriasjs/tree/master/cypress/cypress/e2e)
 - DayJs: \
   📃[Article](https://libreriasjs.com/libreria-javascript-fechas-dayjs/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/NWajGoo) 🎥[Vídeo](https://youtu.be/6qBbcluGzHE)
+- DocX: \
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-documentos-word-docx/) 🚀[Exercise](https://libreriasjs.com/exercises/docx/)
 - Draggable: \
   📃[Article](https://libreriasjs.com/libreria-javascript-drag-and-drop-draggable/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/NWajvWJ)
 - Echarts: \
