@@ -114,7 +114,7 @@ This is the list of the results achieved in each post:
 - TinyMCE: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-editor-texto-enriquecido-tinymce/) 🚀[Exercise](https://libreriasjs.com/exercises/tinymce/) 🎥[Vídeo](https://youtu.be/rfCTqxeqkyQ)
 - ToneJs: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-crear-muscia-electronica-tonejs/) 🚀[Exercise](https://libreriasjs.com/exercises/tonejs/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-muscia-electronica-tonejs/) 🚀[Exercise](https://libreriasjs.com/exercises/tonejs/) 🎥[Vídeo](https://youtu.be/DIWEXZJdtNc)
 - Vercel: \
   📃[Article](https://libreriasjs.com/publicar-proyectos-frontend-javascript-vercel/) 🚀[Exercise](https://libreriasjsverceldeploy.vercel.app/)
 - Yup: \
