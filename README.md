@@ -57,6 +57,8 @@ This is the list of the results achieved in each post:
   📃[Article](https://libreriasjs.com/crear-aplicaciones-fullstack-javascript-firebase/) 🚀[Exercise](https://libreriasjs.com/exercises/firebase/)
 - FireworksJs: \
   📃[Article](https://libreriasjs.com/libreria-javascript-efecto-fuegos-artificiales-fireworksjs/) 🚀[Exercise](https://libreriasjs.com/exercises/fireworksjs/) 🎥[Video](https://www.youtube.com/watch?v=CdfRnumy8xg)
+- FortuneSheet: \
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-hojas-de-calculo-excel-fortune-sheet/) 🚀[Exercise](https://libreriasjs.com/exercises/fortune-sheet/)
 - FullCalendar: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-calendarios-eventos-fullcalendar/) 🚀[Exercise](https://libreriasjs.com/exercises/fullcalendar/) 🎥[Video](https://youtu.be/GTcXMPcQE8w)
 - FrappeGantt: \
