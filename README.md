@@ -74,7 +74,7 @@ This is the list of the results achieved in each post:
 - Lil-GUI: \
   📃[Article](https://libreriasjs.com/libreria-javascript-interfaces-lil-gui/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/oNGWXKX) 🎥[Video](https://youtu.be/Wp8UOe_FSsE)
 - Lottie: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-exportar-animaciones-after-effects-a-web/) 🚀[Exercise](https://libreriasjs.com/exercises/lottie/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-exportar-animaciones-after-effects-a-web/) 🚀[Exercise](https://libreriasjs.com/exercises/lottie/) 🎥[Video](https://youtu.be/12ma8S9tbr0)
 - MailJet: \
   📃[Article](https://libreriasjs.com/enviar-correos-electronicos-con-nodejs-y-mailjet/)
 - MatterJs: \
