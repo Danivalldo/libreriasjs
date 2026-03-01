@@ -68,7 +68,7 @@ This is the list of the results achieved in each post:
 - HammerJs: \
   📃[Article](https://libreriasjs.com/libreria-javascript-interacciones-hammerjs/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/abLWyOp)
 - JsPDF: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-crear-pdf-jspdf/) 🚀[Exercise](https://libreriasjs.com/exercises/js-pdf/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-pdf-jspdf/) 🚀[Exercise](https://libreriasjs.com/exercises/js-pdf/) 🎥[Vídeo](https://youtu.be/Td_Un3RrJn4)
 - JsQR: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-y-leer-qrs-qrcode-y-jsqr/) 🚀[Exercise](https://libreriasjs.com/exercises/jsqr/)
 - Lil-GUI: \
