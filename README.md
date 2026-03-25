@@ -70,7 +70,7 @@ This is the list of the results achieved in each post:
 - JsPDF: \
   📃[Article](https://libreriasjs.com/libreria-javascript-crear-pdf-jspdf/) 🚀[Exercise](https://libreriasjs.com/exercises/js-pdf/) 🎥[Vídeo](https://youtu.be/Td_Un3RrJn4)
 - JsQR: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-crear-y-leer-qrs-qrcode-y-jsqr/) 🚀[Exercise](https://libreriasjs.com/exercises/jsqr/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-y-leer-qrs-qrcode-y-jsqr/) 🚀[Exercise](https://libreriasjs.com/exercises/jsqr/) 🎥[Vídeo](https://youtu.be/ToKd9CKBLGk)
 - Lil-GUI: \
   📃[Article](https://libreriasjs.com/libreria-javascript-interfaces-lil-gui/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/oNGWXKX) 🎥[Video](https://youtu.be/Wp8UOe_FSsE)
 - Lottie: \
