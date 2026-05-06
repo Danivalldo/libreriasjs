@@ -46,7 +46,7 @@ This is the list of the results achieved in each post:
 - DayJs: \
   📃[Article](https://libreriasjs.com/libreria-javascript-fechas-dayjs/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/NWajGoo) 🎥[Vídeo](https://youtu.be/6qBbcluGzHE)
 - DocX: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-crear-documentos-word-docx/) 🚀[Exercise](https://libreriasjs.com/exercises/docx/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-crear-documentos-word-docx/) 🚀[Exercise](https://libreriasjs.com/exercises/docx/) 🎥[Vídeo](https://youtu.be/kHs-ebqIGx8)
 - Draggable: \
   📃[Article](https://libreriasjs.com/libreria-javascript-drag-and-drop-draggable/) 🚀[Exercise](https://codepen.io/Danivalldo/pen/NWajvWJ)
 - Echarts: \
