@@ -120,6 +120,6 @@ This is the list of the results achieved in each post:
 - Vercel: \
   📃[Article](https://libreriasjs.com/publicar-proyectos-frontend-javascript-vercel/) 🚀[Exercise](https://libreriasjsverceldeploy.vercel.app/)
 - Yup: \
-  📃[Article](https://libreriasjs.com/libreria-javascript-validar-formularios-yup/) 🚀[Exercise](https://libreriasjs.com/exercises/yup/)
+  📃[Article](https://libreriasjs.com/libreria-javascript-validar-formularios-yup/) 🚀[Exercise](https://libreriasjs.com/exercises/yup/) 🎥[Video](https://youtu.be/h2xHLmyX8jY)
 - ZDog: \
   📃[Article](https://libreriasjs.com/libreria-javascript-diseno-3d-zdog/) 🚀[Exercise](https://libreriasjs.com/exercises/zdog/) 🎥[Video](https://youtu.be/zV8gCrSxbJg)
